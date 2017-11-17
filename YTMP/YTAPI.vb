@@ -43,15 +43,8 @@ Public Class YTAPI
     End Sub
 
     Private Sub loadwebpage(ByRef utw As UTWOR)
-        'Dim s As String = My.Resources.WEBPAGE
-        'filtr(s, "ID_VIDEO", utw.link)
-        'If utw.start = 0 Then
-        '    filtr(s, "PLAYER_VARS", "")
-        'Else
-        '    filtr(s, "PLAYER_VARS", "playerVars: { 'start' : " & utw.start & " },")
-        'End If
-        'browser.LoadHtml(s)
-        browser.Navigate("https://serwer1657623.home.pl/testapiyt.php?vid=" & utw.link & "&stime=" & utw.start)
+        'browser.Navigate("https://serwer1657623.home.pl/testapiyt.php?vid=" & utw.link & "&stime=" & utw.start)
+        browser.Navigate("https://adan2013.github.io/YTMP/?vid=" & utw.link & "&stime=" & utw.start)
         historia.Remove(utw)
         historia.Add(utw)
         If dane.SETdymek Then
