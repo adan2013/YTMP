@@ -1,16 +1,3 @@
-<?php
-if(isset($_GET['vid'])){
-    $vid = $_GET['vid'];
-    if(isset($_GET['stime'])){
-        $stime = $_GET['stime'];
-    }else{
-        $stime = 0;
-    }
-}else{
-    echo 'nie podano ID filmiku!';
-    exit;
-}
-?>
 <!DOCTYPE html>
 <html>
     <body>
@@ -43,8 +30,8 @@ if(isset($_GET['vid'])){
                     player = new YT.Player('player', {
                     height: '240',
                     width: '360',
-                    videoId: '<?php echo $vid; ?>',
-                    playerVars: { 'disablekb' : 1, 'start' : <?php echo $stime; ?> },
+                    videoId: geturlvariable('vid'),
+                    playerVars: { 'disablekb' : 1, 'start' : (geturlvariable('stime') == '' ? 0 : geturlvariable('stime')) },
                     events: {
                     'onReady': onPlayerReady,
                     'onStateChange': onPlayerStateChange
@@ -68,6 +55,12 @@ if(isset($_GET['vid'])){
                 INFOduration.innerHTML = Math.round(player.getDuration());
                 INFOismuted.innerHTML = player.isMuted();
                 INFOvolume.innerHTML = Math.round(player.getVolume());
+            }
+            
+            function geturlvariable(name) {
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                return c = url.searchParams.get(name);
             }
         </script>
     </body>
