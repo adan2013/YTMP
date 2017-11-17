@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EBC926C2-3DA0-475C-9635-EC4509DFA155}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>YTMP.My.MyApplication</StartupObject>
+    <RootNamespace>YTMP</RootNamespace>
+    <AssemblyName>YTMP</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>YTMP.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>YTMP.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>YTMP.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>YTMP.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>appicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Geckofx-Core">
+      <HintPath>..\..\..\..\..\Desktop\YTMP\YTtest\YTtest\bin\Debug\Geckofx-Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Geckofx-Winforms">
+      <HintPath>..\..\..\..\..\Desktop\YTMP\YTtest\YTtest\bin\Debug\Geckofx-Winforms.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ALBUM.vb" />
+    <Compile Include="BACKUP.vb" />
+    <Compile Include="backuprestore.Designer.vb">
+      <DependentUpon>backuprestore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="backuprestore.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="edycjaskrotu.Designer.vb">
+      <DependentUpon>edycjaskrotu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="edycjaskrotu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="genraport.Designer.vb">
+      <DependentUpon>genraport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="genraport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPORTplaylist.Designer.vb">
+      <DependentUpon>IMPORTplaylist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IMPORTplaylist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPORTutw.Designer.vb">
+      <DependentUpon>IMPORTutw.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IMPORTutw.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="instrukcja.Designer.vb">
+      <DependentUpon>instrukcja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="instrukcja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kbhook.vb" />
+    <Compile Include="KLAWISZE.vb" />
+    <Compile Include="MAGAZYN.vb" />
+    <Compile Include="MODalb.Designer.vb">
+      <DependentUpon>MODalb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MODalb.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODpl.Designer.vb">
+      <DependentUpon>MODpl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MODpl.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODpozycja.Designer.vb">
+      <DependentUpon>MODpozycja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MODpozycja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODutw.Designer.vb">
+      <DependentUpon>MODutw.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MODutw.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODwyk.Designer.vb">
+      <DependentUpon>MODwyk.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MODwyk.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="newitemform.Designer.vb">
+      <DependentUpon>newitemform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="newitemform.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PLAYLISTA.vb" />
+    <Compile Include="publiczny.vb" />
+    <Compile Include="selectdata.Designer.vb">
+      <DependentUpon>selectdata.vb</DependentUpon>
+    </Compile>
+    <Compile Include="selectdata.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="selectform.Designer.vb">
+      <DependentUpon>selectform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="selectform.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="settingsform.Designer.vb">
+      <DependentUpon>settingsform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="settingsform.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UTWOR.vb" />
+    <Compile Include="WYKONAWCA.vb" />
+    <Compile Include="YTAPI.vb" />
+    <Compile Include="ytbrowser.Designer.vb">
+      <DependentUpon>ytbrowser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ytbrowser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="backuprestore.resx">
+      <DependentUpon>backuprestore.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="edycjaskrotu.resx">
+      <DependentUpon>edycjaskrotu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="genraport.resx">
+      <DependentUpon>genraport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMPORTplaylist.resx">
+      <DependentUpon>IMPORTplaylist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMPORTutw.resx">
+      <DependentUpon>IMPORTutw.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="instrukcja.resx">
+      <DependentUpon>instrukcja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODalb.resx">
+      <DependentUpon>MODalb.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODpl.resx">
+      <DependentUpon>MODpl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODpozycja.resx">
+      <DependentUpon>MODpozycja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODutw.resx">
+      <DependentUpon>MODutw.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODwyk.resx">
+      <DependentUpon>MODwyk.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newitemform.resx">
+      <DependentUpon>newitemform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="selectdata.resx">
+      <DependentUpon>selectdata.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="selectform.resx">
+      <DependentUpon>selectform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settingsform.resx">
+      <DependentUpon>settingsform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ytbrowser.resx">
+      <DependentUpon>ytbrowser.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\add-square-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\playlist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\couple-of-arrows-changing-places.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pause-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\play-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\rewind-double-arrows-angles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\rewind-double-arrows-angles2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\mute-volume-interface-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\speaker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\add-button-inside-black-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\delete %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\pencil-edit-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\switch-vertical-orientation-arrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\text3408-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\text3408-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\WEBPAGE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\man-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\music-album.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\music-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appicon.ico" />
+    <None Include="bin\Debug\text3408-128.png" />
+    <None Include="bin\Debug\ok-appproval-acceptance.png" />
+    <None Include="bin\Debug\INS1.png" />
+    <None Include="bin\Debug\INS2.png" />
+    <None Include="bin\Debug\INS3.png" />
+    <None Include="bin\Debug\INS0.png" />
+    <None Include="bin\Debug\INS4.png" />
+    <None Include="bin\Debug\INS5.png" />
+    <None Include="bin\Debug\INS6.png" />
+    <None Include="bin\Debug\INS7.png" />
+    <None Include="bin\Debug\INS8.png" />
+    <None Include="bin\Debug\INS9.png" />
+    <None Include="bin\Debug\home.png" />
+    <None Include="bin\Debug\left-arrow-browser.png" />
+    <None Include="bin\Debug\playlist-add.png" />
+    <None Include="bin\Debug\video-camera.png" />
+    <None Include="bin\Debug\right-arrow-browser.png" />
+    <None Include="bin\Debug\rotate-option.png" />
+    <None Include="bin\Debug\ok-black.png" />
+    <None Include="bin\Debug\remove-symbol.png" />
+    <Content Include="mainicon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
