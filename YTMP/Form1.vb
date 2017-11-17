@@ -1,5 +1,7 @@
 ﻿Public Class Form1
 
+    ' adan2013
+
     Public wersja As String = "v4.1"
     Dim WithEvents kb As KeyboardHook = New KeyboardHook()
     Public KBctrl As Boolean = False
