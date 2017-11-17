@@ -8,6 +8,7 @@
         STATE: <div id="INFOstate">3</div>
         IS_MUTED: <div id="INFOismuted">false</div>
         VOLUME: <div id="INFOvolume">100</div>
+        QUALITY: <div id="INFOquality">?</div>
         <br />
         <button type="button" id="play" onclick="player.playVideo()">PLAY</button>
         <button type="button" id="pause" onclick="player.pauseVideo()">PAUSE</button>
@@ -15,12 +16,16 @@
         <button type="button" id="unmute" onclick="player.unMute()">UNMUTE</button>
         <button type="button" id="setvol" onclick="player.setVolume(0)">SET VOLUME</button>
         <button type="button" id="rewind" onclick="player.seekTo(0, true)">REWIND</button>
+        <button type="button" id="q1" onclick="player.setPlaybackQuality('tiny')">Q: LOW</button>
+        <button type="button" id="q2" onclick="player.setPlaybackQuality('medium')">Q: MED</button>
+        <button type="button" id="q3" onclick="player.setPlaybackQuality('hd720')">Q: 720</button>
         <script>
             var INFOcurrent = document.getElementById('INFOcurrent');
             var INFOduration = document.getElementById('INFOduration');
             var INFOstate = document.getElementById('INFOstate');
             var INFOismuted = document.getElementById('INFOismuted');
             var INFOvolume = document.getElementById('INFOvolume');
+            var INFOquality = document.getElementById('INFOquality');
             var tag = document.createElement('script');
             tag.src = "https://www.youtube.com/iframe_api";
             var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -34,7 +39,8 @@
                     playerVars: { 'disablekb' : 1, 'start' : (geturlvariable('stime') == '' ? 0 : geturlvariable('stime')) },
                     events: {
                     'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
+                    'onStateChange': onPlayerStateChange,
+                    'suggestedQuality': (geturlvariable('q') == '' ? 'medium' : geturlvariable('q'))
                     }
                 });
             }
@@ -55,6 +61,7 @@
                 INFOduration.innerHTML = Math.round(player.getDuration());
                 INFOismuted.innerHTML = player.isMuted();
                 INFOvolume.innerHTML = Math.round(player.getVolume());
+                INFOquality.innerHTML = player.getPlaybackQuality();
             }
             
             function geturlvariable(name) {

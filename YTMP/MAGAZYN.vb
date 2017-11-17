@@ -14,6 +14,7 @@ Public Class MAGAZYN
     Public SEThide As Boolean = False
     Public SETopoznienie As Integer = 0
     Public SEThidealbums As Boolean = False
+    Public SETq As Byte = 2
 
     Public volume As SByte = 100
     Public MODrep As Boolean = False
