@@ -16,9 +16,9 @@
         <button type="button" id="unmute" onclick="player.unMute()">UNMUTE</button>
         <button type="button" id="setvol" onclick="player.setVolume(0)">SET VOLUME</button>
         <button type="button" id="rewind" onclick="player.seekTo(0, true)">REWIND</button>
-        <button type="button" id="q1" onclick="player.setPlaybackQuality('tiny')">Q: LOW</button>
+        <!--<button type="button" id="q1" onclick="player.setPlaybackQuality('tiny')">Q: LOW</button>
         <button type="button" id="q2" onclick="player.setPlaybackQuality('medium')">Q: MED</button>
-        <button type="button" id="q3" onclick="player.setPlaybackQuality('hd720')">Q: 720</button>
+        <button type="button" id="q3" onclick="player.setPlaybackQuality('hd720')">Q: 720</button>-->
         <script>
             var INFOcurrent = document.getElementById('INFOcurrent');
             var INFOduration = document.getElementById('INFOduration');
@@ -26,6 +26,16 @@
             var INFOismuted = document.getElementById('INFOismuted');
             var INFOvolume = document.getElementById('INFOvolume');
             var INFOquality = document.getElementById('INFOquality');
+            var quality = geturlvariable('q');
+            switch(quality){
+                case 'tiny':
+                case 'medium':
+                case 'hd720':
+                    //ok
+                    break;
+                default:
+                    quality = 'medium';
+            }
             var tag = document.createElement('script');
             tag.src = "https://www.youtube.com/iframe_api";
             var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -38,14 +48,15 @@
                     videoId: geturlvariable('vid'),
                     playerVars: { 'disablekb' : 1, 'start' : (geturlvariable('stime') == '' ? 0 : geturlvariable('stime')) },
                     events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange,
-                    'suggestedQuality': (geturlvariable('q') == '' ? 'medium' : geturlvariable('q'))
+                        'onReady': onPlayerReady,
+                        'onStateChange': onPlayerStateChange
                     }
-                });
+                    }
+                );
             }
 
             function onPlayerReady(event) {
+                event.target.setPlaybackQuality(quality);
                 event.target.playVideo();
             }
 
@@ -53,6 +64,9 @@
                 INFOstate.innerHTML = event.data;
                 if (event.data == YT.PlayerState.PLAYING) {
                     setInterval(function(){ TimeVideo(); }, 500);
+                }
+                if (event.data == YT.PlayerState.BUFFERING){
+                    event.target.setPlaybackQuality(quality);
                 }
             }
 
