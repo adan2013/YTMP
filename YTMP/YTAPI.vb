@@ -45,7 +45,7 @@ Public Class YTAPI
     Private Function getq() As String
         Select Case dane.SETq
             Case 1
-                Return "tiny"
+                Return "small"
             Case 2
                 Return "medium"
             Case 3
