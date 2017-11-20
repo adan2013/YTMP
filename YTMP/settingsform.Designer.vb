@@ -68,6 +68,8 @@ Partial Class settingsform
         Me.lblname = New System.Windows.Forms.Label()
         Me.savedialog = New System.Windows.Forms.SaveFileDialog()
         Me.opendialog = New System.Windows.Forms.OpenFileDialog()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.lstquality = New System.Windows.Forms.ComboBox()
         Me.tabs.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.nropoznienie, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,6 +98,8 @@ Partial Class settingsform
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.lstquality)
+        Me.TabPage2.Controls.Add(Me.Label11)
         Me.TabPage2.Controls.Add(Me.chkboxhidealbums)
         Me.TabPage2.Controls.Add(Me.Label5)
         Me.TabPage2.Controls.Add(Me.nropoznienie)
@@ -119,7 +123,7 @@ Partial Class settingsform
         '
         Me.chkboxhidealbums.AutoSize = True
         Me.chkboxhidealbums.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxhidealbums.Location = New System.Drawing.Point(180, 144)
+        Me.chkboxhidealbums.Location = New System.Drawing.Point(204, 144)
         Me.chkboxhidealbums.Name = "chkboxhidealbums"
         Me.chkboxhidealbums.Size = New System.Drawing.Size(142, 19)
         Me.chkboxhidealbums.TabIndex = 11
@@ -159,7 +163,7 @@ Partial Class settingsform
         '
         Me.chkboxhide.AutoSize = True
         Me.chkboxhide.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxhide.Location = New System.Drawing.Point(180, 119)
+        Me.chkboxhide.Location = New System.Drawing.Point(204, 119)
         Me.chkboxhide.Name = "chkboxhide"
         Me.chkboxhide.Size = New System.Drawing.Size(203, 19)
         Me.chkboxhide.TabIndex = 7
@@ -170,7 +174,7 @@ Partial Class settingsform
         '
         Me.chkboxczas.AutoSize = True
         Me.chkboxczas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxczas.Location = New System.Drawing.Point(180, 79)
+        Me.chkboxczas.Location = New System.Drawing.Point(204, 79)
         Me.chkboxczas.Name = "chkboxczas"
         Me.chkboxczas.Size = New System.Drawing.Size(173, 34)
         Me.chkboxczas.TabIndex = 6
@@ -181,7 +185,7 @@ Partial Class settingsform
         '
         Me.chkboxprzejdz.AutoSize = True
         Me.chkboxprzejdz.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxprzejdz.Location = New System.Drawing.Point(180, 39)
+        Me.chkboxprzejdz.Location = New System.Drawing.Point(204, 39)
         Me.chkboxprzejdz.Name = "chkboxprzejdz"
         Me.chkboxprzejdz.Size = New System.Drawing.Size(191, 34)
         Me.chkboxprzejdz.TabIndex = 5
@@ -194,7 +198,7 @@ Partial Class settingsform
         Me.chkboxdymek.Checked = True
         Me.chkboxdymek.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkboxdymek.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxdymek.Location = New System.Drawing.Point(180, 14)
+        Me.chkboxdymek.Location = New System.Drawing.Point(204, 14)
         Me.chkboxdymek.Name = "chkboxdymek"
         Me.chkboxdymek.Size = New System.Drawing.Size(188, 19)
         Me.chkboxdymek.TabIndex = 2
@@ -557,6 +561,26 @@ Partial Class settingsform
         Me.opendialog.Filter = "Plik magazynu (*.ytmp)|*.ytmp"
         Me.opendialog.Title = "Wskaż plik"
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label11.Location = New System.Drawing.Point(6, 144)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(167, 30)
+        Me.Label11.TabIndex = 12
+        Me.Label11.Text = "Jakość audio (zwiększa" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "zużycie łącza internetowego):"
+        '
+        'lstquality
+        '
+        Me.lstquality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.lstquality.FormattingEnabled = True
+        Me.lstquality.Items.AddRange(New Object() {"Niska (wideo: 144p)", "Średnia (wideo: 360p)", "Wysoka (wideo: 720p)"})
+        Me.lstquality.Location = New System.Drawing.Point(9, 177)
+        Me.lstquality.Name = "lstquality"
+        Me.lstquality.Size = New System.Drawing.Size(137, 21)
+        Me.lstquality.TabIndex = 1
+        '
         'settingsform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -634,4 +658,6 @@ Partial Class settingsform
     Friend WithEvents btnwgrajcalosc As Button
     Friend WithEvents btngeneruj As Button
     Friend WithEvents chkboxhidealbums As CheckBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents lstquality As ComboBox
 End Class

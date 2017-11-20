@@ -23,6 +23,7 @@
         nropoznienie.Value = dane.SETopoznienie
         chkboxmkeys.Checked = dane.SETmultimediakeys
         chkboxhidealbums.Checked = dane.SEThidealbums
+        lstquality.SelectedIndex = dane.SETq - 1
         If dane.SETkopie Then lstkopie.SelectedIndex = 1 Else lstkopie.SelectedIndex = 0
         init = False
     End Sub
@@ -74,6 +75,7 @@
         dane.SETopoznienie = nropoznienie.Value
         dane.SETmultimediakeys = chkboxmkeys.Checked
         dane.SEThidealbums = chkboxhidealbums.Checked
+        dane.SETq = lstquality.SelectedIndex + 1
         If lstkopie.SelectedIndex = 0 Then dane.SETkopie = False Else dane.SETkopie = True
     End Sub
 

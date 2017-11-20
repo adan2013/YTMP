@@ -235,7 +235,11 @@ Public Class YTAPI
         End If
         pozloading += 1
         If pozloading >= 3 Then pozloading = 0
-        Debug.WriteLine(getcontent("INFOquality"))
+        Try
+            Debug.WriteLine("{0} {1} {2} {3}", getcontent("INFOquality"), dane.SETq, getq(), browser.Url.ToString())
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Public Sub odtworzteraz(ByRef obiekt As UTWOR)
