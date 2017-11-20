@@ -82,6 +82,8 @@
         If dane.MODrep Then btnrep.BackColor = Color.Yellow
         yt = New YTAPI()
         akt.Enabled = True
+        'TODO debug welcome screen
+        instrukcja.ShowDialog()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing

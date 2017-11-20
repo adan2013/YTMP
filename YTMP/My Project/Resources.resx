@@ -187,36 +187,6 @@
   <data name="text3408_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\text3408-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="INS0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\INS0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="INS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\INS1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="INS2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\INS2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="INS3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\INS3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="INS4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\INS4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="INS5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\INS5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="INS6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\INS6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="INS7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\INS7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="INS8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\INS8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="INS9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\INS9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ok_appproval_acceptance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\ok-appproval-acceptance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
