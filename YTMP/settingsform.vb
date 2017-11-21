@@ -23,7 +23,7 @@
         nropoznienie.Value = dane.SETopoznienie
         chkboxmkeys.Checked = dane.SETmultimediakeys
         chkboxhidealbums.Checked = dane.SEThidealbums
-        lstquality.SelectedIndex = dane.SETq - 1
+        lstdefaulttab.SelectedIndex = dane.SETdefaulttab
         If dane.SETkopie Then lstkopie.SelectedIndex = 1 Else lstkopie.SelectedIndex = 0
         init = False
     End Sub
@@ -75,7 +75,7 @@
         dane.SETopoznienie = nropoznienie.Value
         dane.SETmultimediakeys = chkboxmkeys.Checked
         dane.SEThidealbums = chkboxhidealbums.Checked
-        dane.SETq = lstquality.SelectedIndex + 1
+        dane.SETdefaulttab = lstdefaulttab.SelectedIndex
         If lstkopie.SelectedIndex = 0 Then dane.SETkopie = False Else dane.SETkopie = True
     End Sub
 
@@ -138,5 +138,17 @@
         If chkboxhidealbums.Checked Then
             MsgBox("Od teraz wybór albumów będzie ukryty. A domyślną pozycją stanie się ""(bez albumu)"". Dotychczasowo utworzone albumy nie zostaną usunięte.", MsgBoxStyle.Information, "YTMP")
         End If
+    End Sub
+
+    Private Sub btnpdf_Click(sender As Object, e As EventArgs) Handles btnpdf.Click
+        Try
+            If IO.File.Exists(Application.StartupPath & "\instrukcja.pdf") Then
+                Process.Start(Application.StartupPath & "\instrukcja.pdf")
+            Else
+                MsgBox("Nie znaleziono pliku z instrukcją! Możliwe że został on przeniesiony lub usunięty z komputera!", MsgBoxStyle.Exclamation, "YTMP")
+            End If
+        Catch ex As Exception
+            MsgBox("Wystąpił błąd podczas próby otwarcia pliku PDF!", MsgBoxStyle.Exclamation, "YTMP")
+        End Try
     End Sub
 End Class

@@ -68,6 +68,8 @@
             instrukcja.ShowDialog()
         End If
 
+        splashscreen.ShowDialog()
+
         If IO.File.Exists(Application.StartupPath & "\" & "kopie.backup") Then
             backupy = deserializuj(Application.StartupPath & "\" & "kopie.backup")
             backupy.init = Application.StartupPath
@@ -76,14 +78,13 @@
         End If
         If dane.SETkopie Then backupy.dodajkopie(dane)
 
+        tabs.SelectedIndex = dane.SETdefaulttab
         pnlglosnosc.Size = New Size(dane.volume, pnlglosnosc.Size.Height)
         If dane.MODmute Then btnmute.BackColor = Color.Yellow
         If dane.MODran Then btnran.BackColor = Color.Yellow
         If dane.MODrep Then btnrep.BackColor = Color.Yellow
         yt = New YTAPI()
         akt.Enabled = True
-        'TODO debug welcome screen
-        instrukcja.ShowDialog()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing

@@ -27,6 +27,8 @@ Partial Class settingsform
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(settingsform))
         Me.tabs = New System.Windows.Forms.TabControl()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.lstdefaulttab = New System.Windows.Forms.ComboBox()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.chkboxhidealbums = New System.Windows.Forms.CheckBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.nropoznienie = New System.Windows.Forms.NumericUpDown()
@@ -68,8 +70,7 @@ Partial Class settingsform
         Me.lblname = New System.Windows.Forms.Label()
         Me.savedialog = New System.Windows.Forms.SaveFileDialog()
         Me.opendialog = New System.Windows.Forms.OpenFileDialog()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.lstquality = New System.Windows.Forms.ComboBox()
+        Me.btnpdf = New System.Windows.Forms.Button()
         Me.tabs.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.nropoznienie, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,7 +99,7 @@ Partial Class settingsform
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add(Me.lstquality)
+        Me.TabPage2.Controls.Add(Me.lstdefaulttab)
         Me.TabPage2.Controls.Add(Me.Label11)
         Me.TabPage2.Controls.Add(Me.chkboxhidealbums)
         Me.TabPage2.Controls.Add(Me.Label5)
@@ -118,6 +119,26 @@ Partial Class settingsform
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Odtwarzacz"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'lstdefaulttab
+        '
+        Me.lstdefaulttab.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.lstdefaulttab.FormattingEnabled = True
+        Me.lstdefaulttab.Items.AddRange(New Object() {"Lista odtwarzania", "Utwory", "Playlisty"})
+        Me.lstdefaulttab.Location = New System.Drawing.Point(9, 162)
+        Me.lstdefaulttab.Name = "lstdefaulttab"
+        Me.lstdefaulttab.Size = New System.Drawing.Size(137, 21)
+        Me.lstdefaulttab.TabIndex = 1
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label11.Location = New System.Drawing.Point(6, 144)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(147, 15)
+        Me.Label11.TabIndex = 12
+        Me.Label11.Text = "Domyślnie wybrana karta:"
         '
         'chkboxhidealbums
         '
@@ -510,6 +531,7 @@ Partial Class settingsform
         'TabPage4
         '
         Me.TabPage4.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.TabPage4.Controls.Add(Me.btnpdf)
         Me.TabPage4.Controls.Add(Me.PictureBox1)
         Me.TabPage4.Controls.Add(Me.lblver)
         Me.TabPage4.Controls.Add(Me.lblname)
@@ -561,25 +583,18 @@ Partial Class settingsform
         Me.opendialog.Filter = "Plik magazynu (*.ytmp)|*.ytmp"
         Me.opendialog.Title = "Wskaż plik"
         '
-        'Label11
+        'btnpdf
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label11.Location = New System.Drawing.Point(6, 144)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(167, 30)
-        Me.Label11.TabIndex = 12
-        Me.Label11.Text = "Jakość audio (zwiększa" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "zużycie łącza internetowego):"
-        '
-        'lstquality
-        '
-        Me.lstquality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.lstquality.FormattingEnabled = True
-        Me.lstquality.Items.AddRange(New Object() {"Niska (wideo: 144p)", "Średnia (wideo: 360p)", "Wysoka (wideo: 720p)"})
-        Me.lstquality.Location = New System.Drawing.Point(9, 177)
-        Me.lstquality.Name = "lstquality"
-        Me.lstquality.Size = New System.Drawing.Size(137, 21)
-        Me.lstquality.TabIndex = 1
+        Me.btnpdf.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnpdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnpdf.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.btnpdf.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnpdf.Location = New System.Drawing.Point(431, 200)
+        Me.btnpdf.Name = "btnpdf"
+        Me.btnpdf.Size = New System.Drawing.Size(115, 25)
+        Me.btnpdf.TabIndex = 3
+        Me.btnpdf.Text = "Instrukcja PDF"
+        Me.btnpdf.UseVisualStyleBackColor = True
         '
         'settingsform
         '
@@ -659,5 +674,6 @@ Partial Class settingsform
     Friend WithEvents btngeneruj As Button
     Friend WithEvents chkboxhidealbums As CheckBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents lstquality As ComboBox
+    Friend WithEvents lstdefaulttab As ComboBox
+    Friend WithEvents btnpdf As Button
 End Class

@@ -42,22 +42,10 @@ Public Class YTAPI
         'browser.BringToFront()
     End Sub
 
-    Private Function getq() As String
-        Select Case dane.SETq
-            Case 1
-                Return "small"
-            Case 2
-                Return "medium"
-            Case 3
-                Return "hd720"
-            Case Else
-                Return "medium"
-        End Select
-    End Function
-
     Private Sub loadwebpage(ByRef utw As UTWOR)
         'browser.Navigate("https://serwer1657623.home.pl/testapiyt.php?vid=" & utw.link & "&stime=" & utw.start)
-        browser.Navigate("https://adan2013.github.io/YTMP/?vid=" & utw.link & "&stime=" & utw.start & "&q=" & getq())
+        'browser.Navigate("https://adan2013.github.io/YTMP/?vid=" & utw.link & "&stime=" & utw.start & "&q=" & getq())
+        browser.Navigate("https://adan2013.github.io/YTMP/?vid=" & utw.link & "&stime=" & utw.start)
         historia.Remove(utw)
         historia.Add(utw)
         If dane.SETdymek Then
@@ -235,11 +223,6 @@ Public Class YTAPI
         End If
         pozloading += 1
         If pozloading >= 3 Then pozloading = 0
-        Try
-            Debug.WriteLine("{0} {1} {2} {3}", getcontent("INFOquality"), dane.SETq, getq(), browser.Url.ToString())
-        Catch ex As Exception
-
-        End Try
     End Sub
 
     Public Sub odtworzteraz(ByRef obiekt As UTWOR)

@@ -343,6 +343,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property splashscreen() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("splashscreen", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property switch_vertical_orientation_arrows() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("switch_vertical_orientation_arrows", resourceCulture)
@@ -388,6 +398,16 @@ Namespace My.Resources
         Friend ReadOnly Property WEBPAGE() As String
             Get
                 Return ResourceManager.GetString("WEBPAGE", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property welcomescreen() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("welcomescreen", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
     End Module
