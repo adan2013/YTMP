@@ -3,7 +3,7 @@ Imports System.IO
 Imports Gecko.Events
 Public Class ytbrowser
 
-    Dim allowurl() As String = {"https://www.youtube.com", "https://accounts.google.com", "https://accounts.youtube.com", "about:blank"}
+    Dim allowurl() As String = {"https://www.youtube.com", "https://accounts.google.com", "https://accounts.youtube.com", "about:blank", "http://www.google.pl/accounts"}
     Dim WithEvents browser As GeckoWebBrowser
 
     Public trybadd As strbtnadd = strbtnadd.brak
