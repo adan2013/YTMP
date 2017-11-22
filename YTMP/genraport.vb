@@ -96,4 +96,8 @@
         If w.Length > 0 And echosep And getlstvar(nrlst + 1) > 0 Then w &= IIf(radiocsv.Checked, ",", " " & lstsep.Text & " ")
         Return w
     End Function
+
+    Private Sub radioopis_CheckedChanged(sender As Object, e As EventArgs) Handles radioopis.CheckedChanged
+        lstsep.Enabled = sender.Checked
+    End Sub
 End Class

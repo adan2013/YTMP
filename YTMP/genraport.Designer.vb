@@ -125,6 +125,7 @@ Partial Class genraport
         'lstsep
         '
         Me.lstsep.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.lstsep.Enabled = False
         Me.lstsep.FormattingEnabled = True
         Me.lstsep.Items.AddRange(New Object() {",", ".", "->", ">>", "-", "/", "\", "_"})
         Me.lstsep.Location = New System.Drawing.Point(68, 68)
