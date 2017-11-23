@@ -23,6 +23,7 @@
     Public yt As YTAPI
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        splashscreen.ShowDialog()
         With lblstart
             .Location = New Point(10, 0)
             .Size = New Size(50, 40)
@@ -67,8 +68,6 @@
             serializuj(dane, Application.StartupPath & "\" & "magazyn.ytmp")
             instrukcja.ShowDialog()
         End If
-
-        splashscreen.ShowDialog()
 
         If IO.File.Exists(Application.StartupPath & "\" & "kopie.backup") Then
             backupy = deserializuj(Application.StartupPath & "\" & "kopie.backup")

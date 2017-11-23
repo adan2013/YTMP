@@ -46,7 +46,7 @@ Partial Class instrukcja
         Me.PictureBox1.Image = Global.YTMP.My.Resources.Resources.welcomescreen
         Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(710, 289)
+        Me.PictureBox1.Size = New System.Drawing.Size(340, 400)
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
@@ -63,7 +63,7 @@ Partial Class instrukcja
         '
         Me.pnlbtn.Controls.Add(Me.btnpdf)
         Me.pnlbtn.Controls.Add(Me.btnstart)
-        Me.pnlbtn.Location = New System.Drawing.Point(211, 307)
+        Me.pnlbtn.Location = New System.Drawing.Point(25, 422)
         Me.pnlbtn.Name = "pnlbtn"
         Me.pnlbtn.Size = New System.Drawing.Size(312, 42)
         Me.pnlbtn.TabIndex = 3
@@ -73,7 +73,7 @@ Partial Class instrukcja
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(734, 361)
+        Me.ClientSize = New System.Drawing.Size(364, 476)
         Me.Controls.Add(Me.pnlbtn)
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
