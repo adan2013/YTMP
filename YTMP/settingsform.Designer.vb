@@ -65,12 +65,12 @@ Partial Class settingsform
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnlocalsave = New System.Windows.Forms.Button()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.btnpdf = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblver = New System.Windows.Forms.Label()
         Me.lblname = New System.Windows.Forms.Label()
         Me.savedialog = New System.Windows.Forms.SaveFileDialog()
         Me.opendialog = New System.Windows.Forms.OpenFileDialog()
-        Me.btnpdf = New System.Windows.Forms.Button()
         Me.tabs.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.nropoznienie, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -542,6 +542,19 @@ Partial Class settingsform
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Informacje"
         '
+        'btnpdf
+        '
+        Me.btnpdf.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnpdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnpdf.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.btnpdf.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnpdf.Location = New System.Drawing.Point(431, 200)
+        Me.btnpdf.Name = "btnpdf"
+        Me.btnpdf.Size = New System.Drawing.Size(115, 25)
+        Me.btnpdf.TabIndex = 3
+        Me.btnpdf.Text = "Instrukcja PDF"
+        Me.btnpdf.UseVisualStyleBackColor = True
+        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.YTMP.My.Resources.Resources.text3408_128
@@ -582,19 +595,6 @@ Partial Class settingsform
         '
         Me.opendialog.Filter = "Plik magazynu (*.ytmp)|*.ytmp"
         Me.opendialog.Title = "Wskaż plik"
-        '
-        'btnpdf
-        '
-        Me.btnpdf.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnpdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnpdf.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.btnpdf.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnpdf.Location = New System.Drawing.Point(431, 200)
-        Me.btnpdf.Name = "btnpdf"
-        Me.btnpdf.Size = New System.Drawing.Size(115, 25)
-        Me.btnpdf.TabIndex = 3
-        Me.btnpdf.Text = "Instrukcja PDF"
-        Me.btnpdf.UseVisualStyleBackColor = True
         '
         'settingsform
         '

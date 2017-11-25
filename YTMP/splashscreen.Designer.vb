@@ -23,6 +23,7 @@ Partial Class splashscreen
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(splashscreen))
         Me.img = New System.Windows.Forms.PictureBox()
         Me.tmr = New System.Windows.Forms.Timer(Me.components)
         CType(Me.img, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,6 +52,7 @@ Partial Class splashscreen
         Me.ClientSize = New System.Drawing.Size(710, 289)
         Me.Controls.Add(Me.img)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "splashscreen"
         Me.ShowIcon = False
         Me.ShowInTaskbar = False

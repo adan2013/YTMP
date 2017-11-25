@@ -27,6 +27,7 @@ Partial Class MODutw
         Me.txtname = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnzmienid = New System.Windows.Forms.Button()
         Me.lblid = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.nrstartm = New System.Windows.Forms.NumericUpDown()
@@ -42,7 +43,6 @@ Partial Class MODutw
         Me.btnpath = New System.Windows.Forms.Button()
         Me.lblpath = New System.Windows.Forms.Label()
         Me.btnyt = New System.Windows.Forms.Button()
-        Me.btnzmienid = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.nrstartm, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nrstarts, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,6 +88,16 @@ Partial Class MODutw
         Me.GroupBox1.TabIndex = 12
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Identyfikator filmu"
+        '
+        'btnzmienid
+        '
+        Me.btnzmienid.Location = New System.Drawing.Point(234, 51)
+        Me.btnzmienid.Name = "btnzmienid"
+        Me.btnzmienid.Size = New System.Drawing.Size(100, 23)
+        Me.btnzmienid.TabIndex = 29
+        Me.btnzmienid.Text = "Zmień ID filmu"
+        Me.btnzmienid.UseVisualStyleBackColor = True
+        Me.btnzmienid.Visible = False
         '
         'lblid
         '
@@ -244,16 +254,6 @@ Partial Class MODutw
         Me.btnyt.Text = "Otwórz w serwisie YouTube"
         Me.btnyt.UseVisualStyleBackColor = True
         Me.btnyt.Visible = False
-        '
-        'btnzmienid
-        '
-        Me.btnzmienid.Location = New System.Drawing.Point(234, 51)
-        Me.btnzmienid.Name = "btnzmienid"
-        Me.btnzmienid.Size = New System.Drawing.Size(100, 23)
-        Me.btnzmienid.TabIndex = 29
-        Me.btnzmienid.Text = "Zmień ID filmu"
-        Me.btnzmienid.UseVisualStyleBackColor = True
-        Me.btnzmienid.Visible = False
         '
         'MODutw
         '

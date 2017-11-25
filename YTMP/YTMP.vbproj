@@ -71,6 +71,9 @@
   <PropertyGroup>
     <ApplicationIcon>appicon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Geckofx-Core">
       <HintPath>..\..\..\..\..\Desktop\YTMP\YTtest\YTtest\bin\Debug\Geckofx-Core.dll</HintPath>
@@ -303,6 +306,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -410,7 +414,7 @@
     <None Include="bin\Debug\remove-symbol.png" />
     <None Include="bin\Debug\splashscreen.png" />
     <None Include="bin\Debug\welcomescreen.png" />
-    <Content Include="mainicon.ico" />
+    <Content Include="application.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
