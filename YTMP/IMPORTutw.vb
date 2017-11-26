@@ -65,6 +65,7 @@
     End Sub
 
     Private Sub btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
+        MODutw.lblid.Text = ytbrowser.vid
         MODutw.ShowDialog()
         MODutw.Close()
         Form1.ladujpanel()
