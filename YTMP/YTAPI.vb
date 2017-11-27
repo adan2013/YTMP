@@ -121,7 +121,7 @@ Public Class YTAPI
         s &= ":"
         s &= IIf(wartosc Mod 60 < 10, "0", "") & (wartosc Mod 60)
         Dim second As Integer = 0
-        If dane.SETczas AndAlso directplay IsNot Nothing Or wskaznikpl IsNot Nothing Then
+        If dane.SETczas And (directplay IsNot Nothing Or wskaznikpl IsNot Nothing) Then
             If start Then
                 second = IIf(directplay Is Nothing, wskaznikpl, directplay).start
             Else
