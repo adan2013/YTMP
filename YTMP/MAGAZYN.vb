@@ -15,6 +15,7 @@ Public Class MAGAZYN
     Public SETopoznienie As Integer = 0
     Public SEThidealbums As Boolean = False
     Public SETdefaulttab As Byte = 0
+    Public SETshowtitlewindow As Boolean = False
 
     Public volume As SByte = 100
     Public MODrep As Boolean = False

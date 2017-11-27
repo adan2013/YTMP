@@ -52,6 +52,11 @@ Public Class YTAPI
             Form1.notify.BalloonTipText = """" & utw.tytul & """ " & utw.FKalbum.FKwykonawca.nazwa
             Form1.notify.ShowBalloonTip(1800)
         End If
+        If dane.SETshowtitlewindow Then
+            Form1.Text = """" & utw.tytul & """ " & utw.FKalbum.FKwykonawca.nazwa & " - YouTube Media Player"
+        Else
+            Form1.Text = "YouTube Media Player"
+        End If
     End Sub
 
     Private Sub filtr(ByRef tekst As String, ByVal znacznik As String, ByVal wartosc As String)

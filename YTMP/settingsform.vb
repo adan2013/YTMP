@@ -23,6 +23,7 @@
         nropoznienie.Value = dane.SETopoznienie
         chkboxmkeys.Checked = dane.SETmultimediakeys
         chkboxhidealbums.Checked = dane.SEThidealbums
+        chkboxtitlewindow.Checked = dane.SETshowtitlewindow
         lstdefaulttab.SelectedIndex = dane.SETdefaulttab
         If dane.SETkopie Then lstkopie.SelectedIndex = 1 Else lstkopie.SelectedIndex = 0
         init = False
@@ -76,7 +77,9 @@
         dane.SETmultimediakeys = chkboxmkeys.Checked
         dane.SEThidealbums = chkboxhidealbums.Checked
         dane.SETdefaulttab = lstdefaulttab.SelectedIndex
+        dane.SETshowtitlewindow = chkboxtitlewindow.Checked
         If lstkopie.SelectedIndex = 0 Then dane.SETkopie = False Else dane.SETkopie = True
+        Form1.Text = "YouTube Media Player"
     End Sub
 
     Private Sub btnlocalsave_Click(sender As Object, e As EventArgs) Handles btnlocalsave.Click

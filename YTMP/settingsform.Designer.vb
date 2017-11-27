@@ -71,6 +71,7 @@ Partial Class settingsform
         Me.lblname = New System.Windows.Forms.Label()
         Me.savedialog = New System.Windows.Forms.SaveFileDialog()
         Me.opendialog = New System.Windows.Forms.OpenFileDialog()
+        Me.chkboxtitlewindow = New System.Windows.Forms.CheckBox()
         Me.tabs.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.nropoznienie, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,6 +100,7 @@ Partial Class settingsform
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.chkboxtitlewindow)
         Me.TabPage2.Controls.Add(Me.lstdefaulttab)
         Me.TabPage2.Controls.Add(Me.Label11)
         Me.TabPage2.Controls.Add(Me.chkboxhidealbums)
@@ -596,6 +598,17 @@ Partial Class settingsform
         Me.opendialog.Filter = "Plik magazynu (*.ytmp)|*.ytmp"
         Me.opendialog.Title = "Wskaż plik"
         '
+        'chkboxtitlewindow
+        '
+        Me.chkboxtitlewindow.AutoSize = True
+        Me.chkboxtitlewindow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxtitlewindow.Location = New System.Drawing.Point(204, 169)
+        Me.chkboxtitlewindow.Name = "chkboxtitlewindow"
+        Me.chkboxtitlewindow.Size = New System.Drawing.Size(212, 19)
+        Me.chkboxtitlewindow.TabIndex = 13
+        Me.chkboxtitlewindow.Text = "Pokazuj tytuł utworu w pasku okna"
+        Me.chkboxtitlewindow.UseVisualStyleBackColor = True
+        '
         'settingsform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -676,4 +689,5 @@ Partial Class settingsform
     Friend WithEvents Label11 As Label
     Friend WithEvents lstdefaulttab As ComboBox
     Friend WithEvents btnpdf As Button
+    Friend WithEvents chkboxtitlewindow As CheckBox
 End Class
