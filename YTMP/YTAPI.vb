@@ -213,6 +213,7 @@ Public Class YTAPI
                         nast = True
                     End If
                 Else
+                    playpause()
                     stoper.Start()
                 End If
             End If
