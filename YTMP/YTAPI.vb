@@ -232,7 +232,7 @@ Public Class YTAPI
         If Form1.rewindstate >= 0 And (wskaznikpl IsNot Nothing Or directplay IsNot Nothing) And durationtime > 0 Then
             Dim t As String = Form1.rewindstate * durationtime \ 60
             If t.Length = 1 Then t = "0" & t
-            t &= ":" & IIf(Form1.rewindstate * durationtime Mod 60 < 10, "0", "") & Math.Round(Form1.rewindstate * durationtime Mod 60, 0)
+            t &= ":" & IIf(Math.Round(Form1.rewindstate * durationtime Mod 60, 0) < 10, "0", "") & Math.Round(Form1.rewindstate * durationtime Mod 60, 0)
             tekststatus = "Przewiń utwór do minuty: " & t
         End If
     End Sub
