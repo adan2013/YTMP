@@ -229,6 +229,12 @@ Public Class YTAPI
         End If
         pozloading += 1
         If pozloading >= 3 Then pozloading = 0
+        If Form1.rewindstate >= 0 And (wskaznikpl IsNot Nothing Or directplay IsNot Nothing) And durationtime > 0 Then
+            Dim t As String = Form1.rewindstate * durationtime \ 60
+            If t.Length = 1 Then t = "0" & t
+            t &= ":" & IIf(Form1.rewindstate * durationtime Mod 60 < 10, "0", "") & Math.Round(Form1.rewindstate * durationtime Mod 60, 0)
+            tekststatus = "Przewiń utwór do minuty: " & t
+        End If
     End Sub
 
     Public Sub odtworzteraz(ByRef obiekt As UTWOR)

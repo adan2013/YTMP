@@ -5,12 +5,13 @@
     Public KBctrl As Boolean = False
     Public KBalt As Boolean = False
     Public KBshift As Boolean = False
+    Public rewindstate As Double = -1
 
     Public lblstart As Label = New Label()
     Public lblkoniec As Label = New Label()
     Public lblstan As Label = New Label()
     Public pnlglosnosc As Panel = New Panel()
-    Public pnlprzewijanie As Panel = New Panel()
+    Public WithEvents pnlprzewijanie As Panel = New Panel()
     Dim searchempty As Boolean = True
 
     Dim scrollpos As Integer = 0
@@ -709,7 +710,6 @@
 
     Private Sub akt_Tick(sender As Object, e As EventArgs) Handles akt.Tick
         yt.aktualizacja()
-        'lblstan.Text = yt.tekststatus
         skrocstring(lblstan, 370, yt.tekststatus)
     End Sub
 
@@ -780,7 +780,11 @@
         If dane.SEThide And WindowState = FormWindowState.Minimized Then Hide()
     End Sub
 
-    Private Sub btnplay_MouseMove(sender As Object, e As MouseEventArgs) Handles btnsettings.MouseMove, btnrewindR.MouseMove, btnrewindL.MouseMove, btnrep.MouseMove, btnran.MouseMove, btnplay.MouseMove, btnmute.MouseMove
+    Private Sub pnlrewind_MouseLeave(sender As Object, e As EventArgs) Handles pnlrewind.MouseLeave, pnlprzewijanie.MouseLeave
+        rewindstate = -1
+    End Sub
 
+    Private Sub pnlrewind_MouseMove(sender As Object, e As MouseEventArgs) Handles pnlrewind.MouseMove, pnlprzewijanie.MouseMove
+        rewindstate = e.Location.X / pnlrewind.Size.Width
     End Sub
 End Class
