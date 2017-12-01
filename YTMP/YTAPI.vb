@@ -202,7 +202,7 @@ Public Class YTAPI
             If poz < 0 Then poz = 0
             tekststatus = "Opóźnienie przełączenia utwóru (Pozostało: " & Math.Round(poz / 1000, 1) & "s)"
         End If
-        If state = YTstate.zakonczony Or (ob IsNot Nothing AndAlso ob.koniec = currenttime AndAlso ob.koniec > 0 AndAlso state = YTstate.odtwarzanie) Then
+        If state = YTstate.zakonczony Or (ob IsNot Nothing AndAlso ob.koniec = currenttime AndAlso ob.koniec > 0) Then
             Dim nast As Boolean = False
             If dane.SETopoznienie = 0 Then
                 nast = True
@@ -214,7 +214,7 @@ Public Class YTAPI
                         nast = True
                     End If
                 Else
-                    playpause()
+                    If Not state = YTstate.zakonczony Then playpause()
                     stoper.Start()
                 End If
             End If

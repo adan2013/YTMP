@@ -165,11 +165,11 @@
         If Not searchempty Then ladujpanel()
     End Sub
 
-    Private Sub btnplay_MouseMove(sender As Object, e As EventArgs) Handles btnplay.MouseMove, btnrewindL.MouseMove, btnrewindR.MouseMove, btnmute.MouseMove, btnrep.MouseMove, btnran.MouseMove, btnsettings.MouseMove
+    Private Sub btnplay_MouseMove(sender As Object, e As EventArgs) Handles btnplay.MouseMove, btnrewindL.MouseMove, btnrewindR.MouseMove, btnmute.MouseMove, btnrep.MouseMove, btnran.MouseMove, btnsettings.MouseMove, btnupdate.MouseMove
         sender.BackColor = Color.Yellow
     End Sub
 
-    Private Sub btnplay_MouseLeave(sender As Object, e As EventArgs) Handles btnplay.MouseLeave, btnrewindL.MouseLeave, btnrewindR.MouseLeave, btnmute.MouseLeave, btnrep.MouseLeave, btnran.MouseLeave, btnsettings.MouseLeave
+    Private Sub btnplay_MouseLeave(sender As Object, e As EventArgs) Handles btnplay.MouseLeave, btnrewindL.MouseLeave, btnrewindR.MouseLeave, btnmute.MouseLeave, btnrep.MouseLeave, btnran.MouseLeave, btnsettings.MouseLeave, btnupdate.MouseLeave
         If sender.Parent.Name = "pnlodtwarzacz" Then
             Select Case sender.Name
                 Case "btnran"
