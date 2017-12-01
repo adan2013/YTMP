@@ -282,6 +282,7 @@ Public Class YTAPI
 
     Public Sub nastepnyutwor()
         pushbutton("pause")
+        browser.LoadHtml("")
         directplay = Nothing
         If odtwarzane.utwory.Count = 0 Then
             wskaznikpl = Nothing
