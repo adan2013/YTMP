@@ -236,17 +236,17 @@ Public Class YTAPI
             t &= ":" & IIf(Math.Round(Form1.rewindstate * durationtime Mod 60, 0) < 10, "0", "") & Math.Round(Form1.rewindstate * durationtime Mod 60, 0)
             tekststatus = "Przewiń utwór do minuty: " & t
         End If
-        Dim v As String = getcontent("INFOversion")
-        If v = "" Then
-            updatever = "0"
-        Else
-            updatever = v
-            If updatever = Form1.wersja Then
-                If Form1.btnupdate.Visible Then Form1.btnupdate.Visible = False
-            Else
-                If Not Form1.btnupdate.Visible Then Form1.btnupdate.Visible = True
-            End If
-        End If
+        'Dim v As String = getcontent("INFOversion")
+        'If v = "" Then
+        '    updatever = "0"
+        'Else
+        '    updatever = v
+        '    If updatever = Form1.wersja Then
+        '        If Form1.btnupdate.Visible Then Form1.btnupdate.Visible = False
+        '    Else
+        '        If Not Form1.btnupdate.Visible Then Form1.btnupdate.Visible = True
+        '    End If
+        'End If
     End Sub
 
     Public Sub odtworzteraz(ByRef obiekt As UTWOR)
