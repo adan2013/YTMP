@@ -787,4 +787,13 @@
     Private Sub pnlrewind_MouseMove(sender As Object, e As MouseEventArgs) Handles pnlrewind.MouseMove, pnlprzewijanie.MouseMove
         rewindstate = e.Location.X / pnlrewind.Size.Width
     End Sub
+
+    Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
+        If yt.updatever = "0" Then Exit Sub
+        If yt.updatever = wersja Then
+            btnupdate.Visible = False
+        Else
+            updateform.Show()
+        End If
+    End Sub
 End Class

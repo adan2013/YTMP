@@ -29,6 +29,7 @@ Partial Class Form1
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.pnlodtwarzacz = New System.Windows.Forms.Panel()
+        Me.btnupdate = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pnlsound = New System.Windows.Forms.Panel()
         Me.btnmute = New System.Windows.Forms.PictureBox()
@@ -62,6 +63,7 @@ Partial Class Form1
         Me.btnsearchoff = New System.Windows.Forms.Button()
         Me.tabs.SuspendLayout()
         Me.pnlodtwarzacz.SuspendLayout()
+        CType(Me.btnupdate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnmute, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnrep, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,6 +121,7 @@ Partial Class Form1
         'pnlodtwarzacz
         '
         Me.pnlodtwarzacz.BackColor = System.Drawing.Color.White
+        Me.pnlodtwarzacz.Controls.Add(Me.btnupdate)
         Me.pnlodtwarzacz.Controls.Add(Me.PictureBox1)
         Me.pnlodtwarzacz.Controls.Add(Me.pnlsound)
         Me.pnlodtwarzacz.Controls.Add(Me.btnmute)
@@ -134,6 +137,20 @@ Partial Class Form1
         Me.pnlodtwarzacz.Name = "pnlodtwarzacz"
         Me.pnlodtwarzacz.Size = New System.Drawing.Size(534, 120)
         Me.pnlodtwarzacz.TabIndex = 1
+        '
+        'btnupdate
+        '
+        Me.btnupdate.BackColor = System.Drawing.Color.LightGray
+        Me.btnupdate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.btnupdate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnupdate.Image = Global.YTMP.My.Resources.Resources.aktualizacja
+        Me.btnupdate.Location = New System.Drawing.Point(150, 53)
+        Me.btnupdate.Name = "btnupdate"
+        Me.btnupdate.Size = New System.Drawing.Size(125, 35)
+        Me.btnupdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.btnupdate.TabIndex = 11
+        Me.btnupdate.TabStop = False
+        Me.btnupdate.Visible = False
         '
         'PictureBox1
         '
@@ -457,6 +474,7 @@ Partial Class Form1
         Me.Text = "YouTube Media Player"
         Me.tabs.ResumeLayout(False)
         Me.pnlodtwarzacz.ResumeLayout(False)
+        CType(Me.btnupdate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnmute, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnrep, System.ComponentModel.ISupportInitialize).EndInit()
@@ -509,4 +527,5 @@ Partial Class Form1
     Friend WithEvents ToolStripMenuItem2 As ToolStripSeparator
     Friend WithEvents ZakończToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnsearchoff As Button
+    Friend WithEvents btnupdate As PictureBox
 End Class

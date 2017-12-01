@@ -233,6 +233,12 @@
     <Compile Include="splashscreen.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="updateform.Designer.vb">
+      <DependentUpon>updateform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="updateform.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UTWOR.vb" />
     <Compile Include="WYKONAWCA.vb" />
     <Compile Include="YTAPI.vb" />
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="splashscreen.resx">
       <DependentUpon>splashscreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateform.resx">
+      <DependentUpon>updateform.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ytbrowser.resx">
       <DependentUpon>ytbrowser.vb</DependentUpon>
@@ -392,6 +401,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appicon.ico" />
+    <None Include="bin\Debug\aktualizacja.png" />
     <None Include="bin\Debug\text3408-128.png" />
     <None Include="bin\Debug\ok-appproval-acceptance.png" />
     <None Include="bin\Debug\INS1.png" />
