@@ -789,10 +789,6 @@
     End Sub
 
     Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
-        If yt.updatever = wersja Then
-            btnupdate.Visible = False
-        Else
-            updateform.Show()
-        End If
+        updateform.Show()
     End Sub
 End Class
