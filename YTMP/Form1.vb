@@ -789,7 +789,6 @@
     End Sub
 
     Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
-        If yt.updatever = "0" Then Exit Sub
         If yt.updatever = wersja Then
             btnupdate.Visible = False
         Else
