@@ -16,6 +16,7 @@ Public Class IMPORTplaylist
     Dim REFpl As List(Of PLAYLISTA) = New List(Of PLAYLISTA)
 
     Dim postep As Byte = 0
+    Dim nextpagetoken As String = ""
 
     Private Sub addlog(ByVal s As String)
         txtprogress.Text &= s & vbNewLine
@@ -52,15 +53,19 @@ Public Class IMPORTplaylist
     End Sub
 
     Private Sub JSONdeserialize()
-        tabela.Rows.Clear()
-        REFwyk.Clear()
-        REFalb.Clear()
+        If nextpagetoken = "" Then
+            tabela.Rows.Clear()
+            REFwyk.Clear()
+            REFalb.Clear()
+        End If
         Dim serial As JObject = JObject.Parse(input)
         Dim data As List(Of JToken) = serial.Children().ToList
         Dim output As String = ""
+        nextpagetoken = ""
 
         For Each item As JProperty In data
             item.CreateReader()
+            If item.Name = "nextPageToken" Then nextpagetoken = item.Value.ToString().Trim()
             If item.Name = "items" Then
                 For Each val As JObject In item.Values
                     'Debug.WriteLine("Title: {0}, Vid: {1}", val("snippet")("title"), val("contentDetails")("videoId"))
@@ -102,6 +107,12 @@ Public Class IMPORTplaylist
                 Next
             End If
         Next
+        If nextpagetoken = "" Then
+            addlog("Zakończono proces importu danych!")
+        Else
+            addlog("Pobieranie następnego pakietu danych...")
+            postep = 2
+        End If
     End Sub
 
     Private Sub radiodirect_CheckedChanged(sender As Object, e As EventArgs) Handles radiodirect.CheckedChanged
@@ -187,7 +198,7 @@ Public Class IMPORTplaylist
                     addlog("Łączenie z serwisem YouTube...")
                 End If
             Case 3
-                input = downloadpage("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=" & plid & "&key=" & googleapikey)
+                input = downloadpage("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=20&playlistId=" & plid & IIf(nextpagetoken = "", "", "&pageToken=" & nextpagetoken) & "&key=" & googleapikey)
                 If input = "" Then
                     addlog("ERROR: Błąd połączenia z serwisem YouTube!")
                     akt.Enabled = False
