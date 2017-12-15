@@ -18,6 +18,7 @@ Public Class YTAPI
     Public directplay As UTWOR = Nothing
     Public wskaznikpl As UTWOR = Nothing
     Public historia As List(Of UTWOR) = New List(Of UTWOR)
+    Public hisodtw As List(Of UTWOR) = New List(Of UTWOR)
 
     Enum YTstate
         nieuruchomiono = -1
@@ -44,11 +45,10 @@ Public Class YTAPI
     End Sub
 
     Private Sub loadwebpage(ByRef utw As UTWOR)
-        'browser.Navigate("https://serwer1657623.home.pl/testapiyt.php?vid=" & utw.link & "&stime=" & utw.start)
-        'browser.Navigate("https://adan2013.github.io/YTMP/?vid=" & utw.link & "&stime=" & utw.start & "&q=" & getq())
         browser.Navigate("https://adan2013.github.io/YTMP/?vid=" & utw.link & "&stime=" & utw.start)
         historia.Remove(utw)
         historia.Add(utw)
+        hisodtw.Add(utw)
         If dane.SETdymek Then
             Form1.notify.BalloonTipText = """" & utw.tytul & """ " & utw.FKalbum.FKwykonawca.nazwa
             Form1.notify.ShowBalloonTip(1800)

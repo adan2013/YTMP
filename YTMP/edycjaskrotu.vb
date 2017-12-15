@@ -21,15 +21,15 @@
             DialogResult = DialogResult.Cancel
         Else
             wynik = New KLAWISZE("WYNIK")
-            wynik.CTRLmod = Form1.KBctrl
-            wynik.ALTmod = Form1.KBalt
-            wynik.SHIFTmod = Form1.KBshift
+            wynik.CTRLmod = My.Computer.Keyboard.CtrlKeyDown
+            wynik.ALTmod = My.Computer.Keyboard.AltKeyDown
+            wynik.SHIFTmod = My.Computer.Keyboard.ShiftKeyDown
             wynik.KEY = key
             Dim s As String = "Wykryto następujący skrót:" & vbNewLine & vbNewLine
-            s &= IIf(Form1.KBctrl, "CTRL + ", "")
-            s &= IIf(Form1.KBalt, "ALT + ", "")
-            s &= IIf(Form1.KBshift, "SHIFT + ", "")
-            s &= key
+            s &= IIf(wynik.CTRLmod, "CTRL + ", "")
+            s &= IIf(wynik.ALTmod, "ALT + ", "")
+            s &= IIf(wynik.SHIFTmod, "SHIFT + ", "")
+            s &= wynik.KEY
             s &= vbNewLine & vbNewLine & "Zapisać skrót?"
             msg = True
             If MsgBox(s, MsgBoxStyle.Information + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then

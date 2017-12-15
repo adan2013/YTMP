@@ -154,4 +154,9 @@
             MsgBox("Wystąpił błąd podczas próby otwarcia pliku PDF!", MsgBoxStyle.Exclamation, "YTMP")
         End Try
     End Sub
+
+    Private Sub btnhistory_Click(sender As Object, e As EventArgs) Handles btnhistory.Click
+        hisutw.ShowDialog()
+        hisutw.Close()
+    End Sub
 End Class

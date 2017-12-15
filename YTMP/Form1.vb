@@ -1,10 +1,7 @@
 ﻿Public Class Form1
 
-    Public wersja As String = "v4.8"
+    Public wersja As String = "v5.0"
     Dim WithEvents kb As KeyboardHook = New KeyboardHook()
-    Public KBctrl As Boolean = False
-    Public KBalt As Boolean = False
-    Public KBshift As Boolean = False
     Public rewindstate As Double = -1
 
     Public lblstart As Label = New Label()
@@ -95,33 +92,17 @@
     End Sub
 
     Private Sub kb_KeyDown(Key As Keys) Handles kb.KeyDown
-        Select Case Key
-            Case Keys.LShiftKey, Keys.RShiftKey
-                KBshift = True
-            Case Keys.LControlKey, Keys.RControlKey
-                KBctrl = True
-            Case Keys.LMenu, Keys.RMenu
-                KBalt = True
-        End Select
+
     End Sub
 
     Private Sub kb_KeyUp(Key As Keys) Handles kb.KeyUp
-        Select Case Key
-            Case Keys.LShiftKey, Keys.RShiftKey
-                KBshift = False
-            Case Keys.LControlKey, Keys.RControlKey
-                KBctrl = False
-            Case Keys.LMenu, Keys.RMenu
-                KBalt = False
-            Case Else
-                If edycjaskrotu.Visible Then
-                    edycjaskrotu.odczyt(Key.ToString())
-                Else
-                    For Each i As KLAWISZE In dane.skroty
-                        If i.CTRLmod = KBctrl And i.ALTmod = KBalt And i.SHIFTmod = KBshift And i.KEY = Key.ToString() Then i.uruchom()
-                    Next
-                End If
-        End Select
+        If edycjaskrotu.Visible Then
+            edycjaskrotu.odczyt(Key.ToString())
+        Else
+            For Each i As KLAWISZE In dane.skroty
+                If i.CTRLmod = My.Computer.Keyboard.CtrlKeyDown And i.ALTmod = My.Computer.Keyboard.AltKeyDown And i.SHIFTmod = My.Computer.Keyboard.ShiftKeyDown And i.KEY = Key.ToString() Then i.uruchom()
+            Next
+        End If
         If dane.SETmultimediakeys Then
             Select Case Key.ToString()
                 Case "MediaPlayPause"
