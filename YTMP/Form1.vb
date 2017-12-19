@@ -10,6 +10,7 @@
     Public pnlglosnosc As Panel = New Panel()
     Public WithEvents pnlprzewijanie As Panel = New Panel()
     Dim searchempty As Boolean = True
+    Dim windowdragmode As Boolean = False
 
     Dim scrollpos As Integer = 0
     Dim pnlwewn As Panel = New Panel()
@@ -154,32 +155,32 @@
         If sender.Parent.Name = "pnlodtwarzacz" Then
             Select Case sender.Name
                 Case "btnran"
-                    If dane.MODran Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.LightGray
+                    If dane.MODran Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.WhiteSmoke
                 Case "btnrep"
-                    If dane.MODrep Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.LightGray
+                    If dane.MODrep Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.WhiteSmoke
                 Case "btnmute"
-                    If dane.MODmute Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.LightGray
+                    If dane.MODmute Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.WhiteSmoke
                 Case Else
-                    sender.BackColor = Color.LightGray
+                    sender.BackColor = Color.WhiteSmoke
             End Select
         Else
-            sender.BackColor = Color.White
+            sender.BackColor = Color.WhiteSmoke
         End If
     End Sub
 
     Private Sub btnran_Click(sender As Object, e As EventArgs) Handles btnran.Click
         dane.MODran = Not dane.MODran
-        If dane.MODran Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.LightGray
+        If dane.MODran Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.WhiteSmoke
     End Sub
 
     Private Sub btnrep_Click(sender As Object, e As EventArgs) Handles btnrep.Click
         dane.MODrep = Not dane.MODrep
-        If dane.MODrep Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.LightGray
+        If dane.MODrep Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.WhiteSmoke
     End Sub
 
     Public Sub btnmute_Click(sender As Object, e As EventArgs) Handles btnmute.Click
         dane.MODmute = Not dane.MODmute
-        If dane.MODmute Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.LightGray
+        If dane.MODmute Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.WhiteSmoke
     End Sub
 
     Private Sub btnsettings_Click(sender As Object, e As EventArgs) Handles btnsettings.Click
@@ -350,7 +351,7 @@
                 With btn(lp)
                     .Name = lp & "btn" & nrpoz
                     .Parent = pnl
-                    .BackColor = Color.White
+                    .BackColor = Color.WhiteSmoke
                     .Visible = False
                     .Cursor = Cursors.Hand
                     .SizeMode = PictureBoxSizeMode.CenterImage
@@ -558,10 +559,10 @@
         For Each i As Control In pnlwewn.Controls
             If TypeOf i Is Panel Then
                 For Each i2 As Control In i.Controls
-                    If TypeOf i2 Is PictureBox And i2.Parent.BackColor = Color.White Then i2.Visible = False
-                    If i2.BackColor = Color.LightGray Then i2.BackColor = Color.White
+                    If TypeOf i2 Is PictureBox And i2.Parent.BackColor = Color.Gainsboro Then i2.Visible = False
+                    If i2.BackColor = Color.LightGray Then i2.BackColor = Color.Gainsboro
                 Next
-                If i.BackColor = Color.LightGray Then i.BackColor = Color.White
+                If i.BackColor = Color.LightGray Then i.BackColor = Color.Gainsboro
             End If
         Next
         sender.BackColor = Color.LightGray
@@ -771,5 +772,38 @@
 
     Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
         updateform.Show()
+    End Sub
+
+    Private Sub btnX_MouseMove(sender As Object, e As MouseEventArgs) Handles btnX.MouseMove, btnM.MouseMove
+        sender.BackColor = Color.FromArgb(belkapnl.BackColor.R - 20, belkapnl.BackColor.G - 20, belkapnl.BackColor.B - 20)
+    End Sub
+
+    Private Sub btnX_MouseLeave(sender As Object, e As EventArgs) Handles btnX.MouseLeave, btnM.MouseLeave
+        sender.BackColor = belkapnl.BackColor
+    End Sub
+
+    Private Sub btnX_MouseDown(sender As Object, e As MouseEventArgs) Handles btnX.MouseDown, btnM.MouseDown
+        sender.BackColor = Color.FromArgb(belkapnl.BackColor.R - 40, belkapnl.BackColor.G - 40, belkapnl.BackColor.B - 40)
+    End Sub
+
+    Private Sub btnX_MouseUp(sender As Object, e As MouseEventArgs) Handles btnX.MouseUp, btnM.MouseUp
+        sender.BackColor = Color.FromArgb(belkapnl.BackColor.R - 20, belkapnl.BackColor.G - 20, belkapnl.BackColor.B - 20)
+        If sender.Name = "btnX" Then Close() Else WindowState = FormWindowState.Minimized
+    End Sub
+
+    Private Sub belkapnl_MouseDown(sender As Object, e As MouseEventArgs) Handles belkapnl.MouseDown, mainlbl.MouseDown
+        If e.Button = MouseButtons.Left Then windowdragmode = True
+    End Sub
+
+    Private Sub belkapnl_MouseUp(sender As Object, e As MouseEventArgs) Handles belkapnl.MouseUp, mainlbl.MouseUp
+        If e.Button = MouseButtons.Left Then windowdragmode = False
+    End Sub
+
+    Private Sub belkapnl_MouseMove(sender As Object, e As MouseEventArgs) Handles belkapnl.MouseMove, mainlbl.MouseMove
+        Static ostpoz As Point = Cursor.Position
+        If windowdragmode Then
+            Location = New Point(Location.X - (ostpoz.X - Cursor.Position.X), Location.Y - (ostpoz.Y - Cursor.Position.Y))
+        End If
+        ostpoz = Cursor.Position
     End Sub
 End Class

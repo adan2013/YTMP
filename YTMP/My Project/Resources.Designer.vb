@@ -93,6 +93,36 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property belka() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("belka", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property belkaM() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("belkaM", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property belkaX() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("belkaX", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property couple_of_arrows_changing_places() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("couple_of_arrows_changing_places", resourceCulture)

@@ -410,6 +410,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appicon.ico" />
+    <None Include="bin\Debug\belkaX.png" />
+    <None Include="bin\Debug\belkaM.png" />
+    <None Include="bin\Debug\belka.png" />
     <None Include="bin\Debug\aktualizacja.png" />
     <None Include="bin\Debug\text3408-128.png" />
     <None Include="bin\Debug\ok-appproval-acceptance.png" />

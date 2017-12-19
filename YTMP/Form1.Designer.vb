@@ -61,6 +61,10 @@ Partial Class Form1
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ZakończToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnsearchoff = New System.Windows.Forms.Button()
+        Me.belkapnl = New System.Windows.Forms.Panel()
+        Me.btnM = New System.Windows.Forms.PictureBox()
+        Me.btnX = New System.Windows.Forms.PictureBox()
+        Me.mainlbl = New System.Windows.Forms.PictureBox()
         Me.tabs.SuspendLayout()
         Me.pnlodtwarzacz.SuspendLayout()
         CType(Me.btnupdate, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,6 +78,10 @@ Partial Class Form1
         CType(Me.btnplay, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.contextnotify.SuspendLayout()
+        Me.belkapnl.SuspendLayout()
+        CType(Me.btnM, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnX, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.mainlbl, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tabs
@@ -81,7 +89,7 @@ Partial Class Form1
         Me.tabs.Controls.Add(Me.TabPage1)
         Me.tabs.Controls.Add(Me.TabPage2)
         Me.tabs.Controls.Add(Me.TabPage3)
-        Me.tabs.Location = New System.Drawing.Point(23, 12)
+        Me.tabs.Location = New System.Drawing.Point(23, 41)
         Me.tabs.Name = "tabs"
         Me.tabs.Padding = New System.Drawing.Point(14, 8)
         Me.tabs.SelectedIndex = 0
@@ -120,7 +128,8 @@ Partial Class Form1
         '
         'pnlodtwarzacz
         '
-        Me.pnlodtwarzacz.BackColor = System.Drawing.Color.White
+        Me.pnlodtwarzacz.BackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.pnlodtwarzacz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlodtwarzacz.Controls.Add(Me.btnupdate)
         Me.pnlodtwarzacz.Controls.Add(Me.PictureBox1)
         Me.pnlodtwarzacz.Controls.Add(Me.pnlsound)
@@ -133,14 +142,14 @@ Partial Class Form1
         Me.pnlodtwarzacz.Controls.Add(Me.btnrewindL)
         Me.pnlodtwarzacz.Controls.Add(Me.btnplay)
         Me.pnlodtwarzacz.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlodtwarzacz.Location = New System.Drawing.Point(0, 366)
+        Me.pnlodtwarzacz.Location = New System.Drawing.Point(0, 390)
         Me.pnlodtwarzacz.Name = "pnlodtwarzacz"
         Me.pnlodtwarzacz.Size = New System.Drawing.Size(534, 120)
         Me.pnlodtwarzacz.TabIndex = 1
         '
         'btnupdate
         '
-        Me.btnupdate.BackColor = System.Drawing.Color.LightGray
+        Me.btnupdate.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnupdate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnupdate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnupdate.Image = Global.YTMP.My.Resources.Resources.aktualizacja
@@ -163,7 +172,7 @@ Partial Class Form1
         '
         'pnlsound
         '
-        Me.pnlsound.BackColor = System.Drawing.Color.LightGray
+        Me.pnlsound.BackColor = System.Drawing.Color.WhiteSmoke
         Me.pnlsound.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlsound.Location = New System.Drawing.Point(422, 94)
         Me.pnlsound.Name = "pnlsound"
@@ -172,7 +181,7 @@ Partial Class Form1
         '
         'btnmute
         '
-        Me.btnmute.BackColor = System.Drawing.Color.LightGray
+        Me.btnmute.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnmute.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnmute.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnmute.Image = CType(resources.GetObject("btnmute.Image"), System.Drawing.Image)
@@ -185,7 +194,7 @@ Partial Class Form1
         '
         'pnlrewind
         '
-        Me.pnlrewind.BackColor = System.Drawing.Color.LightGray
+        Me.pnlrewind.BackColor = System.Drawing.Color.WhiteSmoke
         Me.pnlrewind.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlrewind.Location = New System.Drawing.Point(60, 10)
         Me.pnlrewind.Name = "pnlrewind"
@@ -194,7 +203,7 @@ Partial Class Form1
         '
         'btnrep
         '
-        Me.btnrep.BackColor = System.Drawing.Color.LightGray
+        Me.btnrep.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnrep.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnrep.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnrep.Image = CType(resources.GetObject("btnrep.Image"), System.Drawing.Image)
@@ -207,7 +216,7 @@ Partial Class Form1
         '
         'btnran
         '
-        Me.btnran.BackColor = System.Drawing.Color.LightGray
+        Me.btnran.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnran.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnran.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnran.Image = CType(resources.GetObject("btnran.Image"), System.Drawing.Image)
@@ -220,7 +229,7 @@ Partial Class Form1
         '
         'btnsettings
         '
-        Me.btnsettings.BackColor = System.Drawing.Color.LightGray
+        Me.btnsettings.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnsettings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnsettings.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnsettings.Image = CType(resources.GetObject("btnsettings.Image"), System.Drawing.Image)
@@ -233,7 +242,7 @@ Partial Class Form1
         '
         'btnrewindR
         '
-        Me.btnrewindR.BackColor = System.Drawing.Color.LightGray
+        Me.btnrewindR.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnrewindR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnrewindR.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnrewindR.Image = CType(resources.GetObject("btnrewindR.Image"), System.Drawing.Image)
@@ -246,7 +255,7 @@ Partial Class Form1
         '
         'btnrewindL
         '
-        Me.btnrewindL.BackColor = System.Drawing.Color.LightGray
+        Me.btnrewindL.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnrewindL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnrewindL.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnrewindL.Image = CType(resources.GetObject("btnrewindL.Image"), System.Drawing.Image)
@@ -259,7 +268,7 @@ Partial Class Form1
         '
         'btnplay
         '
-        Me.btnplay.BackColor = System.Drawing.Color.LightGray
+        Me.btnplay.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnplay.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnplay.Image = CType(resources.GetObject("btnplay.Image"), System.Drawing.Image)
@@ -272,21 +281,25 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.BackColor = System.Drawing.Color.Silver
         Me.Panel1.Controls.Add(Me.btnwyczysc)
         Me.Panel1.Controls.Add(Me.btnodtwall)
         Me.Panel1.Controls.Add(Me.btndodaj)
         Me.Panel1.Controls.Add(Me.btncofnij)
         Me.Panel1.Controls.Add(Me.lblinfo)
         Me.Panel1.Controls.Add(Me.pnllista)
-        Me.Panel1.Location = New System.Drawing.Point(12, 42)
+        Me.Panel1.Location = New System.Drawing.Point(12, 71)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(510, 313)
         Me.Panel1.TabIndex = 2
         '
         'btnwyczysc
         '
+        Me.btnwyczysc.BackColor = System.Drawing.Color.Gainsboro
         Me.btnwyczysc.Enabled = False
+        Me.btnwyczysc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.btnwyczysc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        Me.btnwyczysc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnwyczysc.Image = CType(resources.GetObject("btnwyczysc.Image"), System.Drawing.Image)
         Me.btnwyczysc.Location = New System.Drawing.Point(11, 161)
         Me.btnwyczysc.Margin = New System.Windows.Forms.Padding(3, 3, 3, 0)
@@ -297,11 +310,15 @@ Partial Class Form1
         Me.btnwyczysc.Text = "Wyczyść"
         Me.btnwyczysc.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnwyczysc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnwyczysc.UseVisualStyleBackColor = True
+        Me.btnwyczysc.UseVisualStyleBackColor = False
         '
         'btnodtwall
         '
+        Me.btnodtwall.BackColor = System.Drawing.Color.Gainsboro
         Me.btnodtwall.Enabled = False
+        Me.btnodtwall.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.btnodtwall.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        Me.btnodtwall.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnodtwall.Image = CType(resources.GetObject("btnodtwall.Image"), System.Drawing.Image)
         Me.btnodtwall.Location = New System.Drawing.Point(11, 224)
         Me.btnodtwall.Margin = New System.Windows.Forms.Padding(3, 3, 3, 0)
@@ -312,11 +329,15 @@ Partial Class Form1
         Me.btnodtwall.Text = "Odtwórz wszystkie"
         Me.btnodtwall.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnodtwall.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnodtwall.UseVisualStyleBackColor = True
+        Me.btnodtwall.UseVisualStyleBackColor = False
         '
         'btndodaj
         '
+        Me.btndodaj.BackColor = System.Drawing.Color.Gainsboro
         Me.btndodaj.Enabled = False
+        Me.btndodaj.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.btndodaj.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        Me.btndodaj.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btndodaj.Image = CType(resources.GetObject("btndodaj.Image"), System.Drawing.Image)
         Me.btndodaj.Location = New System.Drawing.Point(11, 98)
         Me.btndodaj.Margin = New System.Windows.Forms.Padding(3, 3, 3, 0)
@@ -327,11 +348,15 @@ Partial Class Form1
         Me.btndodaj.Text = "Dodaj nowy"
         Me.btndodaj.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btndodaj.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btndodaj.UseVisualStyleBackColor = True
+        Me.btndodaj.UseVisualStyleBackColor = False
         '
         'btncofnij
         '
+        Me.btncofnij.BackColor = System.Drawing.Color.Gainsboro
         Me.btncofnij.Enabled = False
+        Me.btncofnij.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.btncofnij.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        Me.btncofnij.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btncofnij.Image = CType(resources.GetObject("btncofnij.Image"), System.Drawing.Image)
         Me.btncofnij.Location = New System.Drawing.Point(11, 35)
         Me.btncofnij.Margin = New System.Windows.Forms.Padding(3, 3, 3, 0)
@@ -342,7 +367,7 @@ Partial Class Form1
         Me.btncofnij.Text = "Cofnij"
         Me.btncofnij.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btncofnij.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btncofnij.UseVisualStyleBackColor = True
+        Me.btncofnij.UseVisualStyleBackColor = False
         '
         'lblinfo
         '
@@ -357,6 +382,7 @@ Partial Class Form1
         'pnllista
         '
         Me.pnllista.AutoScroll = True
+        Me.pnllista.BackColor = System.Drawing.Color.Gainsboro
         Me.pnllista.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnllista.Location = New System.Drawing.Point(91, 35)
         Me.pnllista.Margin = New System.Windows.Forms.Padding(10)
@@ -366,9 +392,10 @@ Partial Class Form1
         '
         'txtsearch
         '
+        Me.txtsearch.BackColor = System.Drawing.Color.Gainsboro
         Me.txtsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.txtsearch.ForeColor = System.Drawing.Color.Gray
-        Me.txtsearch.Location = New System.Drawing.Point(342, 13)
+        Me.txtsearch.Location = New System.Drawing.Point(342, 42)
         Me.txtsearch.Name = "txtsearch"
         Me.txtsearch.Size = New System.Drawing.Size(180, 23)
         Me.txtsearch.TabIndex = 99
@@ -447,26 +474,71 @@ Partial Class Form1
         '
         'btnsearchoff
         '
+        Me.btnsearchoff.BackColor = System.Drawing.Color.Gainsboro
+        Me.btnsearchoff.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver
+        Me.btnsearchoff.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        Me.btnsearchoff.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnsearchoff.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.btnsearchoff.Location = New System.Drawing.Point(499, 12)
+        Me.btnsearchoff.Location = New System.Drawing.Point(499, 42)
         Me.btnsearchoff.Name = "btnsearchoff"
         Me.btnsearchoff.Size = New System.Drawing.Size(23, 23)
         Me.btnsearchoff.TabIndex = 100
         Me.btnsearchoff.TabStop = False
         Me.btnsearchoff.Text = "X"
-        Me.btnsearchoff.UseVisualStyleBackColor = True
+        Me.btnsearchoff.UseVisualStyleBackColor = False
+        '
+        'belkapnl
+        '
+        Me.belkapnl.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.belkapnl.Controls.Add(Me.btnM)
+        Me.belkapnl.Controls.Add(Me.btnX)
+        Me.belkapnl.Controls.Add(Me.mainlbl)
+        Me.belkapnl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.belkapnl.Location = New System.Drawing.Point(0, 0)
+        Me.belkapnl.Name = "belkapnl"
+        Me.belkapnl.Size = New System.Drawing.Size(534, 30)
+        Me.belkapnl.TabIndex = 101
+        '
+        'btnM
+        '
+        Me.btnM.Image = Global.YTMP.My.Resources.Resources.belkaM
+        Me.btnM.Location = New System.Drawing.Point(454, 0)
+        Me.btnM.Name = "btnM"
+        Me.btnM.Size = New System.Drawing.Size(40, 30)
+        Me.btnM.TabIndex = 103
+        Me.btnM.TabStop = False
+        '
+        'btnX
+        '
+        Me.btnX.Image = Global.YTMP.My.Resources.Resources.belkaX
+        Me.btnX.Location = New System.Drawing.Point(494, 0)
+        Me.btnX.Name = "btnX"
+        Me.btnX.Size = New System.Drawing.Size(40, 30)
+        Me.btnX.TabIndex = 102
+        Me.btnX.TabStop = False
+        '
+        'mainlbl
+        '
+        Me.mainlbl.Image = Global.YTMP.My.Resources.Resources.belka
+        Me.mainlbl.Location = New System.Drawing.Point(8, 0)
+        Me.mainlbl.Name = "mainlbl"
+        Me.mainlbl.Size = New System.Drawing.Size(300, 30)
+        Me.mainlbl.TabIndex = 0
+        Me.mainlbl.TabStop = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(534, 486)
+        Me.BackColor = System.Drawing.Color.Gray
+        Me.ClientSize = New System.Drawing.Size(534, 510)
+        Me.Controls.Add(Me.belkapnl)
         Me.Controls.Add(Me.txtsearch)
         Me.Controls.Add(Me.btnsearchoff)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.pnlodtwarzacz)
         Me.Controls.Add(Me.tabs)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Form1"
@@ -486,6 +558,10 @@ Partial Class Form1
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.contextnotify.ResumeLayout(False)
+        Me.belkapnl.ResumeLayout(False)
+        CType(Me.btnM, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnX, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.mainlbl, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -528,4 +604,8 @@ Partial Class Form1
     Friend WithEvents ZakończToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnsearchoff As Button
     Friend WithEvents btnupdate As PictureBox
+    Friend WithEvents belkapnl As Panel
+    Friend WithEvents mainlbl As PictureBox
+    Friend WithEvents btnM As PictureBox
+    Friend WithEvents btnX As PictureBox
 End Class
