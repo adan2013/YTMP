@@ -10,7 +10,9 @@
     Public pnlglosnosc As Panel = New Panel()
     Public WithEvents pnlprzewijanie As Panel = New Panel()
     Dim searchempty As Boolean = True
+
     Dim windowdragmode As Boolean = False
+    Dim dragcords As Point = New Point(0, 0)
 
     Dim scrollpos As Integer = 0
     Dim pnlwewn As Panel = New Panel()
@@ -792,7 +794,10 @@
     End Sub
 
     Private Sub belkapnl_MouseDown(sender As Object, e As MouseEventArgs) Handles belkapnl.MouseDown, mainlbl.MouseDown
-        If e.Button = MouseButtons.Left Then windowdragmode = True
+        If e.Button = MouseButtons.Left Then
+            windowdragmode = True
+            dragcords = New Point(Cursor.Position.X - Left, Cursor.Position.Y - Top)
+        End If
     End Sub
 
     Private Sub belkapnl_MouseUp(sender As Object, e As MouseEventArgs) Handles belkapnl.MouseUp, mainlbl.MouseUp
@@ -800,10 +805,13 @@
     End Sub
 
     Private Sub belkapnl_MouseMove(sender As Object, e As MouseEventArgs) Handles belkapnl.MouseMove, mainlbl.MouseMove
-        Static ostpoz As Point = Cursor.Position
         If windowdragmode Then
-            Location = New Point(Location.X - (ostpoz.X - Cursor.Position.X), Location.Y - (ostpoz.Y - Cursor.Position.Y))
+            Left = Cursor.Position.X - dragcords.X
+            Top = Cursor.Position.Y - dragcords.Y
         End If
-        ostpoz = Cursor.Position
+    End Sub
+
+    Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
+        e.Graphics.DrawRectangle(New Pen(New SolidBrush(Color.FromArgb(100, 100, 100)), 2), New Rectangle(0, 0, Size.Width, Size.Height))
     End Sub
 End Class
