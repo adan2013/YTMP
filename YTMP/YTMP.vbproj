@@ -410,6 +410,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appicon.ico" />
+    <None Include="bin\Debug\btntab3.png" />
+    <None Include="bin\Debug\btntab2.png" />
+    <None Include="bin\Debug\btntab1.png" />
     <None Include="bin\Debug\belkaX.png" />
     <None Include="bin\Debug\belkaM.png" />
     <None Include="bin\Debug\belka.png" />

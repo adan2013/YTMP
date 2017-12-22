@@ -24,10 +24,6 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.tabs = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.pnlodtwarzacz = New System.Windows.Forms.Panel()
         Me.btnupdate = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -65,7 +61,9 @@ Partial Class Form1
         Me.btnM = New System.Windows.Forms.PictureBox()
         Me.btnX = New System.Windows.Forms.PictureBox()
         Me.mainlbl = New System.Windows.Forms.PictureBox()
-        Me.tabs.SuspendLayout()
+        Me.tab1 = New System.Windows.Forms.PictureBox()
+        Me.tab2 = New System.Windows.Forms.PictureBox()
+        Me.tab3 = New System.Windows.Forms.PictureBox()
         Me.pnlodtwarzacz.SuspendLayout()
         CType(Me.btnupdate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,49 +80,10 @@ Partial Class Form1
         CType(Me.btnM, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mainlbl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tab1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tab2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tab3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'tabs
-        '
-        Me.tabs.Controls.Add(Me.TabPage1)
-        Me.tabs.Controls.Add(Me.TabPage2)
-        Me.tabs.Controls.Add(Me.TabPage3)
-        Me.tabs.Location = New System.Drawing.Point(23, 41)
-        Me.tabs.Name = "tabs"
-        Me.tabs.Padding = New System.Drawing.Point(14, 8)
-        Me.tabs.SelectedIndex = 0
-        Me.tabs.Size = New System.Drawing.Size(270, 29)
-        Me.tabs.TabIndex = 0
-        '
-        'TabPage1
-        '
-        Me.TabPage1.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(262, 0)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Lista odtwarzania"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(262, 0)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Utwory"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(262, 0)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Playlisty"
-        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'pnlodtwarzacz
         '
@@ -526,6 +485,39 @@ Partial Class Form1
         Me.mainlbl.TabIndex = 0
         Me.mainlbl.TabStop = False
         '
+        'tab1
+        '
+        Me.tab1.Image = Global.YTMP.My.Resources.Resources.btntab1
+        Me.tab1.Location = New System.Drawing.Point(23, 42)
+        Me.tab1.Margin = New System.Windows.Forms.Padding(1)
+        Me.tab1.Name = "tab1"
+        Me.tab1.Size = New System.Drawing.Size(126, 38)
+        Me.tab1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.tab1.TabIndex = 102
+        Me.tab1.TabStop = False
+        '
+        'tab2
+        '
+        Me.tab2.Image = Global.YTMP.My.Resources.Resources.btntab2
+        Me.tab2.Location = New System.Drawing.Point(149, 42)
+        Me.tab2.Margin = New System.Windows.Forms.Padding(1)
+        Me.tab2.Name = "tab2"
+        Me.tab2.Size = New System.Drawing.Size(68, 38)
+        Me.tab2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.tab2.TabIndex = 103
+        Me.tab2.TabStop = False
+        '
+        'tab3
+        '
+        Me.tab3.Image = Global.YTMP.My.Resources.Resources.btntab3
+        Me.tab3.Location = New System.Drawing.Point(217, 42)
+        Me.tab3.Margin = New System.Windows.Forms.Padding(1)
+        Me.tab3.Name = "tab3"
+        Me.tab3.Size = New System.Drawing.Size(74, 38)
+        Me.tab3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.tab3.TabIndex = 104
+        Me.tab3.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -537,14 +529,15 @@ Partial Class Form1
         Me.Controls.Add(Me.btnsearchoff)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.pnlodtwarzacz)
-        Me.Controls.Add(Me.tabs)
+        Me.Controls.Add(Me.tab1)
+        Me.Controls.Add(Me.tab2)
+        Me.Controls.Add(Me.tab3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "YouTube Media Player"
-        Me.tabs.ResumeLayout(False)
         Me.pnlodtwarzacz.ResumeLayout(False)
         CType(Me.btnupdate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -562,15 +555,13 @@ Partial Class Form1
         CType(Me.btnM, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mainlbl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tab1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tab2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tab3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents tabs As TabControl
-    Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents TabPage3 As TabPage
     Friend WithEvents pnlodtwarzacz As Panel
     Friend WithEvents pnlrewind As Panel
     Friend WithEvents btnrep As PictureBox
@@ -608,4 +599,7 @@ Partial Class Form1
     Friend WithEvents mainlbl As PictureBox
     Friend WithEvents btnM As PictureBox
     Friend WithEvents btnX As PictureBox
+    Friend WithEvents tab1 As PictureBox
+    Friend WithEvents tab2 As PictureBox
+    Friend WithEvents tab3 As PictureBox
 End Class

@@ -13,7 +13,7 @@
 
     Dim windowdragmode As Boolean = False
     Dim dragcords As Point = New Point(0, 0)
-
+    Dim seltab As SByte = 0
     Dim scrollpos As Integer = 0
     Dim pnlwewn As Panel = New Panel()
     Public PATHwyk As WYKONAWCA
@@ -22,6 +22,41 @@
     Public REFpoz As List(Of Object) = New List(Of Object)
 
     Public yt As YTAPI
+
+    Public Property selectedtab() As SByte
+        Get
+            Return seltab
+        End Get
+        Set(value As SByte)
+            If value >= 0 And value < 3 Then
+                seltab = value
+                refreshtabs()
+            End If
+        End Set
+    End Property
+
+    Private Sub refreshtabs()
+        'reset
+        tab1.Location = New Point(tab1.Location.X, 42)
+        tab2.Location = New Point(tab2.Location.X, 42)
+        tab3.Location = New Point(tab3.Location.X, 42)
+        'focus
+        Select Case seltab
+            Case 0
+                tab1.Location = New Point(tab1.Location.X, 39)
+            Case 1
+                tab2.Location = New Point(tab2.Location.X, 39)
+            Case 2
+                tab3.Location = New Point(tab3.Location.X, 39)
+        End Select
+
+        'panel
+        searchempty = True
+        txtsearch.Text = "Szukaj..."
+        txtsearch.ForeColor = Color.Gray
+        txtsearch.Size = New Size(180, txtsearch.Size.Height)
+        ladujpanel()
+    End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         splashscreen.ShowDialog()
@@ -78,7 +113,7 @@
         End If
         If dane.SETkopie Then backupy.dodajkopie(dane)
 
-        tabs.SelectedIndex = dane.SETdefaulttab
+        selectedtab = dane.SETdefaulttab
         pnlglosnosc.Size = New Size(dane.volume, pnlglosnosc.Size.Height)
         If dane.MODmute Then btnmute.BackColor = Color.Yellow
         If dane.MODran Then btnran.BackColor = Color.Yellow
@@ -191,14 +226,6 @@
         ladujpanel()
     End Sub
 
-    Private Sub tabs_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tabs.SelectedIndexChanged
-        searchempty = True
-        txtsearch.Text = "Szukaj..."
-        txtsearch.ForeColor = Color.Gray
-        txtsearch.Size = New Size(180, txtsearch.Size.Height)
-        ladujpanel()
-    End Sub
-
     Public Sub ladujpanel()
         pnllista.Controls.Remove(pnlwewn)
         pnlwewn = New Panel()
@@ -206,7 +233,7 @@
         pnlwewn.Size = New Size(pnllista.Size.Width - 2, 0)
 
         REFpoz.Clear()
-        Select Case tabs.SelectedIndex
+        Select Case selectedtab
             Case 0
                 btncofnij.Enabled = False
                 btndodaj.Enabled = False
@@ -323,7 +350,7 @@
                 .Size = New Size(pnlwewn.Size.Width - 5, 30)
                 .Parent = pnl
             End With
-            If tabs.SelectedIndex = 0 Or (tabs.SelectedIndex = 1 And Not searchempty) Or (tabs.SelectedIndex = 2 And PATHpl IsNot Nothing) Then
+            If selectedtab = 0 Or (selectedtab = 1 And Not searchempty) Or (selectedtab = 2 And PATHpl IsNot Nothing) Then
                 With lbltekst2
                     .Name = "lbl" & nrpoz
                     .Text = i.FKalbum.FKwykonawca.nazwa
@@ -335,7 +362,7 @@
                 AddHandler lbltekst2.MouseMove, AddressOf podswietl
                 AddHandler lbltekst2.Click, AddressOf klikpoz
             End If
-            If TypeOf REFpoz(0) Is UTWOR And Not (tabs.SelectedIndex = 1 And Not searchempty) Then
+            If TypeOf REFpoz(0) Is UTWOR And Not (selectedtab = 1 And Not searchempty) Then
                 With lbltekst3
                     .Name = "lbl" & nrpoz
                     .Text = nrpoz + 1
@@ -362,11 +389,11 @@
                     .Size = New Size(30, 30)
                     Select Case lp
                         Case 0
-                            Select Case tabs.SelectedIndex
+                            Select Case selectedtab
                                 Case 0
                                     .Image = My.Resources.folder
                                 Case 1
-                                    If (PATHwyk IsNot Nothing And PATHalb IsNot Nothing) Or (tabs.SelectedIndex = 1 And Not searchempty) Then
+                                    If (PATHwyk IsNot Nothing And PATHalb IsNot Nothing) Or (selectedtab = 1 And Not searchempty) Then
                                         .Image = My.Resources.add_button_inside_black_circle
                                     End If
                                 Case 2
@@ -375,13 +402,13 @@
                                     End If
                             End Select
                         Case 1
-                            If tabs.SelectedIndex = 0 Then
+                            If selectedtab = 0 Then
                                 .Image = My.Resources.switch_vertical_orientation_arrows
                             Else
-                                If tabs.SelectedIndex = 2 And PATHpl IsNot Nothing Then
+                                If selectedtab = 2 And PATHpl IsNot Nothing Then
                                     .Image = My.Resources.switch_vertical_orientation_arrows
                                 Else
-                                    If (tabs.SelectedIndex = 1 And Not searchempty) Then
+                                    If (selectedtab = 1 And Not searchempty) Then
                                         .Image = My.Resources.folder
                                     Else
                                         .Image = My.Resources.pencil_edit_button
@@ -389,7 +416,7 @@
                                 End If
                             End If
                         Case 2
-                            If Not (tabs.SelectedIndex = 1 And Not searchempty) Then .Image = My.Resources.delete__2_
+                            If Not (selectedtab = 1 And Not searchempty) Then .Image = My.Resources.delete__2_
                     End Select
                 End With
                 pnl.Controls.Add(btn(lp))
@@ -458,17 +485,17 @@
         Dim index As Integer = sender.Name.SubString(4)
         Select Case sender.Name.SubString(0, 1)
             Case "0" 'przejdz do i dodaj do playlisty
-                Select Case tabs.SelectedIndex
+                Select Case selectedtab
                     Case 0, 2
                         PATHalb = REFpoz(index).FKalbum
                         PATHwyk = REFpoz(index).FKalbum.FKwykonawca
-                        tabs.SelectedIndex = 1
+                        selectedtab = 1
                         ladujpanel()
                     Case 1
                         odtwarzane.dodajutwor(REFpoz(index))
                 End Select
             Case "1" 'przesun i edycja (wyszukiwanie: przejdz do)
-                If (tabs.SelectedIndex = 1 And Not searchempty) Then
+                If (selectedtab = 1 And Not searchempty) Then
                     PATHalb = REFpoz(index).FKalbum
                     PATHwyk = REFpoz(index).FKalbum.FKwykonawca
                     searchempty = True
@@ -476,10 +503,10 @@
                     txtsearch.ForeColor = Color.Gray
                     pnllista.Focus()
                 Else
-                    If TypeOf REFpoz(0) Is UTWOR And Not tabs.SelectedIndex = 1 Then
+                    If TypeOf REFpoz(0) Is UTWOR And Not selectedtab = 1 Then
                         MODpozycja.ustaw(REFpoz.Count, index)
                         MODpozycja.ShowDialog()
-                        If tabs.SelectedIndex = 0 Then
+                        If selectedtab = 0 Then
                             odtwarzane.usunutwor(REFpoz(index))
                             odtwarzane.utwory.Insert(MODpozycja.wynik, REFpoz(index))
                         Else
@@ -520,7 +547,7 @@
                 End If
                 ladujpanel()
             Case "2" 'usun
-                Select Case tabs.SelectedIndex
+                Select Case selectedtab
                     Case 0
                         odtwarzane.utwory.Remove(REFpoz(index))
                         ladujpanel()
@@ -587,7 +614,7 @@
     End Sub
 
     Private Sub btncofnij_Click(sender As Object, e As EventArgs) Handles btncofnij.Click
-        If tabs.SelectedIndex = 1 Then
+        If selectedtab = 1 Then
             If PATHalb Is Nothing Then
                 PATHwyk = Nothing
             Else
@@ -602,7 +629,7 @@
     End Sub
 
     Private Sub btnwyczysc_Click(sender As Object, e As EventArgs) Handles btnwyczysc.Click
-        Select Case tabs.SelectedIndex
+        Select Case selectedtab
             Case 0
                 odtwarzane.utwory.Clear()
                 ladujpanel()
@@ -644,12 +671,12 @@
                 Next
             End If
         End If
-        tabs.SelectedIndex = 0
+        selectedtab = 0
         yt.nastepnyutwor()
     End Sub
 
     Private Sub btndodaj_Click(sender As Object, e As EventArgs) Handles btndodaj.Click
-        If tabs.SelectedIndex = 2 Then
+        If selectedtab = 2 Then
             If odtwarzane.utwory.Count > 0 Then
                 MODpl.ShowDialog()
                 MODpl.Close()
@@ -813,5 +840,9 @@
 
     Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
         e.Graphics.DrawRectangle(New Pen(New SolidBrush(Color.FromArgb(100, 100, 100)), 2), New Rectangle(0, 0, Size.Width, Size.Height))
+    End Sub
+
+    Private Sub tab1_Click(sender As Object, e As EventArgs) Handles tab1.Click, tab2.Click, tab3.Click
+        selectedtab = sender.Name.Substring(sender.Name.Length - 1, 1) - 1
     End Sub
 End Class
