@@ -35,6 +35,14 @@
         End Set
     End Property
 
+    Protected Overrides ReadOnly Property CreateParams() As CreateParams
+        Get
+            Dim cp As CreateParams = MyBase.CreateParams
+            cp.Style = cp.Style Or &H20000
+            Return cp
+        End Get
+    End Property
+
     Private Sub refreshtabs()
         'reset
         tab1.Location = New Point(tab1.Location.X, 42)
@@ -789,9 +797,7 @@
 
     Private Sub Form1_SizeChanged(sender As Object, e As EventArgs) Handles Me.SizeChanged
         If dane.SEThide And WindowState = FormWindowState.Minimized Then Hide()
-        If WindowState = FormWindowState.Maximized Then
-            WindowState = FormWindowState.Normal
-        End If
+        If WindowState = FormWindowState.Maximized Then WindowState = FormWindowState.Normal
     End Sub
 
     Private Sub pnlrewind_MouseLeave(sender As Object, e As EventArgs) Handles pnlrewind.MouseLeave, pnlprzewijanie.MouseLeave
