@@ -831,7 +831,7 @@
         If sender.Name = "btnOPNCLS" Then
             If Size.Width < 550 Then
                 btnOPNCLS.Image = My.Resources.belkaclose
-                Size = New Size(950, Size.Height)
+                Size = New Size(960, Size.Height)
             Else
                 btnOPNCLS.Image = My.Resources.belkaopen
                 Size = New Size(534, Size.Height)

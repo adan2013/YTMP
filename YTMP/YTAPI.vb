@@ -38,9 +38,9 @@ Public Class YTAPI
         browser = New GeckoWebBrowser()
         browser.BackColor = Color.FromArgb(128, 128, 128)
         browser.Location = New Point(548, 12)
-        browser.Size = New Size(390, 486)
+        browser.Size = New Size(400, 486)
         Form1.Controls.Add(browser)
-        browser.LoadHtml("<body bgcolor=""#808080""></body>")
+        browser.LoadHtml("<body bgcolor=""#c0c0c0""></body>")
     End Sub
 
     Private Sub loadwebpage(ByRef utw As UTWOR)
@@ -281,7 +281,7 @@ Public Class YTAPI
 
     Public Sub nastepnyutwor()
         pushbutton("pause")
-        browser.LoadHtml("")
+        browser.LoadHtml("<body bgcolor=""#c0c0c0""></body>")
         directplay = Nothing
         If odtwarzane.utwory.Count = 0 Then
             wskaznikpl = Nothing
