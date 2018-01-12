@@ -103,9 +103,29 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property belkaclose() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("belkaclose", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property belkaM() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("belkaM", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property belkaopen() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("belkaopen", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

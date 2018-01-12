@@ -36,12 +36,10 @@ Public Class YTAPI
     Public Sub New()
         Gecko.Xpcom.Initialize(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "xulrunner"))
         browser = New GeckoWebBrowser()
-        browser.Visible = False
-        'browser.Visible = True
-        'browser.Location = New Point(80, 80)
-        'browser.Size = New Size(300, 300)
+        browser.Location = New Point(548, 42)
+        browser.Size = New Size(390, 456)
         Form1.Controls.Add(browser)
-        'browser.BringToFront()
+
     End Sub
 
     Private Sub loadwebpage(ByRef utw As UTWOR)

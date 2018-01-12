@@ -58,6 +58,7 @@ Partial Class Form1
         Me.ZakończToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnsearchoff = New System.Windows.Forms.Button()
         Me.belkapnl = New System.Windows.Forms.Panel()
+        Me.btnOPNCLS = New System.Windows.Forms.PictureBox()
         Me.btnM = New System.Windows.Forms.PictureBox()
         Me.btnX = New System.Windows.Forms.PictureBox()
         Me.mainlbl = New System.Windows.Forms.PictureBox()
@@ -77,6 +78,7 @@ Partial Class Form1
         Me.Panel1.SuspendLayout()
         Me.contextnotify.SuspendLayout()
         Me.belkapnl.SuspendLayout()
+        CType(Me.btnOPNCLS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnM, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mainlbl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,7 +102,6 @@ Partial Class Form1
         Me.pnlodtwarzacz.Controls.Add(Me.btnrewindR)
         Me.pnlodtwarzacz.Controls.Add(Me.btnrewindL)
         Me.pnlodtwarzacz.Controls.Add(Me.btnplay)
-        Me.pnlodtwarzacz.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnlodtwarzacz.Location = New System.Drawing.Point(0, 390)
         Me.pnlodtwarzacz.Name = "pnlodtwarzacz"
         Me.pnlodtwarzacz.Size = New System.Drawing.Size(534, 120)
@@ -449,14 +450,23 @@ Partial Class Form1
         'belkapnl
         '
         Me.belkapnl.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.belkapnl.Controls.Add(Me.btnOPNCLS)
         Me.belkapnl.Controls.Add(Me.btnM)
         Me.belkapnl.Controls.Add(Me.btnX)
         Me.belkapnl.Controls.Add(Me.mainlbl)
-        Me.belkapnl.Dock = System.Windows.Forms.DockStyle.Top
         Me.belkapnl.Location = New System.Drawing.Point(0, 0)
         Me.belkapnl.Name = "belkapnl"
         Me.belkapnl.Size = New System.Drawing.Size(534, 30)
         Me.belkapnl.TabIndex = 101
+        '
+        'btnOPNCLS
+        '
+        Me.btnOPNCLS.Image = Global.YTMP.My.Resources.Resources.belkaopen
+        Me.btnOPNCLS.Location = New System.Drawing.Point(414, 0)
+        Me.btnOPNCLS.Name = "btnOPNCLS"
+        Me.btnOPNCLS.Size = New System.Drawing.Size(40, 30)
+        Me.btnOPNCLS.TabIndex = 104
+        Me.btnOPNCLS.TabStop = False
         '
         'btnM
         '
@@ -552,6 +562,7 @@ Partial Class Form1
         Me.Panel1.PerformLayout()
         Me.contextnotify.ResumeLayout(False)
         Me.belkapnl.ResumeLayout(False)
+        CType(Me.btnOPNCLS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnM, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mainlbl, System.ComponentModel.ISupportInitialize).EndInit()
@@ -602,4 +613,5 @@ Partial Class Form1
     Friend WithEvents tab1 As PictureBox
     Friend WithEvents tab2 As PictureBox
     Friend WithEvents tab3 As PictureBox
+    Friend WithEvents btnOPNCLS As PictureBox
 End Class

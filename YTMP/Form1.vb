@@ -812,21 +812,31 @@
         updateform.Show()
     End Sub
 
-    Private Sub btnX_MouseMove(sender As Object, e As MouseEventArgs) Handles btnX.MouseMove, btnM.MouseMove
+    Private Sub btnX_MouseMove(sender As Object, e As MouseEventArgs) Handles btnX.MouseMove, btnM.MouseMove, btnOPNCLS.MouseMove
         sender.BackColor = Color.FromArgb(belkapnl.BackColor.R - 20, belkapnl.BackColor.G - 20, belkapnl.BackColor.B - 20)
     End Sub
 
-    Private Sub btnX_MouseLeave(sender As Object, e As EventArgs) Handles btnX.MouseLeave, btnM.MouseLeave
+    Private Sub btnX_MouseLeave(sender As Object, e As EventArgs) Handles btnX.MouseLeave, btnM.MouseLeave, btnOPNCLS.MouseLeave
         sender.BackColor = belkapnl.BackColor
     End Sub
 
-    Private Sub btnX_MouseDown(sender As Object, e As MouseEventArgs) Handles btnX.MouseDown, btnM.MouseDown
+    Private Sub btnX_MouseDown(sender As Object, e As MouseEventArgs) Handles btnX.MouseDown, btnM.MouseDown, btnOPNCLS.MouseDown
         sender.BackColor = Color.FromArgb(belkapnl.BackColor.R - 40, belkapnl.BackColor.G - 40, belkapnl.BackColor.B - 40)
     End Sub
 
-    Private Sub btnX_MouseUp(sender As Object, e As MouseEventArgs) Handles btnX.MouseUp, btnM.MouseUp
+    Private Sub btnX_MouseUp(sender As Object, e As MouseEventArgs) Handles btnX.MouseUp, btnM.MouseUp, btnOPNCLS.MouseUp
         sender.BackColor = Color.FromArgb(belkapnl.BackColor.R - 20, belkapnl.BackColor.G - 20, belkapnl.BackColor.B - 20)
-        If sender.Name = "btnX" Then Close() Else WindowState = FormWindowState.Minimized
+        If sender.Name = "btnX" Then Close()
+        If sender.Name = "btnM" Then WindowState = FormWindowState.Minimized
+        If sender.Name = "btnOPNCLS" Then
+            If Size.Width < 550 Then
+                btnOPNCLS.Image = My.Resources.belkaclose
+                Size = New Size(950, Size.Height)
+            Else
+                btnOPNCLS.Image = My.Resources.belkaopen
+                Size = New Size(534, Size.Height)
+            End If
+        End If
     End Sub
 
     Private Sub belkapnl_MouseDown(sender As Object, e As MouseEventArgs) Handles belkapnl.MouseDown, mainlbl.MouseDown
@@ -848,6 +858,7 @@
     End Sub
 
     Private Sub Form1_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
+        e.Graphics.DrawRectangle(New Pen(New SolidBrush(Color.FromArgb(100, 100, 100)), 2), New Rectangle(0, 0, 534, Size.Height))
         e.Graphics.DrawRectangle(New Pen(New SolidBrush(Color.FromArgb(100, 100, 100)), 2), New Rectangle(0, 0, Size.Width, Size.Height))
     End Sub
 
