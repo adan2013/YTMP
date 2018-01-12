@@ -4,6 +4,8 @@ Imports Gecko.Events
 
 Public Class YTAPI
 
+    Const defaultwww As String = "<body bgcolor=""#c0c0c0""></body>"
+
     Public currenttime As Integer = 0
     Public durationtime As Integer = 0
     Public wyciszony As Boolean = False
@@ -40,7 +42,7 @@ Public Class YTAPI
         browser.Location = New Point(548, 12)
         browser.Size = New Size(400, 486)
         Form1.Controls.Add(browser)
-        browser.LoadHtml("<body bgcolor=""#c0c0c0""></body>")
+        browser.LoadHtml(defaultwww)
     End Sub
 
     Private Sub loadwebpage(ByRef utw As UTWOR)
@@ -281,7 +283,7 @@ Public Class YTAPI
 
     Public Sub nastepnyutwor()
         pushbutton("pause")
-        browser.LoadHtml("<body bgcolor=""#c0c0c0""></body>")
+        browser.LoadHtml(defaultwww)
         directplay = Nothing
         If odtwarzane.utwory.Count = 0 Then
             wskaznikpl = Nothing
