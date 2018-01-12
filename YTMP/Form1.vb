@@ -446,8 +446,6 @@
             nrpoz += 1
         Next
 
-
-
         pnllista.Controls.Add(pnlwewn)
         If pnllista.VerticalScroll.Visible Then
             pnlwewn.Size = New Size(pnlwewn.Size.Width - 19, pnlwewn.Size.Height)
@@ -457,6 +455,8 @@
 
             End Try
         End If
+
+        skrocstring(lblinfo, 400, lblinfo.Text)
     End Sub
 
     Private Sub klikpoz(sender As Object, e As EventArgs)
