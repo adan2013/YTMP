@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <body>
+    <body bgcolor="#c0c0c0">
+        <img src="logo.png" /><br />
         <div id="player"></div>
+        <br /><br />
+        <button style="background-color: transparent; border: none; padding: 5px; cursor: pointer" onclick="devshow()">
+            <b>Pokaż opcje deweloperskie</b>
+        </button>
         <br />
-        CURRENT: <div id="INFOcurrent">0</div>
-        DURATION: <div id="INFOduration">0</div>
-        STATE: <div id="INFOstate">3</div>
-        IS_MUTED: <div id="INFOismuted">false</div>
-        VOLUME: <div id="INFOvolume">100</div>
-        QUALITY: <div id="INFOquality">?</div>
         
+        <div id="devinfo" style="display: none; padding: 5px;">
+            CURRENT: <div id="INFOcurrent">0</div>
+            DURATION: <div id="INFOduration">0</div>
+            STATE: <div id="INFOstate">3</div>
+            IS_MUTED: <div id="INFOismuted">false</div>
+            VOLUME: <div id="INFOvolume">100</div>
+            QUALITY: <div id="INFOquality">?</div>
+
+
+
+            <!-- current version of YTMP -->
+            APPVERSION: <div id="INFOversion">v5.0</div>
+            <!-- current version of YTMP -->
+
+
+
+            <br />
+            <button type="button" id="play" onclick="player.playVideo()">PLAY</button>
+            <button type="button" id="pause" onclick="player.pauseVideo()">PAUSE</button>
+            <button type="button" id="mute" onclick="player.mute()">MUTE</button>
+            <button type="button" id="unmute" onclick="player.unMute()">UNMUTE</button>
+            <button type="button" id="setvol" onclick="player.setVolume(0)">SET VOLUME</button>
+            <button type="button" id="rewind" onclick="player.seekTo(0, true)">REWIND</button>
+            <!--<button type="button" id="q1" onclick="player.setPlaybackQuality('tiny')">Q: LOW</button>
+            <button type="button" id="q2" onclick="player.setPlaybackQuality('medium')">Q: MED</button>
+            <button type="button" id="q3" onclick="player.setPlaybackQuality('hd720')">Q: 720</button>-->
+        </div>
         
-        
-        <!-- current version of YTMP -->
-        APPVERSION: <div id="INFOversion">v5.0</div>
-        <!-- current version of YTMP -->
-        
-        
-        
-        <br />
-        <button type="button" id="play" onclick="player.playVideo()">PLAY</button>
-        <button type="button" id="pause" onclick="player.pauseVideo()">PAUSE</button>
-        <button type="button" id="mute" onclick="player.mute()">MUTE</button>
-        <button type="button" id="unmute" onclick="player.unMute()">UNMUTE</button>
-        <button type="button" id="setvol" onclick="player.setVolume(0)">SET VOLUME</button>
-        <button type="button" id="rewind" onclick="player.seekTo(0, true)">REWIND</button>
-        <!--<button type="button" id="q1" onclick="player.setPlaybackQuality('tiny')">Q: LOW</button>
-        <button type="button" id="q2" onclick="player.setPlaybackQuality('medium')">Q: MED</button>
-        <button type="button" id="q3" onclick="player.setPlaybackQuality('hd720')">Q: 720</button>-->
         <script>
+            var widoczne = false;
+            function devshow() {
+                var ob = document.getElementById("devinfo");
+                if(widoczne){
+                    ob.style.display = 'none';
+                    widoczne = false;
+                }else{
+                    ob.style.display = 'block';
+                    widoczne = true;
+                }
+            }
             var INFOcurrent = document.getElementById('INFOcurrent');
             var INFOduration = document.getElementById('INFOduration');
             var INFOstate = document.getElementById('INFOstate');
