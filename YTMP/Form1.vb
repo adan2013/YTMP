@@ -789,6 +789,9 @@
 
     Private Sub Form1_SizeChanged(sender As Object, e As EventArgs) Handles Me.SizeChanged
         If dane.SEThide And WindowState = FormWindowState.Minimized Then Hide()
+        If WindowState = FormWindowState.Maximized Then
+            WindowState = FormWindowState.Normal
+        End If
     End Sub
 
     Private Sub pnlrewind_MouseLeave(sender As Object, e As EventArgs) Handles pnlrewind.MouseLeave, pnlprzewijanie.MouseLeave
