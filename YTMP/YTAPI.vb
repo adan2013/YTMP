@@ -4,6 +4,7 @@ Imports Gecko.Events
 
 Public Class YTAPI
 
+    Dim allowurl() As String = {"https://adan2013.github.io", "data:text/html", "about:blank"}
     Const defaultwww As String = "<body bgcolor=""#c0c0c0""></body>"
 
     Public currenttime As Integer = 0
@@ -355,5 +356,22 @@ Public Class YTAPI
                 End If
             End If
         End If
+    End Sub
+
+    Private Sub browser_Navigated(sender As Object, e As GeckoNavigatedEventArgs) Handles browser.Navigated
+        Dim ok As Boolean = False
+        For Each i As String In allowurl
+            If e.Uri.ToString().IndexOf(i) = 0 Then
+                ok = True
+                Exit For
+            End If
+        Next
+        If Not ok Then
+            browser.GoBack()
+        End If
+    End Sub
+
+    Private Sub browser_CreateWindow2(sender As Object, e As GeckoCreateWindow2EventArgs) Handles browser.CreateWindow2
+        e.Cancel = True
     End Sub
 End Class
