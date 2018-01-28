@@ -48,6 +48,8 @@ Partial Class genraport
         Me.btnsave = New System.Windows.Forms.Button()
         Me.savedialog = New System.Windows.Forms.SaveFileDialog()
         Me.opendialog = New System.Windows.Forms.OpenFileDialog()
+        Me.lst4 = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -117,7 +119,7 @@ Partial Class genraport
         Me.GroupBox1.Controls.Add(Me.radiocsv)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 41)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(130, 110)
+        Me.GroupBox1.Size = New System.Drawing.Size(130, 132)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Prezentacja danych"
@@ -166,6 +168,8 @@ Partial Class genraport
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lst4)
+        Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.chkboxalfabet)
         Me.GroupBox2.Controls.Add(Me.lst3)
         Me.GroupBox2.Controls.Add(Me.Label4)
@@ -178,7 +182,7 @@ Partial Class genraport
         Me.GroupBox2.Controls.Add(Me.chkboxwyk)
         Me.GroupBox2.Location = New System.Drawing.Point(148, 41)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(424, 110)
+        Me.GroupBox2.Size = New System.Drawing.Size(424, 132)
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Opcje widoku"
@@ -197,7 +201,7 @@ Partial Class genraport
         '
         Me.lst3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.lst3.FormattingEnabled = True
-        Me.lst3.Items.AddRange(New Object() {"(pusty)", "Tytuł utworu", "Album", "Wykonawca"})
+        Me.lst3.Items.AddRange(New Object() {"(pusty)", "Identyfikator", "Tytuł utworu", "Album", "Wykonawca"})
         Me.lst3.Location = New System.Drawing.Point(269, 73)
         Me.lst3.Name = "lst3"
         Me.lst3.Size = New System.Drawing.Size(121, 21)
@@ -216,7 +220,7 @@ Partial Class genraport
         '
         Me.lst2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.lst2.FormattingEnabled = True
-        Me.lst2.Items.AddRange(New Object() {"(pusty)", "Tytuł utworu", "Album", "Wykonawca"})
+        Me.lst2.Items.AddRange(New Object() {"(pusty)", "Identyfikator", "Tytuł utworu", "Album", "Wykonawca"})
         Me.lst2.Location = New System.Drawing.Point(269, 46)
         Me.lst2.Name = "lst2"
         Me.lst2.Size = New System.Drawing.Size(121, 21)
@@ -235,7 +239,7 @@ Partial Class genraport
         '
         Me.lst1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.lst1.FormattingEnabled = True
-        Me.lst1.Items.AddRange(New Object() {"(pusty)", "Tytuł utworu", "Album", "Wykonawca"})
+        Me.lst1.Items.AddRange(New Object() {"(pusty)", "Identyfikator", "Tytuł utworu", "Album", "Wykonawca"})
         Me.lst1.Location = New System.Drawing.Point(269, 19)
         Me.lst1.Name = "lst1"
         Me.lst1.Size = New System.Drawing.Size(121, 21)
@@ -299,6 +303,25 @@ Partial Class genraport
         Me.opendialog.Filter = "Plik magazynu (*.ytmp)|*.ytmp"
         Me.opendialog.Title = "Wskaż plik"
         '
+        'lst4
+        '
+        Me.lst4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.lst4.FormattingEnabled = True
+        Me.lst4.Items.AddRange(New Object() {"(pusty)", "Identyfikator", "Tytuł utworu", "Album", "Wykonawca"})
+        Me.lst4.Location = New System.Drawing.Point(269, 100)
+        Me.lst4.Name = "lst4"
+        Me.lst4.Size = New System.Drawing.Size(121, 21)
+        Me.lst4.TabIndex = 16
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(209, 104)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(54, 13)
+        Me.Label1.TabIndex = 15
+        Me.Label1.Text = "4 miejsce:"
+        '
         'genraport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -354,4 +377,6 @@ Partial Class genraport
     Friend WithEvents savedialog As SaveFileDialog
     Friend WithEvents opendialog As OpenFileDialog
     Friend WithEvents chkboxalfabet As CheckBox
+    Friend WithEvents lst4 As ComboBox
+    Friend WithEvents Label1 As Label
 End Class

@@ -9,6 +9,7 @@
         lst1.SelectedIndex = 1
         lst2.SelectedIndex = 2
         lst3.SelectedIndex = 3
+        lst4.SelectedIndex = 4
     End Sub
 
     Private Sub btnlokalny_Click(sender As Object, e As EventArgs) Handles btnlokalny.Click
@@ -40,6 +41,7 @@
         If lst1.SelectedIndex > 0 Then k.Add(lst1.SelectedIndex)
         If lst2.SelectedIndex > 0 Then k.Add(lst2.SelectedIndex)
         If lst3.SelectedIndex > 0 Then k.Add(lst3.SelectedIndex)
+        If lst4.SelectedIndex > 0 Then k.Add(lst4.SelectedIndex)
         Dim mag As MAGAZYN = Nothing
         Dim l As List(Of String) = New List(Of String)
         Try
@@ -54,9 +56,9 @@
                 For Each a As ALBUM In w.albumy
                     For Each u As UTWOR In a.utwory
                         If radiocsv.Checked Then
-                            l.Add(getcontent(u, 0, True, True) & getcontent(u, 1, True, True) & getcontent(u, 2, False, True))
+                            l.Add(getcontent(u, 0, True, True) & getcontent(u, 1, True, True) & getcontent(u, 2, True, True) & getcontent(u, 3, False, True))
                         Else
-                            l.Add(getcontent(u, 0, True, False) & getcontent(u, 1, True, False) & getcontent(u, 2, False, False))
+                            l.Add(getcontent(u, 0, True, False) & getcontent(u, 1, True, False) & getcontent(u, 2, True, False) & getcontent(u, 3, False, False))
                         End If
                     Next
                 Next
@@ -84,11 +86,13 @@
             Case 0
                 Return ""
             Case 1
-                w = IIf(chkboxutw.Checked, """" & IIf(radiocsv.Checked, """", ""), "") & ob.tytul & IIf(chkboxutw.Checked, """" & IIf(radiocsv.Checked, """", ""), "")
+                w = ob.link
             Case 2
+                w = IIf(chkboxutw.Checked, """" & IIf(radiocsv.Checked, """", ""), "") & ob.tytul & IIf(chkboxutw.Checked, """" & IIf(radiocsv.Checked, """", ""), "")
+            Case 3
                 w = ob.FKalbum.nazwa
                 If chkboxalb.Checked And ob.FKalbum.brakpozycji Then w = ""
-            Case 3
+            Case 4
                 w = ob.FKalbum.FKwykonawca.nazwa
                 If chkboxwyk.Checked And ob.FKalbum.FKwykonawca.brakpozycji Then w = ""
         End Select
