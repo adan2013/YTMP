@@ -832,6 +832,7 @@
             If Size.Width < 550 Then
                 btnOPNCLS.Image = My.Resources.belkaclose
                 Size = New Size(960, Size.Height)
+                If Location.X + Size.Width > Screen.PrimaryScreen.WorkingArea.Width Then Location = New Point(Screen.PrimaryScreen.WorkingArea.Width - Size.Width, Location.Y)
             Else
                 btnOPNCLS.Image = My.Resources.belkaopen
                 Size = New Size(534, Size.Height)
