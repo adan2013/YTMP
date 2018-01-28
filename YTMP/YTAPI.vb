@@ -372,6 +372,13 @@ Public Class YTAPI
     End Sub
 
     Private Sub browser_CreateWindow2(sender As Object, e As GeckoCreateWindow2EventArgs) Handles browser.CreateWindow2
+        If e.Uri Like "https://www.youtube.com/watch?v=*" Then
+            Try
+                Process.Start(e.Uri)
+            Catch ex As Exception
+
+            End Try
+        End If
         e.Cancel = True
     End Sub
 End Class
