@@ -129,4 +129,8 @@ Module publiczny
             Return ""
         End Try
     End Function
+
+    Public Sub zapiszzmiany()
+        serializuj(dane, Application.StartupPath & "\" & "magazyn.ytmp")
+    End Sub
 End Module

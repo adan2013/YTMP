@@ -137,6 +137,7 @@ Public Class ytbrowser
             Case strbtnadd.utwor, strbtnadd.utworiplaylista
                 IMPORTutw.ShowDialog()
                 IMPORTutw.Close()
+                zapiszzmiany()
         End Select
     End Sub
 
@@ -205,5 +206,6 @@ Public Class ytbrowser
         IMPORTplaylist.plid = plid
         IMPORTplaylist.ShowDialog()
         IMPORTplaylist.Close()
+        zapiszzmiany()
     End Sub
 End Class

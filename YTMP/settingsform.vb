@@ -80,6 +80,7 @@
         dane.SETshowtitlewindow = chkboxtitlewindow.Checked
         If lstkopie.SelectedIndex = 0 Then dane.SETkopie = False Else dane.SETkopie = True
         Form1.Text = "YouTube Media Player"
+        zapiszzmiany()
     End Sub
 
     Private Sub btnlocalsave_Click(sender As Object, e As EventArgs) Handles btnlocalsave.Click

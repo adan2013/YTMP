@@ -120,6 +120,7 @@
             serializuj(backupy, Application.StartupPath & "\" & "kopie.backup")
         End If
         If dane.SETkopie Then backupy.dodajkopie(dane)
+        serializuj(backupy, Application.StartupPath & "\" & "kopie.backup")
 
         selectedtab = dane.SETdefaulttab
         pnlglosnosc.Size = New Size(dane.volume, pnlglosnosc.Size.Height)
@@ -131,8 +132,7 @@
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        serializuj(dane, Application.StartupPath & "\" & "magazyn.ytmp")
-        serializuj(backupy, Application.StartupPath & "\" & "kopie.backup")
+        'serializuj(dane, Application.StartupPath & "\" & "magazyn.ytmp")
         akt.Enabled = False
         yt.usun()
     End Sub
@@ -216,16 +216,19 @@
     Private Sub btnran_Click(sender As Object, e As EventArgs) Handles btnran.Click
         dane.MODran = Not dane.MODran
         If dane.MODran Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.WhiteSmoke
+        zapiszzmiany()
     End Sub
 
     Private Sub btnrep_Click(sender As Object, e As EventArgs) Handles btnrep.Click
         dane.MODrep = Not dane.MODrep
         If dane.MODrep Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.WhiteSmoke
+        zapiszzmiany()
     End Sub
 
     Public Sub btnmute_Click(sender As Object, e As EventArgs) Handles btnmute.Click
         dane.MODmute = Not dane.MODmute
         If dane.MODmute Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.WhiteSmoke
+        zapiszzmiany()
     End Sub
 
     Private Sub btnsettings_Click(sender As Object, e As EventArgs) Handles btnsettings.Click
@@ -522,11 +525,13 @@
                             PATHpl.utwory.Insert(MODpozycja.wynik, REFpoz(index))
                         End If
                         MODpozycja.Close()
+                        zapiszzmiany()
                     Else
                         If TypeOf REFpoz(0) Is PLAYLISTA Then
                             MODpl.modyfikuj(REFpoz(index))
                             MODpl.ShowDialog()
                             MODpl.Close()
+                            zapiszzmiany()
                         End If
                         If TypeOf REFpoz(0) Is WYKONAWCA Then
                             If REFpoz(index).brakpozycji Then
@@ -535,6 +540,7 @@
                                 MODwyk.modyfikuj(REFpoz(index))
                                 MODwyk.ShowDialog()
                                 MODwyk.Close()
+                                zapiszzmiany()
                             End If
                         End If
                         If TypeOf REFpoz(0) Is ALBUM Then
@@ -544,12 +550,14 @@
                                 MODalb.modyfikuj(REFpoz(index))
                                 MODalb.ShowDialog()
                                 MODalb.Close()
+                                zapiszzmiany()
                             End If
                         End If
                         If TypeOf REFpoz(0) Is UTWOR Then
                             MODutw.modyfikuj(REFpoz(index))
                             MODutw.ShowDialog()
                             MODutw.Close()
+                            zapiszzmiany()
                         End If
                     End If
                 End If
@@ -564,17 +572,20 @@
                             If MsgBox("Usunąć wykonawcę oraz wszystkie albumy i utwory należące do niego?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
                                 REFpoz(index).usunmnie()
                                 ladujpanel()
+                                zapiszzmiany()
                             End If
                         Else
                             If PATHalb Is Nothing Then
                                 If MsgBox("Usunąć album oraz wszystkie utwory należące do niego?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
                                     REFpoz(index).usunmnie()
                                     ladujpanel()
+                                    zapiszzmiany()
                                 End If
                             Else
                                 If MsgBox("Usunąć utwór?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
                                     REFpoz(index).usunmnie()
                                     ladujpanel()
+                                    zapiszzmiany()
                                 End If
                             End If
                         End If
@@ -583,10 +594,12 @@
                             If MsgBox("Usunąć całą playlistę?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
                                 dane.playlisty.Remove(REFpoz(index))
                                 ladujpanel()
+                                zapiszzmiany()
                             End If
                         Else
                             PATHpl.usunutwor(REFpoz(index))
                             ladujpanel()
+                            zapiszzmiany()
                         End If
                 End Select
         End Select
@@ -645,11 +658,13 @@
                 If MsgBox("Usunąć wszystkie pozycje z listy?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
                     PATHalb.utwory.Clear()
                     ladujpanel()
+                    zapiszzmiany()
                 End If
             Case 2
                 If MsgBox("Usunąć wszystkie pozycje z listy?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
                     PATHpl.utwory.Clear()
                     ladujpanel()
+                    zapiszzmiany()
                 End If
         End Select
     End Sub
@@ -689,6 +704,7 @@
                 MODpl.ShowDialog()
                 MODpl.Close()
                 ladujpanel()
+                zapiszzmiany()
             Else
                 MsgBox("Lista odtwarzania jest pusta!" & vbNewLine & "Aby utworzyć nową playliste, dodaj pierw utwory do listy odtwarzania", MsgBoxStyle.Exclamation, "YTMP")
             End If
@@ -696,10 +712,12 @@
             If PATHwyk Is Nothing Then
                 newitemform.laduj(1)
                 ladujpanel()
+                zapiszzmiany()
             Else
                 If PATHalb Is Nothing Then
                     newitemform.laduj(2)
                     ladujpanel()
+                    zapiszzmiany()
                 Else
                     newitemform.laduj(3)
                     ladujpanel()
@@ -718,6 +736,7 @@
             End If
             dane.volume = var
             pnlglosnosc.Size = New Size(dane.volume, pnlglosnosc.Size.Height)
+            zapiszzmiany()
         End If
     End Sub
 
