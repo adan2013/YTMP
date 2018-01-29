@@ -13,5 +13,9 @@ Aplikacja umożliwia także import playlist stworzonych w serwisie YouTube wraz 
 ## Więcej informacji
 Instrukcja obsługi aplikacji znajduje się w katalogu głównym udostępnionym na GitHubie. Zawiera ona dodatowe informacje o działaniu aplikacji i jej obsłudze.
 
+[instrukcja](https://github.com/adan2013/YTMP/blob/master/instrukcja.pdf)
+
 ## Instalacja i pierwsze uruchomienie
 Aby móc uruchomić aplikację należy pobrać jej ostatnią wersję z zakładki "Releases" na GitHubie. Następnie rozpakować ją do folderu za pomocą np. aplikacji WinRAR lub domyślnego narzędzia wbudowanego w system operacyjny. W folderze z rozpakowanymi plikami należy odnaleźć plik "YTMP.exe", a następnie go uruchomić. Przy pierwszym uruchomieniu aplikacja zaproponuje otwarcie instrukcji obsługi. Po zamknięciu okna wprowadzenia aplikacja jest gotowa do działania.
+
+[instrukcja](https://github.com/adan2013/YTMP/releases)
