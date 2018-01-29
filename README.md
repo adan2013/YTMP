@@ -1,5 +1,4 @@
 ![Logo YTMP](/logo.png)
-
 ___
 
 ## Opis
@@ -33,8 +32,14 @@ Aby móc uruchomić aplikację należy pobrać jej ostatnią wersję z zakładki
 [Otwórz stronę releases](https://github.com/adan2013/YTMP/releases)
 
 ## Wygląd aplikacji
-Ponieżej przedstawiam dodatkowe zrzuty ekranu prezentujące działanie aplikacji
+Ponieżej przedstawiam dodatkowe zrzuty ekranu prezentujące działanie aplikacji:
 
-![Dodatkowy1](/ytmp5.png)
+![Dodatkowy1](/ytmp7.png)
 
-![Dodatkowy2](/ytmp6.png)
+![Dodatkowy2](/ytmp8.png)
+
+![Dodatkowy3](/ytmp9.png)
+
+![Dodatkowy4](/ytmp5.png)
+
+![Dodatkowy5](/ytmp6.png)
