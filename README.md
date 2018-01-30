@@ -3,22 +3,22 @@
 ## Opis
 Aplikacja służy do strumieniowego odtwarzania muzyki dostępnej w serwisie YouTube. Umożliwia ona szybkie stworzenie własnej, unikalnej biblioteki utworów. Pozycje można uporządkować wg wykonawców oraz albumów w jakich się pojawiły. Aplikacja posiada także możliwość utworzenia włanych predefiniowanych playlist.
 
-<img src="images/ytmp1.png" width="400px"></img>
+<img src="images/ytmp1.png"></img>
 
 ## Integracja z serwisem YouTube
 Dzięki zastosowaniu współpracy z serwisem YouTube możliwe jest szybkie i sprawne dodawanie utworów do biblioteki przy pomocy wbudowanej w aplikację przeglądarce www. Wystarczy wskazać film w przeglądarce, a program sam odczyta nazwę wykonawcy i tytuł utworu z nazwy pod jaką film widnieje w serwisie.
 
-![Integracja z YT](/images//ytmp3.png)
+<img src="images/ytmp3.png"></img>
 
 ## Import playlist
 Aplikacja umożliwia także import playlist stworzonych w serwisie YouTube wraz z automatycznym rozpoznawaniem wykonawcy i przypisaniem ich do odpowiednich list
 
-![Import playlist](/images//ytmp4.png)
+<img src="images/ytmp4.png" width="400px"></img>
 
 ## Wbudowana przeglądarka internetowa
 Dzięki przeglądarce wbudowanej w aplikację dodawanie utworów do biblioteki jest szybkie i automatyczne!
 
-![Wbudowana przeglądarka WWW](/images//ytmp2.png)
+<img src="images/ytmp2.png" width="400px"></img>
 
 ## Więcej informacji
 Instrukcja obsługi aplikacji znajduje się w katalogu głównym udostępnionym na GitHubie. Zawiera ona dodatowe informacje o działaniu aplikacji i jej obsłudze.
@@ -33,12 +33,12 @@ Aby móc uruchomić aplikację należy pobrać jej ostatnią wersję z zakładki
 ## Wygląd aplikacji
 Ponieżej przedstawiam dodatkowe zrzuty ekranu prezentujące działanie aplikacji:
 
-![Dodatkowy1](/images//ytmp7.png)
+<img src="images/ytmp7.png"></img>
 
-![Dodatkowy2](/images//ytmp8.png)
+<img src="images/ytmp8.png"></img>
 
-![Dodatkowy3](/images//ytmp9.png)
+<img src="images/ytmp9.png"></img>
 
-![Dodatkowy4](/images//ytmp5.png)
+<img src="images/ytmp5.png"></img>
 
-![Dodatkowy5](/images//ytmp6.png)
+<img src="images/ytmp6.png"></img>
