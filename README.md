@@ -1,25 +1,24 @@
-![Logo YTMP](/logo.png)
-___
+![Logo YTMP](/images/logo.png)
 
 ## Opis
 Aplikacja służy do strumieniowego odtwarzania muzyki dostępnej w serwisie YouTube. Umożliwia ona szybkie stworzenie własnej, unikalnej biblioteki utworów. Pozycje można uporządkować wg wykonawców oraz albumów w jakich się pojawiły. Aplikacja posiada także możliwość utworzenia włanych predefiniowanych playlist.
 
-![Import playlist](/ytmp1.png)
+![Import playlist](/images//ytmp1.png =400x)
 
 ## Integracja z serwisem YouTube
 Dzięki zastosowaniu współpracy z serwisem YouTube możliwe jest szybkie i sprawne dodawanie utworów do biblioteki przy pomocy wbudowanej w aplikację przeglądarce www. Wystarczy wskazać film w przeglądarce, a program sam odczyta nazwę wykonawcy i tytuł utworu z nazwy pod jaką film widnieje w serwisie.
 
-![Integracja z YT](/ytmp3.png)
+![Integracja z YT](/images//ytmp3.png)
 
 ## Import playlist
 Aplikacja umożliwia także import playlist stworzonych w serwisie YouTube wraz z automatycznym rozpoznawaniem wykonawcy i przypisaniem ich do odpowiednich list
 
-![Import playlist](/ytmp4.png)
+![Import playlist](/images//ytmp4.png)
 
 ## Wbudowana przeglądarka internetowa
 Dzięki przeglądarce wbudowanej w aplikację dodawanie utworów do biblioteki jest szybkie i automatyczne!
 
-![Wbudowana przeglądarka WWW](/ytmp2.png)
+![Wbudowana przeglądarka WWW](/images//ytmp2.png)
 
 ## Więcej informacji
 Instrukcja obsługi aplikacji znajduje się w katalogu głównym udostępnionym na GitHubie. Zawiera ona dodatowe informacje o działaniu aplikacji i jej obsłudze.
@@ -34,12 +33,12 @@ Aby móc uruchomić aplikację należy pobrać jej ostatnią wersję z zakładki
 ## Wygląd aplikacji
 Ponieżej przedstawiam dodatkowe zrzuty ekranu prezentujące działanie aplikacji:
 
-![Dodatkowy1](/ytmp7.png)
+![Dodatkowy1](/images//ytmp7.png)
 
-![Dodatkowy2](/ytmp8.png)
+![Dodatkowy2](/images//ytmp8.png)
 
-![Dodatkowy3](/ytmp9.png)
+![Dodatkowy3](/images//ytmp9.png)
 
-![Dodatkowy4](/ytmp5.png)
+![Dodatkowy4](/images//ytmp5.png)
 
-![Dodatkowy5](/ytmp6.png)
+![Dodatkowy5](/images//ytmp6.png)
