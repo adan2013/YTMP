@@ -13,12 +13,12 @@ Dzięki zastosowaniu współpracy z serwisem YouTube możliwe jest szybkie i spr
 ## Import playlist
 Aplikacja umożliwia także import playlist stworzonych w serwisie YouTube wraz z automatycznym rozpoznawaniem wykonawcy i przypisaniem ich do odpowiednich list
 
-<img src="images/ytmp4.png" width="400px"></img>
+<img src="images/ytmp4.png" width="550px"></img>
 
 ## Wbudowana przeglądarka internetowa
 Dzięki przeglądarce wbudowanej w aplikację dodawanie utworów do biblioteki jest szybkie i automatyczne!
 
-<img src="images/ytmp2.png" width="400px"></img>
+<img src="images/ytmp2.png" width="550px"></img>
 
 ## Więcej informacji
 Instrukcja obsługi aplikacji znajduje się w katalogu głównym udostępnionym na GitHubie. Zawiera ona dodatowe informacje o działaniu aplikacji i jej obsłudze.
