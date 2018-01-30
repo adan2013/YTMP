@@ -3,7 +3,7 @@
 ## Opis
 Aplikacja służy do strumieniowego odtwarzania muzyki dostępnej w serwisie YouTube. Umożliwia ona szybkie stworzenie własnej, unikalnej biblioteki utworów. Pozycje można uporządkować wg wykonawców oraz albumów w jakich się pojawiły. Aplikacja posiada także możliwość utworzenia włanych predefiniowanych playlist.
 
-![Import playlist](/images//ytmp1.png =400x)
+![Import playlist](/images//ytmp1.png | width=400)
 
 ## Integracja z serwisem YouTube
 Dzięki zastosowaniu współpracy z serwisem YouTube możliwe jest szybkie i sprawne dodawanie utworów do biblioteki przy pomocy wbudowanej w aplikację przeglądarce www. Wystarczy wskazać film w przeglądarce, a program sam odczyta nazwę wykonawcy i tytuł utworu z nazwy pod jaką film widnieje w serwisie.
