@@ -1,4 +1,5 @@
-﻿Imports Gecko
+﻿Imports Microsoft.WindowsAPICodePack.Taskbar
+Imports Gecko
 Imports System.IO
 Imports Gecko.Events
 
@@ -22,6 +23,22 @@ Public Class YTAPI
     Public wskaznikpl As UTWOR = Nothing
     Public historia As List(Of UTWOR) = New List(Of UTWOR)
     Public hisodtw As List(Of UTWOR) = New List(Of UTWOR)
+
+    Public efektwizualny As EFEKTWIZ = EFEKTWIZ.brak
+
+    Enum EFEKTWIZ
+        brak = -1
+        buforowanie = 0
+        playGfull = 11
+        playYfull = 12
+        playRfull = 13
+        playGprog = 14
+        playYprog = 15
+        playRprog = 16
+        pauseG = 21
+        pauseY = 22
+        pauseR = 23
+    End Enum
 
     Enum YTstate
         nieuruchomiono = -1
@@ -268,6 +285,84 @@ Public Class YTAPI
                 If Not Form1.btnupdate.Visible Then Form1.btnupdate.Visible = True
             End If
         End If
+        Select Case state
+            Case YTstate.buforowanie
+                If dane.SETzielbufor And Not efektwizualny = EFEKTWIZ.buforowanie Then
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate)
+                    efektwizualny = EFEKTWIZ.buforowanie
+                End If
+            Case YTstate.odtwarzanie
+                Select Case dane.SETkolorprogress
+                    Case 0
+                        If Not efektwizualny = EFEKTWIZ.brak Then
+                            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress)
+                            efektwizualny = EFEKTWIZ.brak
+                        End If
+                    Case 1, 4
+                        If Not efektwizualny = EFEKTWIZ.playGfull And Not efektwizualny = EFEKTWIZ.playGprog Then
+                            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal)
+                            If dane.SETkolorprogress > 3 Then efektwizualny = EFEKTWIZ.playGprog Else efektwizualny = EFEKTWIZ.playGfull
+                        End If
+                    Case 2, 5
+                        If Not efektwizualny = EFEKTWIZ.playYfull And Not efektwizualny = EFEKTWIZ.playYprog Then
+                            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Paused)
+                            If dane.SETkolorprogress > 3 Then efektwizualny = EFEKTWIZ.playYprog Else efektwizualny = EFEKTWIZ.playYfull
+                        End If
+                    Case 3, 6
+                        If Not efektwizualny = EFEKTWIZ.playRfull And Not efektwizualny = EFEKTWIZ.playRprog Then
+                            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Error)
+                            If dane.SETkolorprogress > 3 Then efektwizualny = EFEKTWIZ.playRprog Else efektwizualny = EFEKTWIZ.playRfull
+                        End If
+                End Select
+                If dane.SETkolorprogress > 3 Then
+                    TaskbarManager.Instance.SetProgressValue(currenttime, durationtime)
+                Else
+                    TaskbarManager.Instance.SetProgressValue(1, 1)
+                End If
+            Case YTstate.wstrzymany
+                Select Case dane.SETkolorpause
+                    Case 0
+                        If Not efektwizualny = EFEKTWIZ.brak Then
+                            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress)
+                            efektwizualny = EFEKTWIZ.brak
+                        End If
+                    Case 1
+                        If Not efektwizualny = EFEKTWIZ.pauseG Then
+                            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal)
+                            efektwizualny = EFEKTWIZ.pauseG
+                            If dane.SETkolorprogress > 3 Then
+                                TaskbarManager.Instance.SetProgressValue(currenttime, durationtime)
+                            Else
+                                TaskbarManager.Instance.SetProgressValue(1, 1)
+                            End If
+                        End If
+                    Case 2
+                        If Not efektwizualny = EFEKTWIZ.pauseY Then
+                            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Paused)
+                            efektwizualny = EFEKTWIZ.pauseY
+                            If dane.SETkolorprogress > 3 Then
+                                TaskbarManager.Instance.SetProgressValue(currenttime, durationtime)
+                            Else
+                                TaskbarManager.Instance.SetProgressValue(1, 1)
+                            End If
+                        End If
+                    Case 3
+                        If Not efektwizualny = EFEKTWIZ.pauseR Then
+                            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Error)
+                            efektwizualny = EFEKTWIZ.pauseR
+                            If dane.SETkolorprogress > 3 Then
+                                TaskbarManager.Instance.SetProgressValue(currenttime, durationtime)
+                            Else
+                                TaskbarManager.Instance.SetProgressValue(1, 1)
+                            End If
+                        End If
+                End Select
+            Case Else
+                If Not efektwizualny = EFEKTWIZ.brak Then
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress)
+                    efektwizualny = EFEKTWIZ.brak
+                End If
+        End Select
     End Sub
 
     Public Sub odtworzteraz(ByRef obiekt As UTWOR)

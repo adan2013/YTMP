@@ -27,7 +27,10 @@
         chkboxsearchW.Checked = dane.SETsearchW
         chkboxsearchA.Checked = dane.SETsearchA
         chkboxsearchID.Checked = dane.SETsearchID
+        chkboxzielbufor.Checked = dane.SETzielbufor
         lstdefaulttab.SelectedIndex = dane.SETdefaulttab
+        lstprogress.SelectedIndex = dane.SETkolorprogress
+        lstpause.SelectedIndex = dane.SETkolorpause
         If dane.SETkopie Then lstkopie.SelectedIndex = 1 Else lstkopie.SelectedIndex = 0
         init = False
     End Sub
@@ -84,6 +87,9 @@
         dane.SETsearchW = chkboxsearchW.Checked
         dane.SETsearchA = chkboxsearchA.Checked
         dane.SETsearchID = chkboxsearchID.Checked
+        dane.SETzielbufor = chkboxzielbufor.Checked
+        dane.SETkolorprogress = lstprogress.SelectedIndex
+        dane.SETkolorpause = lstpause.SelectedIndex
         If lstkopie.SelectedIndex = 0 Then dane.SETkopie = False Else dane.SETkopie = True
         Form1.Text = "YouTube Media Player"
         zapiszzmiany()

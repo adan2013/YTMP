@@ -19,6 +19,9 @@ Public Class MAGAZYN
     Public SETsearchW As Boolean = True
     Public SETsearchA As Boolean = False
     Public SETsearchID As Boolean = False
+    Public SETzielbufor As Boolean = False
+    Public SETkolorprogress As Byte = 0
+    Public SETkolorpause As Byte = 0
 
     Public volume As SByte = 100
     Public MODrep As Boolean = False

@@ -27,21 +27,28 @@ Partial Class settingsform
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(settingsform))
         Me.tabs = New System.Windows.Forms.TabControl()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.btnhistory = New System.Windows.Forms.Button()
-        Me.chkboxtitlewindow = New System.Windows.Forms.CheckBox()
-        Me.lstdefaulttab = New System.Windows.Forms.ComboBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.chkboxhidealbums = New System.Windows.Forms.CheckBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.nropoznienie = New System.Windows.Forms.NumericUpDown()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.chkboxhide = New System.Windows.Forms.CheckBox()
-        Me.chkboxczas = New System.Windows.Forms.CheckBox()
-        Me.chkboxprzejdz = New System.Windows.Forms.CheckBox()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.chkboxdymek = New System.Windows.Forms.CheckBox()
-        Me.chkboxpocz = New System.Windows.Forms.RadioButton()
+        Me.chkboxczas = New System.Windows.Forms.CheckBox()
+        Me.chkboxtitlewindow = New System.Windows.Forms.CheckBox()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.nropoznienie = New System.Windows.Forms.NumericUpDown()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.btnhistory = New System.Windows.Forms.Button()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.lstdefaulttab = New System.Windows.Forms.ComboBox()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.chkboxhidealbums = New System.Windows.Forms.CheckBox()
+        Me.chkboxhide = New System.Windows.Forms.CheckBox()
+        Me.chkboxprzejdz = New System.Windows.Forms.CheckBox()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.chkboxsearchW = New System.Windows.Forms.CheckBox()
+        Me.chkboxsearchA = New System.Windows.Forms.CheckBox()
+        Me.chkboxsearchID = New System.Windows.Forms.CheckBox()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.chkboxkoniec = New System.Windows.Forms.RadioButton()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.chkboxpocz = New System.Windows.Forms.RadioButton()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.chkboxmkeys = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -73,14 +80,26 @@ Partial Class settingsform
         Me.lblname = New System.Windows.Forms.Label()
         Me.savedialog = New System.Windows.Forms.SaveFileDialog()
         Me.opendialog = New System.Windows.Forms.OpenFileDialog()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.chkboxzielbufor = New System.Windows.Forms.CheckBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.lstprogress = New System.Windows.Forms.ComboBox()
+        Me.lstpause = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.chkboxsearchW = New System.Windows.Forms.CheckBox()
-        Me.chkboxsearchA = New System.Windows.Forms.CheckBox()
-        Me.chkboxsearchID = New System.Windows.Forms.CheckBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.tabs.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
         CType(Me.nropoznienie, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage5.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.skrotygrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
@@ -89,11 +108,14 @@ Partial Class settingsform
         Me.GroupBox1.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox10.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
         Me.SuspendLayout()
         '
         'tabs
         '
         Me.tabs.Controls.Add(Me.TabPage2)
+        Me.tabs.Controls.Add(Me.TabPage5)
         Me.tabs.Controls.Add(Me.TabPage1)
         Me.tabs.Controls.Add(Me.TabPage3)
         Me.tabs.Controls.Add(Me.TabPage4)
@@ -106,26 +128,10 @@ Partial Class settingsform
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add(Me.Label13)
-        Me.TabPage2.Controls.Add(Me.chkboxsearchID)
-        Me.TabPage2.Controls.Add(Me.chkboxsearchA)
-        Me.TabPage2.Controls.Add(Me.chkboxsearchW)
-        Me.TabPage2.Controls.Add(Me.Label12)
-        Me.TabPage2.Controls.Add(Me.btnhistory)
-        Me.TabPage2.Controls.Add(Me.chkboxtitlewindow)
-        Me.TabPage2.Controls.Add(Me.lstdefaulttab)
-        Me.TabPage2.Controls.Add(Me.Label11)
-        Me.TabPage2.Controls.Add(Me.chkboxhidealbums)
-        Me.TabPage2.Controls.Add(Me.Label5)
-        Me.TabPage2.Controls.Add(Me.nropoznienie)
-        Me.TabPage2.Controls.Add(Me.Label4)
-        Me.TabPage2.Controls.Add(Me.chkboxhide)
-        Me.TabPage2.Controls.Add(Me.chkboxczas)
-        Me.TabPage2.Controls.Add(Me.chkboxprzejdz)
-        Me.TabPage2.Controls.Add(Me.chkboxdymek)
-        Me.TabPage2.Controls.Add(Me.chkboxpocz)
-        Me.TabPage2.Controls.Add(Me.chkboxkoniec)
-        Me.TabPage2.Controls.Add(Me.Label2)
+        Me.TabPage2.Controls.Add(Me.GroupBox11)
+        Me.TabPage2.Controls.Add(Me.GroupBox10)
+        Me.TabPage2.Controls.Add(Me.GroupBox8)
+        Me.TabPage2.Controls.Add(Me.GroupBox6)
         Me.TabPage2.Location = New System.Drawing.Point(4, 32)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -134,118 +140,17 @@ Partial Class settingsform
         Me.TabPage2.Text = "Odtwarzacz"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'btnhistory
+        'GroupBox8
         '
-        Me.btnhistory.Location = New System.Drawing.Point(6, 199)
-        Me.btnhistory.Name = "btnhistory"
-        Me.btnhistory.Size = New System.Drawing.Size(129, 26)
-        Me.btnhistory.TabIndex = 14
-        Me.btnhistory.Text = "Historia odtwarzania"
-        Me.btnhistory.UseVisualStyleBackColor = True
-        '
-        'chkboxtitlewindow
-        '
-        Me.chkboxtitlewindow.AutoSize = True
-        Me.chkboxtitlewindow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxtitlewindow.Location = New System.Drawing.Point(325, 188)
-        Me.chkboxtitlewindow.Name = "chkboxtitlewindow"
-        Me.chkboxtitlewindow.Size = New System.Drawing.Size(212, 19)
-        Me.chkboxtitlewindow.TabIndex = 13
-        Me.chkboxtitlewindow.Text = "Pokazuj tytuł utworu w pasku okna"
-        Me.chkboxtitlewindow.UseVisualStyleBackColor = True
-        '
-        'lstdefaulttab
-        '
-        Me.lstdefaulttab.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.lstdefaulttab.FormattingEnabled = True
-        Me.lstdefaulttab.Items.AddRange(New Object() {"Lista odtwarzania", "Utwory", "Playlisty"})
-        Me.lstdefaulttab.Location = New System.Drawing.Point(9, 160)
-        Me.lstdefaulttab.Name = "lstdefaulttab"
-        Me.lstdefaulttab.Size = New System.Drawing.Size(117, 21)
-        Me.lstdefaulttab.TabIndex = 1
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label11.Location = New System.Drawing.Point(6, 142)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(95, 15)
-        Me.Label11.TabIndex = 12
-        Me.Label11.Text = "Domyślna karta:"
-        '
-        'chkboxhidealbums
-        '
-        Me.chkboxhidealbums.AutoSize = True
-        Me.chkboxhidealbums.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxhidealbums.Location = New System.Drawing.Point(325, 163)
-        Me.chkboxhidealbums.Name = "chkboxhidealbums"
-        Me.chkboxhidealbums.Size = New System.Drawing.Size(142, 19)
-        Me.chkboxhidealbums.TabIndex = 11
-        Me.chkboxhidealbums.Text = "Ukryj wybór albumów"
-        Me.chkboxhidealbums.UseVisualStyleBackColor = True
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label5.Location = New System.Drawing.Point(94, 114)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(24, 15)
-        Me.Label5.TabIndex = 10
-        Me.Label5.Text = "ms"
-        '
-        'nropoznienie
-        '
-        Me.nropoznienie.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.nropoznienie.Location = New System.Drawing.Point(9, 112)
-        Me.nropoznienie.Maximum = New Decimal(New Integer() {5000, 0, 0, 0})
-        Me.nropoznienie.Name = "nropoznienie"
-        Me.nropoznienie.Size = New System.Drawing.Size(79, 21)
-        Me.nropoznienie.TabIndex = 9
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label4.Location = New System.Drawing.Point(6, 79)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(140, 30)
-        Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Opóźnienie odtwarzania" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "następnych utworów:"
-        '
-        'chkboxhide
-        '
-        Me.chkboxhide.AutoSize = True
-        Me.chkboxhide.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxhide.Location = New System.Drawing.Point(325, 138)
-        Me.chkboxhide.Name = "chkboxhide"
-        Me.chkboxhide.Size = New System.Drawing.Size(203, 19)
-        Me.chkboxhide.TabIndex = 7
-        Me.chkboxhide.Text = "Ukryj okno po zminimalizowaniu"
-        Me.chkboxhide.UseVisualStyleBackColor = True
-        '
-        'chkboxczas
-        '
-        Me.chkboxczas.AutoSize = True
-        Me.chkboxczas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxczas.Location = New System.Drawing.Point(325, 98)
-        Me.chkboxczas.Name = "chkboxczas"
-        Me.chkboxczas.Size = New System.Drawing.Size(173, 34)
-        Me.chkboxczas.TabIndex = 6
-        Me.chkboxczas.Text = "Wyświetlaj czasy przycięcia" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "nagrania"
-        Me.chkboxczas.UseVisualStyleBackColor = True
-        '
-        'chkboxprzejdz
-        '
-        Me.chkboxprzejdz.AutoSize = True
-        Me.chkboxprzejdz.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxprzejdz.Location = New System.Drawing.Point(325, 58)
-        Me.chkboxprzejdz.Name = "chkboxprzejdz"
-        Me.chkboxprzejdz.Size = New System.Drawing.Size(191, 34)
-        Me.chkboxprzejdz.TabIndex = 5
-        Me.chkboxprzejdz.Text = "Przejdź do nowo utworzonego" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "wykonawcy/albumu/playlisty"
-        Me.chkboxprzejdz.UseVisualStyleBackColor = True
+        Me.GroupBox8.Controls.Add(Me.chkboxdymek)
+        Me.GroupBox8.Controls.Add(Me.chkboxczas)
+        Me.GroupBox8.Controls.Add(Me.chkboxtitlewindow)
+        Me.GroupBox8.Location = New System.Drawing.Point(170, 6)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(280, 110)
+        Me.GroupBox8.TabIndex = 21
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Dodatkowe opcje"
         '
         'chkboxdymek
         '
@@ -253,43 +158,234 @@ Partial Class settingsform
         Me.chkboxdymek.Checked = True
         Me.chkboxdymek.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkboxdymek.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxdymek.Location = New System.Drawing.Point(325, 33)
+        Me.chkboxdymek.Location = New System.Drawing.Point(6, 19)
         Me.chkboxdymek.Name = "chkboxdymek"
         Me.chkboxdymek.Size = New System.Drawing.Size(188, 19)
         Me.chkboxdymek.TabIndex = 2
         Me.chkboxdymek.Text = "Wyświetl tytuł utworu w dymku"
         Me.chkboxdymek.UseVisualStyleBackColor = True
         '
-        'chkboxpocz
+        'chkboxczas
         '
-        Me.chkboxpocz.AutoSize = True
-        Me.chkboxpocz.Location = New System.Drawing.Point(9, 53)
-        Me.chkboxpocz.Name = "chkboxpocz"
-        Me.chkboxpocz.Size = New System.Drawing.Size(106, 17)
-        Me.chkboxpocz.TabIndex = 4
-        Me.chkboxpocz.Text = "Na początku listy"
-        Me.chkboxpocz.UseVisualStyleBackColor = True
+        Me.chkboxczas.AutoSize = True
+        Me.chkboxczas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxczas.Location = New System.Drawing.Point(6, 44)
+        Me.chkboxczas.Name = "chkboxczas"
+        Me.chkboxczas.Size = New System.Drawing.Size(225, 19)
+        Me.chkboxczas.TabIndex = 6
+        Me.chkboxczas.Text = "Wyświetlaj czasy przycięcia nagrania"
+        Me.chkboxczas.UseVisualStyleBackColor = True
+        '
+        'chkboxtitlewindow
+        '
+        Me.chkboxtitlewindow.AutoSize = True
+        Me.chkboxtitlewindow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxtitlewindow.Location = New System.Drawing.Point(6, 69)
+        Me.chkboxtitlewindow.Name = "chkboxtitlewindow"
+        Me.chkboxtitlewindow.Size = New System.Drawing.Size(212, 19)
+        Me.chkboxtitlewindow.TabIndex = 13
+        Me.chkboxtitlewindow.Text = "Pokazuj tytuł utworu w pasku okna"
+        Me.chkboxtitlewindow.UseVisualStyleBackColor = True
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.Label13)
+        Me.GroupBox6.Controls.Add(Me.nropoznienie)
+        Me.GroupBox6.Controls.Add(Me.Label5)
+        Me.GroupBox6.Location = New System.Drawing.Point(6, 6)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(158, 110)
+        Me.GroupBox6.TabIndex = 20
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Odstęp między utworami"
+        '
+        'nropoznienie
+        '
+        Me.nropoznienie.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.nropoznienie.Location = New System.Drawing.Point(18, 67)
+        Me.nropoznienie.Maximum = New Decimal(New Integer() {5000, 0, 0, 0})
+        Me.nropoznienie.Name = "nropoznienie"
+        Me.nropoznienie.Size = New System.Drawing.Size(79, 21)
+        Me.nropoznienie.TabIndex = 9
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label5.Location = New System.Drawing.Point(103, 69)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(24, 15)
+        Me.Label5.TabIndex = 10
+        Me.Label5.Text = "ms"
+        '
+        'btnhistory
+        '
+        Me.btnhistory.Location = New System.Drawing.Point(18, 63)
+        Me.btnhistory.Name = "btnhistory"
+        Me.btnhistory.Size = New System.Drawing.Size(116, 26)
+        Me.btnhistory.TabIndex = 14
+        Me.btnhistory.Text = "Historia odtwarzania"
+        Me.btnhistory.UseVisualStyleBackColor = True
+        '
+        'TabPage5
+        '
+        Me.TabPage5.Controls.Add(Me.GroupBox9)
+        Me.TabPage5.Controls.Add(Me.GroupBox7)
+        Me.TabPage5.Controls.Add(Me.GroupBox5)
+        Me.TabPage5.Controls.Add(Me.GroupBox4)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 32)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage5.Size = New System.Drawing.Size(552, 231)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "Aplikacja"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.Label2)
+        Me.GroupBox9.Controls.Add(Me.lstdefaulttab)
+        Me.GroupBox9.Location = New System.Drawing.Point(6, 112)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(160, 113)
+        Me.GroupBox9.TabIndex = 22
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Domyślna karta"
+        '
+        'lstdefaulttab
+        '
+        Me.lstdefaulttab.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.lstdefaulttab.FormattingEnabled = True
+        Me.lstdefaulttab.Items.AddRange(New Object() {"Lista odtwarzania", "Utwory", "Playlisty"})
+        Me.lstdefaulttab.Location = New System.Drawing.Point(9, 69)
+        Me.lstdefaulttab.Name = "lstdefaulttab"
+        Me.lstdefaulttab.Size = New System.Drawing.Size(117, 21)
+        Me.lstdefaulttab.TabIndex = 1
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.Controls.Add(Me.chkboxhidealbums)
+        Me.GroupBox7.Controls.Add(Me.chkboxhide)
+        Me.GroupBox7.Controls.Add(Me.chkboxprzejdz)
+        Me.GroupBox7.Location = New System.Drawing.Point(172, 112)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(299, 113)
+        Me.GroupBox7.TabIndex = 24
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Dodatkowe opcje"
+        '
+        'chkboxhidealbums
+        '
+        Me.chkboxhidealbums.AutoSize = True
+        Me.chkboxhidealbums.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxhidealbums.Location = New System.Drawing.Point(6, 44)
+        Me.chkboxhidealbums.Name = "chkboxhidealbums"
+        Me.chkboxhidealbums.Size = New System.Drawing.Size(142, 19)
+        Me.chkboxhidealbums.TabIndex = 14
+        Me.chkboxhidealbums.Text = "Ukryj wybór albumów"
+        Me.chkboxhidealbums.UseVisualStyleBackColor = True
+        '
+        'chkboxhide
+        '
+        Me.chkboxhide.AutoSize = True
+        Me.chkboxhide.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxhide.Location = New System.Drawing.Point(6, 69)
+        Me.chkboxhide.Name = "chkboxhide"
+        Me.chkboxhide.Size = New System.Drawing.Size(203, 19)
+        Me.chkboxhide.TabIndex = 13
+        Me.chkboxhide.Text = "Ukryj okno po zminimalizowaniu"
+        Me.chkboxhide.UseVisualStyleBackColor = True
+        '
+        'chkboxprzejdz
+        '
+        Me.chkboxprzejdz.AutoSize = True
+        Me.chkboxprzejdz.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxprzejdz.Location = New System.Drawing.Point(6, 19)
+        Me.chkboxprzejdz.Name = "chkboxprzejdz"
+        Me.chkboxprzejdz.Size = New System.Drawing.Size(220, 19)
+        Me.chkboxprzejdz.TabIndex = 12
+        Me.chkboxprzejdz.Text = "Przejdź do nowo utworzonej pozycji"
+        Me.chkboxprzejdz.UseVisualStyleBackColor = True
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.chkboxsearchW)
+        Me.GroupBox5.Controls.Add(Me.chkboxsearchA)
+        Me.GroupBox5.Controls.Add(Me.chkboxsearchID)
+        Me.GroupBox5.Location = New System.Drawing.Point(172, 6)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(299, 100)
+        Me.GroupBox5.TabIndex = 8
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "W wyszukiwarce oprócz tytułów szukaj według:"
+        '
+        'chkboxsearchW
+        '
+        Me.chkboxsearchW.AutoSize = True
+        Me.chkboxsearchW.Checked = True
+        Me.chkboxsearchW.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkboxsearchW.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxsearchW.Location = New System.Drawing.Point(6, 19)
+        Me.chkboxsearchW.Name = "chkboxsearchW"
+        Me.chkboxsearchW.Size = New System.Drawing.Size(98, 19)
+        Me.chkboxsearchW.TabIndex = 20
+        Me.chkboxsearchW.Text = "wykonawców"
+        Me.chkboxsearchW.UseVisualStyleBackColor = True
+        '
+        'chkboxsearchA
+        '
+        Me.chkboxsearchA.AutoSize = True
+        Me.chkboxsearchA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxsearchA.Location = New System.Drawing.Point(6, 44)
+        Me.chkboxsearchA.Name = "chkboxsearchA"
+        Me.chkboxsearchA.Size = New System.Drawing.Size(77, 19)
+        Me.chkboxsearchA.TabIndex = 21
+        Me.chkboxsearchA.Text = "albumów"
+        Me.chkboxsearchA.UseVisualStyleBackColor = True
+        '
+        'chkboxsearchID
+        '
+        Me.chkboxsearchID.AutoSize = True
+        Me.chkboxsearchID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxsearchID.Location = New System.Drawing.Point(6, 69)
+        Me.chkboxsearchID.Name = "chkboxsearchID"
+        Me.chkboxsearchID.Size = New System.Drawing.Size(107, 19)
+        Me.chkboxsearchID.TabIndex = 22
+        Me.chkboxsearchID.Text = "identyfikatorów"
+        Me.chkboxsearchID.UseVisualStyleBackColor = True
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.chkboxkoniec)
+        Me.GroupBox4.Controls.Add(Me.chkboxpocz)
+        Me.GroupBox4.Location = New System.Drawing.Point(6, 6)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(160, 100)
+        Me.GroupBox4.TabIndex = 23
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Dodawaj nową pozycję"
         '
         'chkboxkoniec
         '
         Me.chkboxkoniec.AutoSize = True
         Me.chkboxkoniec.Checked = True
-        Me.chkboxkoniec.Location = New System.Drawing.Point(9, 30)
+        Me.chkboxkoniec.Location = New System.Drawing.Point(6, 19)
         Me.chkboxkoniec.Name = "chkboxkoniec"
         Me.chkboxkoniec.Size = New System.Drawing.Size(92, 17)
-        Me.chkboxkoniec.TabIndex = 3
+        Me.chkboxkoniec.TabIndex = 6
         Me.chkboxkoniec.TabStop = True
         Me.chkboxkoniec.Text = "Na końcu listy"
         Me.chkboxkoniec.UseVisualStyleBackColor = True
         '
-        'Label2
+        'chkboxpocz
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 14)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(120, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Dodawaj nową pozycję:"
+        Me.chkboxpocz.AutoSize = True
+        Me.chkboxpocz.Location = New System.Drawing.Point(6, 42)
+        Me.chkboxpocz.Name = "chkboxpocz"
+        Me.chkboxpocz.Size = New System.Drawing.Size(106, 17)
+        Me.chkboxpocz.TabIndex = 7
+        Me.chkboxpocz.Text = "Na początku listy"
+        Me.chkboxpocz.UseVisualStyleBackColor = True
         '
         'TabPage1
         '
@@ -630,60 +726,106 @@ Partial Class settingsform
         Me.opendialog.Filter = "Plik magazynu (*.ytmp)|*.ytmp"
         Me.opendialog.Title = "Wskaż plik"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 22)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(132, 39)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Ustal jaka karta ma zostać" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "otwarta po uruchomieniu" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "aplikacji:"
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.Label4)
+        Me.GroupBox10.Controls.Add(Me.btnhistory)
+        Me.GroupBox10.Location = New System.Drawing.Point(6, 122)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(158, 103)
+        Me.GroupBox10.TabIndex = 22
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Historia odtwarzania"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(6, 21)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(119, 26)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Przejrzyj listę ostatnio" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "odtwarzanych utworów:"
+        '
+        'GroupBox11
+        '
+        Me.GroupBox11.Controls.Add(Me.lstpause)
+        Me.GroupBox11.Controls.Add(Me.Label12)
+        Me.GroupBox11.Controls.Add(Me.lstprogress)
+        Me.GroupBox11.Controls.Add(Me.Label11)
+        Me.GroupBox11.Controls.Add(Me.chkboxzielbufor)
+        Me.GroupBox11.Location = New System.Drawing.Point(170, 122)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(280, 103)
+        Me.GroupBox11.TabIndex = 22
+        Me.GroupBox11.TabStop = False
+        Me.GroupBox11.Text = "Efekty wizualne"
+        '
+        'chkboxzielbufor
+        '
+        Me.chkboxzielbufor.AutoSize = True
+        Me.chkboxzielbufor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxzielbufor.Location = New System.Drawing.Point(6, 78)
+        Me.chkboxzielbufor.Name = "chkboxzielbufor"
+        Me.chkboxzielbufor.Size = New System.Drawing.Size(262, 19)
+        Me.chkboxzielbufor.TabIndex = 3
+        Me.chkboxzielbufor.Text = "Użyj zielonego efektu podczas buforowania"
+        Me.chkboxzielbufor.UseVisualStyleBackColor = True
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(28, 21)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(116, 13)
+        Me.Label11.TabIndex = 15
+        Me.Label11.Text = "W trakcie odtwarzania:"
+        '
+        'lstprogress
+        '
+        Me.lstprogress.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.lstprogress.FormattingEnabled = True
+        Me.lstprogress.Items.AddRange(New Object() {"Wyłączony", "Zielony (stały)", "Żółty (stały)", "Czerwony (stały)", "Zielony (zmienny)", "Żółty (zmienny)", "Czerwony (zmienny)"})
+        Me.lstprogress.Location = New System.Drawing.Point(151, 18)
+        Me.lstprogress.Name = "lstprogress"
+        Me.lstprogress.Size = New System.Drawing.Size(117, 21)
+        Me.lstprogress.TabIndex = 16
+        '
+        'lstpause
+        '
+        Me.lstpause.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.lstpause.FormattingEnabled = True
+        Me.lstpause.Items.AddRange(New Object() {"Wyłączony", "Zielony", "Żółty", "Czerwony"})
+        Me.lstpause.Location = New System.Drawing.Point(151, 45)
+        Me.lstpause.Name = "lstpause"
+        Me.lstpause.Size = New System.Drawing.Size(117, 21)
+        Me.lstpause.TabIndex = 18
+        '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label12.Location = New System.Drawing.Point(171, 15)
+        Me.Label12.Location = New System.Drawing.Point(17, 48)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(136, 30)
-        Me.Label12.TabIndex = 15
-        Me.Label12.Text = "W wyszukiwarce oprócz" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "tytułów szukaj według:"
-        '
-        'chkboxsearchW
-        '
-        Me.chkboxsearchW.AutoSize = True
-        Me.chkboxsearchW.Checked = True
-        Me.chkboxsearchW.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chkboxsearchW.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxsearchW.Location = New System.Drawing.Point(174, 48)
-        Me.chkboxsearchW.Name = "chkboxsearchW"
-        Me.chkboxsearchW.Size = New System.Drawing.Size(98, 19)
-        Me.chkboxsearchW.TabIndex = 16
-        Me.chkboxsearchW.Text = "wykonawców"
-        Me.chkboxsearchW.UseVisualStyleBackColor = True
-        '
-        'chkboxsearchA
-        '
-        Me.chkboxsearchA.AutoSize = True
-        Me.chkboxsearchA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxsearchA.Location = New System.Drawing.Point(174, 73)
-        Me.chkboxsearchA.Name = "chkboxsearchA"
-        Me.chkboxsearchA.Size = New System.Drawing.Size(77, 19)
-        Me.chkboxsearchA.TabIndex = 17
-        Me.chkboxsearchA.Text = "albumów"
-        Me.chkboxsearchA.UseVisualStyleBackColor = True
-        '
-        'chkboxsearchID
-        '
-        Me.chkboxsearchID.AutoSize = True
-        Me.chkboxsearchID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxsearchID.Location = New System.Drawing.Point(174, 98)
-        Me.chkboxsearchID.Name = "chkboxsearchID"
-        Me.chkboxsearchID.Size = New System.Drawing.Size(107, 19)
-        Me.chkboxsearchID.TabIndex = 18
-        Me.chkboxsearchID.Text = "identyfikatorów"
-        Me.chkboxsearchID.UseVisualStyleBackColor = True
+        Me.Label12.Size = New System.Drawing.Size(127, 13)
+        Me.Label12.TabIndex = 17
+        Me.Label12.Text = "Zatrzymanie odtwarzania:"
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label13.Location = New System.Drawing.Point(322, 15)
+        Me.Label13.Location = New System.Drawing.Point(6, 19)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(105, 15)
-        Me.Label13.TabIndex = 19
-        Me.Label13.Text = "Dodatkowe opcje:"
+        Me.Label13.Size = New System.Drawing.Size(143, 39)
+        Me.Label13.TabIndex = 11
+        Me.Label13.Text = "Ustal zwłokę czasową przed" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "odtworzeniem następnego" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "utworu:"
         '
         'settingsform
         '
@@ -700,8 +842,20 @@ Partial Class settingsform
         Me.Text = "Ustawienia"
         Me.tabs.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
         CType(Me.nropoznienie, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage5.ResumeLayout(False)
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         CType(Me.skrotygrid, System.ComponentModel.ISupportInitialize).EndInit()
@@ -715,6 +869,10 @@ Partial Class settingsform
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox11.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -727,19 +885,13 @@ Partial Class settingsform
     Friend WithEvents Label1 As Label
     Friend WithEvents akcja As DataGridViewTextBoxColumn
     Friend WithEvents skrot As DataGridViewTextBoxColumn
-    Friend WithEvents chkboxpocz As RadioButton
-    Friend WithEvents chkboxkoniec As RadioButton
-    Friend WithEvents Label2 As Label
     Friend WithEvents TabPage4 As TabPage
     Friend WithEvents lblver As Label
     Friend WithEvents lblname As Label
-    Friend WithEvents chkboxprzejdz As CheckBox
     Friend WithEvents chkboxdymek As CheckBox
     Friend WithEvents chkboxczas As CheckBox
-    Friend WithEvents chkboxhide As CheckBox
     Friend WithEvents Label5 As Label
     Friend WithEvents nropoznienie As NumericUpDown
-    Friend WithEvents Label4 As Label
     Friend WithEvents chkboxmkeys As CheckBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label6 As Label
@@ -761,15 +913,33 @@ Partial Class settingsform
     Friend WithEvents opendialog As OpenFileDialog
     Friend WithEvents btnwgrajcalosc As Button
     Friend WithEvents btngeneruj As Button
-    Friend WithEvents chkboxhidealbums As CheckBox
-    Friend WithEvents Label11 As Label
-    Friend WithEvents lstdefaulttab As ComboBox
     Friend WithEvents btnpdf As Button
     Friend WithEvents chkboxtitlewindow As CheckBox
     Friend WithEvents btnhistory As Button
-    Friend WithEvents Label13 As Label
-    Friend WithEvents chkboxsearchID As CheckBox
-    Friend WithEvents chkboxsearchA As CheckBox
+    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents chkboxpocz As RadioButton
+    Friend WithEvents chkboxkoniec As RadioButton
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents GroupBox7 As GroupBox
+    Friend WithEvents chkboxhidealbums As CheckBox
+    Friend WithEvents chkboxhide As CheckBox
+    Friend WithEvents chkboxprzejdz As CheckBox
+    Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents chkboxsearchW As CheckBox
+    Friend WithEvents chkboxsearchA As CheckBox
+    Friend WithEvents chkboxsearchID As CheckBox
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents GroupBox8 As GroupBox
+    Friend WithEvents GroupBox9 As GroupBox
+    Friend WithEvents lstdefaulttab As ComboBox
+    Friend WithEvents GroupBox11 As GroupBox
+    Friend WithEvents GroupBox10 As GroupBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lstpause As ComboBox
     Friend WithEvents Label12 As Label
+    Friend WithEvents lstprogress As ComboBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents chkboxzielbufor As CheckBox
+    Friend WithEvents Label13 As Label
 End Class
