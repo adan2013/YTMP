@@ -303,7 +303,23 @@
                         For Each w As WYKONAWCA In dane.wykonawcy
                             For Each a As ALBUM In w.albumy
                                 For Each u As UTWOR In a.utwory
-                                    If u.tytul.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then REFpoz.Add(u)
+                                    Dim dodano As Boolean = False
+                                    If u.tytul.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
+                                        REFpoz.Add(u)
+                                        dodano = True
+                                    End If
+                                    If Not dodano AndAlso dane.SETsearchW AndAlso u.FKalbum.FKwykonawca.nazwa.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
+                                        REFpoz.Add(u)
+                                        dodano = True
+                                    End If
+                                    If Not dodano AndAlso dane.SETsearchA AndAlso u.FKalbum.nazwa.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
+                                        REFpoz.Add(u)
+                                        dodano = True
+                                    End If
+                                    If Not dodano AndAlso dane.SETsearchID AndAlso u.link.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
+                                        REFpoz.Add(u)
+                                        dodano = True
+                                    End If
                                 Next
                             Next
                         Next
@@ -438,7 +454,7 @@
 
             pnl.Controls.Add(lbltekst)
 
-            If searchempty OrElse lbltekst.Text.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
+            If searchempty OrElse seltab = 1 OrElse lbltekst.Text.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
                 pnlwewn.Controls.Add(pnl)
                 pnlwewn.Size = New Size(pnlwewn.Size.Width, pnlwewn.Size.Height + 60)
             End If

@@ -16,6 +16,9 @@ Public Class MAGAZYN
     Public SEThidealbums As Boolean = False
     Public SETdefaulttab As Byte = 0
     Public SETshowtitlewindow As Boolean = False
+    Public SETsearchW As Boolean = True
+    Public SETsearchA As Boolean = False
+    Public SETsearchID As Boolean = False
 
     Public volume As SByte = 100
     Public MODrep As Boolean = False

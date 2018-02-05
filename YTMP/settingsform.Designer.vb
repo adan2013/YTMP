@@ -73,6 +73,11 @@ Partial Class settingsform
         Me.lblname = New System.Windows.Forms.Label()
         Me.savedialog = New System.Windows.Forms.SaveFileDialog()
         Me.opendialog = New System.Windows.Forms.OpenFileDialog()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.chkboxsearchW = New System.Windows.Forms.CheckBox()
+        Me.chkboxsearchA = New System.Windows.Forms.CheckBox()
+        Me.chkboxsearchID = New System.Windows.Forms.CheckBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.tabs.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.nropoznienie, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,6 +106,11 @@ Partial Class settingsform
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.Label13)
+        Me.TabPage2.Controls.Add(Me.chkboxsearchID)
+        Me.TabPage2.Controls.Add(Me.chkboxsearchA)
+        Me.TabPage2.Controls.Add(Me.chkboxsearchW)
+        Me.TabPage2.Controls.Add(Me.Label12)
         Me.TabPage2.Controls.Add(Me.btnhistory)
         Me.TabPage2.Controls.Add(Me.chkboxtitlewindow)
         Me.TabPage2.Controls.Add(Me.lstdefaulttab)
@@ -137,7 +147,7 @@ Partial Class settingsform
         '
         Me.chkboxtitlewindow.AutoSize = True
         Me.chkboxtitlewindow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxtitlewindow.Location = New System.Drawing.Point(321, 169)
+        Me.chkboxtitlewindow.Location = New System.Drawing.Point(325, 188)
         Me.chkboxtitlewindow.Name = "chkboxtitlewindow"
         Me.chkboxtitlewindow.Size = New System.Drawing.Size(212, 19)
         Me.chkboxtitlewindow.TabIndex = 13
@@ -149,7 +159,7 @@ Partial Class settingsform
         Me.lstdefaulttab.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.lstdefaulttab.FormattingEnabled = True
         Me.lstdefaulttab.Items.AddRange(New Object() {"Lista odtwarzania", "Utwory", "Playlisty"})
-        Me.lstdefaulttab.Location = New System.Drawing.Point(174, 30)
+        Me.lstdefaulttab.Location = New System.Drawing.Point(9, 160)
         Me.lstdefaulttab.Name = "lstdefaulttab"
         Me.lstdefaulttab.Size = New System.Drawing.Size(117, 21)
         Me.lstdefaulttab.TabIndex = 1
@@ -158,7 +168,7 @@ Partial Class settingsform
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label11.Location = New System.Drawing.Point(171, 12)
+        Me.Label11.Location = New System.Drawing.Point(6, 142)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(95, 15)
         Me.Label11.TabIndex = 12
@@ -168,7 +178,7 @@ Partial Class settingsform
         '
         Me.chkboxhidealbums.AutoSize = True
         Me.chkboxhidealbums.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxhidealbums.Location = New System.Drawing.Point(321, 144)
+        Me.chkboxhidealbums.Location = New System.Drawing.Point(325, 163)
         Me.chkboxhidealbums.Name = "chkboxhidealbums"
         Me.chkboxhidealbums.Size = New System.Drawing.Size(142, 19)
         Me.chkboxhidealbums.TabIndex = 11
@@ -208,7 +218,7 @@ Partial Class settingsform
         '
         Me.chkboxhide.AutoSize = True
         Me.chkboxhide.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxhide.Location = New System.Drawing.Point(321, 119)
+        Me.chkboxhide.Location = New System.Drawing.Point(325, 138)
         Me.chkboxhide.Name = "chkboxhide"
         Me.chkboxhide.Size = New System.Drawing.Size(203, 19)
         Me.chkboxhide.TabIndex = 7
@@ -219,7 +229,7 @@ Partial Class settingsform
         '
         Me.chkboxczas.AutoSize = True
         Me.chkboxczas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxczas.Location = New System.Drawing.Point(321, 79)
+        Me.chkboxczas.Location = New System.Drawing.Point(325, 98)
         Me.chkboxczas.Name = "chkboxczas"
         Me.chkboxczas.Size = New System.Drawing.Size(173, 34)
         Me.chkboxczas.TabIndex = 6
@@ -230,7 +240,7 @@ Partial Class settingsform
         '
         Me.chkboxprzejdz.AutoSize = True
         Me.chkboxprzejdz.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxprzejdz.Location = New System.Drawing.Point(321, 39)
+        Me.chkboxprzejdz.Location = New System.Drawing.Point(325, 58)
         Me.chkboxprzejdz.Name = "chkboxprzejdz"
         Me.chkboxprzejdz.Size = New System.Drawing.Size(191, 34)
         Me.chkboxprzejdz.TabIndex = 5
@@ -243,7 +253,7 @@ Partial Class settingsform
         Me.chkboxdymek.Checked = True
         Me.chkboxdymek.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkboxdymek.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxdymek.Location = New System.Drawing.Point(321, 14)
+        Me.chkboxdymek.Location = New System.Drawing.Point(325, 33)
         Me.chkboxdymek.Name = "chkboxdymek"
         Me.chkboxdymek.Size = New System.Drawing.Size(188, 19)
         Me.chkboxdymek.TabIndex = 2
@@ -620,6 +630,61 @@ Partial Class settingsform
         Me.opendialog.Filter = "Plik magazynu (*.ytmp)|*.ytmp"
         Me.opendialog.Title = "Wskaż plik"
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label12.Location = New System.Drawing.Point(171, 15)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(136, 30)
+        Me.Label12.TabIndex = 15
+        Me.Label12.Text = "W wyszukiwarce oprócz" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "tytułów szukaj według:"
+        '
+        'chkboxsearchW
+        '
+        Me.chkboxsearchW.AutoSize = True
+        Me.chkboxsearchW.Checked = True
+        Me.chkboxsearchW.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkboxsearchW.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxsearchW.Location = New System.Drawing.Point(174, 48)
+        Me.chkboxsearchW.Name = "chkboxsearchW"
+        Me.chkboxsearchW.Size = New System.Drawing.Size(98, 19)
+        Me.chkboxsearchW.TabIndex = 16
+        Me.chkboxsearchW.Text = "wykonawców"
+        Me.chkboxsearchW.UseVisualStyleBackColor = True
+        '
+        'chkboxsearchA
+        '
+        Me.chkboxsearchA.AutoSize = True
+        Me.chkboxsearchA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxsearchA.Location = New System.Drawing.Point(174, 73)
+        Me.chkboxsearchA.Name = "chkboxsearchA"
+        Me.chkboxsearchA.Size = New System.Drawing.Size(77, 19)
+        Me.chkboxsearchA.TabIndex = 17
+        Me.chkboxsearchA.Text = "albumów"
+        Me.chkboxsearchA.UseVisualStyleBackColor = True
+        '
+        'chkboxsearchID
+        '
+        Me.chkboxsearchID.AutoSize = True
+        Me.chkboxsearchID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxsearchID.Location = New System.Drawing.Point(174, 98)
+        Me.chkboxsearchID.Name = "chkboxsearchID"
+        Me.chkboxsearchID.Size = New System.Drawing.Size(107, 19)
+        Me.chkboxsearchID.TabIndex = 18
+        Me.chkboxsearchID.Text = "identyfikatorów"
+        Me.chkboxsearchID.UseVisualStyleBackColor = True
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label13.Location = New System.Drawing.Point(322, 15)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(105, 15)
+        Me.Label13.TabIndex = 19
+        Me.Label13.Text = "Dodatkowe opcje:"
+        '
         'settingsform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -702,4 +767,9 @@ Partial Class settingsform
     Friend WithEvents btnpdf As Button
     Friend WithEvents chkboxtitlewindow As CheckBox
     Friend WithEvents btnhistory As Button
+    Friend WithEvents Label13 As Label
+    Friend WithEvents chkboxsearchID As CheckBox
+    Friend WithEvents chkboxsearchA As CheckBox
+    Friend WithEvents chkboxsearchW As CheckBox
+    Friend WithEvents Label12 As Label
 End Class
