@@ -81,10 +81,19 @@
     <Reference Include="Geckofx-Winforms">
       <HintPath>..\..\..\..\..\Desktop\YTMP\YTtest\YTtest\bin\Debug\Geckofx-Winforms.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -94,6 +103,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -410,6 +420,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appicon.ico" />
+    <None Include="bin\Debug\TBvolon.png" />
+    <None Include="bin\Debug\TBpause.png" />
+    <None Include="bin\Debug\TBvolup.png" />
+    <None Include="bin\Debug\TBvoloff.png" />
+    <None Include="bin\Debug\TBvoldn.png" />
+    <None Include="bin\Debug\TBrewindR.png" />
+    <None Include="bin\Debug\TBrewindL.png" />
+    <None Include="bin\Debug\TBplay.png" />
     <None Include="bin\Debug\belkaopen.png" />
     <None Include="bin\Debug\belkaclose.png" />
     <None Include="bin\Debug\btntab3.png" />

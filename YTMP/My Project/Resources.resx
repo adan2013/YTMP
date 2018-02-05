@@ -247,4 +247,28 @@
   <data name="belkaopen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\belkaopen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TBplay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\TBplay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TBrewindL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\TBrewindL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TBrewindR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\TBrewindR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TBvoldn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\TBvoldn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TBvoloff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\TBvoloff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TBvolup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\TBvolup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TBpause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\TBpause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TBvolon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\TBvolon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

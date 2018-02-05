@@ -1,4 +1,5 @@
-﻿Public Class Form1
+﻿Imports Microsoft.WindowsAPICodePack.Taskbar
+Public Class Form1
 
     Public wersja As String = "v5.2"
     Dim WithEvents kb As KeyboardHook = New KeyboardHook()
@@ -22,6 +23,13 @@
     Public REFpoz As List(Of Object) = New List(Of Object)
 
     Public yt As YTAPI
+
+    Public TB1 As ThumbnailToolBarButton
+    Public TB2 As ThumbnailToolBarButton
+    Public TB3 As ThumbnailToolBarButton
+    Public TB4 As ThumbnailToolBarButton
+    Public TB5 As ThumbnailToolBarButton
+    Public TB6 As ThumbnailToolBarButton
 
     Public Property selectedtab() As SByte
         Get
@@ -67,6 +75,21 @@
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If TaskbarManager.IsPlatformSupported Then
+            TB1 = New ThumbnailToolBarButton(Icon.FromHandle(My.Resources.TBplay.GetHicon()), "Wznów odtwarzanie")
+            TB2 = New ThumbnailToolBarButton(Icon.FromHandle(My.Resources.TBrewindL.GetHicon()), "Poprzedni")
+            TB3 = New ThumbnailToolBarButton(Icon.FromHandle(My.Resources.TBrewindR.GetHicon()), "Następny")
+            TB4 = New ThumbnailToolBarButton(Icon.FromHandle(My.Resources.TBvoloff.GetHicon()), "Wycisz dźwięk")
+            TB5 = New ThumbnailToolBarButton(Icon.FromHandle(My.Resources.TBvoldn.GetHicon()), "Zmniejsz głośność")
+            TB6 = New ThumbnailToolBarButton(Icon.FromHandle(My.Resources.TBvolup.GetHicon()), "Zwiększ głośność")
+            AddHandler TB1.Click, AddressOf PlayPauseToolStripMenuItem_Click
+            AddHandler TB2.Click, AddressOf PoprzedniUtwórToolStripMenuItem_Click
+            AddHandler TB3.Click, AddressOf NastępnyUtwórToolStripMenuItem_Click
+            AddHandler TB4.Click, AddressOf WyciszOdciszToolStripMenuItem_Click
+            AddHandler TB5.Click, AddressOf ZmniejszGłośnośćToolStripMenuItem_Click
+            AddHandler TB6.Click, AddressOf ZwiększGłośnośćToolStripMenuItem_Click
+            TaskbarManager.Instance.ThumbnailToolBars.AddButtons(Handle, TB1, TB2, TB3, TB4, TB5, TB6)
+        End If
         splashscreen.ShowDialog()
         With lblstart
             .Location = New Point(10, 0)

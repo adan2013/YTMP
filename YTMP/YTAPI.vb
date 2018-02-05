@@ -161,8 +161,16 @@ Public Class YTAPI
         If s = "" Then state = YTstate.nieuruchomiono Else state = s
         If state = YTstate.odtwarzanie Or state = YTstate.buforowanie Then
             If Form1.btnplay.Image IsNot My.Resources.pause_button Then Form1.btnplay.Image = My.Resources.pause_button
+            If Form1.TB1.Tooltip = "Wznów odtwarzanie" Then
+                Form1.TB1.Icon = Icon.FromHandle(My.Resources.TBpause.GetHicon())
+                Form1.TB1.Tooltip = "Wstrzymaj odtwarzanie"
+            End If
         Else
             If Form1.btnplay.Image IsNot My.Resources.play_button Then Form1.btnplay.Image = My.Resources.play_button
+            If Form1.TB1.Tooltip = "Wstrzymaj odtwarzanie" Then
+                Form1.TB1.Icon = Icon.FromHandle(My.Resources.TBplay.GetHicon())
+                Form1.TB1.Tooltip = "Wznów odtwarzanie"
+            End If
         End If
         s = getcontent("INFOismuted")
         If s = "" Then
@@ -170,6 +178,17 @@ Public Class YTAPI
         Else
             If s = "true" Then wyciszony = True Else wyciszony = False
             If Not wyciszony = dane.MODmute Then sterujglosnoscia(dane.MODmute)
+        End If
+        If wyciszony Then
+            If Form1.TB4.Tooltip = "Wycisz dźwięk" Then
+                Form1.TB4.Icon = Icon.FromHandle(My.Resources.TBvolon.GetHicon())
+                Form1.TB4.Tooltip = "Przywróć dźwięk"
+            End If
+        Else
+            If Form1.TB4.Tooltip = "Przywróć dźwięk" Then
+                Form1.TB4.Icon = Icon.FromHandle(My.Resources.TBvoloff.GetHicon())
+                Form1.TB4.Tooltip = "Wycisz dźwięk"
+            End If
         End If
         s = getcontent("INFOvolume")
         If s = "" Then
