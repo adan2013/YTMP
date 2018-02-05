@@ -317,7 +317,7 @@ Public Class YTAPI
                 If dane.SETkolorprogress > 3 Then
                     TaskbarManager.Instance.SetProgressValue(currenttime, durationtime)
                 Else
-                    TaskbarManager.Instance.SetProgressValue(1, 1)
+                    If Not efektwizualny = EFEKTWIZ.brak Then TaskbarManager.Instance.SetProgressValue(1, 1)
                 End If
             Case YTstate.wstrzymany
                 Select Case dane.SETkolorpause
