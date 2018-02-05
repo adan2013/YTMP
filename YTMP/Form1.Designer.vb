@@ -368,7 +368,7 @@ Partial Class Form1
         '
         'notify
         '
-        Me.notify.BalloonTipTitle = "YouTubeMediaPlayer"
+        Me.notify.BalloonTipTitle = "YouTube Media Player"
         Me.notify.ContextMenuStrip = Me.contextnotify
         Me.notify.Icon = CType(resources.GetObject("notify.Icon"), System.Drawing.Icon)
         Me.notify.Text = "YouTubeMediaPlayer"

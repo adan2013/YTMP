@@ -70,7 +70,7 @@ Public Class YTAPI
         hisodtw.Add(utw)
         If dane.SETdymek Then
             Form1.notify.BalloonTipText = """" & utw.tytul & """ " & utw.FKalbum.FKwykonawca.nazwa
-            Form1.notify.ShowBalloonTip(1800)
+            Form1.notify.ShowBalloonTip(1400)
         End If
         If dane.SETshowtitlewindow Then
             Form1.Text = """" & utw.tytul & """ " & utw.FKalbum.FKwykonawca.nazwa & " - YouTube Media Player"
