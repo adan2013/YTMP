@@ -148,12 +148,6 @@
     <Compile Include="genraport.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="hisutw.Designer.vb">
-      <DependentUpon>hisutw.vb</DependentUpon>
-    </Compile>
-    <Compile Include="hisutw.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="IMPORTplaylist.Designer.vb">
       <DependentUpon>IMPORTplaylist.vb</DependentUpon>
     </Compile>
@@ -280,9 +274,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="genraport.resx">
       <DependentUpon>genraport.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="hisutw.resx">
-      <DependentUpon>hisutw.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IMPORTplaylist.resx">
       <DependentUpon>IMPORTplaylist.vb</DependentUpon>

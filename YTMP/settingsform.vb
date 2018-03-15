@@ -13,7 +13,6 @@
             End If
         Next
         lblver.Text = "Wersja aplikacji: " & Form1.wersja
-        lblver.Location = New Point(lblname.Location.X + lblname.Size.Width - lblver.Size.Width - 10, lblver.Location.Y)
         'odczyt
         If dane.SETnakoncu Then chkboxkoniec.Checked = True Else chkboxpocz.Checked = True
         chkboxdymek.Checked = dane.SETdymek
@@ -33,6 +32,13 @@
         lstpause.SelectedIndex = dane.SETkolorpause
         If dane.SETkopie Then lstkopie.SelectedIndex = 1 Else lstkopie.SelectedIndex = 0
         init = False
+
+        'historia odtwarzania
+        lsthis.Items.Clear()
+        For Each i As UTWOR In Form1.yt.hisodtw
+            lsthis.Items.Add(i.tytul & " - " & i.FKalbum.FKwykonawca.nazwa)
+        Next
+        If lsthis.Items.Count > 0 Then lsthis.SelectedIndex = lsthis.Items.Count - 1
     End Sub
 
     Private Sub skrotygrid_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles skrotygrid.CellDoubleClick
@@ -168,7 +174,7 @@
         End Try
     End Sub
 
-    Private Sub btnhistory_Click(sender As Object, e As EventArgs) Handles btnhistory.Click
+    Private Sub btnhistory_Click(sender As Object, e As EventArgs)
         hisutw.ShowDialog()
         hisutw.Close()
     End Sub

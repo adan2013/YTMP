@@ -25,31 +25,17 @@ Partial Class settingsform
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(settingsform))
-        Me.tabs = New System.Windows.Forms.TabControl()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.savedialog = New System.Windows.Forms.SaveFileDialog()
+        Me.opendialog = New System.Windows.Forms.OpenFileDialog()
+        Me.tabs = New YTMP.CustomTabs()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.lstpause = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.lstprogress = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.chkboxzielbufor = New System.Windows.Forms.CheckBox()
-        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.btnhistory = New System.Windows.Forms.Button()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.btndelete = New System.Windows.Forms.Button()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.btnpdf = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.lblver = New System.Windows.Forms.Label()
-        Me.lblname = New System.Windows.Forms.Label()
-        Me.savedialog = New System.Windows.Forms.SaveFileDialog()
-        Me.opendialog = New System.Windows.Forms.OpenFileDialog()
-        Me.CustomTabs1 = New YTMP.CustomTabs()
-        Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.chkboxdymek = New System.Windows.Forms.CheckBox()
         Me.chkboxczas = New System.Windows.Forms.CheckBox()
@@ -83,8 +69,13 @@ Partial Class settingsform
         Me.skrot = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox14 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.btndelete = New System.Windows.Forms.Button()
+        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
         Me.btngeneruj = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.btnzapisz = New System.Windows.Forms.Button()
         Me.btnwgraj = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -96,21 +87,22 @@ Partial Class settingsform
         Me.btnwgrajcalosc = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnlocalsave = New System.Windows.Forms.Button()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.lsthis = New System.Windows.Forms.ListBox()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
-        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.GroupBox14 = New System.Windows.Forms.GroupBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox15 = New System.Windows.Forms.GroupBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btngithub = New System.Windows.Forms.Button()
+        Me.btnpdf = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lblver = New System.Windows.Forms.Label()
         Me.tabs.SuspendLayout()
-        Me.GroupBox11.SuspendLayout()
-        Me.GroupBox10.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.CustomTabs1.SuspendLayout()
         Me.TabPage6.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.nropoznienie, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,39 +115,61 @@ Partial Class settingsform
         Me.GroupBox12.SuspendLayout()
         CType(Me.skrotygrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage9.SuspendLayout()
+        Me.GroupBox14.SuspendLayout()
+        Me.GroupBox13.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
         Me.TabPage10.SuspendLayout()
-        Me.GroupBox13.SuspendLayout()
-        Me.GroupBox14.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox15.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'savedialog
+        '
+        Me.savedialog.Filter = "Plik magazynu (*.ytmp)|*.ytmp"
+        Me.savedialog.Title = "Wybierz ścieżkę i nazwę pliku"
+        '
+        'opendialog
+        '
+        Me.opendialog.Filter = "Plik magazynu (*.ytmp)|*.ytmp"
+        Me.opendialog.Title = "Wskaż plik"
         '
         'tabs
         '
-        Me.tabs.Controls.Add(Me.TabPage2)
-        Me.tabs.Controls.Add(Me.TabPage5)
+        Me.tabs.Alignment = System.Windows.Forms.TabAlignment.Left
+        Me.tabs.Controls.Add(Me.TabPage6)
+        Me.tabs.Controls.Add(Me.TabPage7)
+        Me.tabs.Controls.Add(Me.TabPage8)
+        Me.tabs.Controls.Add(Me.TabPage9)
         Me.tabs.Controls.Add(Me.TabPage1)
-        Me.tabs.Controls.Add(Me.TabPage3)
-        Me.tabs.Controls.Add(Me.TabPage4)
-        Me.tabs.Location = New System.Drawing.Point(12, 12)
+        Me.tabs.Controls.Add(Me.TabPage10)
+        Me.tabs.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tabs.ItemSize = New System.Drawing.Size(44, 136)
+        Me.tabs.Location = New System.Drawing.Point(0, 0)
+        Me.tabs.Multiline = True
         Me.tabs.Name = "tabs"
-        Me.tabs.Padding = New System.Drawing.Point(14, 8)
         Me.tabs.SelectedIndex = 0
-        Me.tabs.Size = New System.Drawing.Size(560, 267)
-        Me.tabs.TabIndex = 0
+        Me.tabs.Size = New System.Drawing.Size(564, 482)
+        Me.tabs.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
+        Me.tabs.TabIndex = 1
         '
-        'TabPage2
+        'TabPage6
         '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(552, 231)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Odtwarzacz"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.TabPage6.BackColor = System.Drawing.Color.White
+        Me.TabPage6.Controls.Add(Me.GroupBox11)
+        Me.TabPage6.Controls.Add(Me.GroupBox8)
+        Me.TabPage6.Controls.Add(Me.GroupBox6)
+        Me.TabPage6.Location = New System.Drawing.Point(140, 4)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage6.Size = New System.Drawing.Size(420, 474)
+        Me.TabPage6.TabIndex = 0
+        Me.TabPage6.Text = "Odtwarzacz"
         '
         'GroupBox11
         '
@@ -171,6 +185,16 @@ Partial Class settingsform
         Me.GroupBox11.TabIndex = 22
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Efekty wizualne"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(6, 19)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(349, 26)
+        Me.Label16.TabIndex = 19
+        Me.Label16.Text = "Efekty wizualne umożliwiają informowanie o postępie odtwarzania utworu" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "za pomocą" &
+    " kolorowania okna aplikacji na pasku systemowym:"
         '
         'lstpause
         '
@@ -220,181 +244,6 @@ Partial Class settingsform
         Me.chkboxzielbufor.TabIndex = 3
         Me.chkboxzielbufor.Text = "Użyj zielonego efektu podczas buforowania"
         Me.chkboxzielbufor.UseVisualStyleBackColor = True
-        '
-        'GroupBox10
-        '
-        Me.GroupBox10.Controls.Add(Me.Label4)
-        Me.GroupBox10.Controls.Add(Me.btnhistory)
-        Me.GroupBox10.Location = New System.Drawing.Point(113, 315)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(158, 103)
-        Me.GroupBox10.TabIndex = 22
-        Me.GroupBox10.TabStop = False
-        Me.GroupBox10.Text = "Historia odtwarzania"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 21)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(119, 26)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Przejrzyj listę ostatnio" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "odtwarzanych utworów:"
-        '
-        'btnhistory
-        '
-        Me.btnhistory.Location = New System.Drawing.Point(18, 63)
-        Me.btnhistory.Name = "btnhistory"
-        Me.btnhistory.Size = New System.Drawing.Size(116, 26)
-        Me.btnhistory.TabIndex = 14
-        Me.btnhistory.Text = "Historia odtwarzania"
-        Me.btnhistory.UseVisualStyleBackColor = True
-        '
-        'TabPage5
-        '
-        Me.TabPage5.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(552, 231)
-        Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "Aplikacja"
-        Me.TabPage5.UseVisualStyleBackColor = True
-        '
-        'TabPage1
-        '
-        Me.TabPage1.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(552, 231)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Sterowanie"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(552, 231)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Biblioteka utworów"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 19)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(331, 13)
-        Me.Label6.TabIndex = 3
-        Me.Label6.Text = "Usuń bezpowrotnie całą bibliotekę utworów oraz ustawienia aplikacji"
-        '
-        'btndelete
-        '
-        Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.btndelete.ForeColor = System.Drawing.Color.Firebrick
-        Me.btndelete.Location = New System.Drawing.Point(9, 42)
-        Me.btndelete.Margin = New System.Windows.Forms.Padding(3, 5, 3, 10)
-        Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(100, 23)
-        Me.btndelete.TabIndex = 2
-        Me.btndelete.Text = "Usuń"
-        Me.btndelete.UseVisualStyleBackColor = True
-        '
-        'TabPage4
-        '
-        Me.TabPage4.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.TabPage4.Controls.Add(Me.lblname)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(552, 231)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Informacje"
-        '
-        'btnpdf
-        '
-        Me.btnpdf.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnpdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnpdf.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.btnpdf.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnpdf.Location = New System.Drawing.Point(8, 161)
-        Me.btnpdf.Name = "btnpdf"
-        Me.btnpdf.Size = New System.Drawing.Size(126, 30)
-        Me.btnpdf.TabIndex = 3
-        Me.btnpdf.Text = "Instrukcja PDF"
-        Me.btnpdf.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.YTMP.My.Resources.Resources.text3408_128
-        Me.PictureBox1.Location = New System.Drawing.Point(246, 59)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(128, 128)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
-        '
-        'lblver
-        '
-        Me.lblver.AutoSize = True
-        Me.lblver.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.lblver.ForeColor = System.Drawing.Color.White
-        Me.lblver.Location = New System.Drawing.Point(17, 46)
-        Me.lblver.Name = "lblver"
-        Me.lblver.Size = New System.Drawing.Size(72, 19)
-        Me.lblver.TabIndex = 1
-        Me.lblver.Text = "VERSION"
-        '
-        'lblname
-        '
-        Me.lblname.AutoSize = True
-        Me.lblname.Font = New System.Drawing.Font("Consolas", 26.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.lblname.ForeColor = System.Drawing.Color.White
-        Me.lblname.Location = New System.Drawing.Point(171, 19)
-        Me.lblname.Name = "lblname"
-        Me.lblname.Size = New System.Drawing.Size(360, 41)
-        Me.lblname.TabIndex = 0
-        Me.lblname.Text = "YouTubeMediaPlayer"
-        '
-        'savedialog
-        '
-        Me.savedialog.Filter = "Plik magazynu (*.ytmp)|*.ytmp"
-        Me.savedialog.Title = "Wybierz ścieżkę i nazwę pliku"
-        '
-        'opendialog
-        '
-        Me.opendialog.Filter = "Plik magazynu (*.ytmp)|*.ytmp"
-        Me.opendialog.Title = "Wskaż plik"
-        '
-        'CustomTabs1
-        '
-        Me.CustomTabs1.Alignment = System.Windows.Forms.TabAlignment.Left
-        Me.CustomTabs1.Controls.Add(Me.TabPage6)
-        Me.CustomTabs1.Controls.Add(Me.TabPage7)
-        Me.CustomTabs1.Controls.Add(Me.TabPage8)
-        Me.CustomTabs1.Controls.Add(Me.TabPage9)
-        Me.CustomTabs1.Controls.Add(Me.TabPage10)
-        Me.CustomTabs1.ItemSize = New System.Drawing.Size(44, 136)
-        Me.CustomTabs1.Location = New System.Drawing.Point(12, 285)
-        Me.CustomTabs1.Multiline = True
-        Me.CustomTabs1.Name = "CustomTabs1"
-        Me.CustomTabs1.SelectedIndex = 0
-        Me.CustomTabs1.Size = New System.Drawing.Size(560, 442)
-        Me.CustomTabs1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
-        Me.CustomTabs1.TabIndex = 1
-        '
-        'TabPage6
-        '
-        Me.TabPage6.BackColor = System.Drawing.Color.White
-        Me.TabPage6.Controls.Add(Me.GroupBox11)
-        Me.TabPage6.Controls.Add(Me.GroupBox8)
-        Me.TabPage6.Controls.Add(Me.GroupBox6)
-        Me.TabPage6.Location = New System.Drawing.Point(140, 4)
-        Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(416, 434)
-        Me.TabPage6.TabIndex = 0
-        Me.TabPage6.Text = "Odtwarzacz"
         '
         'GroupBox8
         '
@@ -493,7 +342,7 @@ Partial Class settingsform
         Me.TabPage7.Location = New System.Drawing.Point(140, 4)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(416, 434)
+        Me.TabPage7.Size = New System.Drawing.Size(420, 474)
         Me.TabPage7.TabIndex = 1
         Me.TabPage7.Text = "Aplikacja"
         '
@@ -502,7 +351,7 @@ Partial Class settingsform
         Me.GroupBox7.Controls.Add(Me.chkboxhidealbums)
         Me.GroupBox7.Controls.Add(Me.chkboxhide)
         Me.GroupBox7.Controls.Add(Me.chkboxprzejdz)
-        Me.GroupBox7.Location = New System.Drawing.Point(6, 252)
+        Me.GroupBox7.Location = New System.Drawing.Point(6, 242)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(404, 100)
         Me.GroupBox7.TabIndex = 24
@@ -580,7 +429,7 @@ Partial Class settingsform
         Me.GroupBox5.Controls.Add(Me.chkboxsearchID)
         Me.GroupBox5.Location = New System.Drawing.Point(6, 166)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(404, 80)
+        Me.GroupBox5.Size = New System.Drawing.Size(404, 70)
         Me.GroupBox5.TabIndex = 8
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Wyszukiwarka"
@@ -675,14 +524,13 @@ Partial Class settingsform
         'TabPage8
         '
         Me.TabPage8.BackColor = System.Drawing.Color.White
-        Me.TabPage8.Controls.Add(Me.GroupBox10)
         Me.TabPage8.Controls.Add(Me.GroupBox12)
         Me.TabPage8.Controls.Add(Me.skrotygrid)
         Me.TabPage8.Controls.Add(Me.Label1)
         Me.TabPage8.Location = New System.Drawing.Point(140, 4)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(416, 434)
+        Me.TabPage8.Size = New System.Drawing.Size(420, 474)
         Me.TabPage8.TabIndex = 2
         Me.TabPage8.Text = "Sterowanie"
         '
@@ -775,9 +623,72 @@ Partial Class settingsform
         Me.TabPage9.Location = New System.Drawing.Point(140, 4)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(416, 434)
+        Me.TabPage9.Size = New System.Drawing.Size(420, 474)
         Me.TabPage9.TabIndex = 3
         Me.TabPage9.Text = "Biblioteka utworów"
+        '
+        'GroupBox14
+        '
+        Me.GroupBox14.Controls.Add(Me.Label6)
+        Me.GroupBox14.Controls.Add(Me.btndelete)
+        Me.GroupBox14.ForeColor = System.Drawing.Color.Firebrick
+        Me.GroupBox14.Location = New System.Drawing.Point(6, 352)
+        Me.GroupBox14.Name = "GroupBox14"
+        Me.GroupBox14.Size = New System.Drawing.Size(404, 76)
+        Me.GroupBox14.TabIndex = 11
+        Me.GroupBox14.TabStop = False
+        Me.GroupBox14.Text = "Usuń dane aplikacji"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(6, 19)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(331, 13)
+        Me.Label6.TabIndex = 3
+        Me.Label6.Text = "Usuń bezpowrotnie całą bibliotekę utworów oraz ustawienia aplikacji"
+        '
+        'btndelete
+        '
+        Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.btndelete.ForeColor = System.Drawing.Color.Firebrick
+        Me.btndelete.Location = New System.Drawing.Point(9, 42)
+        Me.btndelete.Margin = New System.Windows.Forms.Padding(3, 5, 3, 10)
+        Me.btndelete.Name = "btndelete"
+        Me.btndelete.Size = New System.Drawing.Size(100, 23)
+        Me.btndelete.TabIndex = 2
+        Me.btndelete.Text = "Usuń"
+        Me.btndelete.UseVisualStyleBackColor = True
+        '
+        'GroupBox13
+        '
+        Me.GroupBox13.Controls.Add(Me.btngeneruj)
+        Me.GroupBox13.Controls.Add(Me.Label7)
+        Me.GroupBox13.Location = New System.Drawing.Point(6, 270)
+        Me.GroupBox13.Name = "GroupBox13"
+        Me.GroupBox13.Size = New System.Drawing.Size(404, 76)
+        Me.GroupBox13.TabIndex = 6
+        Me.GroupBox13.TabStop = False
+        Me.GroupBox13.Text = "Kopia zapasowa"
+        '
+        'btngeneruj
+        '
+        Me.btngeneruj.Location = New System.Drawing.Point(9, 42)
+        Me.btngeneruj.Margin = New System.Windows.Forms.Padding(3, 5, 3, 10)
+        Me.btngeneruj.Name = "btngeneruj"
+        Me.btngeneruj.Size = New System.Drawing.Size(100, 23)
+        Me.btngeneruj.TabIndex = 10
+        Me.btngeneruj.Text = "Generuj"
+        Me.btngeneruj.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 19)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(328, 13)
+        Me.Label7.TabIndex = 9
+        Me.Label7.Text = "Generuj spis utworów zapisanych w bibliotece do pliku TXT lub CSV"
         '
         'GroupBox3
         '
@@ -790,16 +701,6 @@ Partial Class settingsform
         Me.GroupBox3.TabIndex = 5
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Import/eksport utworów"
-        '
-        'btngeneruj
-        '
-        Me.btngeneruj.Location = New System.Drawing.Point(9, 42)
-        Me.btngeneruj.Margin = New System.Windows.Forms.Padding(3, 5, 3, 10)
-        Me.btngeneruj.Name = "btngeneruj"
-        Me.btngeneruj.Size = New System.Drawing.Size(100, 23)
-        Me.btngeneruj.TabIndex = 10
-        Me.btngeneruj.Text = "Generuj"
-        Me.btngeneruj.UseVisualStyleBackColor = True
         '
         'btnzapisz
         '
@@ -913,69 +814,79 @@ Partial Class settingsform
         Me.btnlocalsave.Text = "Zapisz"
         Me.btnlocalsave.UseVisualStyleBackColor = True
         '
+        'TabPage1
+        '
+        Me.TabPage1.BackColor = System.Drawing.Color.White
+        Me.TabPage1.Controls.Add(Me.GroupBox10)
+        Me.TabPage1.Location = New System.Drawing.Point(140, 4)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(420, 474)
+        Me.TabPage1.TabIndex = 5
+        Me.TabPage1.Text = "Historia i statystyki"
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.lsthis)
+        Me.GroupBox10.Location = New System.Drawing.Point(6, 8)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(406, 190)
+        Me.GroupBox10.TabIndex = 4
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Ostatnio odtwarzane"
+        '
+        'lsthis
+        '
+        Me.lsthis.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.lsthis.FormattingEnabled = True
+        Me.lsthis.Location = New System.Drawing.Point(6, 24)
+        Me.lsthis.Name = "lsthis"
+        Me.lsthis.ScrollAlwaysVisible = True
+        Me.lsthis.Size = New System.Drawing.Size(394, 160)
+        Me.lsthis.TabIndex = 2
+        '
         'TabPage10
         '
         Me.TabPage10.BackColor = System.Drawing.Color.White
+        Me.TabPage10.Controls.Add(Me.GroupBox15)
         Me.TabPage10.Controls.Add(Me.Panel1)
         Me.TabPage10.Location = New System.Drawing.Point(140, 4)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(416, 434)
+        Me.TabPage10.Size = New System.Drawing.Size(420, 474)
         Me.TabPage10.TabIndex = 4
         Me.TabPage10.Text = "Informacje"
         '
-        'GroupBox13
+        'GroupBox15
         '
-        Me.GroupBox13.Controls.Add(Me.btngeneruj)
-        Me.GroupBox13.Controls.Add(Me.Label7)
-        Me.GroupBox13.Location = New System.Drawing.Point(6, 270)
-        Me.GroupBox13.Name = "GroupBox13"
-        Me.GroupBox13.Size = New System.Drawing.Size(404, 76)
-        Me.GroupBox13.TabIndex = 6
-        Me.GroupBox13.TabStop = False
-        Me.GroupBox13.Text = "Kopia zapasowa"
+        Me.GroupBox15.Controls.Add(Me.TextBox1)
+        Me.GroupBox15.Controls.Add(Me.Label10)
+        Me.GroupBox15.Location = New System.Drawing.Point(6, 211)
+        Me.GroupBox15.Name = "GroupBox15"
+        Me.GroupBox15.Size = New System.Drawing.Size(404, 210)
+        Me.GroupBox15.TabIndex = 5
+        Me.GroupBox15.TabStop = False
+        Me.GroupBox15.Text = "Prawa autorskie"
         '
-        'Label7
+        'TextBox1
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 19)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(328, 13)
-        Me.Label7.TabIndex = 9
-        Me.Label7.Text = "Generuj spis utworów zapisanych w bibliotece do pliku TXT lub CSV"
+        Me.TextBox1.Location = New System.Drawing.Point(9, 53)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TextBox1.Size = New System.Drawing.Size(389, 145)
+        Me.TextBox1.TabIndex = 2
         '
-        'GroupBox14
+        'Label10
         '
-        Me.GroupBox14.Controls.Add(Me.Label6)
-        Me.GroupBox14.Controls.Add(Me.btndelete)
-        Me.GroupBox14.ForeColor = System.Drawing.Color.Firebrick
-        Me.GroupBox14.Location = New System.Drawing.Point(6, 352)
-        Me.GroupBox14.Name = "GroupBox14"
-        Me.GroupBox14.Size = New System.Drawing.Size(404, 76)
-        Me.GroupBox14.TabIndex = 11
-        Me.GroupBox14.TabStop = False
-        Me.GroupBox14.Text = "Usuń dane aplikacji"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(6, 19)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(349, 26)
-        Me.Label16.TabIndex = 19
-        Me.Label16.Text = "Efekty wizualne umożliwiają informowanie o postępie odtwarzania utworu" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "za pomocą" &
-    " kolorowania okna aplikacji na pasku systemowym:"
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.YTMP.My.Resources.Resources.belka
-        Me.PictureBox2.Location = New System.Drawing.Point(8, 8)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(8)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(300, 30)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox2.TabIndex = 0
-        Me.PictureBox2.TabStop = False
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(6, 19)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(344, 26)
+        Me.Label10.TabIndex = 1
+        Me.Label10.Text = "Część grafik wykorzystana w aplikacji rozpowszechniana jest na licencji" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "CC BY 3." &
+    "0. Poniżej znajduje się lista autorów grafik:"
         '
         'Panel1
         '
@@ -987,7 +898,7 @@ Partial Class settingsform
         Me.Panel1.Controls.Add(Me.lblver)
         Me.Panel1.Location = New System.Drawing.Point(6, 6)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(404, 200)
+        Me.Panel1.Size = New System.Drawing.Size(404, 190)
         Me.Panel1.TabIndex = 1
         '
         'btngithub
@@ -996,19 +907,62 @@ Partial Class settingsform
         Me.btngithub.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btngithub.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.btngithub.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btngithub.Location = New System.Drawing.Point(8, 125)
+        Me.btngithub.Location = New System.Drawing.Point(8, 114)
         Me.btngithub.Name = "btngithub"
-        Me.btngithub.Size = New System.Drawing.Size(126, 30)
+        Me.btngithub.Size = New System.Drawing.Size(115, 30)
         Me.btngithub.TabIndex = 4
         Me.btngithub.Text = "Profil GitHub"
         Me.btngithub.UseVisualStyleBackColor = True
+        '
+        'btnpdf
+        '
+        Me.btnpdf.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnpdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnpdf.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.btnpdf.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.btnpdf.Location = New System.Drawing.Point(8, 150)
+        Me.btnpdf.Name = "btnpdf"
+        Me.btnpdf.Size = New System.Drawing.Size(115, 30)
+        Me.btnpdf.TabIndex = 3
+        Me.btnpdf.Text = "Instrukcja PDF"
+        Me.btnpdf.UseVisualStyleBackColor = True
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.YTMP.My.Resources.Resources.belka
+        Me.PictureBox2.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(12)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(300, 30)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox2.TabIndex = 0
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.YTMP.My.Resources.Resources.text3408_128
+        Me.PictureBox1.Location = New System.Drawing.Point(250, 59)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(128, 128)
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
+        '
+        'lblver
+        '
+        Me.lblver.AutoSize = True
+        Me.lblver.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.lblver.ForeColor = System.Drawing.Color.White
+        Me.lblver.Location = New System.Drawing.Point(14, 46)
+        Me.lblver.Name = "lblver"
+        Me.lblver.Size = New System.Drawing.Size(72, 19)
+        Me.lblver.TabIndex = 1
+        Me.lblver.Text = "VERSION"
         '
         'settingsform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(584, 739)
-        Me.Controls.Add(Me.CustomTabs1)
+        Me.ClientSize = New System.Drawing.Size(564, 482)
         Me.Controls.Add(Me.tabs)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1018,15 +972,9 @@ Partial Class settingsform
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Ustawienia"
         Me.tabs.ResumeLayout(False)
+        Me.TabPage6.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBox11.PerformLayout()
-        Me.GroupBox10.ResumeLayout(False)
-        Me.GroupBox10.PerformLayout()
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage4.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.CustomTabs1.ResumeLayout(False)
-        Me.TabPage6.ResumeLayout(False)
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
@@ -1047,35 +995,33 @@ Partial Class settingsform
         Me.GroupBox12.PerformLayout()
         CType(Me.skrotygrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage9.ResumeLayout(False)
+        Me.GroupBox14.ResumeLayout(False)
+        Me.GroupBox14.PerformLayout()
+        Me.GroupBox13.ResumeLayout(False)
+        Me.GroupBox13.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.TabPage1.ResumeLayout(False)
+        Me.GroupBox10.ResumeLayout(False)
         Me.TabPage10.ResumeLayout(False)
-        Me.GroupBox13.ResumeLayout(False)
-        Me.GroupBox13.PerformLayout()
-        Me.GroupBox14.ResumeLayout(False)
-        Me.GroupBox14.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox15.ResumeLayout(False)
+        Me.GroupBox15.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents tabs As TabControl
-    Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents TabPage3 As TabPage
     Friend WithEvents skrotygrid As DataGridView
     Friend WithEvents Label1 As Label
     Friend WithEvents akcja As DataGridViewTextBoxColumn
     Friend WithEvents skrot As DataGridViewTextBoxColumn
-    Friend WithEvents TabPage4 As TabPage
     Friend WithEvents lblver As Label
-    Friend WithEvents lblname As Label
     Friend WithEvents chkboxdymek As CheckBox
     Friend WithEvents chkboxczas As CheckBox
     Friend WithEvents Label5 As Label
@@ -1101,8 +1047,6 @@ Partial Class settingsform
     Friend WithEvents btngeneruj As Button
     Friend WithEvents btnpdf As Button
     Friend WithEvents chkboxtitlewindow As CheckBox
-    Friend WithEvents btnhistory As Button
-    Friend WithEvents TabPage5 As TabPage
     Friend WithEvents chkboxpocz As RadioButton
     Friend WithEvents chkboxkoniec As RadioButton
     Friend WithEvents GroupBox6 As GroupBox
@@ -1119,8 +1063,6 @@ Partial Class settingsform
     Friend WithEvents GroupBox9 As GroupBox
     Friend WithEvents lstdefaulttab As ComboBox
     Friend WithEvents GroupBox11 As GroupBox
-    Friend WithEvents GroupBox10 As GroupBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents lstpause As ComboBox
     Friend WithEvents Label12 As Label
@@ -1128,7 +1070,7 @@ Partial Class settingsform
     Friend WithEvents Label11 As Label
     Friend WithEvents chkboxzielbufor As CheckBox
     Friend WithEvents Label13 As Label
-    Friend WithEvents CustomTabs1 As CustomTabs
+    Friend WithEvents tabs As CustomTabs
     Friend WithEvents TabPage6 As TabPage
     Friend WithEvents TabPage7 As TabPage
     Friend WithEvents TabPage8 As TabPage
@@ -1144,4 +1086,10 @@ Partial Class settingsform
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btngithub As Button
+    Friend WithEvents GroupBox15 As GroupBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents GroupBox10 As GroupBox
+    Friend WithEvents lsthis As ListBox
 End Class
