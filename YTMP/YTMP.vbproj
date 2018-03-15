@@ -126,6 +126,9 @@
     <Compile Include="backuprestore.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="customtabs.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="edycjaskrotu.Designer.vb">
       <DependentUpon>edycjaskrotu.vb</DependentUpon>
     </Compile>

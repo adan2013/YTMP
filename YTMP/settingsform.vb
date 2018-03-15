@@ -12,7 +12,7 @@
                 skrotygrid.Rows.Add(i.nazwa, IIf(i.CTRLmod, "CTRL + ", "") & IIf(i.ALTmod, "ALT + ", "") & IIf(i.SHIFTmod, "SHIFT + ", "") & i.KEY)
             End If
         Next
-        lblver.Text = Form1.wersja
+        lblver.Text = "Wersja aplikacji: " & Form1.wersja
         lblver.Location = New Point(lblname.Location.X + lblname.Size.Width - lblver.Size.Width - 10, lblver.Location.Y)
         'odczyt
         If dane.SETnakoncu Then chkboxkoniec.Checked = True Else chkboxpocz.Checked = True
@@ -171,5 +171,13 @@
     Private Sub btnhistory_Click(sender As Object, e As EventArgs) Handles btnhistory.Click
         hisutw.ShowDialog()
         hisutw.Close()
+    End Sub
+
+    Private Sub btngithub_Click(sender As Object, e As EventArgs) Handles btngithub.Click
+        Try
+            Process.Start("https://github.com/adan2013/YTMP")
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
