@@ -22,7 +22,11 @@ Public Class YTAPI
     Public directplay As UTWOR = Nothing
     Public wskaznikpl As UTWOR = Nothing
     Public historia As List(Of UTWOR) = New List(Of UTWOR)
+
     Public hisodtw As List(Of UTWOR) = New List(Of UTWOR)
+    Public sessionU As Integer = 0
+    Public sessionT As Double = 0
+    Dim detectduration As Boolean = False
 
     Public efektwizualny As EFEKTWIZ = EFEKTWIZ.brak
 
@@ -77,6 +81,9 @@ Public Class YTAPI
         Else
             Form1.Text = "YouTube Media Player"
         End If
+        'statystyki
+        sessionU += 1
+        detectduration = True
     End Sub
 
     Private Sub filtr(ByRef tekst As String, ByVal znacznik As String, ByVal wartosc As String)
@@ -235,6 +242,13 @@ Public Class YTAPI
             Case YTstate.zakonczony
                 tekststatus &= " - Zatrzymano"
         End Select
+
+        'statystyki
+        If detectduration And state = YTstate.odtwarzanie And durationtime > 0 Then
+            detectduration = False
+            sessionT += (durationtime / 60)
+        End If
+
         If stoper.IsRunning Then
             Dim poz As Integer = dane.SETopoznienie - stoper.ElapsedMilliseconds
             If poz < 0 Then poz = 0

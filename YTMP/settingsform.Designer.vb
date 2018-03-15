@@ -88,6 +88,18 @@ Partial Class settingsform
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnlocalsave = New System.Windows.Forms.Button()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.GroupBox17 = New System.Windows.Forms.GroupBox()
+        Me.statsessionT = New System.Windows.Forms.Label()
+        Me.statsessionU = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.GroupBox16 = New System.Windows.Forms.GroupBox()
+        Me.statW = New System.Windows.Forms.Label()
+        Me.statA = New System.Windows.Forms.Label()
+        Me.statU = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.lsthis = New System.Windows.Forms.ListBox()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
@@ -121,6 +133,8 @@ Partial Class settingsform
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.GroupBox17.SuspendLayout()
+        Me.GroupBox16.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
         Me.TabPage10.SuspendLayout()
         Me.GroupBox15.SuspendLayout()
@@ -817,6 +831,8 @@ Partial Class settingsform
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.White
+        Me.TabPage1.Controls.Add(Me.GroupBox17)
+        Me.TabPage1.Controls.Add(Me.GroupBox16)
         Me.TabPage1.Controls.Add(Me.GroupBox10)
         Me.TabPage1.Location = New System.Drawing.Point(140, 4)
         Me.TabPage1.Name = "TabPage1"
@@ -824,6 +840,134 @@ Partial Class settingsform
         Me.TabPage1.Size = New System.Drawing.Size(420, 474)
         Me.TabPage1.TabIndex = 5
         Me.TabPage1.Text = "Historia i statystyki"
+        '
+        'GroupBox17
+        '
+        Me.GroupBox17.Controls.Add(Me.statsessionT)
+        Me.GroupBox17.Controls.Add(Me.statsessionU)
+        Me.GroupBox17.Controls.Add(Me.Label22)
+        Me.GroupBox17.Controls.Add(Me.Label24)
+        Me.GroupBox17.Location = New System.Drawing.Point(6, 204)
+        Me.GroupBox17.Name = "GroupBox17"
+        Me.GroupBox17.Size = New System.Drawing.Size(406, 70)
+        Me.GroupBox17.TabIndex = 12
+        Me.GroupBox17.TabStop = False
+        Me.GroupBox17.Text = "Aktualna sesja aplikacji"
+        '
+        'statsessionT
+        '
+        Me.statsessionT.AutoSize = True
+        Me.statsessionT.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.statsessionT.Location = New System.Drawing.Point(264, 38)
+        Me.statsessionT.Name = "statsessionT"
+        Me.statsessionT.Size = New System.Drawing.Size(18, 19)
+        Me.statsessionT.TabIndex = 11
+        Me.statsessionT.Text = "0"
+        '
+        'statsessionU
+        '
+        Me.statsessionU.AutoSize = True
+        Me.statsessionU.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.statsessionU.Location = New System.Drawing.Point(14, 38)
+        Me.statsessionU.Name = "statsessionU"
+        Me.statsessionU.Size = New System.Drawing.Size(18, 19)
+        Me.statsessionU.TabIndex = 9
+        Me.statsessionU.Text = "0"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label22.Location = New System.Drawing.Point(265, 21)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(126, 17)
+        Me.Label22.TabIndex = 8
+        Me.Label22.Text = "Łączna długość:"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label24.Location = New System.Drawing.Point(15, 21)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(213, 17)
+        Me.Label24.TabIndex = 6
+        Me.Label24.Text = "Ilość odtworzonych utworów:"
+        '
+        'GroupBox16
+        '
+        Me.GroupBox16.Controls.Add(Me.statW)
+        Me.GroupBox16.Controls.Add(Me.statA)
+        Me.GroupBox16.Controls.Add(Me.statU)
+        Me.GroupBox16.Controls.Add(Me.Label18)
+        Me.GroupBox16.Controls.Add(Me.Label17)
+        Me.GroupBox16.Controls.Add(Me.Label4)
+        Me.GroupBox16.Location = New System.Drawing.Point(6, 280)
+        Me.GroupBox16.Name = "GroupBox16"
+        Me.GroupBox16.Size = New System.Drawing.Size(406, 70)
+        Me.GroupBox16.TabIndex = 5
+        Me.GroupBox16.TabStop = False
+        Me.GroupBox16.Text = "Zawartość biblioteki programu"
+        '
+        'statW
+        '
+        Me.statW.AutoSize = True
+        Me.statW.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.statW.Location = New System.Drawing.Point(264, 38)
+        Me.statW.Name = "statW"
+        Me.statW.Size = New System.Drawing.Size(18, 19)
+        Me.statW.TabIndex = 11
+        Me.statW.Text = "0"
+        '
+        'statA
+        '
+        Me.statA.AutoSize = True
+        Me.statA.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.statA.Location = New System.Drawing.Point(144, 38)
+        Me.statA.Name = "statA"
+        Me.statA.Size = New System.Drawing.Size(18, 19)
+        Me.statA.TabIndex = 10
+        Me.statA.Text = "0"
+        '
+        'statU
+        '
+        Me.statU.AutoSize = True
+        Me.statU.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.statU.Location = New System.Drawing.Point(14, 38)
+        Me.statU.Name = "statU"
+        Me.statU.Size = New System.Drawing.Size(18, 19)
+        Me.statU.TabIndex = 9
+        Me.statU.Text = "0"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label18.Location = New System.Drawing.Point(265, 21)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(102, 17)
+        Me.Label18.TabIndex = 8
+        Me.Label18.Text = "Wykonawców"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label17.Location = New System.Drawing.Point(145, 21)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(71, 17)
+        Me.Label17.TabIndex = 7
+        Me.Label17.Text = "Albumów"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label4.Location = New System.Drawing.Point(15, 21)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(68, 17)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "Utworów"
         '
         'GroupBox10
         '
@@ -1006,6 +1150,10 @@ Partial Class settingsform
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
+        Me.GroupBox17.ResumeLayout(False)
+        Me.GroupBox17.PerformLayout()
+        Me.GroupBox16.ResumeLayout(False)
+        Me.GroupBox16.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
         Me.TabPage10.ResumeLayout(False)
         Me.GroupBox15.ResumeLayout(False)
@@ -1092,4 +1240,16 @@ Partial Class settingsform
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents lsthis As ListBox
+    Friend WithEvents GroupBox16 As GroupBox
+    Friend WithEvents statW As Label
+    Friend WithEvents statA As Label
+    Friend WithEvents statU As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents GroupBox17 As GroupBox
+    Friend WithEvents statsessionT As Label
+    Friend WithEvents statsessionU As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label24 As Label
 End Class

@@ -39,6 +39,30 @@
             lsthis.Items.Add(i.tytul & " - " & i.FKalbum.FKwykonawca.nazwa)
         Next
         If lsthis.Items.Count > 0 Then lsthis.SelectedIndex = lsthis.Items.Count - 1
+
+        'statystyki
+        statsessionU.Text = Form1.yt.sessionU
+        If Form1.yt.sessionT >= 60 Then
+            statsessionT.Text = Math.Round(Form1.yt.sessionT \ 60, 0) & "g " & Math.Round(Form1.yt.sessionT Mod 60, 0) & "m"
+        Else
+            statsessionT.Text = Math.Round(Form1.yt.sessionT, 0) & "m"
+        End If
+
+        Dim sU As Integer = 0
+        Dim sA As Integer = 0
+        Dim sW As Integer = 0
+        For Each w As WYKONAWCA In dane.wykonawcy
+            If Not w.brakpozycji Then sW += 1
+            For Each a As ALBUM In w.albumy
+                If Not a.brakpozycji Then sA += 1
+                For Each u As UTWOR In a.utwory
+                    sU += 1
+                Next
+            Next
+        Next
+        statU.Text = sU
+        statA.Text = sA
+        statW.Text = sW
     End Sub
 
     Private Sub skrotygrid_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles skrotygrid.CellDoubleClick
@@ -172,11 +196,6 @@
         Catch ex As Exception
             MsgBox("Wystąpił błąd podczas próby otwarcia pliku PDF!", MsgBoxStyle.Exclamation, "YTMP")
         End Try
-    End Sub
-
-    Private Sub btnhistory_Click(sender As Object, e As EventArgs)
-        hisutw.ShowDialog()
-        hisutw.Close()
     End Sub
 
     Private Sub btngithub_Click(sender As Object, e As EventArgs) Handles btngithub.Click
