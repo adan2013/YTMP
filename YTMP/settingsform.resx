@@ -129,6 +129,42 @@
   <metadata name="skrot.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="TextBox1.Text" xml:space="preserve">
+    <value>WITRYNA: https://www.flaticon.com/
+LICENCJA: http://creativecommons.org/licenses/by/3.0/
+
+Butterflytronics - przyciski zmiany utworu
+Dave Gandy - niebieski przycisk nowej pozycji
+Dave Gandy - przycisk losowego odtwarzania
+Dave Gandy - przycisk home w przeglądarce
+Dave Gandy - zielona strzałka powrotu
+Egor Rumyantsev - przycisk wyciszenia dźwięku (toolbar menu)
+Elegant Themes - przycisk wyciszenia dźwięku
+EpicCoders - przycisk odtwarzania wszystkich pozycji
+Freepik - symbol aktualizacji
+Freepik - czerwony przycisk usuwania pozycji
+Freepik - czerwony przycisk czyszczenia listy
+Freepik - ikona nowego wykonawcy
+Freepik - ikona nowego albumu
+Freepik - przycisk zatwierdzenia zmiany ID
+Freepik - niebieski przycisk edycji pozycji
+Freepik - przycisk odświeżenia strony w przeglądarce
+Google - zielony przycisk dodawania do playlisty
+Google - przycisk rozwijania okna do widoku przeglądarki
+Google - przycisk wstrzymania odtwarzania
+Google - przycisk importu playlisty z serwisu YouTube
+Google - przycisk anulowania zmiany ID
+Google - przycisk zmiany pozycji utworu
+Gregor Cresnar - przycisk zapętlenia utworu
+Hanan - przycisk importu utworu z serwisu YouTube
+Roundicons - przycisk wstecz/dalej w przeglądarce
+Smashicons - przycisk przejścia do elementu docelowego
+Smashicons - przycisk wznawiania odtwarzania
+Smashicons - przycisk ustawień
+Smashicons - symbol paska głośności
+Smashicons - przyciski zmiany utworu (toolbar menu)
+Tomas Knop - ikona nowego utworu</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
