@@ -3,8 +3,6 @@ Imports Newtonsoft.Json.Linq
 Imports System.Threading
 Public Class IMPORTplaylist
 
-    Const googleapikey As String = "AIzaSyDUWiNYCdLHPIKRHH7GKLP4n37YwV1zEII"
-
     Public plid As String = ""
     Dim input As String = ""
 
@@ -198,7 +196,7 @@ Public Class IMPORTplaylist
                     addlog("Łączenie z serwisem YouTube...")
                 End If
             Case 3
-                input = downloadpage("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=20&playlistId=" & plid & IIf(nextpagetoken = "", "", "&pageToken=" & nextpagetoken) & "&key=" & googleapikey)
+                input = downloadpage("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=20&playlistId=" & plid & IIf(nextpagetoken = "", "", "&pageToken=" & nextpagetoken) & "&key=" & My.Resources.APIKEY)
                 If input = "" Then
                     addlog("ERROR: Błąd połączenia z serwisem YouTube!")
                     akt.Enabled = False

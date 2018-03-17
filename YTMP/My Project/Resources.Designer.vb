@@ -91,6 +91,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to AIzaSyDUWiNYCdLHPIKRHH7GKLP4n37YwV1zEII.
+        '''</summary>
+        Friend ReadOnly Property APIKEY() As String
+            Get
+                Return ResourceManager.GetString("APIKEY", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property belka() As System.Drawing.Bitmap

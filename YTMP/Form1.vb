@@ -152,6 +152,7 @@ Public Class Form1
         If dane.MODrep Then btnrep.BackColor = Color.Yellow
         yt = New YTAPI()
         akt.Enabled = True
+        pilot.Show()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing

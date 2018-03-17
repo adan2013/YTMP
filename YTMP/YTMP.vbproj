@@ -423,6 +423,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appicon.ico" />
+    <None Include="bin\Debug\APIKEY.txt" />
     <None Include="bin\Debug\video-player.png" />
     <None Include="bin\Debug\plus 24px.png" />
     <None Include="bin\Debug\minus 24px.png" />

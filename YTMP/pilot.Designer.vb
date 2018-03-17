@@ -33,11 +33,11 @@ Partial Class pilot
         Me.play0 = New System.Windows.Forms.PictureBox()
         Me.PNLpelny = New System.Windows.Forms.Panel()
         Me.player1 = New System.Windows.Forms.PictureBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblvol = New System.Windows.Forms.Label()
+        Me.lbltime = New System.Windows.Forms.Label()
         Me.ran1 = New System.Windows.Forms.PictureBox()
         Me.rep1 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblstan = New System.Windows.Forms.Label()
         Me.volup1 = New System.Windows.Forms.PictureBox()
         Me.voldn1 = New System.Windows.Forms.PictureBox()
         Me.next1 = New System.Windows.Forms.PictureBox()
@@ -87,7 +87,6 @@ Partial Class pilot
         Me.PNLkompakt.Padding = New System.Windows.Forms.Padding(2)
         Me.PNLkompakt.Size = New System.Drawing.Size(80, 118)
         Me.PNLkompakt.TabIndex = 1
-        Me.PNLkompakt.Visible = False
         '
         'volup0
         '
@@ -170,11 +169,11 @@ Partial Class pilot
         'PNLpelny
         '
         Me.PNLpelny.Controls.Add(Me.player1)
-        Me.PNLpelny.Controls.Add(Me.Label3)
-        Me.PNLpelny.Controls.Add(Me.Label2)
+        Me.PNLpelny.Controls.Add(Me.lblvol)
+        Me.PNLpelny.Controls.Add(Me.lbltime)
         Me.PNLpelny.Controls.Add(Me.ran1)
         Me.PNLpelny.Controls.Add(Me.rep1)
-        Me.PNLpelny.Controls.Add(Me.Label1)
+        Me.PNLpelny.Controls.Add(Me.lblstan)
         Me.PNLpelny.Controls.Add(Me.volup1)
         Me.PNLpelny.Controls.Add(Me.voldn1)
         Me.PNLpelny.Controls.Add(Me.next1)
@@ -187,7 +186,6 @@ Partial Class pilot
         Me.PNLpelny.Padding = New System.Windows.Forms.Padding(2)
         Me.PNLpelny.Size = New System.Drawing.Size(446, 62)
         Me.PNLpelny.TabIndex = 2
-        Me.PNLpelny.Visible = False
         '
         'player1
         '
@@ -202,26 +200,26 @@ Partial Class pilot
         Me.player1.TabIndex = 11
         Me.player1.TabStop = False
         '
-        'Label3
+        'lblvol
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label3.Location = New System.Drawing.Point(177, 22)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(3, 0, 0, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(39, 15)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "100%"
+        Me.lblvol.AutoSize = True
+        Me.lblvol.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.lblvol.Location = New System.Drawing.Point(177, 22)
+        Me.lblvol.Margin = New System.Windows.Forms.Padding(3, 0, 0, 0)
+        Me.lblvol.Name = "lblvol"
+        Me.lblvol.Size = New System.Drawing.Size(39, 15)
+        Me.lblvol.TabIndex = 10
+        Me.lblvol.Text = "100%"
         '
-        'Label2
+        'lbltime
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Consolas", 9.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label2.Location = New System.Drawing.Point(357, 43)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(84, 15)
-        Me.Label2.TabIndex = 9
-        Me.Label2.Text = "0:00 / 0:00"
+        Me.lbltime.AutoSize = True
+        Me.lbltime.Font = New System.Drawing.Font("Consolas", 9.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.lbltime.Location = New System.Drawing.Point(357, 43)
+        Me.lbltime.Name = "lbltime"
+        Me.lbltime.Size = New System.Drawing.Size(84, 15)
+        Me.lbltime.TabIndex = 9
+        Me.lbltime.Text = "0:00 / 0:00"
         '
         'ran1
         '
@@ -249,15 +247,15 @@ Partial Class pilot
         Me.rep1.TabIndex = 7
         Me.rep1.TabStop = False
         '
-        'Label1
+        'lblstan
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label1.Location = New System.Drawing.Point(5, 40)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(35, 16)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Text = "Stan"
+        Me.lblstan.AutoSize = True
+        Me.lblstan.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.lblstan.Location = New System.Drawing.Point(5, 40)
+        Me.lblstan.Name = "lblstan"
+        Me.lblstan.Size = New System.Drawing.Size(35, 16)
+        Me.lblstan.TabIndex = 6
+        Me.lblstan.Text = "Stan"
         '
         'volup1
         '
@@ -392,10 +390,10 @@ Partial Class pilot
     Friend WithEvents back1 As PictureBox
     Friend WithEvents mute1 As PictureBox
     Friend WithEvents play1 As PictureBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblstan As Label
     Friend WithEvents ran1 As PictureBox
     Friend WithEvents rep1 As PictureBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents lblvol As Label
+    Friend WithEvents lbltime As Label
     Friend WithEvents player1 As PictureBox
 End Class
