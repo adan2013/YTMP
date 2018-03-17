@@ -152,7 +152,10 @@ Public Class Form1
         If dane.MODrep Then btnrep.BackColor = Color.Yellow
         yt = New YTAPI()
         akt.Enabled = True
-        pilot.Show()
+
+        'pilot
+        pilot.konfiguruj()
+        If dane.SETpilotact = 1 Then pilot.Show()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -866,6 +869,14 @@ Public Class Form1
     Private Sub Form1_SizeChanged(sender As Object, e As EventArgs) Handles Me.SizeChanged
         If dane.SEThide And WindowState = FormWindowState.Minimized Then Hide()
         If WindowState = FormWindowState.Maximized Then WindowState = FormWindowState.Normal
+        'pilot
+        If dane.SETpilotact = 2 Then
+            If WindowState = FormWindowState.Minimized Then
+                pilot.Show()
+            Else
+                pilot.Hide()
+            End If
+        End If
     End Sub
 
     Private Sub pnlrewind_MouseLeave(sender As Object, e As EventArgs) Handles pnlrewind.MouseLeave, pnlprzewijanie.MouseLeave

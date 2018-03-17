@@ -152,4 +152,23 @@
             zapiszzmiany()
         End If
     End Sub
+
+    Public Sub konfiguruj()
+        'czyszczenie
+        PNLkompakt.Visible = False
+        PNLpelny.Visible = False
+
+        Dim pnl As Panel
+        Select Case dane.SETpilotmode
+            Case 0
+                pnl = PNLkompakt
+            Case 1
+                pnl = PNLpelny
+            Case Else
+                pnl = PNLkompakt
+        End Select
+        pnl.Location = New Point(9, 18)
+        pnl.Visible = True
+        Size = New Size(pnl.Size.Width + 18, pnl.Size.Height + 26)
+    End Sub
 End Class

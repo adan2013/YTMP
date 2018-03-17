@@ -70,7 +70,7 @@ Partial Class pilot
         Me.belkapnl.Location = New System.Drawing.Point(0, 0)
         Me.belkapnl.Margin = New System.Windows.Forms.Padding(3, 3, 3, 8)
         Me.belkapnl.Name = "belkapnl"
-        Me.belkapnl.Size = New System.Drawing.Size(577, 10)
+        Me.belkapnl.Size = New System.Drawing.Size(613, 10)
         Me.belkapnl.TabIndex = 0
         '
         'PNLkompakt
@@ -342,7 +342,7 @@ Partial Class pilot
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(577, 158)
+        Me.ClientSize = New System.Drawing.Size(613, 146)
         Me.Controls.Add(Me.PNLpelny)
         Me.Controls.Add(Me.PNLkompakt)
         Me.Controls.Add(Me.belkapnl)

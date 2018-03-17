@@ -140,6 +140,15 @@
         If pilotwlauto.Checked Then dane.SETpilotact = 2
         If pilotkompakt.Checked Then dane.SETpilotmode = 0
         If pilotpelny.Checked Then dane.SETpilotmode = 1
+        pilot.konfiguruj()
+        Select Case dane.SETpilotact
+            Case 0
+                If pilot.Visible Then pilot.Hide()
+            Case 1
+                If Not pilot.Visible Then pilot.Show()
+            Case 2
+                If pilot.Visible Then pilot.Hide()
+        End Select
         Form1.Text = "YouTube Media Player"
         zapiszzmiany()
     End Sub
