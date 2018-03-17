@@ -350,6 +350,7 @@ Partial Class pilot
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(1, 1)
         Me.Name = "pilot"
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
