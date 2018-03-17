@@ -22,8 +22,8 @@ Partial Class settingsform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(settingsform))
         Me.savedialog = New System.Windows.Forms.SaveFileDialog()
         Me.opendialog = New System.Windows.Forms.OpenFileDialog()
@@ -64,15 +64,15 @@ Partial Class settingsform
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox19 = New System.Windows.Forms.GroupBox()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.pilotpelny = New System.Windows.Forms.RadioButton()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
-        Me.RadioButton5 = New System.Windows.Forms.RadioButton()
+        Me.pilotkompakt = New System.Windows.Forms.RadioButton()
         Me.GroupBox18 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.pilotwlauto = New System.Windows.Forms.RadioButton()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.pilotwyl = New System.Windows.Forms.RadioButton()
+        Me.pilotwl = New System.Windows.Forms.RadioButton()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
         Me.chkboxmkeys = New System.Windows.Forms.CheckBox()
@@ -566,10 +566,10 @@ Partial Class settingsform
         'GroupBox19
         '
         Me.GroupBox19.Controls.Add(Me.Label23)
-        Me.GroupBox19.Controls.Add(Me.RadioButton4)
+        Me.GroupBox19.Controls.Add(Me.pilotpelny)
         Me.GroupBox19.Controls.Add(Me.Label21)
         Me.GroupBox19.Controls.Add(Me.Label20)
-        Me.GroupBox19.Controls.Add(Me.RadioButton5)
+        Me.GroupBox19.Controls.Add(Me.pilotkompakt)
         Me.GroupBox19.Location = New System.Drawing.Point(6, 139)
         Me.GroupBox19.Name = "GroupBox19"
         Me.GroupBox19.Size = New System.Drawing.Size(404, 150)
@@ -587,15 +587,15 @@ Partial Class settingsform
         Me.Label23.Text = "Zawiera prawie wszystkie opcje dostępne w normalnym oknie aplikacji," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ale zajmuje" &
     " więcej miejsca niż wersja kompaktowa"
         '
-        'RadioButton4
+        'pilotpelny
         '
-        Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Location = New System.Drawing.Point(9, 93)
-        Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(53, 17)
-        Me.RadioButton4.TabIndex = 14
-        Me.RadioButton4.Text = "Pełny"
-        Me.RadioButton4.UseVisualStyleBackColor = True
+        Me.pilotpelny.AutoSize = True
+        Me.pilotpelny.Location = New System.Drawing.Point(9, 93)
+        Me.pilotpelny.Name = "pilotpelny"
+        Me.pilotpelny.Size = New System.Drawing.Size(53, 17)
+        Me.pilotpelny.TabIndex = 14
+        Me.pilotpelny.Text = "Pełny"
+        Me.pilotpelny.UseVisualStyleBackColor = True
         '
         'Label21
         '
@@ -616,24 +616,24 @@ Partial Class settingsform
         Me.Label20.TabIndex = 12
         Me.Label20.Text = "Pilot podręczny dostępny jest w kilku rodzajach:"
         '
-        'RadioButton5
+        'pilotkompakt
         '
-        Me.RadioButton5.AutoSize = True
-        Me.RadioButton5.Checked = True
-        Me.RadioButton5.Location = New System.Drawing.Point(9, 41)
-        Me.RadioButton5.Name = "RadioButton5"
-        Me.RadioButton5.Size = New System.Drawing.Size(86, 17)
-        Me.RadioButton5.TabIndex = 6
-        Me.RadioButton5.TabStop = True
-        Me.RadioButton5.Text = "Kompaktowy"
-        Me.RadioButton5.UseVisualStyleBackColor = True
+        Me.pilotkompakt.AutoSize = True
+        Me.pilotkompakt.Checked = True
+        Me.pilotkompakt.Location = New System.Drawing.Point(9, 41)
+        Me.pilotkompakt.Name = "pilotkompakt"
+        Me.pilotkompakt.Size = New System.Drawing.Size(86, 17)
+        Me.pilotkompakt.TabIndex = 6
+        Me.pilotkompakt.TabStop = True
+        Me.pilotkompakt.Text = "Kompaktowy"
+        Me.pilotkompakt.UseVisualStyleBackColor = True
         '
         'GroupBox18
         '
-        Me.GroupBox18.Controls.Add(Me.RadioButton3)
+        Me.GroupBox18.Controls.Add(Me.pilotwlauto)
         Me.GroupBox18.Controls.Add(Me.Label19)
-        Me.GroupBox18.Controls.Add(Me.RadioButton1)
-        Me.GroupBox18.Controls.Add(Me.RadioButton2)
+        Me.GroupBox18.Controls.Add(Me.pilotwyl)
+        Me.GroupBox18.Controls.Add(Me.pilotwl)
         Me.GroupBox18.Location = New System.Drawing.Point(6, 8)
         Me.GroupBox18.Name = "GroupBox18"
         Me.GroupBox18.Size = New System.Drawing.Size(404, 125)
@@ -641,15 +641,15 @@ Partial Class settingsform
         Me.GroupBox18.TabStop = False
         Me.GroupBox18.Text = "Tryb wyświetlania"
         '
-        'RadioButton3
+        'pilotwlauto
         '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(9, 99)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(295, 17)
-        Me.RadioButton3.TabIndex = 13
-        Me.RadioButton3.Text = "Włączony, widoczny tylko przy zminimalizowaniu aplikacji"
-        Me.RadioButton3.UseVisualStyleBackColor = True
+        Me.pilotwlauto.AutoSize = True
+        Me.pilotwlauto.Location = New System.Drawing.Point(9, 99)
+        Me.pilotwlauto.Name = "pilotwlauto"
+        Me.pilotwlauto.Size = New System.Drawing.Size(295, 17)
+        Me.pilotwlauto.TabIndex = 13
+        Me.pilotwlauto.Text = "Włączony, widoczny tylko przy zminimalizowaniu aplikacji"
+        Me.pilotwlauto.UseVisualStyleBackColor = True
         '
         'Label19
         '
@@ -661,27 +661,27 @@ Partial Class settingsform
         Me.Label19.Text = "Pilot podręczny umożliwia łatwy dostęp do opcji sterowania odtwarzaczem" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "bez potr" &
     "zeby używania dużego okna aplikacji."
         '
-        'RadioButton1
+        'pilotwyl
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Checked = True
-        Me.RadioButton1.Location = New System.Drawing.Point(9, 53)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(79, 17)
-        Me.RadioButton1.TabIndex = 6
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Wyłączony"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.pilotwyl.AutoSize = True
+        Me.pilotwyl.Checked = True
+        Me.pilotwyl.Location = New System.Drawing.Point(9, 53)
+        Me.pilotwyl.Name = "pilotwyl"
+        Me.pilotwyl.Size = New System.Drawing.Size(79, 17)
+        Me.pilotwyl.TabIndex = 6
+        Me.pilotwyl.TabStop = True
+        Me.pilotwyl.Text = "Wyłączony"
+        Me.pilotwyl.UseVisualStyleBackColor = True
         '
-        'RadioButton2
+        'pilotwl
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(9, 76)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(173, 17)
-        Me.RadioButton2.TabIndex = 7
-        Me.RadioButton2.Text = "Włączony, widoczny cały czas"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.pilotwl.AutoSize = True
+        Me.pilotwl.Location = New System.Drawing.Point(9, 76)
+        Me.pilotwl.Name = "pilotwl"
+        Me.pilotwl.Size = New System.Drawing.Size(173, 17)
+        Me.pilotwl.TabIndex = 7
+        Me.pilotwl.Text = "Włączony, widoczny cały czas"
+        Me.pilotwl.UseVisualStyleBackColor = True
         '
         'TabPage8
         '
@@ -728,24 +728,24 @@ Partial Class settingsform
         Me.skrotygrid.AllowUserToResizeColumns = False
         Me.skrotygrid.AllowUserToResizeRows = False
         Me.skrotygrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.skrotygrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.skrotygrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.skrotygrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.skrotygrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.akcja, Me.skrot})
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.skrotygrid.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.skrotygrid.DefaultCellStyle = DataGridViewCellStyle2
         Me.skrotygrid.Location = New System.Drawing.Point(6, 6)
         Me.skrotygrid.Name = "skrotygrid"
         Me.skrotygrid.ReadOnly = True
@@ -1409,13 +1409,13 @@ Partial Class settingsform
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents GroupBox19 As GroupBox
     Friend WithEvents Label23 As Label
-    Friend WithEvents RadioButton4 As RadioButton
+    Friend WithEvents pilotpelny As RadioButton
     Friend WithEvents Label21 As Label
     Friend WithEvents Label20 As Label
-    Friend WithEvents RadioButton5 As RadioButton
+    Friend WithEvents pilotkompakt As RadioButton
     Friend WithEvents GroupBox18 As GroupBox
-    Friend WithEvents RadioButton3 As RadioButton
+    Friend WithEvents pilotwlauto As RadioButton
     Friend WithEvents Label19 As Label
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents pilotwyl As RadioButton
+    Friend WithEvents pilotwl As RadioButton
 End Class

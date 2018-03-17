@@ -31,6 +31,20 @@
         lstprogress.SelectedIndex = dane.SETkolorprogress
         lstpause.SelectedIndex = dane.SETkolorpause
         If dane.SETkopie Then lstkopie.SelectedIndex = 1 Else lstkopie.SelectedIndex = 0
+        Select Case dane.SETpilotact
+            Case 0
+                pilotwyl.Checked = True
+            Case 1
+                pilotwl.Checked = True
+            Case 2
+                pilotwlauto.Checked = True
+        End Select
+        Select Case dane.SETpilotmode
+            Case 0
+                pilotkompakt.Checked = True
+            Case 1
+                pilotpelny.Checked = True
+        End Select
         init = False
 
         'historia odtwarzania
@@ -121,6 +135,11 @@
         dane.SETkolorprogress = lstprogress.SelectedIndex
         dane.SETkolorpause = lstpause.SelectedIndex
         If lstkopie.SelectedIndex = 0 Then dane.SETkopie = False Else dane.SETkopie = True
+        If pilotwyl.Checked Then dane.SETpilotact = 0
+        If pilotwl.Checked Then dane.SETpilotact = 1
+        If pilotwlauto.Checked Then dane.SETpilotact = 2
+        If pilotkompakt.Checked Then dane.SETpilotmode = 0
+        If pilotpelny.Checked Then dane.SETpilotmode = 1
         Form1.Text = "YouTube Media Player"
         zapiszzmiany()
     End Sub

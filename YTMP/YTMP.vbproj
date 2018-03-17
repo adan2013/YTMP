@@ -220,6 +220,12 @@
     <Compile Include="newitemform.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="pilot.Designer.vb">
+      <DependentUpon>pilot.vb</DependentUpon>
+    </Compile>
+    <Compile Include="pilot.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PLAYLISTA.vb" />
     <Compile Include="publiczny.vb" />
     <Compile Include="selectdata.Designer.vb">
@@ -307,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="newitemform.resx">
       <DependentUpon>newitemform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pilot.resx">
+      <DependentUpon>pilot.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="selectdata.resx">
       <DependentUpon>selectdata.vb</DependentUpon>
@@ -414,6 +423,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appicon.ico" />
+    <None Include="bin\Debug\video-player.png" />
+    <None Include="bin\Debug\plus 24px.png" />
+    <None Include="bin\Debug\minus 24px.png" />
+    <None Include="bin\Debug\play 24px.png" />
+    <None Include="bin\Debug\pause 24px.png" />
     <None Include="bin\Debug\TBvolon.png" />
     <None Include="bin\Debug\TBpause.png" />
     <None Include="bin\Debug\TBvolup.png" />
