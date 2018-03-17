@@ -25,12 +25,14 @@ Public Class KLAWISZE
                 If dane.volume >= 10 Then
                     dane.volume -= 10
                     Form1.pnlglosnosc.Size = New Size(dane.volume, Form1.pnlglosnosc.Size.Height)
+                    zapiszzmiany()
                 End If
                 pilot.aktualizacja()
             Case "zwiększ głośność"
                 If dane.volume <= 90 Then
                     dane.volume += 10
                     Form1.pnlglosnosc.Size = New Size(dane.volume, Form1.pnlglosnosc.Size.Height)
+                    zapiszzmiany()
                 End If
                 pilot.aktualizacja()
         End Select

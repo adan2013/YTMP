@@ -829,6 +829,7 @@ Public Class Form1
             dane.volume -= 10
             pnlglosnosc.Size = New Size(dane.volume, pnlglosnosc.Size.Height)
             pilot.aktualizacja()
+            zapiszzmiany()
         End If
     End Sub
 
@@ -837,6 +838,7 @@ Public Class Form1
             dane.volume += 10
             pnlglosnosc.Size = New Size(dane.volume, pnlglosnosc.Size.Height)
             pilot.aktualizacja()
+            zapiszzmiany()
         End If
     End Sub
 

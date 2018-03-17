@@ -75,6 +75,7 @@ Partial Class pilot
         '
         'PNLkompakt
         '
+        Me.PNLkompakt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PNLkompakt.Controls.Add(Me.volup0)
         Me.PNLkompakt.Controls.Add(Me.voldn0)
         Me.PNLkompakt.Controls.Add(Me.next0)
@@ -85,7 +86,7 @@ Partial Class pilot
         Me.PNLkompakt.Margin = New System.Windows.Forms.Padding(0)
         Me.PNLkompakt.Name = "PNLkompakt"
         Me.PNLkompakt.Padding = New System.Windows.Forms.Padding(2)
-        Me.PNLkompakt.Size = New System.Drawing.Size(80, 118)
+        Me.PNLkompakt.Size = New System.Drawing.Size(82, 120)
         Me.PNLkompakt.TabIndex = 1
         '
         'volup0
@@ -168,6 +169,7 @@ Partial Class pilot
         '
         'PNLpelny
         '
+        Me.PNLpelny.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PNLpelny.Controls.Add(Me.player1)
         Me.PNLpelny.Controls.Add(Me.lblvol)
         Me.PNLpelny.Controls.Add(Me.lbltime)
@@ -184,7 +186,7 @@ Partial Class pilot
         Me.PNLpelny.Margin = New System.Windows.Forms.Padding(0)
         Me.PNLpelny.Name = "PNLpelny"
         Me.PNLpelny.Padding = New System.Windows.Forms.Padding(2)
-        Me.PNLpelny.Size = New System.Drawing.Size(446, 62)
+        Me.PNLpelny.Size = New System.Drawing.Size(448, 64)
         Me.PNLpelny.TabIndex = 2
         '
         'player1
