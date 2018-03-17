@@ -49,11 +49,50 @@
         End If
         If dane.MODrep Then rep1.BackColor = Color.Yellow
         If dane.MODran Then ran1.BackColor = Color.Yellow
+        lblvol.Text = dane.volume & "%"
     End Sub
 
     Public Sub aktualizacja()
         If Visible Then
-
+            If Form1.yt.state = YTAPI.YTstate.odtwarzanie Or Form1.yt.state = YTAPI.YTstate.buforowanie Then
+                play0.Image = My.Resources.pause_24px
+                play1.Image = My.Resources.pause_24px
+            Else
+                play0.Image = My.Resources.play_24px
+                play1.Image = My.Resources.play_24px
+            End If
+            If dane.MODmute Then
+                mute0.BackColor = Color.Yellow
+                mute1.BackColor = Color.Yellow
+            Else
+                mute0.BackColor = Color.WhiteSmoke
+                mute1.BackColor = Color.WhiteSmoke
+            End If
+            If dane.MODrep Then
+                rep1.BackColor = Color.Yellow
+            Else
+                rep1.BackColor = Color.WhiteSmoke
+            End If
+            If dane.MODran Then
+                ran1.BackColor = Color.Yellow
+            Else
+                ran1.BackColor = Color.WhiteSmoke
+            End If
+            lblvol.Text = dane.volume & "%"
         End If
     End Sub
+
+    Public Sub status(ByVal info As String, ByVal cur As Integer, ByVal dur As Integer)
+        lbltime.Text = konwertujnaczas(cur) & "/" & konwertujnaczas(dur)
+        lbltime.Location = New Point(441 - lbltime.Size.Width, lbltime.Location.Y)
+        skrocstring(lblstan, 430 - lbltime.Size.Width, info)
+    End Sub
+
+    Private Function konwertujnaczas(ByVal wartosc As Integer) As String
+        Dim s As String = wartosc \ 60
+        If s.Length = 1 Then s = "0" & s
+        s &= ":"
+        s &= IIf(wartosc Mod 60 < 10, "0", "") & (wartosc Mod 60)
+        Return s
+    End Function
 End Class

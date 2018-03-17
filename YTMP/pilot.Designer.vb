@@ -219,7 +219,7 @@ Partial Class pilot
         Me.lbltime.Name = "lbltime"
         Me.lbltime.Size = New System.Drawing.Size(84, 15)
         Me.lbltime.TabIndex = 9
-        Me.lbltime.Text = "0:00 / 0:00"
+        Me.lbltime.Text = "00:00/00:00"
         '
         'ran1
         '
@@ -251,7 +251,7 @@ Partial Class pilot
         '
         Me.lblstan.AutoSize = True
         Me.lblstan.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.lblstan.Location = New System.Drawing.Point(5, 40)
+        Me.lblstan.Location = New System.Drawing.Point(5, 43)
         Me.lblstan.Name = "lblstan"
         Me.lblstan.Size = New System.Drawing.Size(35, 16)
         Me.lblstan.TabIndex = 6

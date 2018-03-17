@@ -184,13 +184,15 @@ Public Class YTAPI
         s = getcontent("INFOstate")
         If s = "" Then state = YTstate.nieuruchomiono Else state = s
         If state = YTstate.odtwarzanie Or state = YTstate.buforowanie Then
-            If Form1.btnplay.Image IsNot My.Resources.pause_button Then Form1.btnplay.Image = My.Resources.pause_button
+            Form1.btnplay.Image = My.Resources.pause_button
+            pilot.aktualizacja()
             If Form1.TB1.Tooltip = "Wznów odtwarzanie" Then
                 Form1.TB1.Icon = Icon.FromHandle(My.Resources.TBpause.GetHicon())
                 Form1.TB1.Tooltip = "Wstrzymaj odtwarzanie"
             End If
         Else
-            If Form1.btnplay.Image IsNot My.Resources.play_button Then Form1.btnplay.Image = My.Resources.play_button
+            Form1.btnplay.Image = My.Resources.play_button
+            pilot.aktualizacja()
             If Form1.TB1.Tooltip = "Wstrzymaj odtwarzanie" Then
                 Form1.TB1.Icon = Icon.FromHandle(My.Resources.TBplay.GetHicon())
                 Form1.TB1.Tooltip = "Wznów odtwarzanie"

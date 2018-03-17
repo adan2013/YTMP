@@ -231,7 +231,7 @@ Partial Class Form1
         Me.btnplay.BackColor = System.Drawing.Color.WhiteSmoke
         Me.btnplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.btnplay.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnplay.Image = CType(resources.GetObject("btnplay.Image"), System.Drawing.Image)
+        Me.btnplay.Image = Global.YTMP.My.Resources.Resources.play_button
         Me.btnplay.Location = New System.Drawing.Point(12, 38)
         Me.btnplay.Name = "btnplay"
         Me.btnplay.Size = New System.Drawing.Size(50, 50)

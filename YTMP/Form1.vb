@@ -241,18 +241,21 @@ Public Class Form1
         dane.MODran = Not dane.MODran
         If dane.MODran Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.WhiteSmoke
         zapiszzmiany()
+        pilot.aktualizacja()
     End Sub
 
     Private Sub btnrep_Click(sender As Object, e As EventArgs) Handles btnrep.Click
         dane.MODrep = Not dane.MODrep
         If dane.MODrep Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.WhiteSmoke
         zapiszzmiany()
+        pilot.aktualizacja()
     End Sub
 
     Public Sub btnmute_Click(sender As Object, e As EventArgs) Handles btnmute.Click
         dane.MODmute = Not dane.MODmute
         If dane.MODmute Then sender.BackColor = Color.Yellow Else sender.BackColor = Color.WhiteSmoke
         zapiszzmiany()
+        pilot.aktualizacja()
     End Sub
 
     Private Sub btnsettings_Click(sender As Object, e As EventArgs) Handles btnsettings.Click
@@ -777,6 +780,7 @@ Public Class Form1
             dane.volume = var
             pnlglosnosc.Size = New Size(dane.volume, pnlglosnosc.Size.Height)
             zapiszzmiany()
+            pilot.aktualizacja()
         End If
     End Sub
 
@@ -789,6 +793,7 @@ Public Class Form1
     Private Sub akt_Tick(sender As Object, e As EventArgs) Handles akt.Tick
         yt.aktualizacja()
         skrocstring(lblstan, 370, yt.tekststatus)
+        pilot.status(yt.tekststatus, yt.currenttime, yt.durationtime)
     End Sub
 
     Private Sub btnplay_Click(sender As Object, e As EventArgs) Handles btnplay.Click
@@ -823,6 +828,7 @@ Public Class Form1
         If dane.volume >= 10 Then
             dane.volume -= 10
             pnlglosnosc.Size = New Size(dane.volume, pnlglosnosc.Size.Height)
+            pilot.aktualizacja()
         End If
     End Sub
 
@@ -830,6 +836,7 @@ Public Class Form1
         If dane.volume <= 90 Then
             dane.volume += 10
             pnlglosnosc.Size = New Size(dane.volume, pnlglosnosc.Size.Height)
+            pilot.aktualizacja()
         End If
     End Sub
 
