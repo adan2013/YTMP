@@ -11,7 +11,12 @@
     End Sub
 
     Private Sub belkapnl_MouseUp(sender As Object, e As MouseEventArgs) Handles belkapnl.MouseUp
-        If e.Button = MouseButtons.Left Then windowdragmode = False
+        If e.Button = MouseButtons.Left Then
+            windowdragmode = False
+            dane.SETpilotX = Location.X
+            dane.SETpilotY = Location.Y
+            zapiszzmiany()
+        End If
     End Sub
 
     Private Sub belkapnl_MouseMove(sender As Object, e As MouseEventArgs) Handles belkapnl.MouseMove
@@ -50,6 +55,7 @@
         If dane.MODrep Then rep1.BackColor = Color.Yellow
         If dane.MODran Then ran1.BackColor = Color.Yellow
         lblvol.Text = dane.volume & "%"
+        Location = New Point(dane.SETpilotX, dane.SETpilotY)
     End Sub
 
     Public Sub aktualizacja()

@@ -62,6 +62,9 @@ Partial Class settingsform
         Me.chkboxkoniec = New System.Windows.Forms.RadioButton()
         Me.chkboxpocz = New System.Windows.Forms.RadioButton()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.GroupBox20 = New System.Windows.Forms.GroupBox()
+        Me.btnresetpilot = New System.Windows.Forms.Button()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.GroupBox19 = New System.Windows.Forms.GroupBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.pilotpelny = New System.Windows.Forms.RadioButton()
@@ -136,6 +139,7 @@ Partial Class settingsform
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.GroupBox20.SuspendLayout()
         Me.GroupBox19.SuspendLayout()
         Me.GroupBox18.SuspendLayout()
         Me.TabPage8.SuspendLayout()
@@ -554,6 +558,7 @@ Partial Class settingsform
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.White
+        Me.TabPage2.Controls.Add(Me.GroupBox20)
         Me.TabPage2.Controls.Add(Me.GroupBox19)
         Me.TabPage2.Controls.Add(Me.GroupBox18)
         Me.TabPage2.Location = New System.Drawing.Point(140, 4)
@@ -562,6 +567,37 @@ Partial Class settingsform
         Me.TabPage2.Size = New System.Drawing.Size(420, 474)
         Me.TabPage2.TabIndex = 6
         Me.TabPage2.Text = "Pilot podręczny"
+        '
+        'GroupBox20
+        '
+        Me.GroupBox20.Controls.Add(Me.btnresetpilot)
+        Me.GroupBox20.Controls.Add(Me.Label25)
+        Me.GroupBox20.Location = New System.Drawing.Point(6, 295)
+        Me.GroupBox20.Name = "GroupBox20"
+        Me.GroupBox20.Size = New System.Drawing.Size(404, 90)
+        Me.GroupBox20.TabIndex = 26
+        Me.GroupBox20.TabStop = False
+        Me.GroupBox20.Text = "Reset pozycji pilota"
+        '
+        'btnresetpilot
+        '
+        Me.btnresetpilot.Location = New System.Drawing.Point(9, 53)
+        Me.btnresetpilot.Margin = New System.Windows.Forms.Padding(3, 5, 3, 10)
+        Me.btnresetpilot.Name = "btnresetpilot"
+        Me.btnresetpilot.Size = New System.Drawing.Size(100, 23)
+        Me.btnresetpilot.TabIndex = 10
+        Me.btnresetpilot.Text = "Resetuj"
+        Me.btnresetpilot.UseVisualStyleBackColor = True
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(6, 19)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(375, 26)
+        Me.Label25.TabIndex = 9
+        Me.Label25.Text = "Jeśli pilot wyszedł poza obszar roboczy ekranu komputera możesz zresetować" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "jego " &
+    "pozycję do górnego lewego rogu ekranu."
         '
         'GroupBox19
         '
@@ -1283,6 +1319,8 @@ Partial Class settingsform
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
+        Me.GroupBox20.ResumeLayout(False)
+        Me.GroupBox20.PerformLayout()
         Me.GroupBox19.ResumeLayout(False)
         Me.GroupBox19.PerformLayout()
         Me.GroupBox18.ResumeLayout(False)
@@ -1418,4 +1456,7 @@ Partial Class settingsform
     Friend WithEvents Label19 As Label
     Friend WithEvents pilotwyl As RadioButton
     Friend WithEvents pilotwl As RadioButton
+    Friend WithEvents GroupBox20 As GroupBox
+    Friend WithEvents btnresetpilot As Button
+    Friend WithEvents Label25 As Label
 End Class

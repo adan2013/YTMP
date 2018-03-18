@@ -233,4 +233,15 @@
 
         End Try
     End Sub
+
+    Private Sub btnresetpilot_Click(sender As Object, e As EventArgs) Handles btnresetpilot.Click
+        dane.SETpilotX = 0
+        dane.SETpilotY = 0
+        If pilot.Visible Then
+            pilot.Location = New Point(0, 0)
+        Else
+            pilot.Close()
+        End If
+        MsgBox("Pozycja pilota została zresetowana!", MsgBoxStyle.Information, "YTMP")
+    End Sub
 End Class

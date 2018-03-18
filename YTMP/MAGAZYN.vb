@@ -24,6 +24,8 @@ Public Class MAGAZYN
     Public SETkolorpause As Byte = 0
     Public SETpilotact As Byte = 0
     Public SETpilotmode As Byte = 0
+    Public SETpilotX As Integer = 0
+    Public SETpilotY As Integer = 0
 
     Public volume As SByte = 100
     Public MODrep As Boolean = False
