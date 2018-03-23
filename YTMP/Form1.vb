@@ -207,6 +207,15 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub txtsearch_KeyDown(sender As Object, e As KeyEventArgs) Handles txtsearch.KeyDown
+        If searchempty Then
+            searchempty = False
+            txtsearch.Text = ""
+            txtsearch.ForeColor = Color.Black
+            txtsearch.Size = New Size(151, txtsearch.Size.Height)
+        End If
+    End Sub
+
     Private Sub pnllista_Scroll(sender As Object, e As ScrollEventArgs) Handles pnllista.Scroll
         scrollpos = e.NewValue
     End Sub
