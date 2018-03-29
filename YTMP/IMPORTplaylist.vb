@@ -27,7 +27,13 @@ Public Class IMPORTplaylist
             Dim client As New Net.WebClient
             client.Encoding = System.Text.Encoding.UTF8
             Return client.DownloadString(url)
-        Catch ex As Exception
+        Catch ex As Net.WebException
+            Dim response As Net.WebResponse = ex.Response
+            Using reader As IO.StreamReader = New IO.StreamReader(response.GetResponseStream())
+                Dim Text As String = reader.ReadToEnd()
+                Return Text
+            End Using
+        Catch ex As Exception When Not TypeOf ex Is Net.WebException
             Return ""
         End Try
     End Function
@@ -63,6 +69,11 @@ Public Class IMPORTplaylist
 
         For Each item As JProperty In data
             item.CreateReader()
+            If item.Name = "error" Then
+                addlog("ERROR: Serwis YouTube zwrócił komunikat błędu!")
+                addlog("Szczegóły: [" & item.Value("code").ToString() & "] " & item.Value("message").ToString())
+                Exit Sub
+            End If
             If item.Name = "nextPageToken" Then nextpagetoken = item.Value.ToString().Trim()
             If item.Name = "items" Then
                 For Each val As JObject In item.Values
