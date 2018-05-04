@@ -9,6 +9,7 @@ Public Class IMPORTplaylist
     Dim docelowyWYK As WYKONAWCA
     Dim docelowyALB As ALBUM
 
+    Dim ORIwyk As List(Of String) = New List(Of String)
     Dim REFwyk As List(Of WYKONAWCA) = New List(Of WYKONAWCA)
     Dim REFalb As List(Of ALBUM) = New List(Of ALBUM)
     Dim REFpl As List(Of PLAYLISTA) = New List(Of PLAYLISTA)
@@ -59,6 +60,7 @@ Public Class IMPORTplaylist
     Private Sub JSONdeserialize()
         If nextpagetoken = "" Then
             tabela.Rows.Clear()
+            ORIwyk.Clear()
             REFwyk.Clear()
             REFalb.Clear()
         End If
@@ -80,6 +82,7 @@ Public Class IMPORTplaylist
                     'Debug.WriteLine("Title: {0}, Vid: {1}", val("snippet")("title"), val("contentDetails")("videoId"))
                     Dim s As String = val("snippet")("title").ToString()
                     Dim utw As String = ""
+                    Dim splitwyk As String = ""
                     Dim wyk As WYKONAWCA = Nothing
                     Dim alb As ALBUM = Nothing
                     Dim match As Byte = 0
@@ -90,6 +93,7 @@ Public Class IMPORTplaylist
                             splits(1) = splits(1).Trim()
                             comparewyk(splits(0), wyk, match)
                             utw = splits(1)
+                            splitwyk = splits(0)
                         Else
                             utw = s
                         End If
@@ -107,9 +111,25 @@ Public Class IMPORTplaylist
                                 Exit For
                             End If
                         Next
+                        Dim compareinfo As String
+                        If match = 0 Then
+                            If splitwyk = "" Then
+                                'brak wykonawcy w tytule
+                                compareinfo = "Brak wykonawcy w tytule"
+                                ORIwyk.Add("")
+                            Else
+                                'propozycja utworzenia
+                                compareinfo = "Brak dopasowania (kliknij aby utworzyć '" & splitwyk & "')"
+                                ORIwyk.Add(splitwyk)
+                            End If
+                        Else
+                            'dopasowano wykonawce
+                            compareinfo = "Znaleziono dopasowanie (" & match & "%)"
+                            ORIwyk.Add("")
+                        End If
                         REFwyk.Add(wyk)
                         REFalb.Add(alb)
-                        tabela.Rows.Add({utw, val("contentDetails")("videoId").ToString(), IIf(match = 0, "Nie dopasowano", "Dopasowano (" & match & "%)"), wyk.nazwa, alb.nazwa, s})
+                        tabela.Rows.Add({utw, val("contentDetails")("videoId").ToString(), compareinfo, wyk.nazwa, alb.nazwa, s})
                         addlog("Zaimportowano utwór o id: " & val("contentDetails")("videoId").ToString())
                         Thread.Sleep(100)
                     End If
@@ -159,6 +179,29 @@ Public Class IMPORTplaylist
             docelowyALB = wybrALB
             aktpath()
         End If
+    End Sub
+
+    Private Sub tabela_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabela.CellClick
+        Select Case e.ColumnIndex
+            Case 2
+                If Not ORIwyk(e.RowIndex) = "" Then
+                    If MsgBox("Czy chcesz utworzyć nowego wykonawcę o nazwie """ & ORIwyk(e.RowIndex) & """?", MsgBoxStyle.Information + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
+                        Dim nazwa As String = ORIwyk(e.RowIndex)
+                        Dim nwyk As WYKONAWCA = New WYKONAWCA(nazwa)
+                        dane.wykonawcy.Add(nwyk)
+                        For i As Integer = 0 To tabela.Rows.Count - 1
+                            If ORIwyk(i) = nazwa Then
+                                REFwyk(i) = nwyk
+                                REFalb(i) = nwyk.albumy(0)
+                                tabela.Rows.Item(i).Cells.Item(2).Value = "Znaleziono dopasowanie (100%)"
+                                tabela.Rows.Item(i).Cells.Item(3).Value = REFwyk(i).nazwa
+                                tabela.Rows.Item(i).Cells.Item(4).Value = REFalb(i).nazwa
+                                ORIwyk(i) = ""
+                            End If
+                        Next
+                    End If
+                End If
+        End Select
     End Sub
 
     Private Sub tabela_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles tabela.CellDoubleClick
@@ -231,6 +274,7 @@ Public Class IMPORTplaylist
         If tabela.SelectedCells.Count = 0 Then Exit Sub
         Dim ind As Integer = tabela.SelectedCells.Item(0).RowIndex
         tabela.Rows.RemoveAt(ind)
+        ORIwyk.RemoveAt(ind)
         REFwyk.RemoveAt(ind)
         REFalb.RemoveAt(ind)
         If tabela.Rows.Count = 0 Then btnimport.Enabled = False
