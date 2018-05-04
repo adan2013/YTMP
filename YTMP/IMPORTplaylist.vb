@@ -156,7 +156,7 @@ Public Class IMPORTplaylist
 
     Private Sub aktpath()
         lblpath.Text = "> " & docelowyWYK.nazwa & " > " & docelowyALB.nazwa & " > ..."
-        skrocstring(lblpath, 430, lblpath.Text)
+        skrocstring(lblpath, 350, lblpath.Text)
     End Sub
 
     Private Sub btnpath_Click(sender As Object, e As EventArgs) Handles btnpath.Click
@@ -262,7 +262,11 @@ Public Class IMPORTplaylist
             Case 5
                 JSONdeserialize()
             Case 6
-                If tabela.Rows.Count > 0 Then btnimport.Enabled = True
+                If tabela.Rows.Count > 0 Then
+                    btnimport.Enabled = True
+                    btndelete.Enabled = True
+                End If
+                btnanuluj.Enabled = True
                 akt.Enabled = False
             Case 7
 
@@ -362,5 +366,17 @@ Public Class IMPORTplaylist
             lstpl.Enabled = False
             btnnewpl.Enabled = False
         End If
+    End Sub
+
+    Private Sub IMPORTplaylist_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        tabela.Size = New Size(tabela.Size.Width, Height - 340)
+        GRzarzadzanie.Location = New Point(15, Height - 330)
+        GRimport.Location = New Point(591, Height - 330)
+        GRpostep.Location = New Point(15, Height - 230)
+        GRopcje.Location = New Point(447, Height - 230)
+    End Sub
+
+    Private Sub btnanuluj_Click(sender As Object, e As EventArgs) Handles btnanuluj.Click
+        DialogResult = DialogResult.Cancel
     End Sub
 End Class
