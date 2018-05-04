@@ -493,7 +493,7 @@ Public Class Form1
 
             pnl.Controls.Add(lbltekst)
 
-            If searchempty OrElse seltab = 1 OrElse lbltekst.Text.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
+            If searchempty OrElse seltab = 1 OrElse lbltekst.Text.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" OrElse lbltekst2.Text.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
                 pnlwewn.Controls.Add(pnl)
                 pnlwewn.Size = New Size(pnlwewn.Size.Width, pnlwewn.Size.Height + 60)
             End If
