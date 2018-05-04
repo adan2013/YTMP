@@ -281,7 +281,10 @@ Public Class IMPORTplaylist
         ORIwyk.RemoveAt(ind)
         REFwyk.RemoveAt(ind)
         REFalb.RemoveAt(ind)
-        If tabela.Rows.Count = 0 Then btnimport.Enabled = False
+        If tabela.Rows.Count = 0 Then
+            btnimport.Enabled = False
+            btndelete.Enabled = False
+        End If
     End Sub
 
     Private Sub btnimport_Click(sender As Object, e As EventArgs) Handles btnimport.Click
