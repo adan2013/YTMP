@@ -109,7 +109,7 @@ Public Class IMPORTplaylist
                         Next
                         REFwyk.Add(wyk)
                         REFalb.Add(alb)
-                        tabela.Rows.Add({utw, val("contentDetails")("videoId").ToString(), IIf(match = 0, "Nie dopasowano", "Dopasowano (" & match & "%)"), wyk.nazwa, alb.nazwa})
+                        tabela.Rows.Add({utw, val("contentDetails")("videoId").ToString(), IIf(match = 0, "Nie dopasowano", "Dopasowano (" & match & "%)"), wyk.nazwa, alb.nazwa, s})
                         addlog("Zaimportowano utwór o id: " & val("contentDetails")("videoId").ToString())
                         Thread.Sleep(100)
                     End If

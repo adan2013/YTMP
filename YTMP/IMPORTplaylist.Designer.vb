@@ -28,11 +28,6 @@ Partial Class IMPORTplaylist
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tabela = New System.Windows.Forms.DataGridView()
-        Me.k1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.k2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.k3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.k4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.k5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnimport = New System.Windows.Forms.Button()
         Me.radioauto = New System.Windows.Forms.RadioButton()
         Me.radiodirect = New System.Windows.Forms.RadioButton()
@@ -45,6 +40,12 @@ Partial Class IMPORTplaylist
         Me.chkboxpl = New System.Windows.Forms.CheckBox()
         Me.lstpl = New System.Windows.Forms.ComboBox()
         Me.btnnewpl = New System.Windows.Forms.Button()
+        Me.k1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.k2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.k3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.k4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.k5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.k6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.tabela, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -86,53 +87,13 @@ Partial Class IMPORTplaylist
         Me.tabela.AllowUserToResizeRows = False
         Me.tabela.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.tabela.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.k1, Me.k2, Me.k3, Me.k4, Me.k5})
+        Me.tabela.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.k1, Me.k2, Me.k3, Me.k4, Me.k5, Me.k6})
         Me.tabela.Location = New System.Drawing.Point(12, 30)
         Me.tabela.MultiSelect = False
         Me.tabela.Name = "tabela"
         Me.tabela.ReadOnly = True
         Me.tabela.Size = New System.Drawing.Size(960, 207)
         Me.tabela.TabIndex = 3
-        '
-        'k1
-        '
-        Me.k1.HeaderText = "Tytuł"
-        Me.k1.Name = "k1"
-        Me.k1.ReadOnly = True
-        Me.k1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.k1.Width = 38
-        '
-        'k2
-        '
-        Me.k2.HeaderText = "Identyfikator"
-        Me.k2.Name = "k2"
-        Me.k2.ReadOnly = True
-        Me.k2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.k2.Width = 71
-        '
-        'k3
-        '
-        Me.k3.HeaderText = "Odczyt wykonawcy"
-        Me.k3.Name = "k3"
-        Me.k3.ReadOnly = True
-        Me.k3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.k3.Width = 95
-        '
-        'k4
-        '
-        Me.k4.HeaderText = "Wykonawca"
-        Me.k4.Name = "k4"
-        Me.k4.ReadOnly = True
-        Me.k4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.k4.Width = 73
-        '
-        'k5
-        '
-        Me.k5.HeaderText = "Album"
-        Me.k5.Name = "k5"
-        Me.k5.ReadOnly = True
-        Me.k5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.k5.Width = 42
         '
         'btnimport
         '
@@ -257,6 +218,52 @@ Partial Class IMPORTplaylist
         Me.btnnewpl.Text = "Nowa playlista"
         Me.btnnewpl.UseVisualStyleBackColor = True
         '
+        'k1
+        '
+        Me.k1.HeaderText = "Tytuł"
+        Me.k1.Name = "k1"
+        Me.k1.ReadOnly = True
+        Me.k1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.k1.Width = 38
+        '
+        'k2
+        '
+        Me.k2.HeaderText = "Identyfikator"
+        Me.k2.Name = "k2"
+        Me.k2.ReadOnly = True
+        Me.k2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.k2.Width = 71
+        '
+        'k3
+        '
+        Me.k3.HeaderText = "Odczyt wykonawcy"
+        Me.k3.Name = "k3"
+        Me.k3.ReadOnly = True
+        Me.k3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.k3.Width = 95
+        '
+        'k4
+        '
+        Me.k4.HeaderText = "Wykonawca"
+        Me.k4.Name = "k4"
+        Me.k4.ReadOnly = True
+        Me.k4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.k4.Width = 73
+        '
+        'k5
+        '
+        Me.k5.HeaderText = "Album"
+        Me.k5.Name = "k5"
+        Me.k5.ReadOnly = True
+        Me.k5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.k5.Width = 42
+        '
+        'k6
+        '
+        Me.k6.HeaderText = "Tytuł pobrany z YouTube'a"
+        Me.k6.Name = "k6"
+        Me.k6.ReadOnly = True
+        '
         'IMPORTplaylist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -301,14 +308,15 @@ Partial Class IMPORTplaylist
     Friend WithEvents btnpath As Button
     Friend WithEvents lblpath As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents k1 As DataGridViewTextBoxColumn
-    Friend WithEvents k2 As DataGridViewTextBoxColumn
-    Friend WithEvents k3 As DataGridViewTextBoxColumn
-    Friend WithEvents k4 As DataGridViewTextBoxColumn
-    Friend WithEvents k5 As DataGridViewTextBoxColumn
     Friend WithEvents akt As Timer
     Friend WithEvents btndelete As Button
     Friend WithEvents chkboxpl As CheckBox
     Friend WithEvents lstpl As ComboBox
     Friend WithEvents btnnewpl As Button
+    Friend WithEvents k1 As DataGridViewTextBoxColumn
+    Friend WithEvents k2 As DataGridViewTextBoxColumn
+    Friend WithEvents k3 As DataGridViewTextBoxColumn
+    Friend WithEvents k4 As DataGridViewTextBoxColumn
+    Friend WithEvents k5 As DataGridViewTextBoxColumn
+    Friend WithEvents k6 As DataGridViewTextBoxColumn
 End Class
