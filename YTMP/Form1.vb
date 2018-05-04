@@ -1,7 +1,7 @@
 ﻿Imports Microsoft.WindowsAPICodePack.Taskbar
 Public Class Form1
 
-    Public wersja As String = "v6.1"
+    Public wersja As String = "v6.2"
     Dim WithEvents kb As KeyboardHook = New KeyboardHook()
     Public rewindstate As Double = -1
 
