@@ -257,7 +257,7 @@ Public Class YTAPI
             If poz < 0 Then poz = 0
             tekststatus = "Opóźnienie przełączenia utwóru (Pozostało: " & Math.Round(poz / 1000, 1) & "s)"
         End If
-        If detectchangetrack And Not state = YTstate.zakonczony Then detectchangetrack = False
+        If detectchangetrack And state = YTstate.buforowanie Then detectchangetrack = False
         If Not detectchangetrack And (state = YTstate.zakonczony Or (ob IsNot Nothing AndAlso ob.koniec = currenttime AndAlso ob.koniec > 0)) Then
             Dim nast As Boolean = False
             If dane.SETopoznienie = 0 Then
@@ -382,7 +382,6 @@ Public Class YTAPI
                     efektwizualny = EFEKTWIZ.brak
                 End If
         End Select
-        If ob IsNot Nothing Then Debug.WriteLine(ob.tytul)
     End Sub
 
     Public Sub odtworzteraz(ByRef obiekt As UTWOR)
