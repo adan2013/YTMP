@@ -156,6 +156,11 @@ Public Class Form1
         'pilot
         pilot.konfiguruj()
         If dane.SETpilotact = 1 Then pilot.Show()
+
+        'TODO debug
+        updateform.initsc = updateform.SCENA.start
+        updateform.ShowDialog()
+        updateform.Close()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
