@@ -1,4 +1,7 @@
-﻿Public Class updateform
+﻿Imports System.ComponentModel
+Imports System.Net
+Imports System.Web
+Public Class updateform
 
     Public initsc As SCENA = 0
 
@@ -10,6 +13,8 @@
     Dim v1 As Boolean = False
     Dim v2 As Boolean = False
     Dim v3 As Boolean = False
+
+    Dim client As WebClient
 
     Property downloadproc() As Integer
         Get
@@ -42,11 +47,11 @@
     Private Sub updateform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         With pnlfore
             .BackColor = Color.Red
-            .Location = pnlback.Location
+            .Location = New Point(0, 0)
             .Size = New Size(downloadproc, pnlback.Size.Height)
             .Visible = False
         End With
-        Controls.Add(pnlfore)
+        pnlback.Controls.Add(pnlfore)
         ladujscene(initsc)
     End Sub
 
@@ -88,7 +93,6 @@
                 pnlfore.Visible = True
                 lblproc.Visible = True
                 zmienroz(190)
-                'TODO rozpocznij ładowanie
             Case SCENA.gotowosc
                 lbltytul.Text = "Aktualizacja gotowa do zainstalowania"
                 lblopis.Text = "Pliki są gotowe do instalacji, możesz uruchomić instalację teraz lub później"
@@ -178,6 +182,22 @@
         Select Case initsc
             Case SCENA.start
                 ladujscene(SCENA.pobieranie)
+                'uruchomienie pobierania
+                'TODO rozpocznij ładowanie
+                Try
+                    If IO.File.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK.zip") Then IO.File.Delete(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
+                    If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then IO.Directory.Delete(Application.StartupPath & "\YTMP-UPDATE-PACK")
+                    client = New WebClient()
+                    ServicePointManager.SecurityProtocol = CType(768, SecurityProtocolType) Or CType(3072, SecurityProtocolType)
+                    AddHandler client.DownloadProgressChanged, AddressOf DownloadProgressChanged
+                    AddHandler client.DownloadFileCompleted, AddressOf DownloadFileCompleted
+                    'TODO link pobrany z odtwarzacza
+                    client.DownloadFileAsync(New Uri("https://github.com/adan2013/YTMP/releases/download/6.2/YTMP.6.2.zip"), Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
+                Catch ex As Exception
+                    errmessage = ex.Message
+                    ladujscene(SCENA.blad)
+                    If client.IsBusy Then client.CancelAsync()
+                End Try
             Case SCENA.gotowosc
                 'TODO start autoupdater
             Case SCENA.pomyslnains
@@ -185,5 +205,14 @@
             Case SCENA.blad
                 DialogResult = DialogResult.Cancel
         End Select
+    End Sub
+
+    Private Sub DownloadFileCompleted(sender As Object, e As AsyncCompletedEventArgs)
+        'TODO rozpakowywanie
+        ladujscene(SCENA.gotowosc)
+    End Sub
+
+    Private Sub DownloadProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs)
+        downloadproc = e.BytesReceived * 100 / e.TotalBytesToReceive
     End Sub
 End Class
