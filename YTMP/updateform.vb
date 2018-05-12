@@ -114,7 +114,7 @@ Public Class updateform
                 Size = New Size(Size.Width, 250)
             Case SCENA.blad
                 lbltytul.Text = "Podczas aktualizacji wystąpił błąd"
-                lblopis.Text = "Komunikat błędu: " & errmessage
+                lblopis.Text = "Komunikat błędu: " & vbNewLine & errmessage
                 lblopis.Visible = True
                 btn2.Text = "Ponów próbę"
                 btn3.Text = "Zamknij"
@@ -128,6 +128,7 @@ Public Class updateform
             If show1 Then btn1.Visible = True
             If show2 Then btn2.Visible = True
             If show3 Then btn3.Visible = True
+            celruchu = nowy
             Exit Sub
         End If
         celruchu = nowy
@@ -158,7 +159,7 @@ Public Class updateform
                 If MsgBox("Czy na pewno chcesz usunąć z komputera pliki pobranej wcześniej aktualizacji?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
                     Try
                         If IO.File.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK.zip") Then IO.File.Delete(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
-                        If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then IO.Directory.Delete(Application.StartupPath & "\YTMP-UPDATE-PACK")
+                        If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then My.Computer.FileSystem.DeleteDirectory(Application.StartupPath & "\YTMP-UPDATE-PACK", FileIO.DeleteDirectoryOption.DeleteAllContents)
                         DialogResult = DialogResult.Cancel
                     Catch ex As Exception
                         MsgBox("Wystąpił błąd podczas usuwania plików aktualizacji, może to być spowodowane niewystarczającymi uprawnieniami aplikacji do swojego katalogu", MsgBoxStyle.Critical, "YTMP")
@@ -183,20 +184,23 @@ Public Class updateform
             Case SCENA.start
                 ladujscene(SCENA.pobieranie)
                 'uruchomienie pobierania
-                'TODO rozpocznij ładowanie
                 Try
-                    If IO.File.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK.zip") Then IO.File.Delete(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
-                    If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then IO.Directory.Delete(Application.StartupPath & "\YTMP-UPDATE-PACK")
-                    client = New WebClient()
-                    ServicePointManager.SecurityProtocol = CType(768, SecurityProtocolType) Or CType(3072, SecurityProtocolType)
-                    AddHandler client.DownloadProgressChanged, AddressOf DownloadProgressChanged
-                    AddHandler client.DownloadFileCompleted, AddressOf DownloadFileCompleted
-                    'TODO link pobrany z odtwarzacza
-                    client.DownloadFileAsync(New Uri("https://github.com/adan2013/YTMP/releases/download/6.2/YTMP.6.2.zip"), Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
+                    If Form1.yt.updatelink = "" Then
+                        errmessage = "Aplikacja nie uzyskała adresu źródła pobierania"
+                        ladujscene(SCENA.blad)
+                    Else
+                        If IO.File.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK.zip") Then IO.File.Delete(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
+                        If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then My.Computer.FileSystem.DeleteDirectory(Application.StartupPath & "\YTMP-UPDATE-PACK", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                        client = New WebClient()
+                        ServicePointManager.SecurityProtocol = CType(768, SecurityProtocolType) Or CType(3072, SecurityProtocolType)
+                        AddHandler client.DownloadProgressChanged, AddressOf DownloadProgressChanged
+                        AddHandler client.DownloadFileCompleted, AddressOf DownloadFileCompleted
+                        client.DownloadFileAsync(New Uri(Form1.yt.updatelink), Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
+                    End If
                 Catch ex As Exception
+                    If client IsNot Nothing AndAlso client.IsBusy Then client.CancelAsync()
                     errmessage = ex.Message
                     ladujscene(SCENA.blad)
-                    If client.IsBusy Then client.CancelAsync()
                 End Try
             Case SCENA.gotowosc
                 'TODO start autoupdater
@@ -209,7 +213,17 @@ Public Class updateform
 
     Private Sub DownloadFileCompleted(sender As Object, e As AsyncCompletedEventArgs)
         'TODO rozpakowywanie
-        ladujscene(SCENA.gotowosc)
+        Try
+            IO.Directory.CreateDirectory(Application.StartupPath & "\YTMP-UPDATE-PACK")
+            Dim sc = New Shell32.Shell
+            Dim output As Shell32.Folder = sc.NameSpace(Application.StartupPath & "\YTMP-UPDATE-PACK")
+            Dim input As Shell32.Folder = sc.NameSpace(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
+            output.CopyHere(input.Items, 4)
+            ladujscene(SCENA.gotowosc)
+        Catch ex As Exception
+            errmessage = ex.Message
+            ladujscene(SCENA.blad)
+        End Try
     End Sub
 
     Private Sub DownloadProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs)

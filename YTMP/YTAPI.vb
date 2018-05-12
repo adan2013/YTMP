@@ -18,6 +18,7 @@ Public Class YTAPI
     Dim WithEvents browser As GeckoWebBrowser
 
     Public updatever As String = "0"
+    Public updatelink As String = "https://github.com/adan2013/YTMP/releases/download/6.2/YTMP.6.2.zip" 'TODO debug
     Public stoper As Stopwatch = New Stopwatch()
     Public directplay As UTWOR = Nothing
     Public wskaznikpl As UTWOR = Nothing
@@ -304,6 +305,9 @@ Public Class YTAPI
                 If Not Form1.btnupdate.Visible Then Form1.btnupdate.Visible = True
             End If
         End If
+        'update link - autoupdater
+        Dim dload As String = getcontent("INFOdownload")
+        If Not dload = "" Then updatelink = getcontent("INFOdownload")
         Select Case state
             Case YTstate.buforowanie
                 If dane.SETzielbufor And Not efektwizualny = EFEKTWIZ.buforowanie Then
