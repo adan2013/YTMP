@@ -115,6 +115,12 @@ Public Class updateform
             Case SCENA.blad
                 lbltytul.Text = "Podczas aktualizacji wystąpił błąd"
                 lblopis.Text = "Komunikat błędu: " & vbNewLine & errmessage
+                If lblopis.Size.Width > 480 Then
+                    Do
+                        lblopis.Text = lblopis.Text.Substring(0, lblopis.Text.Length - 1)
+                    Loop While lblopis.Size.Width > 470
+                    lblopis.Text &= "..."
+                End If
                 lblopis.Visible = True
                 btn2.Text = "Ponów próbę"
                 btn3.Text = "Zamknij"
@@ -201,7 +207,17 @@ Public Class updateform
                     reperr(ex.Message)
                 End Try
             Case SCENA.gotowosc
-                'TODO start autoupdater
+                'start autoupdater
+                If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then
+                    If IO.File.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK\YTMP-AUTOUPDATER.exe") Then
+                        Process.Start(Application.StartupPath & "\YTMP-UPDATE-PACK\YTMP-AUTOUPDATER.exe")
+                        End
+                    Else
+                        reperr("Nie znaleziono pliku exe aktualizatora. Możliwe, że nowa wersja nie wspera już automatycznej aktualizacji")
+                    End If
+                Else
+                    reperr("Nie znaleziono plików gotowych do instalacji aktualizacji")
+                End If
             Case SCENA.pomyslnains
                 DialogResult = DialogResult.OK
             Case SCENA.blad
@@ -238,6 +254,8 @@ Public Class updateform
 
     Private Sub BWunzip_DoWork(sender As Object, e As DoWorkEventArgs) Handles BWunzip.DoWork
         Try
+            'unzip
+            If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then My.Computer.FileSystem.DeleteDirectory(Application.StartupPath & "\YTMP-UPDATE-PACK", FileIO.DeleteDirectoryOption.DeleteAllContents)
             IO.Directory.CreateDirectory(Application.StartupPath & "\YTMP-UPDATE-PACK")
             Dim sc = New Shell32.Shell
             Dim output As Shell32.Folder = sc.NameSpace(Application.StartupPath & "\YTMP-UPDATE-PACK")

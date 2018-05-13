@@ -158,7 +158,7 @@ Public Class Form1
         If dane.SETpilotact = 1 Then pilot.Show()
 
         'TODO debug
-        updateform.initsc = updateform.SCENA.start
+        updateform.initsc = updateform.SCENA.gotowosc
         updateform.ShowDialog()
         updateform.Close()
     End Sub
