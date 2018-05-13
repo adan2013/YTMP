@@ -186,8 +186,7 @@ Public Class updateform
                 'uruchomienie pobierania
                 Try
                     If Form1.yt.updatelink = "" Then
-                        errmessage = "Aplikacja nie uzyskała adresu źródła pobierania"
-                        ladujscene(SCENA.blad)
+                        reperr("Aplikacja nie uzyskała adresu źródła pobierania")
                     Else
                         If IO.File.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK.zip") Then IO.File.Delete(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
                         If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then My.Computer.FileSystem.DeleteDirectory(Application.StartupPath & "\YTMP-UPDATE-PACK", FileIO.DeleteDirectoryOption.DeleteAllContents)
@@ -199,8 +198,7 @@ Public Class updateform
                     End If
                 Catch ex As Exception
                     If client IsNot Nothing AndAlso client.IsBusy Then client.CancelAsync()
-                    errmessage = ex.Message
-                    ladujscene(SCENA.blad)
+                    reperr(ex.Message)
                 End Try
             Case SCENA.gotowosc
                 'TODO start autoupdater
@@ -212,21 +210,60 @@ Public Class updateform
     End Sub
 
     Private Sub DownloadFileCompleted(sender As Object, e As AsyncCompletedEventArgs)
-        'TODO rozpakowywanie
+        If Not e.Cancelled Then
+            BWunzip.RunWorkerAsync()
+        End If
+    End Sub
+
+    Private Sub DownloadProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs)
+        downloadproc = e.BytesReceived * 100 / e.TotalBytesToReceive
+    End Sub
+
+    Private Sub updateform_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If client IsNot Nothing AndAlso client.IsBusy Then
+            If MsgBox("Czy chcesz przerwać pobieranie plików?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
+                If client IsNot Nothing AndAlso client.IsBusy Then client.CancelAsync()
+            Else
+                e.Cancel = True
+            End If
+        End If
+        If BWunzip.IsBusy Then
+            If MsgBox("Czy chcesz przerwać proces instalacji?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
+                If BWunzip.IsBusy Then BWunzip.CancelAsync()
+            Else
+                e.Cancel = True
+            End If
+        End If
+    End Sub
+
+    Private Sub BWunzip_DoWork(sender As Object, e As DoWorkEventArgs) Handles BWunzip.DoWork
         Try
             IO.Directory.CreateDirectory(Application.StartupPath & "\YTMP-UPDATE-PACK")
             Dim sc = New Shell32.Shell
             Dim output As Shell32.Folder = sc.NameSpace(Application.StartupPath & "\YTMP-UPDATE-PACK")
             Dim input As Shell32.Folder = sc.NameSpace(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
             output.CopyHere(input.Items, 4)
-            ladujscene(SCENA.gotowosc)
         Catch ex As Exception
-            errmessage = ex.Message
-            ladujscene(SCENA.blad)
+            reperr(ex.Message)
         End Try
     End Sub
 
-    Private Sub DownloadProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs)
-        downloadproc = e.BytesReceived * 100 / e.TotalBytesToReceive
+    Private Sub BWunzip_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BWunzip.RunWorkerCompleted
+        ladujscene(SCENA.gotowosc)
+    End Sub
+
+    Private Sub reperr(ByVal message As String)
+        errmessage = message.Replace(vbNewLine, "")
+        ladujscene(SCENA.blad)
+    End Sub
+
+    Protected Overrides Sub WndProc(ByRef m As Message)
+        If (m.Msg = &H112) AndAlso (m.WParam.ToInt32() = &HF010) Then
+            Return
+        End If
+        If (m.Msg = &HA1) AndAlso (m.WParam.ToInt32() = &H2) Then
+            Return
+        End If
+        MyBase.WndProc(m)
     End Sub
 End Class

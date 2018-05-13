@@ -34,6 +34,7 @@ Partial Class updateform
         Me.lblproc = New System.Windows.Forms.Label()
         Me.ruch = New System.Windows.Forms.Timer(Me.components)
         Me.btn1 = New System.Windows.Forms.Button()
+        Me.BWunzip = New System.ComponentModel.BackgroundWorker()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -131,6 +132,9 @@ Partial Class updateform
         Me.btn1.Text = "Usuń ją z komputera"
         Me.btn1.UseVisualStyleBackColor = True
         '
+        'BWunzip
+        '
+        '
         'updateform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -152,7 +156,6 @@ Partial Class updateform
         Me.Name = "updateform"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Aktualizacja"
-        Me.TopMost = True
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -169,4 +172,5 @@ Partial Class updateform
     Friend WithEvents lblproc As Label
     Friend WithEvents ruch As Timer
     Friend WithEvents btn1 As Button
+    Friend WithEvents BWunzip As System.ComponentModel.BackgroundWorker
 End Class
