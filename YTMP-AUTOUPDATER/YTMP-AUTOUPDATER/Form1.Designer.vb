@@ -107,6 +107,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Aktualizacja YTMP"
+        Me.TopMost = True
         Me.pnltop.ResumeLayout(False)
         Me.pnltop.PerformLayout()
         Me.ResumeLayout(False)

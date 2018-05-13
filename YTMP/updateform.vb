@@ -219,6 +219,7 @@ Public Class updateform
                     reperr("Nie znaleziono plików gotowych do instalacji aktualizacji")
                 End If
             Case SCENA.pomyslnains
+                'TODO usuwanie tempów
                 DialogResult = DialogResult.OK
             Case SCENA.blad
                 DialogResult = DialogResult.Cancel
@@ -261,6 +262,12 @@ Public Class updateform
             Dim output As Shell32.Folder = sc.NameSpace(Application.StartupPath & "\YTMP-UPDATE-PACK")
             Dim input As Shell32.Folder = sc.NameSpace(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
             output.CopyHere(input.Items, 4)
+            Dim dirfiles As String = Application.StartupPath & "\YTMP-UPDATE-PACK"
+            For Each i As String In IO.Directory.GetDirectories(dirfiles)
+                dirfiles &= "\" & New IO.DirectoryInfo(i).Name
+                Exit For
+            Next
+            My.Computer.FileSystem.MoveDirectory(dirfiles, dirfiles & "\..", True)
         Catch ex As Exception
             reperr(ex.Message)
         End Try

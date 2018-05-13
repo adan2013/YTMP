@@ -12,6 +12,7 @@ Public Class Form1
     Private Sub addlog(ByVal txt As String)
         Invoke(Sub() txtlog.Text &= txt & vbNewLine)
         Invoke(Sub() txtlog.SelectionStart = txtlog.Text.Length - 1)
+        Invoke(Sub() txtlog.ScrollToCaret())
     End Sub
 
     Private Sub gotoerr(ByVal msg As String)
