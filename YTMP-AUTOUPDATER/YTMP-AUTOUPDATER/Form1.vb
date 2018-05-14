@@ -24,6 +24,16 @@ Public Class Form1
     Private Sub BWinstall_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BWinstall.DoWork
         Dim timeoutloop As Integer = 0
         Thread.Sleep(500)
+        addlog("Sprawdzanie obecności plików potrzebnych do instalacji...")
+        If Not IO.File.Exists(Application.StartupPath & "\YTMP.exe") Then
+            gotoerr("nie znaleziono pliku wykonywalnego nowej wersji aplikacji!")
+            Exit Sub
+        End If
+        If Not IO.File.Exists(Application.StartupPath & "\..\YTMP.exe") Then
+            gotoerr("nie znaleziono pliku wykonywalnego poprzedniej wersji aplikacji w katalogu nadrzędnym!")
+            Exit Sub
+        End If
+        Thread.Sleep(500)
         addlog("Oczekiwanie na zamknięcie aplikacji YTMP...")
         timeoutloop = 0
         Do

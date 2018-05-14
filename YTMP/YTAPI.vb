@@ -18,7 +18,7 @@ Public Class YTAPI
     Dim WithEvents browser As GeckoWebBrowser
 
     Public updatever As String = "0"
-    Public updatelink As String = "https://github.com/adan2013/YTMP/releases/download/6.2/YTMP.6.2.zip" 'TODO debug
+    Public updatelink As String = ""
     Public stoper As Stopwatch = New Stopwatch()
     Public directplay As UTWOR = Nothing
     Public wskaznikpl As UTWOR = Nothing

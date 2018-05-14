@@ -107,7 +107,7 @@ Public Class updateform
                 zmienroz(250, True, True, True)
             Case SCENA.pomyslnains
                 lbltytul.Text = "Aktualizacja została zainstalowana"
-                lblopis.Text = "Proces instalacji został zakończony pomyślnie!"
+                lblopis.Text = "Aplikacja została zaktualizowana do wersji " & Form1.wersja & " !"
                 lblopis.Visible = True
                 btn3.Text = "OK"
                 btn3.Visible = True
@@ -166,6 +166,7 @@ Public Class updateform
                     Try
                         If IO.File.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK.zip") Then IO.File.Delete(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
                         If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then My.Computer.FileSystem.DeleteDirectory(Application.StartupPath & "\YTMP-UPDATE-PACK", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                        Form1.btnupdate.Visible = False
                         DialogResult = DialogResult.Cancel
                     Catch ex As Exception
                         MsgBox("Wystąpił błąd podczas usuwania plików aktualizacji, może to być spowodowane niewystarczającymi uprawnieniami aplikacji do swojego katalogu", MsgBoxStyle.Critical, "YTMP")
@@ -219,7 +220,15 @@ Public Class updateform
                     reperr("Nie znaleziono plików gotowych do instalacji aktualizacji")
                 End If
             Case SCENA.pomyslnains
-                'TODO usuwanie tempów
+                Try
+                    If IO.File.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK.zip") Then IO.File.Delete(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
+                    If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then My.Computer.FileSystem.DeleteDirectory(Application.StartupPath & "\YTMP-UPDATE-PACK", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                    If IO.File.Exists(Application.StartupPath & "\install.txt") Then IO.File.Delete(Application.StartupPath & "\install.txt")
+                    DialogResult = DialogResult.OK
+                Catch ex As Exception
+                    MsgBox("Wystąpił błąd podczas próby usuwania plików tymczasowych pozostałych po instalacji!", MsgBoxStyle.Critical, "YTMP")
+                    DialogResult = DialogResult.Cancel
+                End Try
                 DialogResult = DialogResult.OK
             Case SCENA.blad
                 DialogResult = DialogResult.Cancel
@@ -237,18 +246,23 @@ Public Class updateform
     End Sub
 
     Private Sub updateform_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If client IsNot Nothing AndAlso client.IsBusy Then
-            If MsgBox("Czy chcesz przerwać pobieranie plików?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
-                If client IsNot Nothing AndAlso client.IsBusy Then client.CancelAsync()
-            Else
-                e.Cancel = True
+        If initsc = SCENA.pomyslnains Then
+            e.Cancel = True
+            btn3_Click(btn3, New EventArgs())
+        Else
+            If client IsNot Nothing AndAlso client.IsBusy Then
+                If MsgBox("Czy chcesz przerwać pobieranie plików?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
+                    If client IsNot Nothing AndAlso client.IsBusy Then client.CancelAsync()
+                Else
+                    e.Cancel = True
+                End If
             End If
-        End If
-        If BWunzip.IsBusy Then
-            If MsgBox("Czy chcesz przerwać proces instalacji?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
-                If BWunzip.IsBusy Then BWunzip.CancelAsync()
-            Else
-                e.Cancel = True
+            If BWunzip.IsBusy Then
+                If MsgBox("Czy chcesz przerwać proces instalacji?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
+                    If BWunzip.IsBusy Then BWunzip.CancelAsync()
+                Else
+                    e.Cancel = True
+                End If
             End If
         End If
     End Sub

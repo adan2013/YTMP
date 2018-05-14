@@ -157,14 +157,20 @@ Public Class Form1
         pilot.konfiguruj()
         If dane.SETpilotact = 1 Then pilot.Show()
 
-        'TODO debug
-        updateform.initsc = updateform.SCENA.start
-        updateform.ShowDialog()
-        updateform.Close()
+        'sprawdzanie aktualizacji
+        If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then
+            If IO.File.Exists(Application.StartupPath & "\install.txt") Then
+                updateform.initsc = updateform.SCENA.pomyslnains
+            Else
+                updateform.initsc = updateform.SCENA.gotowosc
+                btnupdate.Visible = True
+            End If
+            updateform.ShowDialog()
+            updateform.Close()
+        End If
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        'serializuj(dane, Application.StartupPath & "\" & "magazyn.ytmp")
         akt.Enabled = False
         yt.usun()
     End Sub
@@ -902,7 +908,13 @@ Public Class Form1
     End Sub
 
     Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
-        updateform.Show()
+        If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then
+            updateform.initsc = updateform.SCENA.gotowosc
+        Else
+            updateform.initsc = updateform.SCENA.start
+        End If
+        updateform.ShowDialog()
+        updateform.Close()
     End Sub
 
     Private Sub btnX_MouseMove(sender As Object, e As MouseEventArgs) Handles btnX.MouseMove, btnM.MouseMove, btnOPNCLS.MouseMove
