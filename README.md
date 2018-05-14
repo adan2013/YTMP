@@ -1,4 +1,4 @@
-![Logo YTMP](/images/logo.png)
+![Logo YTMP](images/logo.png)
 
 ## Opis
 Aplikacja służy do strumieniowego odtwarzania muzyki dostępnej w serwisie YouTube. Umożliwia ona szybkie stworzenie własnej, unikalnej biblioteki utworów. Pozycje można uporządkować wg wykonawców oraz albumów w jakich się pojawiły. Aplikacja posiada także możliwość utworzenia włanych predefiniowanych playlist.
@@ -26,9 +26,14 @@ Instrukcja obsługi aplikacji znajduje się w katalogu głównym udostępnionym 
 [Otwórz instrukcje PDF](https://github.com/adan2013/YTMP/blob/master/instrukcja.pdf)
 
 ## Instalacja i pierwsze uruchomienie
-Aby móc uruchomić aplikację należy pobrać jej ostatnią wersję z zakładki "Releases" na GitHubie. Następnie rozpakować ją do folderu za pomocą np. aplikacji WinRAR lub domyślnego narzędzia wbudowanego w system operacyjny. W folderze z rozpakowanymi plikami należy odnaleźć plik "YTMP.exe", a następnie go uruchomić. Przy pierwszym uruchomieniu aplikacja zaproponuje otwarcie instrukcji obsługi. Po zamknięciu okna wprowadzenia aplikacja jest gotowa do działania.
+Aby móc uruchomić aplikację należy pobrać jej ostatnią wersję z zakładki "Releases" na GitHubie. Następnie rozpakować ją do folderu np. za pomocą aplikacji WinRAR lub domyślnego narzędzia wbudowanego w system operacyjny. W folderze z rozpakowanymi plikami należy odnaleźć plik "YTMP.exe", a następnie go uruchomić. Przy pierwszym uruchomieniu aplikacja zaproponuje otwarcie instrukcji obsługi. Po zamknięciu okna wprowadzenia aplikacja jest gotowa do działania.
 
 [Otwórz stronę releases](https://github.com/adan2013/YTMP/releases)
+
+## Instalowanie aktualizacji
+Od wersji 7.0 aplikacja YTMP jest wyposażona w mechanizm automatycznego pobierania i instalowania aktualizacji z serwisu GitHub. Gdy tylko pojawi się nowsza wersja aplikacja powiadamia użytkownika stosownym komunikatem w oknie odtwarzacza, a następnie przeprowadza przez proces instalacji.
+
+Podczas instalacji aktualizacji nie należy dokonywać ręcznych zmian w plikach aplikacji, a także nie należy próbować uruchamiać odtwarzacza. Może to spowodować zdestabilizowanie procesu instalacji i doprowadzić do uszkodzenia plików. Instalator zamknie aplikację i uruchomi ją ponownie, gry będzie to już możliwe. Ponieważ YTMP nie posiada podpisu cyfrowego, a jego kod aktualizacyjny podmienia pliki wykonywalne istnieje możliwość, iż niektóre programy antywirusowe (zwłaszcza te darmowe) mogą zablokować działanie instalatora, a nawet próbować go usunąć. W tym przypadku należy dodać do wyjątków programu antywirusowego dwa pliki: "YTMP.exe" oraz "YTMP-AUTOUPDATER.exe" lub najlepiej cały katalog z plikami aplikacji.
 
 ## Wygląd aplikacji
 Ponieżej przedstawiam dodatkowe zrzuty ekranu prezentujące działanie aplikacji:
