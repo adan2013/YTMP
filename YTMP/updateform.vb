@@ -13,6 +13,7 @@ Public Class updateform
     Dim v1 As Boolean = False
     Dim v2 As Boolean = False
     Dim v3 As Boolean = False
+    Dim tempdeleted As Boolean = False
 
     Dim client As WebClient
 
@@ -224,6 +225,7 @@ Public Class updateform
                     If IO.File.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK.zip") Then IO.File.Delete(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
                     If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then My.Computer.FileSystem.DeleteDirectory(Application.StartupPath & "\YTMP-UPDATE-PACK", FileIO.DeleteDirectoryOption.DeleteAllContents)
                     If IO.File.Exists(Application.StartupPath & "\install.txt") Then IO.File.Delete(Application.StartupPath & "\install.txt")
+                    tempdeleted = True
                     DialogResult = DialogResult.OK
                 Catch ex As Exception
                     MsgBox("Wystąpił błąd podczas próby usuwania plików tymczasowych pozostałych po instalacji!", MsgBoxStyle.Critical, "YTMP")
@@ -247,8 +249,10 @@ Public Class updateform
 
     Private Sub updateform_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If initsc = SCENA.pomyslnains Then
-            e.Cancel = True
-            btn3_Click(btn3, New EventArgs())
+            If Not tempdeleted Then
+                e.Cancel = True
+                btn3_Click(btn3, New EventArgs())
+            End If
         Else
             If client IsNot Nothing AndAlso client.IsBusy Then
                 If MsgBox("Czy chcesz przerwać pobieranie plików?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
