@@ -423,6 +423,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appicon.ico" />
+    <None Include="bin\Debug\logo128.png" />
     <None Include="bin\Debug\APIKEY.txt" />
     <None Include="bin\Debug\video-player.png" />
     <None Include="bin\Debug\plus 24px.png" />
@@ -469,6 +470,17 @@
     <None Include="bin\Debug\splashscreen.png" />
     <None Include="bin\Debug\welcomescreen.png" />
     <Content Include="application.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
