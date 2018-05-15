@@ -75,8 +75,10 @@ Public Class YTAPI
         historia.Add(utw)
         hisodtw.Add(utw)
         If dane.SETdymek Then
-            Form1.notify.BalloonTipText = """" & utw.tytul & """ " & utw.FKalbum.FKwykonawca.nazwa
-            Form1.notify.ShowBalloonTip(1400)
+            If dane.SETdymekfocus OrElse (Form1.ActiveForm Is Nothing OrElse Not Form1.ActiveForm.Name = "Form1") Then
+                Form1.notify.BalloonTipText = """" & utw.tytul & """ " & utw.FKalbum.FKwykonawca.nazwa
+                Form1.notify.ShowBalloonTip(1400)
+            End If
         End If
         If dane.SETshowtitlewindow Then
             Form1.Text = """" & utw.tytul & """ " & utw.FKalbum.FKwykonawca.nazwa & " - YouTube Media Player"

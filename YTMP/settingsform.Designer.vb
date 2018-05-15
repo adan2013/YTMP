@@ -22,8 +22,8 @@ Partial Class settingsform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(settingsform))
         Me.savedialog = New System.Windows.Forms.SaveFileDialog()
         Me.opendialog = New System.Windows.Forms.OpenFileDialog()
@@ -37,6 +37,7 @@ Partial Class settingsform
         Me.Label11 = New System.Windows.Forms.Label()
         Me.chkboxzielbufor = New System.Windows.Forms.CheckBox()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.chkboxdymekfocuson = New System.Windows.Forms.CheckBox()
         Me.chkboxdymek = New System.Windows.Forms.CheckBox()
         Me.chkboxczas = New System.Windows.Forms.CheckBox()
         Me.chkboxtitlewindow = New System.Windows.Forms.CheckBox()
@@ -281,15 +282,27 @@ Partial Class settingsform
         '
         'GroupBox8
         '
+        Me.GroupBox8.Controls.Add(Me.chkboxdymekfocuson)
         Me.GroupBox8.Controls.Add(Me.chkboxdymek)
         Me.GroupBox8.Controls.Add(Me.chkboxczas)
         Me.GroupBox8.Controls.Add(Me.chkboxtitlewindow)
         Me.GroupBox8.Location = New System.Drawing.Point(6, 244)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(404, 100)
+        Me.GroupBox8.Size = New System.Drawing.Size(404, 125)
         Me.GroupBox8.TabIndex = 21
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Dodatkowe opcje"
+        '
+        'chkboxdymekfocuson
+        '
+        Me.chkboxdymekfocuson.AutoSize = True
+        Me.chkboxdymekfocuson.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.chkboxdymekfocuson.Location = New System.Drawing.Point(6, 44)
+        Me.chkboxdymekfocuson.Name = "chkboxdymekfocuson"
+        Me.chkboxdymekfocuson.Size = New System.Drawing.Size(288, 19)
+        Me.chkboxdymekfocuson.TabIndex = 14
+        Me.chkboxdymekfocuson.Text = "Wyświetl dymek nawet gdy odtwarzacz ma fokus"
+        Me.chkboxdymekfocuson.UseVisualStyleBackColor = True
         '
         'chkboxdymek
         '
@@ -308,7 +321,7 @@ Partial Class settingsform
         '
         Me.chkboxczas.AutoSize = True
         Me.chkboxczas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxczas.Location = New System.Drawing.Point(6, 44)
+        Me.chkboxczas.Location = New System.Drawing.Point(6, 69)
         Me.chkboxczas.Name = "chkboxczas"
         Me.chkboxczas.Size = New System.Drawing.Size(299, 19)
         Me.chkboxczas.TabIndex = 6
@@ -319,7 +332,7 @@ Partial Class settingsform
         '
         Me.chkboxtitlewindow.AutoSize = True
         Me.chkboxtitlewindow.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.chkboxtitlewindow.Location = New System.Drawing.Point(6, 69)
+        Me.chkboxtitlewindow.Location = New System.Drawing.Point(6, 94)
         Me.chkboxtitlewindow.Name = "chkboxtitlewindow"
         Me.chkboxtitlewindow.Size = New System.Drawing.Size(268, 19)
         Me.chkboxtitlewindow.TabIndex = 13
@@ -764,24 +777,24 @@ Partial Class settingsform
         Me.skrotygrid.AllowUserToResizeColumns = False
         Me.skrotygrid.AllowUserToResizeRows = False
         Me.skrotygrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.skrotygrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.skrotygrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.skrotygrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.skrotygrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.akcja, Me.skrot})
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.skrotygrid.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.skrotygrid.DefaultCellStyle = DataGridViewCellStyle4
         Me.skrotygrid.Location = New System.Drawing.Point(6, 6)
         Me.skrotygrid.Name = "skrotygrid"
         Me.skrotygrid.ReadOnly = True
@@ -1459,4 +1472,5 @@ Partial Class settingsform
     Friend WithEvents GroupBox20 As GroupBox
     Friend WithEvents btnresetpilot As Button
     Friend WithEvents Label25 As Label
+    Friend WithEvents chkboxdymekfocuson As CheckBox
 End Class

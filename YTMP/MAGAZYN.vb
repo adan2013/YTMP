@@ -9,6 +9,7 @@ Public Class MAGAZYN
     Public SETkopie As Boolean = False
     Public SETnakoncu As Boolean = True
     Public SETdymek As Boolean = False
+    Public SETdymekfocus As Boolean = False
     Public SETprzejscie As Boolean = False
     Public SETczas As Boolean = False
     Public SEThide As Boolean = False

@@ -16,6 +16,7 @@
         'odczyt
         If dane.SETnakoncu Then chkboxkoniec.Checked = True Else chkboxpocz.Checked = True
         chkboxdymek.Checked = dane.SETdymek
+        chkboxdymekfocuson.Checked = dane.SETdymekfocus
         chkboxprzejdz.Checked = dane.SETprzejscie
         chkboxczas.Checked = dane.SETczas
         chkboxhide.Checked = dane.SEThide
@@ -120,6 +121,7 @@
     Private Sub settingsform_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         dane.SETnakoncu = chkboxkoniec.Checked
         dane.SETdymek = chkboxdymek.Checked
+        dane.SETdymekfocus = chkboxdymekfocuson.Checked
         dane.SETprzejscie = chkboxprzejdz.Checked
         dane.SETczas = chkboxczas.Checked
         dane.SEThide = chkboxhide.Checked
