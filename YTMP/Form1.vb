@@ -169,6 +169,10 @@ Public Class Form1
             updateform.ShowDialog()
             updateform.Close()
         End If
+
+        'TODO debug
+        recoverymode.ShowDialog()
+        recoverymode.Close()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing

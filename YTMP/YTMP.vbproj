@@ -228,6 +228,12 @@
     </Compile>
     <Compile Include="PLAYLISTA.vb" />
     <Compile Include="publiczny.vb" />
+    <Compile Include="recoverymode.Designer.vb">
+      <DependentUpon>recoverymode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="recoverymode.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="selectdata.Designer.vb">
       <DependentUpon>selectdata.vb</DependentUpon>
     </Compile>
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pilot.resx">
       <DependentUpon>pilot.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="recoverymode.resx">
+      <DependentUpon>recoverymode.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="selectdata.resx">
       <DependentUpon>selectdata.vb</DependentUpon>
@@ -423,6 +432,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appicon.ico" />
+    <None Include="bin\Debug\logo128_black.png" />
     <None Include="bin\Debug\logo128.png" />
     <None Include="bin\Debug\APIKEY.txt" />
     <None Include="bin\Debug\video-player.png" />
