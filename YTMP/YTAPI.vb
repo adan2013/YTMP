@@ -395,6 +395,7 @@ Public Class YTAPI
             loadwebpage(wskaznikpl)
         Else
             directplay = obiekt
+            wskaznikpl = Nothing
             loadwebpage(directplay)
         End If
     End Sub
