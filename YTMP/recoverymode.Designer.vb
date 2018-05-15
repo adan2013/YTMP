@@ -37,6 +37,7 @@ Partial Class recoverymode
         Me.btn2 = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btn3 = New System.Windows.Forms.Button()
+        Me.opendialog = New System.Windows.Forms.OpenFileDialog()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.mainlbl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -200,6 +201,11 @@ Partial Class recoverymode
         Me.btn3.Text = "Resetuj aplikację"
         Me.btn3.UseVisualStyleBackColor = True
         '
+        'opendialog
+        '
+        Me.opendialog.Filter = "Plik magazynu (*.ytmp)|*.ytmp"
+        Me.opendialog.Title = "Wskaż plik"
+        '
         'recoverymode
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -248,4 +254,5 @@ Partial Class recoverymode
     Friend WithEvents btn2 As Button
     Friend WithEvents Label8 As Label
     Friend WithEvents btn3 As Button
+    Friend WithEvents opendialog As OpenFileDialog
 End Class
