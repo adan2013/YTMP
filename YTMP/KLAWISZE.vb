@@ -35,6 +35,8 @@ Public Class KLAWISZE
                     zapiszzmiany()
                 End If
                 pilot.aktualizacja()
+            Case "przewiń do początku"
+                If Form1.yt.directplay Is Nothing Then Form1.yt.przewindopocz(Form1.yt.wskaznikpl) Else Form1.yt.przewindopocz(Form1.yt.directplay)
         End Select
     End Sub
 End Class

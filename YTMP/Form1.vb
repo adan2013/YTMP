@@ -135,6 +135,7 @@ Public Class Form1
             serializuj(dane, Application.StartupPath & "\" & "magazyn.ytmp")
             instrukcja.ShowDialog()
         End If
+        dane.ladujklawisze()
 
         If IO.File.Exists(Application.StartupPath & "\" & "kopie.backup") Then
             backupy = deserializuj(Application.StartupPath & "\" & "kopie.backup")

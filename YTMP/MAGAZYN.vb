@@ -35,12 +35,27 @@ Public Class MAGAZYN
     Public Sub New()
         wykonawcy.Add(New WYKONAWCA("", True))
         skroty.Clear()
-        skroty.Add(New KLAWISZE("play/pause"))
-        skroty.Add(New KLAWISZE("poprzedni utwór"))
-        skroty.Add(New KLAWISZE("następny utwór"))
-        skroty.Add(New KLAWISZE("wycisz/odcisz"))
-        skroty.Add(New KLAWISZE("zmniejsz głośność"))
-        skroty.Add(New KLAWISZE("zwiększ głośność"))
+    End Sub
+
+    Public Sub ladujklawisze()
+        addklawisze("play/pause")
+        addklawisze("poprzedni utwór")
+        addklawisze("następny utwór")
+        addklawisze("wycisz/odcisz")
+        addklawisze("zmniejsz głośność")
+        addklawisze("zwiększ głośność")
+        addklawisze("przewiń do początku")
+    End Sub
+
+    Private Sub addklawisze(ByVal nazwa As String)
+        Dim ist As Boolean = False
+        For Each i As KLAWISZE In skroty
+            If i.nazwa = nazwa Then
+                ist = True
+                Exit For
+            End If
+        Next
+        If Not ist Then skroty.Add(New KLAWISZE(nazwa))
     End Sub
 
     Public Sub dodajwykonawce(ByVal obiekt As WYKONAWCA)

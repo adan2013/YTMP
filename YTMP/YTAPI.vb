@@ -126,7 +126,7 @@ Public Class YTAPI
         End If
     End Sub
 
-    Private Sub przewindopocz(ByRef utw As UTWOR)
+    Public Sub przewindopocz(ByRef utw As UTWOR)
         przewin(utw.start / durationtime)
     End Sub
 
