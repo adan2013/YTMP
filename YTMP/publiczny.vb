@@ -20,14 +20,16 @@ Module publiczny
 
     Public Function deserializuj(ByVal path As String) As Object
         If IO.File.Exists(path) Then
+            Dim fs As IO.FileStream
             Try
-                Dim fs As IO.FileStream = IO.File.OpenRead(path)
+                fs = IO.File.OpenRead(path)
                 Dim bf As BinaryFormatter = New BinaryFormatter
                 Dim wynik As Object = bf.Deserialize(fs)
-                fs.Close()
                 Return wynik
             Catch ex As Exception
                 MsgBox("Wystąpił błąd podczas odczytu danych!", MsgBoxStyle.Critical, "YTMP")
+            Finally
+                fs.Close()
             End Try
         Else
             MsgBox("Nie znaleziono pliku!", MsgBoxStyle.Critical, "YTMP")

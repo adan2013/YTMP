@@ -72,6 +72,7 @@ Partial Class backuprestore
         Me.Name = "backuprestore"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Przywróć z kopii bezpieczeństwa"
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

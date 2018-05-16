@@ -145,6 +145,7 @@ Public Class Form1
             If backupy Is Nothing Then
                 MsgBox("Aplikacja wykryła problem z odczytem pliku odpowiedzialnego za zarządzanie kopiami bezpieczeństwa. Problemy te mogło spowodować nagły zanik zasilania komputera. Aplikacja utworzy teraz nowy plik i automatycznie naprawi działanie kopii zapasowych...", MsgBoxStyle.Critical, "YTMP")
                 backupy = New BACKUP(Application.StartupPath)
+                serializuj(backupy, Application.StartupPath & "\" & "kopie.backup")
             End If
         Else
             serializuj(backupy, Application.StartupPath & "\" & "kopie.backup")
