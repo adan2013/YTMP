@@ -4,8 +4,12 @@
         If backupy Is Nothing Then
             MsgBox("Wykryto uszkodzenie pliku zarządzającego kopiami bezpieczeństwa. Spróbuj przywrócić je ręcznie za pomocą drugiej opcji...", MsgBoxStyle.Critical, "YTMP")
         Else
-            backuprestore.ShowDialog()
-            backuprestore.Close()
+            If backupy.kopie.Count = 0 Then
+                MsgBox("Kopie bezpieczeństwa były wyłączone lub doszło do uszkodzenia pliku zarządzającego kopiami bezpieczeństwa. Spróbuj przywrócić je ręcznie za pomocą drugiej opcji...", MsgBoxStyle.Critical, "YTMP")
+            Else
+                backuprestore.ShowDialog()
+                backuprestore.Close()
+            End If
         End If
     End Sub
 

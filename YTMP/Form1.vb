@@ -129,22 +129,36 @@ Public Class Form1
         pnlodtwarzacz.Controls.Add(lblstart)
         pnlodtwarzacz.Controls.Add(lblkoniec)
         pnlodtwarzacz.Controls.Add(lblstan)
+
+        'deserializacja i odczyt
+        'MAGAZYN
         If IO.File.Exists(Application.StartupPath & "\" & "magazyn.ytmp") Then
             dane = deserializuj(Application.StartupPath & "\" & "magazyn.ytmp")
         Else
             serializuj(dane, Application.StartupPath & "\" & "magazyn.ytmp")
             instrukcja.ShowDialog()
         End If
-        dane.ladujklawisze()
-
+        If dane IsNot Nothing Then dane.ladujklawisze()
+        'BACKUP
         If IO.File.Exists(Application.StartupPath & "\" & "kopie.backup") Then
             backupy = deserializuj(Application.StartupPath & "\" & "kopie.backup")
-            backupy.init = Application.StartupPath
+            If backupy Is Nothing Then
+                MsgBox("Aplikacja wykryła problem z odczytem pliku odpowiedzialnego za zarządzanie kopiami bezpieczeństwa. Problemy te mogło spowodować nagły zanik zasilania komputera. Aplikacja utworzy teraz nowy plik i automatycznie naprawi działanie kopii zapasowych...", MsgBoxStyle.Critical, "YTMP")
+                backupy = New BACKUP(Application.StartupPath)
+            End If
         Else
             serializuj(backupy, Application.StartupPath & "\" & "kopie.backup")
         End If
-        If dane.SETkopie Then backupy.dodajkopie(dane)
-        serializuj(backupy, Application.StartupPath & "\" & "kopie.backup")
+        If dane IsNot Nothing AndAlso dane.SETkopie AndAlso backupy IsNot Nothing Then
+            backupy.dodajkopie(dane)
+            serializuj(backupy, Application.StartupPath & "\" & "kopie.backup")
+        End If
+        'RECOVERY MODE
+        If dane Is Nothing Then
+            recoverymode.ShowDialog()
+            recoverymode.Close()
+            End
+        End If
 
         selectedtab = dane.SETdefaulttab
         pnlglosnosc.Size = New Size(dane.volume, pnlglosnosc.Size.Height)
@@ -169,10 +183,6 @@ Public Class Form1
             updateform.ShowDialog()
             updateform.Close()
         End If
-
-        'TODO debug
-        recoverymode.ShowDialog()
-        recoverymode.Close()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
