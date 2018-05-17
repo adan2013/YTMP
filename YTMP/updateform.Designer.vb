@@ -50,10 +50,10 @@ Partial Class updateform
         'lbltytul
         '
         Me.lbltytul.AutoSize = True
-        Me.lbltytul.Font = New System.Drawing.Font("Dosis", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbltytul.Location = New System.Drawing.Point(146, 12)
+        Me.lbltytul.Font = New System.Drawing.Font("Trebuchet MS", 17.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.lbltytul.Location = New System.Drawing.Point(147, 21)
         Me.lbltytul.Name = "lbltytul"
-        Me.lbltytul.Size = New System.Drawing.Size(457, 35)
+        Me.lbltytul.Size = New System.Drawing.Size(466, 28)
         Me.lbltytul.TabIndex = 1
         Me.lbltytul.Text = "Dostępna jest nowa wersja aplikacji YTMP"
         '
