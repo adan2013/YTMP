@@ -56,6 +56,7 @@ Public Class BACKUP
                 IO.File.Delete(init & "\magazyn.ytmp")
                 IO.File.Copy(init & "\" & backupdir & "\" & poz.nazwapliku, init & "\magazyn.ytmp")
                 MsgBox("Dane zostały przywrócone! Nastąpi teraz zamknięcie aplikacji...", MsgBoxStyle.Information, "YTMP")
+                UNREGISTERHOTKEYS()
                 End
             Catch ex As Exception
                 MsgBox("Błąd przywracania kopii bezpieczeństwa!", MsgBoxStyle.Critical, "YTMP")

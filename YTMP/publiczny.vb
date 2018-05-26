@@ -135,4 +135,27 @@ Module publiczny
     Public Sub zapiszzmiany()
         serializuj(dane, Application.StartupPath & "\" & "magazyn.ytmp")
     End Sub
+
+    Public Sub UNREGISTERHOTKEYS()
+        Form1.kb.endworking()
+    End Sub
+
+    Public Function GetKey(ByVal theKey As String) As Keys
+        Dim kc As KeysConverter = New KeysConverter()
+        Return CType(kc.ConvertFrom(theKey), Keys)
+    End Function
+
+    Public Sub zaladujskrotydohotkey()
+        For Each i As KLAWISZE In dane.skroty
+            If i.KEY = "" Then Continue For
+            Dim modif As HOTKEY.KeyModifier = HOTKEY.KeyModifier.None
+            If i.SHIFTmod Then modif += HOTKEY.KeyModifier.Shift
+            If i.CTRLmod Then modif += HOTKEY.KeyModifier.Control
+            If i.ALTmod Then modif += HOTKEY.KeyModifier.Alt
+            Form1.kb.addHotKey(i.nazwa, GetKey(i.KEY), modif)
+        Next
+        Form1.kb.addHotKey("MediaPlayPause", Keys.MediaPlayPause)
+        Form1.kb.addHotKey("MediaPreviousTrack", Keys.MediaPreviousTrack)
+        Form1.kb.addHotKey("MediaNextTrack", Keys.MediaNextTrack)
+    End Sub
 End Module

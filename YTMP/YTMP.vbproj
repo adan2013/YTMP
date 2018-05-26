@@ -148,6 +148,7 @@
     <Compile Include="genraport.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HOTKEY.vb" />
     <Compile Include="IMPORTplaylist.Designer.vb">
       <DependentUpon>IMPORTplaylist.vb</DependentUpon>
     </Compile>
@@ -166,7 +167,6 @@
     <Compile Include="instrukcja.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="kbhook.vb" />
     <Compile Include="KLAWISZE.vb" />
     <Compile Include="MAGAZYN.vb" />
     <Compile Include="MODalb.Designer.vb">

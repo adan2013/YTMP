@@ -213,6 +213,7 @@ Public Class updateform
                 If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then
                     If IO.File.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK\YTMP-AUTOUPDATER.exe") Then
                         Process.Start(Application.StartupPath & "\YTMP-UPDATE-PACK\YTMP-AUTOUPDATER.exe")
+                        UNREGISTERHOTKEYS()
                         End
                     Else
                         reperr("Nie znaleziono pliku exe aktualizatora. Możliwe, że nowa wersja nie wspera już automatycznej aktualizacji")

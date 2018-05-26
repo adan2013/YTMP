@@ -2,7 +2,7 @@
 Public Class Form1
 
     Public wersja As String = "v7.1"
-    Dim WithEvents kb As KeyboardHook = New KeyboardHook()
+    Public WithEvents kb As HOTKEY = New HOTKEY()
     Public rewindstate As Double = -1
 
     Public lblstart As Label = New Label()
@@ -184,27 +184,31 @@ Public Class Form1
             updateform.ShowDialog()
             updateform.Close()
         End If
+
+        'start hotkey
+        kb.startworking(Me)
+        zaladujskrotydohotkey()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         akt.Enabled = False
+        UNREGISTERHOTKEYS()
         yt.usun()
     End Sub
 
-    Private Sub kb_KeyDown(Key As Keys) Handles kb.KeyDown
-
+    Protected Overrides Sub WndProc(ByRef m As Message)
+        kb.messagehook(m)
+        MyBase.WndProc(m)
     End Sub
 
-    Private Sub kb_KeyUp(Key As Keys) Handles kb.KeyUp
-        If edycjaskrotu.Visible Then
-            edycjaskrotu.odczyt(Key.ToString())
-        Else
+    Private Sub kb_HotKeyDetected(tagname As String) Handles kb.HotKeyDetected
+        If Not edycjaskrotu.Visible Then
             For Each i As KLAWISZE In dane.skroty
-                If i.CTRLmod = My.Computer.Keyboard.CtrlKeyDown And i.ALTmod = My.Computer.Keyboard.AltKeyDown And i.SHIFTmod = My.Computer.Keyboard.ShiftKeyDown And i.KEY = Key.ToString() Then i.uruchom()
+                If i.nazwa = tagname Then i.uruchom()
             Next
         End If
         If dane.SETmultimediakeys Then
-            Select Case Key.ToString()
+            Select Case tagname
                 Case "MediaPlayPause"
                     btnplay_Click(btnplay, New EventArgs())
                 Case "MediaPreviousTrack"

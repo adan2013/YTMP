@@ -15,16 +15,16 @@
         Controls.Add(lbl)
     End Sub
 
-    Public Sub odczyt(ByVal key As String)
+    Public Sub odczyt(ByVal key As Keys)
         If msg Then Exit Sub
-        If key = "Escape" Then
+        If key = Keys.Escape Then
             DialogResult = DialogResult.Cancel
         Else
             wynik = New KLAWISZE("WYNIK")
             wynik.CTRLmod = My.Computer.Keyboard.CtrlKeyDown
             wynik.ALTmod = My.Computer.Keyboard.AltKeyDown
             wynik.SHIFTmod = My.Computer.Keyboard.ShiftKeyDown
-            wynik.KEY = key
+            wynik.KEY = key.ToString()
             Dim s As String = "Wykryto następujący skrót:" & vbNewLine & vbNewLine
             s &= IIf(wynik.CTRLmod, "CTRL + ", "")
             s &= IIf(wynik.ALTmod, "ALT + ", "")
@@ -39,5 +39,14 @@
             End If
             msg = False
         End If
+    End Sub
+
+    Private Sub edycjaskrotu_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Select Case e.KeyCode
+            Case Keys.ShiftKey, Keys.ControlKey, Keys.Alt, Keys.Menu, Keys.LWin, Keys.RWin, Keys.Capital, Keys.Scroll, Keys.NumLock
+
+            Case Else
+                odczyt(e.KeyCode)
+        End Select
     End Sub
 End Class

@@ -81,6 +81,7 @@
     End Sub
 
     Private Sub skrotygrid_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles skrotygrid.CellDoubleClick
+        Form1.kb.deleteAllHotKeys()
         edycjaskrotu.ShowDialog()
         If edycjaskrotu.wynik Is Nothing Then
             dane.skroty(e.RowIndex).KEY = ""
@@ -101,6 +102,7 @@
                 skrotygrid.Rows.Add(i.nazwa, IIf(i.CTRLmod, "CTRL + ", "") & IIf(i.ALTmod, "ALT + ", "") & IIf(i.SHIFTmod, "SHIFT + ", "") & i.KEY)
             End If
         Next
+        zaladujskrotydohotkey()
     End Sub
 
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
@@ -111,6 +113,7 @@
                 End If
                 backupy.usunwszystkie()
                 MsgBox("Dane zostały wykasowane! Nastąpi zamknięcie aplikacji!", MsgBoxStyle.Exclamation, "YTMP")
+                UNREGISTERHOTKEYS()
                 End
             Catch ex As Exception
                 MsgBox("Wystąpił błąd podczas kasowania danych!", MsgBoxStyle.Critical, "YTMP")
