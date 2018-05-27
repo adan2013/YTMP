@@ -168,6 +168,19 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="KLAWISZE.vb" />
+    <Compile Include="LISTcolors.vb" />
+    <Compile Include="LISTcontrol.Designer.vb">
+      <DependentUpon>LISTcontrol.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LISTcontrol.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LISTitem.Designer.vb">
+      <DependentUpon>LISTitem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LISTitem.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="MAGAZYN.vb" />
     <Compile Include="MODalb.Designer.vb">
       <DependentUpon>MODalb.vb</DependentUpon>
@@ -295,6 +308,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="instrukcja.resx">
       <DependentUpon>instrukcja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LISTcontrol.resx">
+      <DependentUpon>LISTcontrol.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LISTitem.resx">
+      <DependentUpon>LISTitem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MODalb.resx">
       <DependentUpon>MODalb.vb</DependentUpon>

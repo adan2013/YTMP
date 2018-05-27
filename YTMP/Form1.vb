@@ -247,13 +247,14 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub pnllista_Scroll(sender As Object, e As ScrollEventArgs) Handles pnllista.Scroll
-        scrollpos = e.NewValue
-    End Sub
+    'TODO trash
+    'Private Sub pnllista_Scroll(sender As Object, e As ScrollEventArgs) Handles pnllista.Scroll
+    '    scrollpos = e.NewValue
+    'End Sub
 
-    Private Sub pnllista_MouseWheel(sender As Object, e As MouseEventArgs) Handles pnllista.MouseWheel
-        If pnlwewn.Size.Height > pnllista.Size.Height Then scrollpos = pnllista.VerticalScroll.Value
-    End Sub
+    'Private Sub pnllista_MouseWheel(sender As Object, e As MouseEventArgs) Handles pnllista.MouseWheel
+    '    If pnlwewn.Size.Height > pnllista.Size.Height Then scrollpos = pnllista.VerticalScroll.Value
+    'End Sub
 
     Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
         If Not searchempty Then ladujpanel()
@@ -308,244 +309,244 @@ Public Class Form1
     End Sub
 
     Public Sub ladujpanel()
-        pnllista.Controls.Remove(pnlwewn)
-        pnlwewn = New Panel()
-        pnlwewn.Name = "wewn"
-        pnlwewn.Size = New Size(pnllista.Size.Width - 2, 0)
+        'pnllista.Controls.Remove(pnlwewn)
+        'pnlwewn = New Panel()
+        'pnlwewn.Name = "wewn"
+        'pnlwewn.Size = New Size(pnllista.Size.Width - 2, 0)
 
-        REFpoz.Clear()
-        Select Case selectedtab
-            Case 0
-                btncofnij.Enabled = False
-                btndodaj.Enabled = False
-                btnwyczysc.Enabled = True
-                btnodtwall.Enabled = False
-                If searchempty Then
-                    lblinfo.Text = "Ilość utworów: " & odtwarzane.utwory.Count
-                Else
-                    lblinfo.Text = "> Wyniki wyszukiwania >"
-                    btnwyczysc.Enabled = False
-                End If
-                For Each i As UTWOR In odtwarzane.utwory
-                    REFpoz.Add(i)
-                Next
-            Case 1
-                If searchempty Then
-                    If PATHwyk Is Nothing Then
-                        btncofnij.Enabled = False
-                        btndodaj.Enabled = True
-                        btnwyczysc.Enabled = False
-                        btnodtwall.Enabled = True
-                        lblinfo.Text = ">"
-                        For Each i As WYKONAWCA In dane.wykonawcy
-                            REFpoz.Add(i)
-                        Next
-                        REFpoz.Sort(Function(x, y) x.nazwa.CompareTo(y.nazwa))
-                    Else
-                        If PATHalb Is Nothing Then
-                            btncofnij.Enabled = True
-                            btndodaj.Enabled = True
-                            btnwyczysc.Enabled = False
-                            btnodtwall.Enabled = True
-                            lblinfo.Text = "> " & PATHwyk.nazwa & " >"
-                            For Each i As ALBUM In PATHwyk.albumy
-                                REFpoz.Add(i)
-                            Next
-                            REFpoz.Sort(Function(x, y) x.nazwa.CompareTo(y.nazwa))
-                        Else
-                            btncofnij.Enabled = True
-                            btndodaj.Enabled = True
-                            btnwyczysc.Enabled = True
-                            btnodtwall.Enabled = True
-                            lblinfo.Text = "> " & PATHwyk.nazwa & " > " & PATHalb.nazwa & " >"
-                            For Each i As UTWOR In PATHalb.utwory
-                                REFpoz.Add(i)
-                            Next
-                        End If
-                    End If
-                Else
-                    btncofnij.Enabled = False
-                    btndodaj.Enabled = False
-                    btnwyczysc.Enabled = False
-                    btnodtwall.Enabled = False
-                    lblinfo.Text = "> Wyniki wyszukiwania >"
-                    If Not txtsearch.Text = "" Then
-                        For Each w As WYKONAWCA In dane.wykonawcy
-                            For Each a As ALBUM In w.albumy
-                                For Each u As UTWOR In a.utwory
-                                    Dim dodano As Boolean = False
-                                    If u.tytul.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
-                                        REFpoz.Add(u)
-                                        dodano = True
-                                    End If
-                                    If Not dodano AndAlso dane.SETsearchW AndAlso u.FKalbum.FKwykonawca.nazwa.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
-                                        REFpoz.Add(u)
-                                        dodano = True
-                                    End If
-                                    If Not dodano AndAlso dane.SETsearchA AndAlso u.FKalbum.nazwa.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
-                                        REFpoz.Add(u)
-                                        dodano = True
-                                    End If
-                                    If Not dodano AndAlso dane.SETsearchID AndAlso u.link.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
-                                        REFpoz.Add(u)
-                                        dodano = True
-                                    End If
-                                Next
-                            Next
-                        Next
-                        REFpoz.Sort(Function(x, y) x.tytul.CompareTo(y.tytul))
-                    End If
-                End If
-            Case 2
-                If PATHpl Is Nothing Then
-                    btncofnij.Enabled = False
-                    btndodaj.Enabled = True
-                    btnwyczysc.Enabled = False
-                    btnodtwall.Enabled = False
-                    lblinfo.Text = ">"
-                    For Each i As PLAYLISTA In dane.playlisty
-                        REFpoz.Add(i)
-                    Next
-                    REFpoz.Sort(Function(x, y) x.nazwa.CompareTo(y.nazwa))
-                Else
-                    btncofnij.Enabled = True
-                    btndodaj.Enabled = False
-                    btnwyczysc.Enabled = True
-                    btnodtwall.Enabled = True
-                    lblinfo.Text = "> " & PATHpl.nazwa & " >"
-                    For Each i As UTWOR In PATHpl.utwory
-                        REFpoz.Add(i)
-                    Next
-                End If
-                If Not searchempty Then
-                    btncofnij.Enabled = False
-                    btndodaj.Enabled = False
-                    btnwyczysc.Enabled = False
-                    btnodtwall.Enabled = False
-                End If
-        End Select
-        If REFpoz.Count = 0 Then btnwyczysc.Enabled = False
+        'REFpoz.Clear()
+        'Select Case selectedtab
+        '    Case 0
+        '        btncofnij.Enabled = False
+        '        btndodaj.Enabled = False
+        '        btnwyczysc.Enabled = True
+        '        btnodtwall.Enabled = False
+        '        If searchempty Then
+        '            lblinfo.Text = "Ilość utworów: " & odtwarzane.utwory.Count
+        '        Else
+        '            lblinfo.Text = "> Wyniki wyszukiwania >"
+        '            btnwyczysc.Enabled = False
+        '        End If
+        '        For Each i As UTWOR In odtwarzane.utwory
+        '            REFpoz.Add(i)
+        '        Next
+        '    Case 1
+        '        If searchempty Then
+        '            If PATHwyk Is Nothing Then
+        '                btncofnij.Enabled = False
+        '                btndodaj.Enabled = True
+        '                btnwyczysc.Enabled = False
+        '                btnodtwall.Enabled = True
+        '                lblinfo.Text = ">"
+        '                For Each i As WYKONAWCA In dane.wykonawcy
+        '                    REFpoz.Add(i)
+        '                Next
+        '                REFpoz.Sort(Function(x, y) x.nazwa.CompareTo(y.nazwa))
+        '            Else
+        '                If PATHalb Is Nothing Then
+        '                    btncofnij.Enabled = True
+        '                    btndodaj.Enabled = True
+        '                    btnwyczysc.Enabled = False
+        '                    btnodtwall.Enabled = True
+        '                    lblinfo.Text = "> " & PATHwyk.nazwa & " >"
+        '                    For Each i As ALBUM In PATHwyk.albumy
+        '                        REFpoz.Add(i)
+        '                    Next
+        '                    REFpoz.Sort(Function(x, y) x.nazwa.CompareTo(y.nazwa))
+        '                Else
+        '                    btncofnij.Enabled = True
+        '                    btndodaj.Enabled = True
+        '                    btnwyczysc.Enabled = True
+        '                    btnodtwall.Enabled = True
+        '                    lblinfo.Text = "> " & PATHwyk.nazwa & " > " & PATHalb.nazwa & " >"
+        '                    For Each i As UTWOR In PATHalb.utwory
+        '                        REFpoz.Add(i)
+        '                    Next
+        '                End If
+        '            End If
+        '        Else
+        '            btncofnij.Enabled = False
+        '            btndodaj.Enabled = False
+        '            btnwyczysc.Enabled = False
+        '            btnodtwall.Enabled = False
+        '            lblinfo.Text = "> Wyniki wyszukiwania >"
+        '            If Not txtsearch.Text = "" Then
+        '                For Each w As WYKONAWCA In dane.wykonawcy
+        '                    For Each a As ALBUM In w.albumy
+        '                        For Each u As UTWOR In a.utwory
+        '                            Dim dodano As Boolean = False
+        '                            If u.tytul.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
+        '                                REFpoz.Add(u)
+        '                                dodano = True
+        '                            End If
+        '                            If Not dodano AndAlso dane.SETsearchW AndAlso u.FKalbum.FKwykonawca.nazwa.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
+        '                                REFpoz.Add(u)
+        '                                dodano = True
+        '                            End If
+        '                            If Not dodano AndAlso dane.SETsearchA AndAlso u.FKalbum.nazwa.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
+        '                                REFpoz.Add(u)
+        '                                dodano = True
+        '                            End If
+        '                            If Not dodano AndAlso dane.SETsearchID AndAlso u.link.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
+        '                                REFpoz.Add(u)
+        '                                dodano = True
+        '                            End If
+        '                        Next
+        '                    Next
+        '                Next
+        '                REFpoz.Sort(Function(x, y) x.tytul.CompareTo(y.tytul))
+        '            End If
+        '        End If
+        '    Case 2
+        '        If PATHpl Is Nothing Then
+        '            btncofnij.Enabled = False
+        '            btndodaj.Enabled = True
+        '            btnwyczysc.Enabled = False
+        '            btnodtwall.Enabled = False
+        '            lblinfo.Text = ">"
+        '            For Each i As PLAYLISTA In dane.playlisty
+        '                REFpoz.Add(i)
+        '            Next
+        '            REFpoz.Sort(Function(x, y) x.nazwa.CompareTo(y.nazwa))
+        '        Else
+        '            btncofnij.Enabled = True
+        '            btndodaj.Enabled = False
+        '            btnwyczysc.Enabled = True
+        '            btnodtwall.Enabled = True
+        '            lblinfo.Text = "> " & PATHpl.nazwa & " >"
+        '            For Each i As UTWOR In PATHpl.utwory
+        '                REFpoz.Add(i)
+        '            Next
+        '        End If
+        '        If Not searchempty Then
+        '            btncofnij.Enabled = False
+        '            btndodaj.Enabled = False
+        '            btnwyczysc.Enabled = False
+        '            btnodtwall.Enabled = False
+        '        End If
+        'End Select
+        'If REFpoz.Count = 0 Then btnwyczysc.Enabled = False
 
-        Dim nrpoz As Integer = 0
-        For Each i As Object In REFpoz
-            Dim pnl As Panel = New Panel()
-            Dim lbltekst As Label = New Label()
-            Dim lbltekst2 As Label = New Label()
-            Dim lbltekst3 As Label = New Label()
-            Dim btn(2) As PictureBox
-            With pnl
-                .Name = "poz" & nrpoz
-                .Location = New Point(0, pnlwewn.Size.Height)
-                .Size = New Size(pnlwewn.Size.Width, 60)
-            End With
-            With lbltekst
-                .Name = "lbl" & nrpoz
-                If TypeOf i Is UTWOR Then .Text = i.tytul Else .Text = i.nazwa
-                .Font = New Font("Segoe UI", 12, FontStyle.Bold)
-                .TextAlign = ContentAlignment.MiddleLeft
-                .Location = New Point(5, 0)
-                .Size = New Size(pnlwewn.Size.Width - 5, 30)
-                .Parent = pnl
-            End With
-            If selectedtab = 0 Or (selectedtab = 1 And Not searchempty) Or (selectedtab = 2 And PATHpl IsNot Nothing) Then
-                With lbltekst2
-                    .Name = "lbl" & nrpoz
-                    .Text = i.FKalbum.FKwykonawca.nazwa
-                    .Font = New Font("Segoe UI", 8)
-                    .Location = New Point(5, 30)
-                    .Size = New Size(250, 15)
-                    .Parent = pnl
-                End With
-                AddHandler lbltekst2.MouseMove, AddressOf podswietl
-                AddHandler lbltekst2.Click, AddressOf klikpoz
-            End If
-            If TypeOf REFpoz(0) Is UTWOR And Not (selectedtab = 1 And Not searchempty) Then
-                With lbltekst3
-                    .Name = "lbl" & nrpoz
-                    .Text = nrpoz + 1
-                    .ForeColor = Color.Gray
-                    .Font = New Font("Segoe UI", 7)
-                    .Location = New Point(8, 45)
-                    .Size = New Size(250, 15)
-                    .Parent = pnl
-                End With
-                AddHandler lbltekst3.MouseMove, AddressOf podswietl
-                AddHandler lbltekst3.Click, AddressOf klikpoz
-            End If
-            For lp As Byte = 0 To 2 Step 1
-                btn(lp) = New PictureBox()
-                With btn(lp)
-                    .Name = lp & "btn" & nrpoz
-                    .Parent = pnl
-                    .BackColor = Color.WhiteSmoke
-                    .Visible = False
-                    .Cursor = Cursors.Hand
-                    .SizeMode = PictureBoxSizeMode.CenterImage
-                    .BorderStyle = BorderStyle.FixedSingle
-                    .Location = New Point(284 + lp * 35, 25)
-                    .Size = New Size(30, 30)
-                    Select Case lp
-                        Case 0
-                            Select Case selectedtab
-                                Case 0
-                                    .Image = My.Resources.folder
-                                Case 1
-                                    If (PATHwyk IsNot Nothing And PATHalb IsNot Nothing) Or (selectedtab = 1 And Not searchempty) Then
-                                        .Image = My.Resources.add_button_inside_black_circle
-                                    End If
-                                Case 2
-                                    If PATHpl IsNot Nothing Then
-                                        .Image = My.Resources.folder
-                                    End If
-                            End Select
-                        Case 1
-                            If selectedtab = 0 Then
-                                .Image = My.Resources.switch_vertical_orientation_arrows
-                            Else
-                                If selectedtab = 2 And PATHpl IsNot Nothing Then
-                                    .Image = My.Resources.switch_vertical_orientation_arrows
-                                Else
-                                    If (selectedtab = 1 And Not searchempty) Then
-                                        .Image = My.Resources.folder
-                                    Else
-                                        .Image = My.Resources.pencil_edit_button
-                                    End If
-                                End If
-                            End If
-                        Case 2
-                            If Not (selectedtab = 1 And Not searchempty) Then .Image = My.Resources.delete__2_
-                    End Select
-                End With
-                pnl.Controls.Add(btn(lp))
-                AddHandler btn(lp).MouseMove, AddressOf btnplay_MouseMove
-                AddHandler btn(lp).MouseLeave, AddressOf btnplay_MouseLeave
-                AddHandler btn(lp).Click, AddressOf btnclick
-            Next
+        'Dim nrpoz As Integer = 0
+        'For Each i As Object In REFpoz
+        '    Dim pnl As Panel = New Panel()
+        '    Dim lbltekst As Label = New Label()
+        '    Dim lbltekst2 As Label = New Label()
+        '    Dim lbltekst3 As Label = New Label()
+        '    Dim btn(2) As PictureBox
+        '    With pnl
+        '        .Name = "poz" & nrpoz
+        '        .Location = New Point(0, pnlwewn.Size.Height)
+        '        .Size = New Size(pnlwewn.Size.Width, 60)
+        '    End With
+        '    With lbltekst
+        '        .Name = "lbl" & nrpoz
+        '        If TypeOf i Is UTWOR Then .Text = i.tytul Else .Text = i.nazwa
+        '        .Font = New Font("Segoe UI", 12, FontStyle.Bold)
+        '        .TextAlign = ContentAlignment.MiddleLeft
+        '        .Location = New Point(5, 0)
+        '        .Size = New Size(pnlwewn.Size.Width - 5, 30)
+        '        .Parent = pnl
+        '    End With
+        '    If selectedtab = 0 Or (selectedtab = 1 And Not searchempty) Or (selectedtab = 2 And PATHpl IsNot Nothing) Then
+        '        With lbltekst2
+        '            .Name = "lbl" & nrpoz
+        '            .Text = i.FKalbum.FKwykonawca.nazwa
+        '            .Font = New Font("Segoe UI", 8)
+        '            .Location = New Point(5, 30)
+        '            .Size = New Size(250, 15)
+        '            .Parent = pnl
+        '        End With
+        '        AddHandler lbltekst2.MouseMove, AddressOf podswietl
+        '        AddHandler lbltekst2.Click, AddressOf klikpoz
+        '    End If
+        '    If TypeOf REFpoz(0) Is UTWOR And Not (selectedtab = 1 And Not searchempty) Then
+        '        With lbltekst3
+        '            .Name = "lbl" & nrpoz
+        '            .Text = nrpoz + 1
+        '            .ForeColor = Color.Gray
+        '            .Font = New Font("Segoe UI", 7)
+        '            .Location = New Point(8, 45)
+        '            .Size = New Size(250, 15)
+        '            .Parent = pnl
+        '        End With
+        '        AddHandler lbltekst3.MouseMove, AddressOf podswietl
+        '        AddHandler lbltekst3.Click, AddressOf klikpoz
+        '    End If
+        '    For lp As Byte = 0 To 2 Step 1
+        '        btn(lp) = New PictureBox()
+        '        With btn(lp)
+        '            .Name = lp & "btn" & nrpoz
+        '            .Parent = pnl
+        '            .BackColor = Color.WhiteSmoke
+        '            .Visible = False
+        '            .Cursor = Cursors.Hand
+        '            .SizeMode = PictureBoxSizeMode.CenterImage
+        '            .BorderStyle = BorderStyle.FixedSingle
+        '            .Location = New Point(284 + lp * 35, 25)
+        '            .Size = New Size(30, 30)
+        '            Select Case lp
+        '                Case 0
+        '                    Select Case selectedtab
+        '                        Case 0
+        '                            .Image = My.Resources.folder
+        '                        Case 1
+        '                            If (PATHwyk IsNot Nothing And PATHalb IsNot Nothing) Or (selectedtab = 1 And Not searchempty) Then
+        '                                .Image = My.Resources.add_button_inside_black_circle
+        '                            End If
+        '                        Case 2
+        '                            If PATHpl IsNot Nothing Then
+        '                                .Image = My.Resources.folder
+        '                            End If
+        '                    End Select
+        '                Case 1
+        '                    If selectedtab = 0 Then
+        '                        .Image = My.Resources.switch_vertical_orientation_arrows
+        '                    Else
+        '                        If selectedtab = 2 And PATHpl IsNot Nothing Then
+        '                            .Image = My.Resources.switch_vertical_orientation_arrows
+        '                        Else
+        '                            If (selectedtab = 1 And Not searchempty) Then
+        '                                .Image = My.Resources.folder
+        '                            Else
+        '                                .Image = My.Resources.pencil_edit_button
+        '                            End If
+        '                        End If
+        '                    End If
+        '                Case 2
+        '                    If Not (selectedtab = 1 And Not searchempty) Then .Image = My.Resources.delete__2_
+        '            End Select
+        '        End With
+        '        pnl.Controls.Add(btn(lp))
+        '        AddHandler btn(lp).MouseMove, AddressOf btnplay_MouseMove
+        '        AddHandler btn(lp).MouseLeave, AddressOf btnplay_MouseLeave
+        '        AddHandler btn(lp).Click, AddressOf btnclick
+        '    Next
 
-            pnl.Controls.Add(lbltekst)
+        '    pnl.Controls.Add(lbltekst)
 
-            If searchempty OrElse seltab = 1 OrElse lbltekst.Text.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" OrElse lbltekst2.Text.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
-                pnlwewn.Controls.Add(pnl)
-                pnlwewn.Size = New Size(pnlwewn.Size.Width, pnlwewn.Size.Height + 60)
-            End If
-            AddHandler pnl.MouseMove, AddressOf podswietl
-            AddHandler lbltekst.MouseMove, AddressOf podswietl
-            AddHandler pnl.Click, AddressOf klikpoz
-            AddHandler lbltekst.Click, AddressOf klikpoz
-            nrpoz += 1
-        Next
+        '    If searchempty OrElse seltab = 1 OrElse lbltekst.Text.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" OrElse lbltekst2.Text.ToLower() Like "*" & txtsearch.Text.ToLower() & "*" Then
+        '        pnlwewn.Controls.Add(pnl)
+        '        pnlwewn.Size = New Size(pnlwewn.Size.Width, pnlwewn.Size.Height + 60)
+        '    End If
+        '    AddHandler pnl.MouseMove, AddressOf podswietl
+        '    AddHandler lbltekst.MouseMove, AddressOf podswietl
+        '    AddHandler pnl.Click, AddressOf klikpoz
+        '    AddHandler lbltekst.Click, AddressOf klikpoz
+        '    nrpoz += 1
+        'Next
 
-        pnllista.Controls.Add(pnlwewn)
-        If pnllista.VerticalScroll.Visible Then
-            pnlwewn.Size = New Size(pnlwewn.Size.Width - 19, pnlwewn.Size.Height)
-            Try
-                pnllista.VerticalScroll.Value = scrollpos
-            Catch ex As Exception
+        'pnllista.Controls.Add(pnlwewn)
+        'If pnllista.VerticalScroll.Visible Then
+        '    pnlwewn.Size = New Size(pnlwewn.Size.Width - 19, pnlwewn.Size.Height)
+        '    Try
+        '        pnllista.VerticalScroll.Value = scrollpos
+        '    Catch ex As Exception
 
-            End Try
-        End If
+        '    End Try
+        'End If
 
-        skrocstring(lblinfo, 400, lblinfo.Text)
+        'skrocstring(lblinfo, 400, lblinfo.Text)
     End Sub
 
     Private Sub klikpoz(sender As Object, e As EventArgs)
