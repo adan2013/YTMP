@@ -5,6 +5,19 @@ Module publiczny
     Public dane As MAGAZYN = New MAGAZYN()
     Public backupy As BACKUP = New BACKUP(Application.StartupPath)
     Public odtwarzane As PLAYLISTA = New PLAYLISTA("")
+    Dim seltab As SByte = 0
+
+    Public Property selectedtab() As SByte
+        Get
+            Return seltab
+        End Get
+        Set(value As SByte)
+            If value >= 0 And value < 3 Then
+                seltab = value
+                Form1.refreshtabs(seltab)
+            End If
+        End Set
+    End Property
 
     Public Sub serializuj(ByRef obiekt As Object, ByVal path As String)
         Try

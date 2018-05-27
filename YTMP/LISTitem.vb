@@ -13,7 +13,7 @@ Public Class LISTitem
         End Get
         Set(ByVal value As String)
             mMain = value
-            Refresh()
+            'Refresh()
         End Set
     End Property
 
@@ -24,7 +24,7 @@ Public Class LISTitem
         End Get
         Set(ByVal value As String)
             mSub1 = value
-            Refresh()
+            'Refresh()
         End Set
     End Property
 
@@ -35,7 +35,7 @@ Public Class LISTitem
         End Get
         Set(ByVal value As String)
             mSub2 = value
-            Refresh()
+            'Refresh()
         End Set
     End Property
 
@@ -46,7 +46,29 @@ Public Class LISTitem
         End Get
         Set(ByVal value As Boolean)
             mSelected = value
-            Refresh()
+            'Refresh()
+        End Set
+    End Property
+
+    Private mArrow As Boolean
+    Public Property Arrow() As Boolean
+        Get
+            Return mArrow
+        End Get
+        Set(ByVal value As Boolean)
+            mArrow = value
+            'Refresh()
+        End Set
+    End Property
+
+    Private mObj As Boolean
+    Public Property Obj() As Boolean
+        Get
+            Return mObj
+        End Get
+        Set(ByVal value As Boolean)
+            mObj = value
+            'Refresh()
         End Set
     End Property
 #End Region
@@ -107,11 +129,11 @@ Public Class LISTitem
 
     Private Sub Paint_DrawBackground(gfx As Graphics)
         '
-        Dim rect As New Rectangle(0, 0, Me.Width - 1, Me.Height - 1)
+        Dim rect As New Rectangle(0, 0, Width - 1, Height - 1)
 
         '/// Build a rounded rectangle
         Dim p As New GraphicsPath
-        Const Roundness = 5
+        Const Roundness = 1
         p.StartFigure()
         p.AddArc(New Rectangle(rect.Left, rect.Top, Roundness, Roundness), 180, 90)
         p.AddLine(rect.Left + Roundness, 0, rect.Right - Roundness, 0)
@@ -211,26 +233,34 @@ Public Class LISTitem
         ' main text
         fnt = New Font("Segoe UI Light", 14)
         sz = gfx.MeasureString(mMain, fnt)
-        layoutRect = New RectangleF(10, 0, workingRect.Width, sz.Height)
+        layoutRect = New RectangleF(6, 2, workingRect.Width, sz.Height)
         gfx.DrawString(mMain, fnt, Brushes.Black, layoutRect, SF)
 
         ' sub text 1
         fnt = New Font("Segoe UI Light", 10)
         sz = gfx.MeasureString(mSub1, fnt)
-        layoutRect = New RectangleF(12, 30, workingRect.Width, sz.Height)
+        layoutRect = New RectangleF(8, 30, workingRect.Width, sz.Height)
         gfx.DrawString(mSub1, fnt, Brushes.Black, layoutRect, SF)
 
         ' sub text 2
         fnt = New Font("Segoe UI Light", 10)
         sz = gfx.MeasureString(mSub2, fnt)
-        layoutRect = New RectangleF(42, 50, workingRect.Width, sz.Height)
+        layoutRect = New RectangleF(8, 48, workingRect.Width, sz.Height)
         gfx.DrawString(mSub2, fnt, Brushes.Black, layoutRect, SF)
+
+        If mArrow Then
+            gfx.DrawImage(My.Resources.arrow_menu, New Rectangle(Width - 20, Height / 2 - 8, 16, 16))
+        End If
     End Sub
 
-    Private Sub PaintEvent(sender As Object, e As System.Windows.Forms.PaintEventArgs) Handles Me.Paint
+    Private Sub PaintEvent(sender As Object, e As PaintEventArgs) Handles Me.Paint
         Dim gfx = e.Graphics
         Paint_DrawBackground(gfx)
         Paint_DrawButton(gfx)
     End Sub
 #End Region
+
+    Public Sub reload()
+        Refresh()
+    End Sub
 End Class

@@ -451,6 +451,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appicon.ico" />
+    <None Include="bin\Debug\arrow_menu.png" />
     <None Include="bin\Debug\logo128_black.png" />
     <None Include="bin\Debug\logo128.png" />
     <None Include="bin\Debug\APIKEY.txt" />

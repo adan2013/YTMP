@@ -4,7 +4,7 @@
 
     Dim mLastSelected As LISTitem = Nothing
 
-    Public Sub Add(Text1 As String, Text2 As String, Text3 As String)
+    Public Sub Add(Text1 As String, Text2 As String, Text3 As String, Arrow As Boolean, Obj As Object)
         Dim c As New LISTitem
         With c
             ' Assign an auto generated name
@@ -14,6 +14,9 @@
             .MainText = Text1
             .SubText1 = Text2
             .SubText2 = Text3
+            .Arrow = Arrow
+            .Obj = Obj
+            .reload()
         End With
         ' To check when the selection is changed
         AddHandler c.SelectionChanged, AddressOf SelectionChanged

@@ -94,16 +94,17 @@
     End Sub
 
     Private Sub btnpozycja_Click(sender As Object, e As EventArgs) Handles btnpozycja.Click
-        Dim nr As Integer = 0
-        For Each i As UTWOR In Form1.PATHalb.utwory
-            If i Is domodyfikacji Then Exit For
-            nr += 1
-        Next
-        MODpozycja.ustaw(Form1.REFpoz.Count, nr)
-        MODpozycja.ShowDialog()
-        Form1.PATHalb.usunzalbumu(domodyfikacji)
-        Form1.PATHalb.utwory.Insert(MODpozycja.wynik, domodyfikacji)
-        MODpozycja.Close()
+        'TODO zmiana pozycji brak refpoz
+        'Dim nr As Integer = 0
+        'For Each i As UTWOR In Form1.PATHalb.utwory
+        '    If i Is domodyfikacji Then Exit For
+        '    nr += 1
+        'Next
+        'MODpozycja.ustaw(Form1.REFpoz.Count, nr)
+        'MODpozycja.ShowDialog()
+        'Form1.PATHalb.usunzalbumu(domodyfikacji)
+        'Form1.PATHalb.utwory.Insert(MODpozycja.wynik, domodyfikacji)
+        'MODpozycja.Close()
     End Sub
 
     Private Sub chkboxstart_CheckedChanged(sender As Object, e As EventArgs) Handles chkboxstart.CheckedChanged

@@ -14,13 +14,11 @@ Public Class Form1
 
     Dim windowdragmode As Boolean = False
     Dim dragcords As Point = New Point(0, 0)
-    Dim seltab As SByte = 0
     Dim scrollpos As Integer = 0
     Dim pnlwewn As Panel = New Panel()
     Public PATHwyk As WYKONAWCA
     Public PATHalb As ALBUM
     Public PATHpl As PLAYLISTA
-    Public REFpoz As List(Of Object) = New List(Of Object)
 
     Public yt As YTAPI
 
@@ -31,18 +29,6 @@ Public Class Form1
     Public TB5 As ThumbnailToolBarButton
     Public TB6 As ThumbnailToolBarButton
 
-    Public Property selectedtab() As SByte
-        Get
-            Return seltab
-        End Get
-        Set(value As SByte)
-            If value >= 0 And value < 3 Then
-                seltab = value
-                refreshtabs()
-            End If
-        End Set
-    End Property
-
     Protected Overrides ReadOnly Property CreateParams() As CreateParams
         Get
             Dim cp As CreateParams = MyBase.CreateParams
@@ -51,13 +37,13 @@ Public Class Form1
         End Get
     End Property
 
-    Private Sub refreshtabs()
+    Public Sub refreshtabs(ByVal nr As Byte)
         'reset
         tab1.Location = New Point(tab1.Location.X, 42)
         tab2.Location = New Point(tab2.Location.X, 42)
         tab3.Location = New Point(tab3.Location.X, 42)
         'focus
-        Select Case seltab
+        Select Case nr
             Case 0
                 tab1.Location = New Point(tab1.Location.X, 39)
             Case 1
@@ -308,7 +294,127 @@ Public Class Form1
         ladujpanel()
     End Sub
 
+    Public Function searchfilter(ByRef u As UTWOR) As Boolean
+        Dim s As String = "*" & txtsearch.Text.ToLower() & "*"
+        If u.tytul.ToLower() Like s Then Return True
+        If dane.SETsearchW AndAlso u.FKalbum.FKwykonawca.nazwa.ToLower() Like s Then Return True
+        If dane.SETsearchA AndAlso u.FKalbum.nazwa.ToLower() Like s Then Return True
+        If dane.SETsearchID AndAlso u.link.ToLower() Like s Then Return True
+        Return False
+    End Function
+
     Public Sub ladujpanel()
+        Dim REF As List(Of Object) = New List(Of Object)
+        pnllista.Clear()
+
+        Select Case selectedtab
+            Case 0 'lista odtwarzania
+                btncofnij.Enabled = False
+                btndodaj.Enabled = False
+                btnwyczysc.Enabled = True
+                btnodtwall.Enabled = False
+                If searchempty Then
+                    REF.AddRange(odtwarzane)
+                    lblinfo.Text = "Ilość utworów: " & REF.Count
+                Else
+                    btnwyczysc.Enabled = False
+                    For Each i As UTWOR In odtwarzane.utwory
+                        If searchfilter(i) Then REF.Add(i)
+                    Next
+                    lblinfo.Text = "> Wyniki wyszukiwania >"
+                End If
+            Case 1 'utwory
+                If searchempty Then
+                    If PATHwyk Is Nothing Then
+                        'WYKONAWCY
+                        btncofnij.Enabled = False
+                        btndodaj.Enabled = True
+                        btnwyczysc.Enabled = False
+                        btnodtwall.Enabled = True
+                        REF.AddRange(dane.wykonawcy)
+                        REF.Sort(Function(x, y) x.nazwa.CompareTo(y.nazwa))
+                        lblinfo.Text = ">"
+                    Else
+                        If PATHalb Is Nothing Then
+                            'ALBUMY
+                            btncofnij.Enabled = True
+                            btndodaj.Enabled = True
+                            btnwyczysc.Enabled = False
+                            btnodtwall.Enabled = True
+                            REF.AddRange(PATHwyk.albumy)
+                            REF.Sort(Function(x, y) x.nazwa.CompareTo(y.nazwa))
+                            lblinfo.Text = "> " & PATHwyk.nazwa & " >"
+                        Else
+                            'UTWORY
+                            btncofnij.Enabled = True
+                            btndodaj.Enabled = True
+                            btnwyczysc.Enabled = True
+                            btnodtwall.Enabled = True
+                            REF.AddRange(PATHalb.utwory)
+                            lblinfo.Text = "> " & PATHwyk.nazwa & " > " & PATHalb.nazwa & " >"
+                        End If
+                    End If
+                Else
+                    'SEARCHMODE
+                    btncofnij.Enabled = False
+                    btndodaj.Enabled = False
+                    btnwyczysc.Enabled = False
+                    btnodtwall.Enabled = False
+                    For Each w As WYKONAWCA In dane.wykonawcy
+                        For Each a As ALBUM In w.albumy
+                            For Each u As UTWOR In a.utwory
+                                If searchfilter(u) Then REF.Add(u)
+                            Next
+                        Next
+                    Next
+                    REF.Sort(Function(x, y) x.tytul.CompareTo(y.tytul))
+                    lblinfo.Text = "> Wyniki wyszukiwania >"
+                End If
+            Case 2 'playlisty
+                If PATHpl Is Nothing Then
+                    'PLAYLISTY
+                    btncofnij.Enabled = False
+                    btndodaj.Enabled = True
+                    btnwyczysc.Enabled = False
+                    btnodtwall.Enabled = False
+                    If searchempty Then
+                        REF.AddRange(dane.playlisty)
+                        lblinfo.Text = ">"
+                    Else
+                        Dim txts As String = "*" & txtsearch.Text.ToLower() & "*"
+                        For Each i As PLAYLISTA In dane.playlisty
+                            If i.nazwa.ToLower() Like txts Then REF.Add(i)
+                        Next
+                        lblinfo.Text = "> Wyniki wyszukiwania >"
+                    End If
+                    REF.Sort(Function(x, y) x.nazwa.CompareTo(y.nazwa))
+                Else
+                    'UTWORY Z PLAYLIST
+                    If searchempty Then
+                        btncofnij.Enabled = True
+                        btndodaj.Enabled = False
+                        btnwyczysc.Enabled = True
+                        btnodtwall.Enabled = True
+                        REF.AddRange(PATHpl.utwory)
+                        lblinfo.Text = "> " & PATHpl.nazwa & " >"
+                    Else
+                        btncofnij.Enabled = False
+                        btndodaj.Enabled = False
+                        btnwyczysc.Enabled = False
+                        btnodtwall.Enabled = False
+                        For Each i As UTWOR In PATHpl.utwory
+                            If searchfilter(i) Then REF.Add(i)
+                        Next
+                        lblinfo.Text = "> Wyniki wyszukiwania >"
+                    End If
+                End If
+        End Select
+        If REF.Count = 0 Then
+            btnwyczysc.Enabled = False
+        Else
+
+        End If
+
         'pnllista.Controls.Remove(pnlwewn)
         'pnlwewn = New Panel()
         'pnlwewn.Name = "wewn"
@@ -549,177 +655,177 @@ Public Class Form1
         'skrocstring(lblinfo, 400, lblinfo.Text)
     End Sub
 
-    Private Sub klikpoz(sender As Object, e As EventArgs)
-        If TypeOf REFpoz(sender.Name.SubString(3)) Is WYKONAWCA Then
-            PATHwyk = REFpoz(sender.Name.SubString(3))
-            If dane.SEThidealbums Then
-                For Each i As ALBUM In PATHwyk.albumy
-                    If i.brakpozycji Then
-                        PATHalb = i
-                        Exit For
-                    End If
-                Next
-            End If
-            ladujpanel()
-        Else
-            If TypeOf REFpoz(sender.Name.SubString(3)) Is ALBUM Then
-                PATHalb = REFpoz(sender.Name.SubString(3))
-                ladujpanel()
-            Else
-                If TypeOf REFpoz(sender.Name.SubString(3)) Is PLAYLISTA Then
-                    PATHpl = REFpoz(sender.Name.SubString(3))
-                    ladujpanel()
-                Else
-                    If TypeOf REFpoz(sender.Name.SubString(3)) Is UTWOR Then
-                        yt.odtworzteraz(REFpoz(sender.Name.SubString(3)))
-                    End If
-                End If
-            End If
-        End If
-        pnllista.Focus()
-    End Sub
+    'Private Sub klikpoz(sender As Object, e As EventArgs)
+    '    If TypeOf REFpoz(sender.Name.SubString(3)) Is WYKONAWCA Then
+    '        PATHwyk = REFpoz(sender.Name.SubString(3))
+    '        If dane.SEThidealbums Then
+    '            For Each i As ALBUM In PATHwyk.albumy
+    '                If i.brakpozycji Then
+    '                    PATHalb = i
+    '                    Exit For
+    '                End If
+    '            Next
+    '        End If
+    '        ladujpanel()
+    '    Else
+    '        If TypeOf REFpoz(sender.Name.SubString(3)) Is ALBUM Then
+    '            PATHalb = REFpoz(sender.Name.SubString(3))
+    '            ladujpanel()
+    '        Else
+    '            If TypeOf REFpoz(sender.Name.SubString(3)) Is PLAYLISTA Then
+    '                PATHpl = REFpoz(sender.Name.SubString(3))
+    '                ladujpanel()
+    '            Else
+    '                If TypeOf REFpoz(sender.Name.SubString(3)) Is UTWOR Then
+    '                    yt.odtworzteraz(REFpoz(sender.Name.SubString(3)))
+    '                End If
+    '            End If
+    '        End If
+    '    End If
+    '    pnllista.Focus()
+    'End Sub
 
-    Private Sub btnclick(sender As Object, e As EventArgs)
-        Dim index As Integer = sender.Name.SubString(4)
-        Select Case sender.Name.SubString(0, 1)
-            Case "0" 'przejdz do i dodaj do playlisty
-                Select Case selectedtab
-                    Case 0, 2
-                        PATHalb = REFpoz(index).FKalbum
-                        PATHwyk = REFpoz(index).FKalbum.FKwykonawca
-                        selectedtab = 1
-                        ladujpanel()
-                    Case 1
-                        odtwarzane.dodajutwor(REFpoz(index))
-                End Select
-            Case "1" 'przesun i edycja (wyszukiwanie: przejdz do)
-                If (selectedtab = 1 And Not searchempty) Then
-                    PATHalb = REFpoz(index).FKalbum
-                    PATHwyk = REFpoz(index).FKalbum.FKwykonawca
-                    searchempty = True
-                    txtsearch.Text = "Szukaj..."
-                    txtsearch.ForeColor = Color.Gray
-                    pnllista.Focus()
-                Else
-                    If TypeOf REFpoz(0) Is UTWOR And Not selectedtab = 1 Then
-                        MODpozycja.ustaw(REFpoz.Count, index)
-                        MODpozycja.ShowDialog()
-                        If selectedtab = 0 Then
-                            odtwarzane.usunutwor(REFpoz(index))
-                            odtwarzane.utwory.Insert(MODpozycja.wynik, REFpoz(index))
-                        Else
-                            PATHpl.usunutwor(REFpoz(index))
-                            PATHpl.utwory.Insert(MODpozycja.wynik, REFpoz(index))
-                        End If
-                        MODpozycja.Close()
-                        zapiszzmiany()
-                    Else
-                        If TypeOf REFpoz(0) Is PLAYLISTA Then
-                            MODpl.modyfikuj(REFpoz(index))
-                            MODpl.ShowDialog()
-                            MODpl.Close()
-                            zapiszzmiany()
-                        End If
-                        If TypeOf REFpoz(0) Is WYKONAWCA Then
-                            If REFpoz(index).brakpozycji Then
-                                MsgBox("Nie można edytować domyślnej pozycji!", MsgBoxStyle.Information, "YTMP")
-                            Else
-                                MODwyk.modyfikuj(REFpoz(index))
-                                MODwyk.ShowDialog()
-                                MODwyk.Close()
-                                zapiszzmiany()
-                            End If
-                        End If
-                        If TypeOf REFpoz(0) Is ALBUM Then
-                            If REFpoz(index).brakpozycji Then
-                                MsgBox("Nie można edytować domyślnej pozycji!", MsgBoxStyle.Information, "YTMP")
-                            Else
-                                MODalb.modyfikuj(REFpoz(index))
-                                MODalb.ShowDialog()
-                                MODalb.Close()
-                                zapiszzmiany()
-                            End If
-                        End If
-                        If TypeOf REFpoz(0) Is UTWOR Then
-                            MODutw.modyfikuj(REFpoz(index))
-                            MODutw.ShowDialog()
-                            MODutw.Close()
-                            zapiszzmiany()
-                        End If
-                    End If
-                End If
-                ladujpanel()
-            Case "2" 'usun
-                Select Case selectedtab
-                    Case 0
-                        odtwarzane.utwory.Remove(REFpoz(index))
-                        ladujpanel()
-                    Case 1
-                        If PATHwyk Is Nothing Then
-                            If MsgBox("Usunąć wykonawcę oraz wszystkie albumy i utwory należące do niego?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
-                                REFpoz(index).usunmnie()
-                                ladujpanel()
-                                zapiszzmiany()
-                            End If
-                        Else
-                            If PATHalb Is Nothing Then
-                                If MsgBox("Usunąć album oraz wszystkie utwory należące do niego?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
-                                    REFpoz(index).usunmnie()
-                                    ladujpanel()
-                                    zapiszzmiany()
-                                End If
-                            Else
-                                If MsgBox("Usunąć utwór?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
-                                    REFpoz(index).usunmnie()
-                                    ladujpanel()
-                                    zapiszzmiany()
-                                End If
-                            End If
-                        End If
-                    Case 2
-                        If PATHpl Is Nothing Then
-                            If MsgBox("Usunąć całą playlistę?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
-                                dane.playlisty.Remove(REFpoz(index))
-                                ladujpanel()
-                                zapiszzmiany()
-                            End If
-                        Else
-                            PATHpl.usunutwor(REFpoz(index))
-                            ladujpanel()
-                            zapiszzmiany()
-                        End If
-                End Select
-        End Select
-    End Sub
+    'Private Sub btnclick(sender As Object, e As EventArgs)
+    '    Dim index As Integer = sender.Name.SubString(4)
+    '    Select Case sender.Name.SubString(0, 1)
+    '        Case "0" 'przejdz do i dodaj do playlisty
+    '            Select Case selectedtab
+    '                Case 0, 2
+    '                    PATHalb = REFpoz(index).FKalbum
+    '                    PATHwyk = REFpoz(index).FKalbum.FKwykonawca
+    '                    selectedtab = 1
+    '                    ladujpanel()
+    '                Case 1
+    '                    odtwarzane.dodajutwor(REFpoz(index))
+    '            End Select
+    '        Case "1" 'przesun i edycja (wyszukiwanie: przejdz do)
+    '            If (selectedtab = 1 And Not searchempty) Then
+    '                PATHalb = REFpoz(index).FKalbum
+    '                PATHwyk = REFpoz(index).FKalbum.FKwykonawca
+    '                searchempty = True
+    '                txtsearch.Text = "Szukaj..."
+    '                txtsearch.ForeColor = Color.Gray
+    '                pnllista.Focus()
+    '            Else
+    '                If TypeOf REFpoz(0) Is UTWOR And Not selectedtab = 1 Then
+    '                    MODpozycja.ustaw(REFpoz.Count, index)
+    '                    MODpozycja.ShowDialog()
+    '                    If selectedtab = 0 Then
+    '                        odtwarzane.usunutwor(REFpoz(index))
+    '                        odtwarzane.utwory.Insert(MODpozycja.wynik, REFpoz(index))
+    '                    Else
+    '                        PATHpl.usunutwor(REFpoz(index))
+    '                        PATHpl.utwory.Insert(MODpozycja.wynik, REFpoz(index))
+    '                    End If
+    '                    MODpozycja.Close()
+    '                    zapiszzmiany()
+    '                Else
+    '                    If TypeOf REFpoz(0) Is PLAYLISTA Then
+    '                        MODpl.modyfikuj(REFpoz(index))
+    '                        MODpl.ShowDialog()
+    '                        MODpl.Close()
+    '                        zapiszzmiany()
+    '                    End If
+    '                    If TypeOf REFpoz(0) Is WYKONAWCA Then
+    '                        If REFpoz(index).brakpozycji Then
+    '                            MsgBox("Nie można edytować domyślnej pozycji!", MsgBoxStyle.Information, "YTMP")
+    '                        Else
+    '                            MODwyk.modyfikuj(REFpoz(index))
+    '                            MODwyk.ShowDialog()
+    '                            MODwyk.Close()
+    '                            zapiszzmiany()
+    '                        End If
+    '                    End If
+    '                    If TypeOf REFpoz(0) Is ALBUM Then
+    '                        If REFpoz(index).brakpozycji Then
+    '                            MsgBox("Nie można edytować domyślnej pozycji!", MsgBoxStyle.Information, "YTMP")
+    '                        Else
+    '                            MODalb.modyfikuj(REFpoz(index))
+    '                            MODalb.ShowDialog()
+    '                            MODalb.Close()
+    '                            zapiszzmiany()
+    '                        End If
+    '                    End If
+    '                    If TypeOf REFpoz(0) Is UTWOR Then
+    '                        MODutw.modyfikuj(REFpoz(index))
+    '                        MODutw.ShowDialog()
+    '                        MODutw.Close()
+    '                        zapiszzmiany()
+    '                    End If
+    '                End If
+    '            End If
+    '            ladujpanel()
+    '        Case "2" 'usun
+    '            Select Case selectedtab
+    '                Case 0
+    '                    odtwarzane.utwory.Remove(REFpoz(index))
+    '                    ladujpanel()
+    '                Case 1
+    '                    If PATHwyk Is Nothing Then
+    '                        If MsgBox("Usunąć wykonawcę oraz wszystkie albumy i utwory należące do niego?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
+    '                            REFpoz(index).usunmnie()
+    '                            ladujpanel()
+    '                            zapiszzmiany()
+    '                        End If
+    '                    Else
+    '                        If PATHalb Is Nothing Then
+    '                            If MsgBox("Usunąć album oraz wszystkie utwory należące do niego?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
+    '                                REFpoz(index).usunmnie()
+    '                                ladujpanel()
+    '                                zapiszzmiany()
+    '                            End If
+    '                        Else
+    '                            If MsgBox("Usunąć utwór?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
+    '                                REFpoz(index).usunmnie()
+    '                                ladujpanel()
+    '                                zapiszzmiany()
+    '                            End If
+    '                        End If
+    '                    End If
+    '                Case 2
+    '                    If PATHpl Is Nothing Then
+    '                        If MsgBox("Usunąć całą playlistę?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "YTMP") = MsgBoxResult.Yes Then
+    '                            dane.playlisty.Remove(REFpoz(index))
+    '                            ladujpanel()
+    '                            zapiszzmiany()
+    '                        End If
+    '                    Else
+    '                        PATHpl.usunutwor(REFpoz(index))
+    '                        ladujpanel()
+    '                        zapiszzmiany()
+    '                    End If
+    '            End Select
+    '    End Select
+    'End Sub
 
-    Private Sub podswietl(sender As Object, e As MouseEventArgs)
-        For Each i As Control In pnlwewn.Controls
-            If TypeOf i Is Panel Then
-                For Each i2 As Control In i.Controls
-                    If TypeOf i2 Is PictureBox And i2.Parent.BackColor = Color.Gainsboro Then i2.Visible = False
-                    If i2.BackColor = Color.LightGray Then i2.BackColor = Color.Gainsboro
-                Next
-                If i.BackColor = Color.LightGray Then i.BackColor = Color.Gainsboro
-            End If
-        Next
-        sender.BackColor = Color.LightGray
-        For Each i As Control In sender.Controls
-            If TypeOf i Is Label Then i.BackColor = Color.LightGray
-        Next
-        If sender.Parent.Name.SubString(0, 3) = "poz" Then
-            sender.Parent.BackColor = Color.LightGray
-        End If
-        If TypeOf sender Is Label Then
-            For Each i As Control In sender.Parent.Controls
-                If TypeOf i Is PictureBox AndAlso CType(i, PictureBox).Image IsNot Nothing Then i.Visible = True
-                If TypeOf i Is Label Then i.BackColor = Color.LightGray
-            Next
-        Else
-            For Each i As Control In sender.Controls
-                If TypeOf i Is PictureBox AndAlso CType(i, PictureBox).Image IsNot Nothing Then i.Visible = True
-            Next
-        End If
-    End Sub
+    'Private Sub podswietl(sender As Object, e As MouseEventArgs)
+    '    For Each i As Control In pnlwewn.Controls
+    '        If TypeOf i Is Panel Then
+    '            For Each i2 As Control In i.Controls
+    '                If TypeOf i2 Is PictureBox And i2.Parent.BackColor = Color.Gainsboro Then i2.Visible = False
+    '                If i2.BackColor = Color.LightGray Then i2.BackColor = Color.Gainsboro
+    '            Next
+    '            If i.BackColor = Color.LightGray Then i.BackColor = Color.Gainsboro
+    '        End If
+    '    Next
+    '    sender.BackColor = Color.LightGray
+    '    For Each i As Control In sender.Controls
+    '        If TypeOf i Is Label Then i.BackColor = Color.LightGray
+    '    Next
+    '    If sender.Parent.Name.SubString(0, 3) = "poz" Then
+    '        sender.Parent.BackColor = Color.LightGray
+    '    End If
+    '    If TypeOf sender Is Label Then
+    '        For Each i As Control In sender.Parent.Controls
+    '            If TypeOf i Is PictureBox AndAlso CType(i, PictureBox).Image IsNot Nothing Then i.Visible = True
+    '            If TypeOf i Is Label Then i.BackColor = Color.LightGray
+    '        Next
+    '    Else
+    '        For Each i As Control In sender.Controls
+    '            If TypeOf i Is PictureBox AndAlso CType(i, PictureBox).Image IsNot Nothing Then i.Visible = True
+    '        Next
+    '    End If
+    'End Sub
 
     Private Sub btncofnij_Click(sender As Object, e As EventArgs) Handles btncofnij.Click
         If selectedtab = 1 Then
@@ -757,32 +863,33 @@ Public Class Form1
     End Sub
 
     Private Sub btnodtwall_Click(sender As Object, e As EventArgs) Handles btnodtwall.Click
-        odtwarzane.utwory.Clear()
-        If REFpoz.Count > 0 Then
-            If TypeOf REFpoz(0) Is UTWOR Then
-                For Each u As UTWOR In REFpoz
-                    odtwarzane.dodajutwor(u)
-                Next
-            End If
-            If TypeOf REFpoz(0) Is ALBUM Then
-                For Each a As ALBUM In REFpoz
-                    For Each u As UTWOR In a.utwory
-                        odtwarzane.dodajutwor(u)
-                    Next
-                Next
-            End If
-            If TypeOf REFpoz(0) Is WYKONAWCA Then
-                For Each w As WYKONAWCA In REFpoz
-                    For Each a As ALBUM In w.albumy
-                        For Each u As UTWOR In a.utwory
-                            odtwarzane.dodajutwor(u)
-                        Next
-                    Next
-                Next
-            End If
-        End If
-        selectedtab = 0
-        yt.nastepnyutwor()
+        'TODO napisac nowy kod
+        'odtwarzane.utwory.Clear()
+        'If REFpoz.Count > 0 Then
+        '    If TypeOf REFpoz(0) Is UTWOR Then
+        '        For Each u As UTWOR In REFpoz
+        '            odtwarzane.dodajutwor(u)
+        '        Next
+        '    End If
+        '    If TypeOf REFpoz(0) Is ALBUM Then
+        '        For Each a As ALBUM In REFpoz
+        '            For Each u As UTWOR In a.utwory
+        '                odtwarzane.dodajutwor(u)
+        '            Next
+        '        Next
+        '    End If
+        '    If TypeOf REFpoz(0) Is WYKONAWCA Then
+        '        For Each w As WYKONAWCA In REFpoz
+        '            For Each a As ALBUM In w.albumy
+        '                For Each u As UTWOR In a.utwory
+        '                    odtwarzane.dodajutwor(u)
+        '                Next
+        '            Next
+        '        Next
+        '    End If
+        'End If
+        'selectedtab = 0
+        'yt.nastepnyutwor()
     End Sub
 
     Private Sub btndodaj_Click(sender As Object, e As EventArgs) Handles btndodaj.Click

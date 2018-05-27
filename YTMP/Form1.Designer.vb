@@ -42,7 +42,6 @@ Partial Class Form1
         Me.btndodaj = New System.Windows.Forms.Button()
         Me.btncofnij = New System.Windows.Forms.Button()
         Me.lblinfo = New System.Windows.Forms.Label()
-        Me.pnllista = New System.Windows.Forms.Panel()
         Me.txtsearch = New System.Windows.Forms.TextBox()
         Me.akt = New System.Windows.Forms.Timer(Me.components)
         Me.notify = New System.Windows.Forms.NotifyIcon(Me.components)
@@ -65,6 +64,7 @@ Partial Class Form1
         Me.tab1 = New System.Windows.Forms.PictureBox()
         Me.tab2 = New System.Windows.Forms.PictureBox()
         Me.tab3 = New System.Windows.Forms.PictureBox()
+        Me.pnllista = New YTMP.LISTcontrol()
         Me.pnlodtwarzacz.SuspendLayout()
         CType(Me.btnupdate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -242,12 +242,12 @@ Partial Class Form1
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Silver
+        Me.Panel1.Controls.Add(Me.pnllista)
         Me.Panel1.Controls.Add(Me.btnwyczysc)
         Me.Panel1.Controls.Add(Me.btnodtwall)
         Me.Panel1.Controls.Add(Me.btndodaj)
         Me.Panel1.Controls.Add(Me.btncofnij)
         Me.Panel1.Controls.Add(Me.lblinfo)
-        Me.Panel1.Controls.Add(Me.pnllista)
         Me.Panel1.Location = New System.Drawing.Point(12, 71)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(510, 313)
@@ -338,17 +338,6 @@ Partial Class Form1
         Me.lblinfo.Size = New System.Drawing.Size(94, 15)
         Me.lblinfo.TabIndex = 5
         Me.lblinfo.Text = "Ilość utworów: 0"
-        '
-        'pnllista
-        '
-        Me.pnllista.AutoScroll = True
-        Me.pnllista.BackColor = System.Drawing.Color.Gainsboro
-        Me.pnllista.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnllista.Location = New System.Drawing.Point(91, 35)
-        Me.pnllista.Margin = New System.Windows.Forms.Padding(10)
-        Me.pnllista.Name = "pnllista"
-        Me.pnllista.Size = New System.Drawing.Size(409, 268)
-        Me.pnllista.TabIndex = 5
         '
         'txtsearch
         '
@@ -528,6 +517,15 @@ Partial Class Form1
         Me.tab3.TabIndex = 104
         Me.tab3.TabStop = False
         '
+        'pnllista
+        '
+        Me.pnllista.BackColor = System.Drawing.Color.White
+        Me.pnllista.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnllista.Location = New System.Drawing.Point(92, 35)
+        Me.pnllista.Name = "pnllista"
+        Me.pnllista.Size = New System.Drawing.Size(409, 268)
+        Me.pnllista.TabIndex = 11
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -583,7 +581,6 @@ Partial Class Form1
     Friend WithEvents btnplay As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents txtsearch As TextBox
-    Friend WithEvents pnllista As Panel
     Friend WithEvents lblinfo As Label
     Friend WithEvents btnodtwall As Button
     Friend WithEvents btndodaj As Button
@@ -614,4 +611,5 @@ Partial Class Form1
     Friend WithEvents tab2 As PictureBox
     Friend WithEvents tab3 As PictureBox
     Friend WithEvents btnOPNCLS As PictureBox
+    Friend WithEvents pnllista As LISTcontrol
 End Class

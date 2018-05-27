@@ -34,6 +34,7 @@ Partial Class LISTcontrol
         Me.flp.Name = "flp"
         Me.flp.Size = New System.Drawing.Size(150, 150)
         Me.flp.TabIndex = 0
+        Me.flp.WrapContents = False
         '
         'LISTcontrol
         '
