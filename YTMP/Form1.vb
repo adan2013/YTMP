@@ -10,7 +10,7 @@ Public Class Form1
     Public lblstan As Label = New Label()
     Public pnlglosnosc As Panel = New Panel()
     Public WithEvents pnlprzewijanie As Panel = New Panel()
-    Dim searchempty As Boolean = True
+    Public searchempty As Boolean = True
 
     Dim windowdragmode As Boolean = False
     Dim dragcords As Point = New Point(0, 0)
@@ -233,15 +233,6 @@ Public Class Form1
         End If
     End Sub
 
-    'TODO trash
-    'Private Sub pnllista_Scroll(sender As Object, e As ScrollEventArgs) Handles pnllista.Scroll
-    '    scrollpos = e.NewValue
-    'End Sub
-
-    'Private Sub pnllista_MouseWheel(sender As Object, e As MouseEventArgs) Handles pnllista.MouseWheel
-    '    If pnlwewn.Size.Height > pnllista.Size.Height Then scrollpos = pnllista.VerticalScroll.Value
-    'End Sub
-
     Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
         If Not searchempty Then ladujpanel()
     End Sub
@@ -304,6 +295,7 @@ Public Class Form1
     End Function
 
     Public Sub ladujpanel()
+        pnllista.turnOFF()
         Dim REF As List(Of Object) = New List(Of Object)
         pnllista.Clear()
 
@@ -314,13 +306,15 @@ Public Class Form1
                 btnwyczysc.Enabled = True
                 btnodtwall.Enabled = False
                 If searchempty Then
-                    REF.AddRange(odtwarzane)
+                    REF.AddRange(odtwarzane.utwory)
                     lblinfo.Text = "Ilość utworów: " & REF.Count
                 Else
                     btnwyczysc.Enabled = False
-                    For Each i As UTWOR In odtwarzane.utwory
-                        If searchfilter(i) Then REF.Add(i)
-                    Next
+                    If Not txtsearch.Text = "" Then
+                        For Each i As UTWOR In odtwarzane.utwory
+                            If searchfilter(i) Then REF.Add(i)
+                        Next
+                    End If
                     lblinfo.Text = "> Wyniki wyszukiwania >"
                 End If
             Case 1 'utwory
@@ -360,14 +354,16 @@ Public Class Form1
                     btndodaj.Enabled = False
                     btnwyczysc.Enabled = False
                     btnodtwall.Enabled = False
-                    For Each w As WYKONAWCA In dane.wykonawcy
-                        For Each a As ALBUM In w.albumy
-                            For Each u As UTWOR In a.utwory
-                                If searchfilter(u) Then REF.Add(u)
+                    If Not txtsearch.Text = "" Then
+                        For Each w As WYKONAWCA In dane.wykonawcy
+                            For Each a As ALBUM In w.albumy
+                                For Each u As UTWOR In a.utwory
+                                    If searchfilter(u) Then REF.Add(u)
+                                Next
                             Next
                         Next
-                    Next
-                    REF.Sort(Function(x, y) x.tytul.CompareTo(y.tytul))
+                        REF.Sort(Function(x, y) x.tytul.CompareTo(y.tytul))
+                    End If
                     lblinfo.Text = "> Wyniki wyszukiwania >"
                 End If
             Case 2 'playlisty
@@ -381,10 +377,12 @@ Public Class Form1
                         REF.AddRange(dane.playlisty)
                         lblinfo.Text = ">"
                     Else
-                        Dim txts As String = "*" & txtsearch.Text.ToLower() & "*"
-                        For Each i As PLAYLISTA In dane.playlisty
-                            If i.nazwa.ToLower() Like txts Then REF.Add(i)
-                        Next
+                        If Not txtsearch.Text = "" Then
+                            Dim txts As String = "*" & txtsearch.Text.ToLower() & "*"
+                            For Each i As PLAYLISTA In dane.playlisty
+                                If i.nazwa.ToLower() Like txts Then REF.Add(i)
+                            Next
+                        End If
                         lblinfo.Text = "> Wyniki wyszukiwania >"
                     End If
                     REF.Sort(Function(x, y) x.nazwa.CompareTo(y.nazwa))
@@ -402,9 +400,11 @@ Public Class Form1
                         btndodaj.Enabled = False
                         btnwyczysc.Enabled = False
                         btnodtwall.Enabled = False
-                        For Each i As UTWOR In PATHpl.utwory
-                            If searchfilter(i) Then REF.Add(i)
-                        Next
+                        If Not txtsearch.Text = "" Then
+                            For Each i As UTWOR In PATHpl.utwory
+                                If searchfilter(i) Then REF.Add(i)
+                            Next
+                        End If
                         lblinfo.Text = "> Wyniki wyszukiwania >"
                     End If
                 End If
@@ -412,8 +412,42 @@ Public Class Form1
         If REF.Count = 0 Then
             btnwyczysc.Enabled = False
         Else
-
+            For lp As Integer = 0 To REF.Count - 1 Step 1
+                Dim i As Object = REF(lp)
+                If TypeOf i Is WYKONAWCA Then
+                    Dim w As WYKONAWCA = i
+                    pnllista.Add(w.nazwa, "", "", True, w)
+                End If
+                If TypeOf i Is ALBUM Then
+                    Dim a As ALBUM = i
+                    pnllista.Add(a.nazwa, "Ilość utworów: " & a.utwory.Count, "", True, a)
+                End If
+                If TypeOf i Is UTWOR Then
+                    Dim u As UTWOR = i
+                    Select Case selectedtab
+                        Case 0
+                            pnllista.Add(u.tytul, u.FKalbum.FKwykonawca.nazwa, (lp + 1) & " / " & REF.Count, False, u)
+                        Case 1
+                            If searchempty Then
+                                pnllista.Add(u.tytul, "", (lp + 1) & " / " & REF.Count, False, u)
+                            Else
+                                pnllista.Add(u.tytul, u.FKalbum.FKwykonawca.nazwa, u.FKalbum.nazwa, False, u)
+                            End If
+                        Case 2
+                            If searchempty Then
+                                pnllista.Add(u.tytul, u.FKalbum.FKwykonawca.nazwa, (lp + 1) & " / " & REF.Count, False, u)
+                            Else
+                                pnllista.Add(u.tytul, u.FKalbum.FKwykonawca.nazwa, "Przynależność: " & PATHpl.nazwa, False, u)
+                            End If
+                    End Select
+                End If
+                If TypeOf i Is PLAYLISTA Then
+                    Dim pl As PLAYLISTA = i
+                    pnllista.Add(pl.nazwa, "Ilość utworów: " & pl.utwory.Count, "", True, pl)
+                End If
+            Next
         End If
+        pnllista.turnON()
 
         'pnllista.Controls.Remove(pnlwewn)
         'pnlwewn = New Panel()
@@ -863,33 +897,36 @@ Public Class Form1
     End Sub
 
     Private Sub btnodtwall_Click(sender As Object, e As EventArgs) Handles btnodtwall.Click
-        'TODO napisac nowy kod
-        'odtwarzane.utwory.Clear()
-        'If REFpoz.Count > 0 Then
-        '    If TypeOf REFpoz(0) Is UTWOR Then
-        '        For Each u As UTWOR In REFpoz
-        '            odtwarzane.dodajutwor(u)
-        '        Next
-        '    End If
-        '    If TypeOf REFpoz(0) Is ALBUM Then
-        '        For Each a As ALBUM In REFpoz
-        '            For Each u As UTWOR In a.utwory
-        '                odtwarzane.dodajutwor(u)
-        '            Next
-        '        Next
-        '    End If
-        '    If TypeOf REFpoz(0) Is WYKONAWCA Then
-        '        For Each w As WYKONAWCA In REFpoz
-        '            For Each a As ALBUM In w.albumy
-        '                For Each u As UTWOR In a.utwory
-        '                    odtwarzane.dodajutwor(u)
-        '                Next
-        '            Next
-        '        Next
-        '    End If
-        'End If
-        'selectedtab = 0
-        'yt.nastepnyutwor()
+        odtwarzane.utwory.Clear()
+        If (selectedtab = 1 And PATHwyk IsNot Nothing And PATHalb IsNot Nothing) Or (selectedtab = 2 And PATHpl IsNot Nothing) Then
+            If selectedtab = 1 Then
+                For Each u As UTWOR In PATHalb.utwory
+                    odtwarzane.dodajutwor(u)
+                Next
+            Else
+                For Each u As UTWOR In PATHpl.utwory
+                    odtwarzane.dodajutwor(u)
+                Next
+            End If
+        End If
+        If selectedtab = 1 And PATHwyk IsNot Nothing And PATHalb Is Nothing Then
+            For Each a As ALBUM In PATHwyk.albumy
+                For Each u As UTWOR In a.utwory
+                    odtwarzane.dodajutwor(u)
+                Next
+            Next
+        End If
+        If selectedtab = 1 And PATHwyk Is Nothing And PATHalb Is Nothing Then
+            For Each w As WYKONAWCA In dane.wykonawcy
+                For Each a As ALBUM In w.albumy
+                    For Each u As UTWOR In a.utwory
+                        odtwarzane.dodajutwor(u)
+                    Next
+                Next
+            Next
+        End If
+        selectedtab = 0
+        yt.nastepnyutwor()
     End Sub
 
     Private Sub btndodaj_Click(sender As Object, e As EventArgs) Handles btndodaj.Click

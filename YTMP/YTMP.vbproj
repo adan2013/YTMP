@@ -451,6 +451,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appicon.ico" />
+    <None Include="bin\Debug\colorFolder.png" />
+    <None Include="bin\Debug\colorEdit.png" />
+    <None Include="bin\Debug\colorDelete.png" />
+    <None Include="bin\Debug\colorArrow.png" />
+    <None Include="bin\Debug\colorAdd.png" />
+    <None Include="bin\Debug\grayFolder.png" />
+    <None Include="bin\Debug\grayEdit.png" />
+    <None Include="bin\Debug\grayDelete.png" />
+    <None Include="bin\Debug\grayArrow.png" />
+    <None Include="bin\Debug\grayAdd.png" />
     <None Include="bin\Debug\arrow_menu.png" />
     <None Include="bin\Debug\logo128_black.png" />
     <None Include="bin\Debug\logo128.png" />

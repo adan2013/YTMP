@@ -157,20 +157,8 @@
   <data name="speaker" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\speaker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add_button_inside_black_circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\add-button-inside-black-circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="delete__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\delete (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pencil_edit_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\pencil-edit-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="switch_vertical_orientation_arrows" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\switch-vertical-orientation-arrows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WEBPAGE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\WEBPAGE.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
@@ -297,5 +285,35 @@
   </data>
   <data name="arrow_menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\arrow_menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grayAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\grayAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grayArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\grayArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grayDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\grayDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grayEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\grayEdit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grayFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\grayFolder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\colorAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\colorArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\colorDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\colorEdit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\colorFolder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

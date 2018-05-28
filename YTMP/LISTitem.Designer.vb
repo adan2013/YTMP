@@ -22,16 +22,70 @@ Partial Class LISTitem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.btn3 = New System.Windows.Forms.PictureBox()
+        Me.btn2 = New System.Windows.Forms.PictureBox()
+        Me.btn1 = New System.Windows.Forms.PictureBox()
+        CType(Me.btn3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btn2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btn1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'btn3
+        '
+        Me.btn3.BackColor = System.Drawing.Color.Transparent
+        Me.btn3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn3.Image = Global.YTMP.My.Resources.Resources.grayDelete
+        Me.btn3.Location = New System.Drawing.Point(321, 38)
+        Me.btn3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 8)
+        Me.btn3.Name = "btn3"
+        Me.btn3.Size = New System.Drawing.Size(24, 24)
+        Me.btn3.TabIndex = 1
+        Me.btn3.TabStop = False
+        Me.btn3.Visible = False
+        '
+        'btn2
+        '
+        Me.btn2.BackColor = System.Drawing.Color.Transparent
+        Me.btn2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn2.Image = Global.YTMP.My.Resources.Resources.grayEdit
+        Me.btn2.Location = New System.Drawing.Point(289, 38)
+        Me.btn2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 8)
+        Me.btn2.Name = "btn2"
+        Me.btn2.Size = New System.Drawing.Size(24, 24)
+        Me.btn2.TabIndex = 2
+        Me.btn2.TabStop = False
+        Me.btn2.Visible = False
+        '
+        'btn1
+        '
+        Me.btn1.BackColor = System.Drawing.Color.Transparent
+        Me.btn1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn1.Image = Global.YTMP.My.Resources.Resources.grayAdd
+        Me.btn1.Location = New System.Drawing.Point(257, 38)
+        Me.btn1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 8)
+        Me.btn1.Name = "btn1"
+        Me.btn1.Size = New System.Drawing.Size(24, 24)
+        Me.btn1.TabIndex = 3
+        Me.btn1.TabStop = False
+        Me.btn1.Visible = False
         '
         'LISTitem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btn1)
+        Me.Controls.Add(Me.btn2)
+        Me.Controls.Add(Me.btn3)
         Me.Name = "LISTitem"
         Me.Size = New System.Drawing.Size(395, 70)
+        CType(Me.btn3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btn2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btn1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
+    Friend WithEvents btn3 As PictureBox
+    Friend WithEvents btn2 As PictureBox
+    Friend WithEvents btn1 As PictureBox
 End Class
