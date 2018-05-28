@@ -242,26 +242,26 @@ Public Class LISTitem
         Dim workingRect As New Rectangle(10, 0, Width - 10, Height)
 
         ' main text
-        fnt = New Font("Segoe UI", 14)
+        fnt = New Font(getFontFamily("Carlito"), 14)
         sz = gfx.MeasureString(mMain, fnt)
-        layoutRect = New RectangleF(6, 2, workingRect.Width, sz.Height)
+        layoutRect = New RectangleF(6, 4, workingRect.Width, sz.Height)
         gfx.DrawString(mMain, fnt, Brushes.Black, layoutRect, SF)
 
         ' sub text 1
-        fnt = New Font("Segoe UI Light", 10)
+        fnt = New Font(getFontFamily("Carlito"), 10)
         sz = gfx.MeasureString(mSub1, fnt)
         layoutRect = New RectangleF(6, 30, workingRect.Width, sz.Height)
         gfx.DrawString(mSub1, fnt, Brushes.Black, layoutRect, SF)
 
         ' sub text 2
-        fnt = New Font("Segoe UI Light", 10)
+        fnt = New Font(getFontFamily("Carlito"), 10)
         sz = gfx.MeasureString(mSub2, fnt)
         layoutRect = New RectangleF(6, 48, workingRect.Width, sz.Height)
         gfx.DrawString(mSub2, fnt, Brushes.Black, layoutRect, SF)
 
-        If mArrow Then
-            gfx.DrawImage(My.Resources.arrow_menu, New Rectangle(Width - 20, Height / 2 - 8, 16, 16))
-        End If
+        'If mArrow Then
+        '    gfx.DrawImage(My.Resources.arrow_menu, New Rectangle(Width - 20, Height / 2 - 8, 16, 16))
+        'End If
     End Sub
 
     Private Sub PaintEvent(sender As Object, e As PaintEventArgs) Handles Me.Paint

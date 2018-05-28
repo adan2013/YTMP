@@ -102,7 +102,7 @@
                 skrotygrid.Rows.Add(i.nazwa, IIf(i.CTRLmod, "CTRL + ", "") & IIf(i.ALTmod, "ALT + ", "") & IIf(i.SHIFTmod, "SHIFT + ", "") & i.KEY)
             End If
         Next
-        zaladujskrotydohotkey()
+        loadhotkeys()
     End Sub
 
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click

@@ -35,7 +35,7 @@ Partial Class LISTitem
         Me.btn3.BackColor = System.Drawing.Color.Transparent
         Me.btn3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn3.Image = Global.YTMP.My.Resources.Resources.grayDelete
-        Me.btn3.Location = New System.Drawing.Point(321, 38)
+        Me.btn3.Location = New System.Drawing.Point(350, 38)
         Me.btn3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 8)
         Me.btn3.Name = "btn3"
         Me.btn3.Size = New System.Drawing.Size(24, 24)
@@ -48,7 +48,7 @@ Partial Class LISTitem
         Me.btn2.BackColor = System.Drawing.Color.Transparent
         Me.btn2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn2.Image = Global.YTMP.My.Resources.Resources.grayEdit
-        Me.btn2.Location = New System.Drawing.Point(289, 38)
+        Me.btn2.Location = New System.Drawing.Point(318, 38)
         Me.btn2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 8)
         Me.btn2.Name = "btn2"
         Me.btn2.Size = New System.Drawing.Size(24, 24)
@@ -61,7 +61,7 @@ Partial Class LISTitem
         Me.btn1.BackColor = System.Drawing.Color.Transparent
         Me.btn1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn1.Image = Global.YTMP.My.Resources.Resources.grayAdd
-        Me.btn1.Location = New System.Drawing.Point(257, 38)
+        Me.btn1.Location = New System.Drawing.Point(286, 38)
         Me.btn1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 8)
         Me.btn1.Name = "btn1"
         Me.btn1.Size = New System.Drawing.Size(24, 24)

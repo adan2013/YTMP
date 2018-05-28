@@ -173,7 +173,10 @@ Public Class Form1
 
         'start hotkey
         kb.startworking(Me)
-        zaladujskrotydohotkey()
+        loadhotkeys()
+
+        'load fonts
+        loadfonts()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing

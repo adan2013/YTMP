@@ -5,6 +5,7 @@ Module publiczny
     Public dane As MAGAZYN = New MAGAZYN()
     Public backupy As BACKUP = New BACKUP(Application.StartupPath)
     Public odtwarzane As PLAYLISTA = New PLAYLISTA("")
+    Public fonts As Drawing.Text.PrivateFontCollection = New Text.PrivateFontCollection()
     Dim seltab As SByte = 0
 
     Public Property selectedtab() As SByte
@@ -158,7 +159,7 @@ Module publiczny
         Return CType(kc.ConvertFrom(theKey), Keys)
     End Function
 
-    Public Sub zaladujskrotydohotkey()
+    Public Sub loadhotkeys()
         For Each i As KLAWISZE In dane.skroty
             If i.KEY = "" Then Continue For
             Dim modif As HOTKEY.KeyModifier = HOTKEY.KeyModifier.None
@@ -171,4 +172,29 @@ Module publiczny
         Form1.kb.addHotKey("MediaPreviousTrack", Keys.MediaPreviousTrack)
         Form1.kb.addHotKey("MediaNextTrack", Keys.MediaNextTrack)
     End Sub
+
+    Public Sub loadfonts()
+        Try
+            If IO.Directory.Exists(Application.StartupPath & "\fonts") Then
+                For Each i As String In IO.Directory.GetFiles(Application.StartupPath & "\fonts")
+                    fonts.AddFontFile(i)
+                Next
+            End If
+            'debug fonts
+            'Debug.WriteLine("Fonts:")
+            'For Each i As FontFamily In fonts.Families
+            '    Debug.WriteLine(i.Name)
+            'Next
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Public Function getFontFamily(ByVal fontname As String) As FontFamily
+        If fonts Is Nothing Then Return New FontFamily("Segoe UI")
+        For Each i As FontFamily In fonts.Families
+            If i.Name = fontname Then Return i
+        Next
+        Return New FontFamily("Segoe UI")
+    End Function
 End Module
