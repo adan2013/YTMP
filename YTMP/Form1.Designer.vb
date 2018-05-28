@@ -64,6 +64,7 @@ Partial Class Form1
         Me.tab1 = New System.Windows.Forms.PictureBox()
         Me.tab2 = New System.Windows.Forms.PictureBox()
         Me.tab3 = New System.Windows.Forms.PictureBox()
+        Me.searchdelay = New System.Windows.Forms.Timer(Me.components)
         Me.pnllista = New YTMP.LISTcontrol()
         Me.pnlodtwarzacz.SuspendLayout()
         CType(Me.btnupdate, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -517,6 +518,10 @@ Partial Class Form1
         Me.tab3.TabIndex = 104
         Me.tab3.TabStop = False
         '
+        'searchdelay
+        '
+        Me.searchdelay.Interval = 900
+        '
         'pnllista
         '
         Me.pnllista.BackColor = System.Drawing.Color.White
@@ -612,4 +617,5 @@ Partial Class Form1
     Friend WithEvents tab3 As PictureBox
     Friend WithEvents btnOPNCLS As PictureBox
     Friend WithEvents pnllista As LISTcontrol
+    Friend WithEvents searchdelay As Timer
 End Class

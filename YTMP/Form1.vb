@@ -234,7 +234,14 @@ Public Class Form1
     End Sub
 
     Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
-        If Not searchempty Then ladujpanel()
+        If Not searchempty Then
+            If txtsearch.Text = "" Then
+                ladujpanel()
+            Else
+                If searchdelay.Enabled Then searchdelay.Enabled = False
+                searchdelay.Enabled = True
+            End If
+        End If
     End Sub
 
     Private Sub btnplay_MouseMove(sender As Object, e As EventArgs) Handles btnplay.MouseMove, btnrewindL.MouseMove, btnrewindR.MouseMove, btnmute.MouseMove, btnrep.MouseMove, btnran.MouseMove, btnsettings.MouseMove, btnupdate.MouseMove
@@ -725,5 +732,12 @@ Public Class Form1
 
     Private Sub tab1_Click(sender As Object, e As EventArgs) Handles tab1.Click, tab2.Click, tab3.Click
         selectedtab = sender.Name.Substring(sender.Name.Length - 1, 1) - 1
+    End Sub
+
+    Private Sub searchdelay_Tick(sender As Object, e As EventArgs) Handles searchdelay.Tick
+        If Not searchempty Then
+            searchdelay.Enabled = False
+            ladujpanel()
+        End If
     End Sub
 End Class

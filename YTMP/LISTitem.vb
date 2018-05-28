@@ -468,19 +468,8 @@ Public Class LISTitem
         End Select
 
         'button 3
-        Select Case selectedtab
-            Case 0
-                a3 = btn3action.delete
-                btn3.Image = My.Resources.grayDelete
-            Case 1
-                If Form1.searchempty Then
-                    a3 = btn3action.delete
-                    btn3.Image = My.Resources.grayDelete
-                End If
-            Case 2
-                a3 = btn3action.delete
-                btn3.Image = My.Resources.grayDelete
-        End Select
+        a3 = btn3action.delete
+        btn3.Image = My.Resources.grayDelete
     End Sub
 #End Region
 
