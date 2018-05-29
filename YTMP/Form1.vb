@@ -61,6 +61,9 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'load fonts
+        loadfonts()
+
         If TaskbarManager.IsPlatformSupported Then
             TB1 = New ThumbnailToolBarButton(Icon.FromHandle(My.Resources.TBplay.GetHicon()), "Wznów odtwarzanie")
             TB2 = New ThumbnailToolBarButton(Icon.FromHandle(My.Resources.TBrewindL.GetHicon()), "Poprzedni")
@@ -94,7 +97,7 @@ Public Class Form1
         With lblstan
             .Location = New Point(12, 95)
             .AutoSize = True
-            .Font = New Font("Sans Serif", 9)
+            .Font = New Font(getFontFamily("Carlito"), 10)
             .TextAlign = ContentAlignment.MiddleLeft
             .Text = ""
         End With
@@ -174,9 +177,6 @@ Public Class Form1
         'start hotkey
         kb.startworking(Me)
         loadhotkeys()
-
-        'load fonts
-        loadfonts()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing

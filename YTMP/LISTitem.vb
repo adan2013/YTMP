@@ -301,6 +301,8 @@ Public Class LISTitem
                 Form1.ladujpanel()
             Case btn1action.addpl
                 odtwarzane.dodajutwor(Obj)
+                lbldodano.Visible = True
+                tmrhidelbl.Enabled = True
         End Select
     End Sub
 
@@ -471,11 +473,6 @@ Public Class LISTitem
         a3 = btn3action.delete
         btn3.Image = My.Resources.grayDelete
     End Sub
-#End Region
-
-    Public Sub reload()
-        Refresh()
-    End Sub
 
     Private Sub clickaction()
         If TypeOf Obj Is WYKONAWCA Then
@@ -555,5 +552,15 @@ Public Class LISTitem
             Case btn3action.delete
                 sender.Image = My.Resources.grayDelete
         End Select
+    End Sub
+#End Region
+
+    Public Sub reload()
+        Refresh()
+    End Sub
+
+    Private Sub tmrhidelbl_Tick(sender As Object, e As EventArgs) Handles tmrhidelbl.Tick
+        lbldodano.Visible = False
+        tmrhidelbl.Enabled = False
     End Sub
 End Class
