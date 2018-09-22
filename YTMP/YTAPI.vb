@@ -1,7 +1,5 @@
 ﻿Imports Microsoft.WindowsAPICodePack.Taskbar
 Imports Gecko
-Imports System.IO
-Imports Gecko.Events
 
 Public Class YTAPI
 
@@ -60,7 +58,8 @@ Public Class YTAPI
     End Sub
 
     Public Sub New()
-        Gecko.Xpcom.Initialize(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "xulrunner"))
+        'Gecko.Xpcom.Initialize(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "xulrunner"))
+        Xpcom.Initialize("Firefox")
         browser = New GeckoWebBrowser()
         browser.BackColor = Color.FromArgb(128, 128, 128)
         browser.Location = New Point(548, 12)

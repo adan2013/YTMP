@@ -53,7 +53,7 @@ Partial Class updateform
         Me.lbltytul.Font = New System.Drawing.Font("Trebuchet MS", 17.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.lbltytul.Location = New System.Drawing.Point(147, 21)
         Me.lbltytul.Name = "lbltytul"
-        Me.lbltytul.Size = New System.Drawing.Size(466, 28)
+        Me.lbltytul.Size = New System.Drawing.Size(465, 28)
         Me.lbltytul.TabIndex = 1
         Me.lbltytul.Text = "Dostępna jest nowa wersja aplikacji YTMP"
         '
@@ -140,7 +140,7 @@ Partial Class updateform
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveBorder
-        Me.ClientSize = New System.Drawing.Size(644, 222)
+        Me.ClientSize = New System.Drawing.Size(644, 221)
         Me.Controls.Add(Me.linkgithub)
         Me.Controls.Add(Me.btn1)
         Me.Controls.Add(Me.lblproc)

@@ -8,7 +8,7 @@ Public Class updateform
     Dim pnlfore As Panel = New Panel()
     Dim _downloadproc As Integer = 0
     Dim errmessage As String = ""
-    Dim celruchu As Integer = 250
+    Dim celruchu As Integer = 260
 
     Dim v1 As Boolean = False
     Dim v2 As Boolean = False
@@ -84,7 +84,7 @@ Public Class updateform
                 btn2.Visible = True
                 btn3.Text = "Pobierz aktualizację"
                 btn3.Visible = True
-                Size = New Size(Size.Width, 250)
+                Size = New Size(Size.Width, 260)
             Case SCENA.pobieranie
                 lbltytul.Text = "Trwa pobieranie aktualizacji"
                 lblopis.Text = "Proszę czekać, trwa pobieranie aktualizacji z serwerów GitHub..."
@@ -105,7 +105,7 @@ Public Class updateform
                 btn1.Text = "Usuń ją z komputera"
                 btn2.Text = "Odłóż na później"
                 btn3.Text = "Uruchom instalację"
-                zmienroz(250, True, True, True)
+                zmienroz(260, True, True, True)
             Case SCENA.pomyslnains
                 lbltytul.Text = "Aktualizacja została zainstalowana"
                 lblopis.Text = "Aplikacja została zaktualizowana do wersji " & Form1.wersja & " !"
@@ -125,7 +125,7 @@ Public Class updateform
                 lblopis.Visible = True
                 btn2.Text = "Ponów próbę"
                 btn3.Text = "Zamknij"
-                zmienroz(250, False, True, True)
+                zmienroz(260, False, True, True)
         End Select
         initsc = sc
     End Sub

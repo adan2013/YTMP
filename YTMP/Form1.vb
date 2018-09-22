@@ -1,7 +1,7 @@
 ﻿Imports Microsoft.WindowsAPICodePack.Taskbar
 Public Class Form1
 
-    Public wersja As String = "v7.2"
+    Public wersja As String = "v8.0"
     Public WithEvents kb As HOTKEY = New HOTKEY()
     Public rewindstate As Double = -1
 
