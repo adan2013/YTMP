@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Net
 Imports System.Web
+Imports System.IO.Compression
 Public Class updateform
 
     Public initsc As SCENA = 0
@@ -8,7 +9,7 @@ Public Class updateform
     Dim pnlfore As Panel = New Panel()
     Dim _downloadproc As Integer = 0
     Dim errmessage As String = ""
-    Dim celruchu As Integer = 260
+    Dim celruchu As Integer = 262
 
     Dim v1 As Boolean = False
     Dim v2 As Boolean = False
@@ -46,6 +47,7 @@ Public Class updateform
     End Enum
 
     Private Sub updateform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CheckForIllegalCrossThreadCalls = False
         With pnlfore
             .BackColor = Color.Red
             .Location = New Point(0, 0)
@@ -84,7 +86,7 @@ Public Class updateform
                 btn2.Visible = True
                 btn3.Text = "Pobierz aktualizację"
                 btn3.Visible = True
-                Size = New Size(Size.Width, 260)
+                Size = New Size(Size.Width, 262)
             Case SCENA.pobieranie
                 lbltytul.Text = "Trwa pobieranie aktualizacji"
                 lblopis.Text = "Proszę czekać, trwa pobieranie aktualizacji z serwerów GitHub..."
@@ -105,14 +107,14 @@ Public Class updateform
                 btn1.Text = "Usuń ją z komputera"
                 btn2.Text = "Odłóż na później"
                 btn3.Text = "Uruchom instalację"
-                zmienroz(260, True, True, True)
+                zmienroz(262, True, True, True)
             Case SCENA.pomyslnains
                 lbltytul.Text = "Aktualizacja została zainstalowana"
                 lblopis.Text = "Aplikacja została zaktualizowana do wersji " & Form1.wersja & " !"
                 lblopis.Visible = True
                 btn3.Text = "OK"
                 btn3.Visible = True
-                Size = New Size(Size.Width, 250)
+                Size = New Size(Size.Width, 262)
             Case SCENA.blad
                 lbltytul.Text = "Podczas aktualizacji wystąpił błąd"
                 lblopis.Text = "Komunikat błędu: " & vbNewLine & errmessage
@@ -125,7 +127,7 @@ Public Class updateform
                 lblopis.Visible = True
                 btn2.Text = "Ponów próbę"
                 btn3.Text = "Zamknij"
-                zmienroz(260, False, True, True)
+                zmienroz(262, False, True, True)
         End Select
         initsc = sc
     End Sub
@@ -146,6 +148,7 @@ Public Class updateform
     End Sub
 
     Private Sub ruch_Tick(sender As Object, e As EventArgs) Handles ruch.Tick
+        Debug.WriteLine(celruchu & " " & Size.Height)
         If celruchu = Size.Height Then
             ruch.Enabled = False
             If v1 Then btn1.Visible = True
@@ -277,10 +280,15 @@ Public Class updateform
             'unzip
             If IO.Directory.Exists(Application.StartupPath & "\YTMP-UPDATE-PACK") Then My.Computer.FileSystem.DeleteDirectory(Application.StartupPath & "\YTMP-UPDATE-PACK", FileIO.DeleteDirectoryOption.DeleteAllContents)
             IO.Directory.CreateDirectory(Application.StartupPath & "\YTMP-UPDATE-PACK")
-            Dim sc = New Shell32.Shell
-            Dim output As Shell32.Folder = sc.NameSpace(Application.StartupPath & "\YTMP-UPDATE-PACK")
-            Dim input As Shell32.Folder = sc.NameSpace(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
-            output.CopyHere(input.Items, 4)
+            'Dim sc = New Shell32.Shell
+            'Dim output As Shell32.Folder = sc.NameSpace(Application.StartupPath & "\YTMP-UPDATE-PACK")
+            'Dim input As Shell32.Folder = sc.NameSpace(Application.StartupPath & "\YTMP-UPDATE-PACK.zip")
+            'output.CopyHere(input.Items, 4)
+
+            Dim output As String = Application.StartupPath & "\YTMP-UPDATE-PACK"
+            Dim input As String = Application.StartupPath & "\YTMP-UPDATE-PACK.zip"
+            ZipFile.ExtractToDirectory(input, output)
+
             Dim dirfiles As String = Application.StartupPath & "\YTMP-UPDATE-PACK"
             For Each i As String In IO.Directory.GetDirectories(dirfiles)
                 dirfiles &= "\" & New IO.DirectoryInfo(i).Name
@@ -293,7 +301,7 @@ Public Class updateform
     End Sub
 
     Private Sub BWunzip_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles BWunzip.RunWorkerCompleted
-        ladujscene(SCENA.gotowosc)
+        If Not initsc = SCENA.blad Then ladujscene(SCENA.gotowosc)
     End Sub
 
     Private Sub reperr(ByVal message As String)

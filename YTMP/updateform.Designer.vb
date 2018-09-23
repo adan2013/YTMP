@@ -140,7 +140,7 @@ Partial Class updateform
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveBorder
-        Me.ClientSize = New System.Drawing.Size(644, 221)
+        Me.ClientSize = New System.Drawing.Size(644, 223)
         Me.Controls.Add(Me.linkgithub)
         Me.Controls.Add(Me.btn1)
         Me.Controls.Add(Me.lblproc)
